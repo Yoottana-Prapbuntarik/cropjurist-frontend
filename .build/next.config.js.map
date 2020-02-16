@@ -1,1 +1,1 @@
-{"version":3,"file":"next.config.js","sourceRoot":"","sources":["../next.config.js"],"names":[],"mappings":"AAAA,MAAM,cAAc,GAAG,OAAO,CAAC,uBAAuB,CAAC,CAAC;AAExD,MAAM,CAAC,OAAO,GAAG,cAAc,EAAE,CAAC"}
+{"version":3,"file":"next.config.js","sourceRoot":"","sources":["../next.config.js"],"names":[],"mappings":"AAAA,MAAM,cAAc,GAAG,OAAO,CAAC,uBAAuB,CAAC,CAAC;AACxD,MAAM,QAAQ,GAAG,OAAO,CAAC,iBAAiB,CAAC,CAAC;AAE5C,MAAM,CAAC,OAAO,GAAG,cAAc,CAAC,QAAQ,EAAE,CAAC,CAAC"}

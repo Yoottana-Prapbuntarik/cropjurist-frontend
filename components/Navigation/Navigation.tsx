@@ -1,0 +1,57 @@
+import React from "react";
+import Link from "next/link";
+import NavigationItem from "./NavigationInterfaces";
+import { withTranslation } from "../../i18n";
+import "../../public/styles/theme.min.scss";
+
+const Navigation: React.FC = ({ navigationItems, t }: any) => {
+  return (
+    <header className="site-header">
+      <div id="header-wrap">
+        <div className="container">
+          <div className="row">
+            <div className="col d-flex align-items-center justify-content-between">
+              <a className="navbar-brand logo text-dark h2 mb-0">
+                Corp
+                <span className="text-primary font-weight-bold">jurist</span>
+              </a>
+              <nav className="navbar navbar-expand-lg navbar-light ml-auto">
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                ></button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav ml-auto">
+                    {navigationItems.map(
+                      (item: NavigationItem, index: number) => (
+                        <li
+                          className="nav-item"
+                          key={`navigation-item-${index}`}
+                        >
+                          <Link href={item.routePath}>
+                            <a className="nav-link " href="#">
+                              {t(item.keyTitle)}
+                            </a>
+                          </Link>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              </nav>
+              <a className="btn  ml-8 d-none d-lg-block" href="#">
+                {t("languages")}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default withTranslation("common")(Navigation);

@@ -1,7 +1,7 @@
 {
-  "hello-world": "नमस्ते, विश्व!",
-  "goto-second-page": "दूसरे पेज पर जाएं",
-  "change-language": "भाषा बदलें",
-  "welcome": "दूसरे पेज पर आपका स्वागत है",
-  "go-back": "वापस जाएं"
+  "landingTitle": "ยินดีต้อนรับสู่ Corpjurist",
+  "features": "ฟีเจอร์",
+  "incorporation": "บริษัท",
+  "signin": "เข้าสู่ระบบ",
+  "languages": "th"
 }

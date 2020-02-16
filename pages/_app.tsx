@@ -1,12 +1,25 @@
 import React from "react";
 import App from "next/app";
+import withRedux from "next-redux-wrapper";
+import initialStore from "../store/store";
+
+import { Provider } from "react-redux";
+import { Store } from "redux";
 import { appWithTranslation } from "../i18n";
 
-class MyApp extends App {
+interface Props {
+  store: Store;
+}
+
+class MainApplication extends App<Props> {
   render() {
-    const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
+    const { Component, pageProps, store } = this.props;
+    return (
+      <Provider store={store}>
+        <Component {...pageProps} />;
+      </Provider>
+    );
   }
 }
 
-export default appWithTranslation(MyApp);
+export default withRedux(initialStore)(appWithTranslation(MainApplication));
