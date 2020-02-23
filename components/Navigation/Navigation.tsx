@@ -1,9 +1,11 @@
 import Link from "next/link";
 import NavigationItem from "./NavigationInterfaces";
-import { withTranslation, i18n } from "../../i18n";
+import { withTranslation } from "../../i18n";
 import "../../public/styles/theme.min.scss";
+import { useDispatch } from "react-redux";
 
-const Navigation = ({ navigationItems, t }: any) => {
+const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
+  const dispatch = useDispatch();
   return (
     <header className="site-header">
       <div id="header-wrap">
@@ -44,9 +46,7 @@ const Navigation = ({ navigationItems, t }: any) => {
               </nav>
               <button
                 className="btn  ml-8 d-none d-lg-block"
-                onClick={() =>
-                  i18n.changeLanguage(i18n.language === "en" ? "th" : "en")
-                }
+                onClick={() => dispatch(changeLanguage)}
               >
                 {t("languages")}
               </button>

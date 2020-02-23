@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Navigation from "../Navigation/NavigationContainer";
-
 import { withTranslation } from "../../i18n";
 
 const LandingLayout = (props: any) => (
