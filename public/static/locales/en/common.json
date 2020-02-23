@@ -3,5 +3,7 @@
   "features": "Features",
   "incorporation": "Incorporation",
   "signin": "Sign in",
-  "languages": "en"
+  "languages": "en",
+  "sectionTitle": "Corpjurist",
+  "description": "Technology for your legal needs"
 }

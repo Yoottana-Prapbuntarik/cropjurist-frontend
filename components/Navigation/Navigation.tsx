@@ -1,10 +1,11 @@
-import React from "react";
 import Link from "next/link";
 import NavigationItem from "./NavigationInterfaces";
 import { withTranslation } from "../../i18n";
 import "../../public/styles/theme.min.scss";
+import { useDispatch } from "react-redux";
 
-const Navigation: React.FC = ({ navigationItems, t }: any) => {
+const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
+  const dispatch = useDispatch();
   return (
     <header className="site-header">
       <div id="header-wrap">
@@ -43,9 +44,12 @@ const Navigation: React.FC = ({ navigationItems, t }: any) => {
                   </ul>
                 </div>
               </nav>
-              <a className="btn  ml-8 d-none d-lg-block" href="#">
+              <button
+                className="btn  ml-8 d-none d-lg-block"
+                onClick={() => dispatch(changeLanguage)}
+              >
                 {t("languages")}
-              </a>
+              </button>
             </div>
           </div>
         </div>
