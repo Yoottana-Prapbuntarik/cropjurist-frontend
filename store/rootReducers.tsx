@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
 import { navigationReducer } from "../components/Navigation/NavigationContainer";
-
-const rootReducers = combineReducers({ navigationReducer: navigationReducer });
+import { sectionReducer } from "../components/Section/SectionContainer";
+const rootReducers = combineReducers({
+  navigationReducer: navigationReducer,
+  sectionReducer: sectionReducer
+});
 
 export default rootReducers;

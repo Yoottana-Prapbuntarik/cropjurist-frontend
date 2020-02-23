@@ -5,7 +5,6 @@ import { Dispatch } from "redux";
 import { i18n } from "../../i18n";
 
 enum NavigationAction {
-  SHOW_ALL = "SHOW_ALL",
   CHANGE_LANGUAGE = "CHANGE_LANGUAGE"
 }
 
@@ -20,7 +19,8 @@ export const navigationReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case NavigationAction.SHOW_ALL:
+    case NavigationAction.CHANGE_LANGUAGE:
+      i18n.changeLanguage(i18n.language === "en" ? "th" : "en");
       return { ...state, items: action.navigationItems };
     default:
       return state;
@@ -29,7 +29,7 @@ export const navigationReducer = (
 
 const changeLanguageAction: any = async () => ({
   type: NavigationAction.CHANGE_LANGUAGE,
-  currentLanguage: i18n.changeLanguage(i18n.language === "en" ? "th" : "en")
+  navigationItems: navigationItems
 });
 
 const mapStateToProps = (state: any) => ({
