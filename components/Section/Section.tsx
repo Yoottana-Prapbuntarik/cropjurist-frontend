@@ -2,7 +2,6 @@ import "../../public/styles/theme.min.scss";
 import { withTranslation } from "../../i18n";
 
 const Section = ({ sectionItem, t }: any) => {
-  console.log("aaaaa" + JSON.stringify(sectionItem));
   return (
     <section>
       <div className="container">

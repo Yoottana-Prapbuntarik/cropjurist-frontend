@@ -20,14 +20,15 @@ export const navigationReducer = (
 ) => {
   switch (action.type) {
     case NavigationAction.CHANGE_LANGUAGE:
+      console.log("aaaaa");
       i18n.changeLanguage(i18n.language === "en" ? "th" : "en");
-      return { ...state, items: action.navigationItems };
+      return state;
     default:
       return state;
   }
 };
 
-const changeLanguageAction: any = async () => ({
+const changeLanguageAction: any = () => ({
   type: NavigationAction.CHANGE_LANGUAGE,
   navigationItems: navigationItems
 });
@@ -37,7 +38,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  changeLanguage: () => dispatch(changeLanguageAction)
+  changeLanguage: () => dispatch(changeLanguageAction())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
