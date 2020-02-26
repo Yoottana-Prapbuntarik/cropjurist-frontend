@@ -1,4 +1,3 @@
-import "../../public/styles/theme.min.scss";
 import { withTranslation } from "../../i18n";
 
 const Section = ({ sectionItem, t }: any) => {
@@ -8,7 +7,7 @@ const Section = ({ sectionItem, t }: any) => {
         <div className="row align-items-center">
           <div className="col-12 col-lg-5 col-xl-6 order-lg-2 mb-8 mb-lg-0">
             <img
-              src="assets/images/smartphone.png"
+              src="assets/images/landing/smartphone.png"
               className="img-fluid"
               alt="..."
             />

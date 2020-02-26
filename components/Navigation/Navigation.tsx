@@ -1,7 +1,6 @@
 import Link from "next/link";
 import NavigationItem from "./NavigationInterfaces";
 import { withTranslation } from "../../i18n";
-import "../../public/styles/theme.min.scss";
 import { useDispatch } from "react-redux";
 
 const Navigation = ({ navigationItems, changeLanguage, t }: any) => {

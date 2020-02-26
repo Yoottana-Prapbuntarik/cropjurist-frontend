@@ -6,5 +6,15 @@
   "languages": "en",
   "sectionTitle": "Corpjurist",
   "description": "Technology for your legal needs",
-  "joinus": "Join us"
+  "joinus": "Join us",
+  "landingRegistrationTitle": "Registration at ease",
+  "landingRegistrationDescription": "From incorporation & amendment of company, filing of special permits for specific business to planning & registration of IP, CorpJurist allows you to get your registration works done more efficient.",
+  "landingContactsTitle": "All-in-one contracts and compliance management",
+  "landingContactsDescription": "CorpJurist built-in documents system will allow you to generate, review and storage of your company’s documents in one place. On top of that, the compliance system will notify you of important dateline and required information/document for compliance filing so you never missed one.",
+  "landingStakeholdersTitle": "Stakeholders Management",
+  "landingStakeholdersDescription": "Our built-in notification system will allow every shareholder in the company to receive a notification when they’re any changes in the company also helps you manage every shareholders meeting from sending notification, send proxy, vote and minute of meeting.",
+  "landingInformedTitle": "Informed Decision",
+  "landingInformedDescription": "The Cap Table Simulation system will allow you to simulating a dilution of your shareholding in the company as well as the change of control under each investment terms. With this feature, you’ll always aware of the deal you’re entering into.",
+  "landingDocumentsitle": "All important documents in one place",
+  "landingDocumentDescription": "Safekeeping and filing are important to your company for ease of references, tracking and will make everything smoother when it comes to Due Diligence process."
 }
