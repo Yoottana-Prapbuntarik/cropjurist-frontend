@@ -3,7 +3,7 @@ import LandingLayout from "../components/LandingLayout/LandingLayout";
 import Section from "../components/Section/SectionContainer";
 import ListView from "../components/ListView/ListViewContainer";
 
-const Main = () => {
+const Features = () => {
   return (
     <div>
       <LandingLayout>
@@ -14,4 +14,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Features;

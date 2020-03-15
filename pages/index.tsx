@@ -1,3 +1,3 @@
-import Main from "./main";
+import Features from "./features";
 
-export default Main;
+export default Features;
