@@ -23,7 +23,9 @@ const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
                   data-target="#navbarNav"
                   aria-expanded="false"
                   aria-label="Toggle navigation"
-                ></button>
+                >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto">
                     {navigationItems.map(
