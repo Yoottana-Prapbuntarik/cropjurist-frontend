@@ -2,10 +2,11 @@ import React from "react";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
 import initialStore from "../store/store";
-import "../public/styles/theme.min.scss";
 import { Provider } from "react-redux";
 import { Store } from "redux";
 import { appWithTranslation } from "../i18n";
+
+import "../public/styles/theme.min.scss";
 
 interface Props {
   store: Store;

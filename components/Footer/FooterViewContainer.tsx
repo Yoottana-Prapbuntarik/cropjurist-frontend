@@ -15,10 +15,10 @@ const footerMenuItems: MenuItem[] = [
 ];
 
 const socialtems: SocialItem[] = [
-  { name: "la-facebook" },
-  { name: "la-twitter" },
-  { name: "la-line" },
-  { name: "la-mail-bulk" }
+  { name: "la la-facebook" },
+  { name: "la la-twitter" },
+  { name: "lab la-line" },
+  { name: "la la-envelope" }
 ];
 
 const footerMenu: FooterMenu = {

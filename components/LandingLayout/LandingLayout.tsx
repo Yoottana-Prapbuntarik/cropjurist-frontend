@@ -7,6 +7,10 @@ const LandingLayout = (props: any) => (
   <div className="page-wrapper">
     <Head>
       <title>{props.t("landingTitle")}</title>
+
+      <link href="styles/plugins/theme-plugin.css" rel="stylesheet" />
+      <script src="assets/js/theme-plugin.js"></script>
+      <script src="assets/js/theme-script.js"></script>
     </Head>
     <Navigation />
     {props.children}

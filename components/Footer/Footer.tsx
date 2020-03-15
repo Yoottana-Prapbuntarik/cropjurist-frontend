@@ -7,7 +7,7 @@ import "./styles.scss";
 const Footer = ({ footerItem, t }: any) => {
   return (
     <footer
-      className="py-5 bg-primary position-relative"
+      className="py-11 bg-primary position-relative"
       data-bg-img="assets/images/landing/footer_background.png"
     >
       <div className="shape-1 footer-container">
@@ -61,7 +61,7 @@ const Footer = ({ footerItem, t }: any) => {
                   {footerItem.menu.footerMenuItems.map(
                     (item: MenuItem, index: number) => (
                       <li
-                        className="mb-3 nav-item"
+                        className="mb-3 nav-item nav-link"
                         key={`footer-view-item-${index}`}
                       >
                         {t(item.keyTitle)}
@@ -70,8 +70,12 @@ const Footer = ({ footerItem, t }: any) => {
                   )}
                 </ul>
               </div>
-              <div className="row mt-5">
-                Corp<span className="font-weight-bold">Jurist</span>
+            </div>
+            <div className="row mt-5">
+              <div className="col-12 col-sm-6">
+                <p className="footer-logo text-white h2 mb-0">
+                  Corp<span className="font-weight-bold">Jurist</span>
+                </p>
               </div>
               <div className="col-12 col-sm-6 mt-6 mt-sm-0">
                 <ul className="list-inline mb-0">
@@ -81,7 +85,7 @@ const Footer = ({ footerItem, t }: any) => {
                         className="list-inline-item"
                         key={`social-view-item-${index}`}
                       >
-                        <i className={"la " + item.name}></i>
+                        <i className={"text-light ic-2x pr-2 " + item.name}></i>
                       </li>
                     )
                   )}
@@ -93,13 +97,10 @@ const Footer = ({ footerItem, t }: any) => {
         <div className="row text-white text-center mt-8">
           <div className="col">
             <hr className="mb-9" />
-            Copyright 2019 Bootsland Theme by
-            <u>
-              <a className="text-white" href="#">
-                CorpJurist
-              </a>
-            </u>
-            | All Rights Reserved
+            Copyright 2020 by
+            {"    "}
+            CorpJurist
+            {"    "}| All Rights Reserved
           </div>
         </div>
       </div>
