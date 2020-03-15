@@ -2,11 +2,13 @@ import { combineReducers } from "redux";
 import { navigationReducer } from "../components/Navigation/NavigationContainer";
 import { sectionReducer } from "../components/Section/SectionContainer";
 import { listViewReducer } from "../components/ListView/ListViewContainer";
+import { footerReducer } from "../components/Footer/FooterViewContainer";
 
 const rootReducers = combineReducers({
   navigationReducer: navigationReducer,
   sectionReducer: sectionReducer,
-  listViewReducer: listViewReducer
+  listViewReducer: listViewReducer,
+  footerReducer: footerReducer
 });
 
 export default rootReducers;

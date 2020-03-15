@@ -3,7 +3,6 @@ import App from "next/app";
 import withRedux from "next-redux-wrapper";
 import initialStore from "../store/store";
 import "../public/styles/theme.min.scss";
-
 import { Provider } from "react-redux";
 import { Store } from "redux";
 import { appWithTranslation } from "../i18n";
@@ -17,7 +16,7 @@ class MainApplication extends App<Props> {
     const { Component, pageProps, store } = this.props;
     return (
       <Provider store={store}>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Provider>
     );
   }

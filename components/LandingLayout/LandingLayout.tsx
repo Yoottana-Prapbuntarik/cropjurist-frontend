@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navigation from "../Navigation/NavigationContainer";
+import Footer from "../Footer/FooterViewContainer";
 import { withTranslation } from "../../i18n";
 
 const LandingLayout = (props: any) => (
@@ -9,6 +10,7 @@ const LandingLayout = (props: any) => (
     </Head>
     <Navigation />
     {props.children}
+    <Footer />
   </div>
 );
 

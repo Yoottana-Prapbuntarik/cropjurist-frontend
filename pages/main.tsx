@@ -6,9 +6,10 @@ import ListView from "../components/ListView/ListViewContainer";
 const Main = () => {
   return (
     <div>
-      <LandingLayout />
-      <Section />
-      <ListView />
+      <LandingLayout>
+        <Section />
+        <ListView />
+      </LandingLayout>
     </div>
   );
 };

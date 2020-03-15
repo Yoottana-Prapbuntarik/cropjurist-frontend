@@ -13,7 +13,7 @@ const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
             <div className="col d-flex align-items-center justify-content-between">
               <a className="navbar-brand logo text-dark h2 mb-0">
                 Corp
-                <span className="text-primary font-weight-bold">jurist</span>
+                <span className="text-primary font-weight-bold">Jurist</span>
               </a>
               <nav className="navbar navbar-expand-lg navbar-light ml-auto">
                 <button
