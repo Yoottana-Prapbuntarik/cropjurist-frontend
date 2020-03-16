@@ -21,7 +21,7 @@ export const navigationReducer = (
   switch (action.type) {
     case NavigationAction.CHANGE_LANGUAGE:
       i18n.changeLanguage(i18n.language === "en" ? "th" : "en");
-      return state;
+      return action.navigationItems;
     default:
       return state;
   }
