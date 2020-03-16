@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { withTranslation } from "../../i18n";
 import { Field, reduxForm } from "redux-form";
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
@@ -60,12 +61,16 @@ const Footer = ({ footerItem, t }: any) => {
                 <ul className="navbar-nav list-unstyled mb-0">
                   {footerItem.menu.footerMenuItems.map(
                     (item: MenuItem, index: number) => (
-                      <li
-                        className="mb-3 nav-item nav-link"
-                        key={`footer-view-item-${index}`}
-                      >
-                        {t(item.keyTitle)}
-                      </li>
+                      <Link href={item.routePath}>
+                        <a className="nav-link">
+                          <li
+                            className="mb-3 nav-item "
+                            key={`footer-view-item-${index}`}
+                          >
+                            {t(item.keyTitle)}
+                          </li>
+                        </a>
+                      </Link>
                     )
                   )}
                 </ul>
@@ -85,7 +90,11 @@ const Footer = ({ footerItem, t }: any) => {
                         className="list-inline-item"
                         key={`social-view-item-${index}`}
                       >
-                        <i className={"text-light ic-2x pr-2 " + item.name}></i>
+                        <Link href={item.routePath}>
+                          <a className="text-light ic-2x pr-2">
+                            <i className={item.name}></i>
+                          </a>
+                        </Link>
                       </li>
                     )
                   )}

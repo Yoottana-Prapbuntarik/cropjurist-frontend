@@ -9,16 +9,16 @@ import {
 } from "./FooterViewInterfaces";
 
 const footerMenuItems: MenuItem[] = [
-  { keyTitle: "features" },
-  { keyTitle: "incorporation" },
-  { keyTitle: "signin" }
+  { keyTitle: "features", routePath: "/" },
+  { keyTitle: "incorporation", routePath: "/" },
+  { keyTitle: "signin", routePath: "/" }
 ];
 
 const socialtems: SocialItem[] = [
-  { name: "la la-facebook" },
-  { name: "la la-twitter" },
-  { name: "lab la-line" },
-  { name: "la la-envelope" }
+  { name: "la la-facebook", routePath: "/" },
+  { name: "la la-twitter", routePath: "/" },
+  { name: "lab la-line", routePath: "/" },
+  { name: "la la-envelope", routePath: "/" }
 ];
 
 const footerMenu: FooterMenu = {

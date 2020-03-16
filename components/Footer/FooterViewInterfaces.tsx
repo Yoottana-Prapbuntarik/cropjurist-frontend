@@ -19,10 +19,10 @@ export interface FooterMenu {
 
 export interface MenuItem {
   readonly keyTitle: string;
-  readonly routePath?: string;
+  readonly routePath: string;
 }
 
 export interface SocialItem {
   readonly name: string;
-  readonly routePath?: string;
+  readonly routePath: string;
 }
