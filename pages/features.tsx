@@ -5,12 +5,10 @@ import ListView from "../components/ListView/ListViewContainer";
 
 const Features = () => {
   return (
-    <div>
-      <LandingLayout>
-        <Section />
-        <ListView />
-      </LandingLayout>
-    </div>
+    <LandingLayout>
+      <Section />
+      <ListView />
+    </LandingLayout>
   );
 };
 
