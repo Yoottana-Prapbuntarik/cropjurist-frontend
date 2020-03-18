@@ -25,5 +25,9 @@
   "subscribe": "Subscribe",
   "headerIncorporation": "LLC Incorporation",
   "incorporationDescription": "CorpJurist’s system design to allow you to incorporate an LLC under Thai laws with ease and efficient. Just fill the online form and wait for the documents package to arrived. Once signed and returned, we will take care of the filing and you will have an LLC ready for business!!",
-  "letStart": "Let's start"
+  "letStart": "Let's start",
+  "titleIncorporationSection": "Incorporation made easy, onlt 3 steps",
+  "fillOnlineForm": "Fill our online form.",
+  "mailItBack": "Sign it,mail it back.",
+  "llcReadyForBusiness": "Your LLC is ready for business."
 }

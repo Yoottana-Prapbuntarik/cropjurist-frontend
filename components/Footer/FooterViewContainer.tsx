@@ -9,8 +9,8 @@ import {
 } from "./FooterViewInterfaces";
 
 const footerMenuItems: MenuItem[] = [
-  { keyTitle: "features", routePath: "/" },
-  { keyTitle: "incorporation", routePath: "/" },
+  { keyTitle: "features", routePath: "/index" },
+  { keyTitle: "incorporation", routePath: "/incorporation" },
   { keyTitle: "signin", routePath: "/" }
 ];
 
