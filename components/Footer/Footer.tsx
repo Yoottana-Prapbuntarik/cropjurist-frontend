@@ -61,11 +61,11 @@ const Footer = ({ footerPresenter, t }: any) => {
                 <ul className="navbar-nav list-unstyled mb-0">
                   {footerPresenter.menu.footerMenuItems.map(
                     (item: MenuItem, index: number) => (
-                      <Link href={item.routePath}>
-                        <a
-                          className="nav-link"
-                          key={`footer-view-item-${index}`}
-                        >
+                      <Link
+                        href={item.routePath}
+                        key={`footer-view-item-${index}`}
+                      >
+                        <a className="nav-link">
                           <li className="mb-3 nav-item ">{t(item.keyTitle)}</li>
                         </a>
                       </Link>
