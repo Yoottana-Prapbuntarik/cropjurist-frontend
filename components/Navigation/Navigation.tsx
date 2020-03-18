@@ -1,9 +1,9 @@
 import Link from "next/link";
-import NavigationItem from "./NavigationInterfaces";
+import { NavigationItem } from "./NavigationInterfaces";
 import { withTranslation } from "../../i18n";
 import { useDispatch } from "react-redux";
 
-const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
+const Navigation = ({ navigationPresenter, changeLanguage, t }: any) => {
   const dispatch = useDispatch();
   return (
     <header className="site-header">
@@ -28,7 +28,7 @@ const Navigation = ({ navigationItems, changeLanguage, t }: any) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto">
-                    {navigationItems.map(
+                    {navigationPresenter.navigationItems.map(
                       (item: NavigationItem, index: number) => (
                         <li
                           className="nav-item"

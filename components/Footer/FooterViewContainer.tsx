@@ -5,7 +5,7 @@ import {
   FooterMenu,
   MenuItem,
   SocialItem,
-  FooterItem
+  FooterPresenter
 } from "./FooterViewInterfaces";
 
 const footerMenuItems: MenuItem[] = [
@@ -34,18 +34,18 @@ const subScribeItem: SubscribeItem = {
   keySubmitButton: "subscribe"
 };
 
-const footerItem: FooterItem = {
+const footerPresenter: FooterPresenter = {
   subscribeItem: subScribeItem,
   menu: footerMenu,
   socialItems: socialtems
 };
 
-export const footerReducer = (state: FooterItem = footerItem) => {
+export const footerReducer = (state: FooterPresenter = footerPresenter) => {
   return state;
 };
 
 const mapStateToProps = (state: any) => ({
-  footerItem: state.footerReducer
+  footerPresenter: state.footerReducer
 });
 
 export default connect(mapStateToProps)(Footer);

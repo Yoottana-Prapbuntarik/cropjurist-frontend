@@ -5,7 +5,7 @@ import { MenuItem, SocialItem } from "./FooterViewInterfaces";
 
 import "./styles.scss";
 
-const Footer = ({ footerItem, t }: any) => {
+const Footer = ({ footerPresenter, t }: any) => {
   return (
     <footer
       className="py-11 bg-primary position-relative"
@@ -28,27 +28,27 @@ const Footer = ({ footerItem, t }: any) => {
           <div className="col-12 col-lg-5 col-xl-4 mr-auto mb-6 mb-lg-0">
             <div className="subscribe-form bg-warning-soft p-5 rounded">
               <h5 className="mb-4 text-white">
-                {t(footerItem.subscribeItem.keySubScribeTitle)}
+                {t(footerPresenter.subscribeItem.keySubScribeTitle)}
               </h5>
               <h6 className="text-light">
-                {t(footerItem.subscribeItem.keySubScribeDescription)}
+                {t(footerPresenter.subscribeItem.keySubScribeDescription)}
               </h6>
               <form id="mc-form" className="group">
                 <Field
                   name="email"
                   type="email"
                   component={emailField}
-                  label={t(footerItem.subscribeItem.keyEmail)}
+                  label={t(footerPresenter.subscribeItem.keyEmail)}
                 />
                 <Field
                   name="subscribe"
                   type="submit"
                   component={submitButton}
-                  label={t(footerItem.subscribeItem.keySubmitButton)}
+                  label={t(footerPresenter.subscribeItem.keySubmitButton)}
                 />
               </form>
               <small className="text-light">
-                {t(footerItem.subscribeItem.keySubDescriptionForSubScribe)}
+                {t(footerPresenter.subscribeItem.keySubDescriptionForSubScribe)}
               </small>
             </div>
           </div>
@@ -56,19 +56,17 @@ const Footer = ({ footerItem, t }: any) => {
             <div className="row">
               <div className="col-12 col-sm-4 navbar-dark">
                 <h5 className="mb-4 text-white">
-                  {t(footerItem.menu.keyHeaderTitle)}
+                  {t(footerPresenter.menu.keyHeaderTitle)}
                 </h5>
                 <ul className="navbar-nav list-unstyled mb-0">
-                  {footerItem.menu.footerMenuItems.map(
+                  {footerPresenter.menu.footerMenuItems.map(
                     (item: MenuItem, index: number) => (
                       <Link href={item.routePath}>
-                        <a className="nav-link">
-                          <li
-                            className="mb-3 nav-item "
-                            key={`footer-view-item-${index}`}
-                          >
-                            {t(item.keyTitle)}
-                          </li>
+                        <a
+                          className="nav-link"
+                          key={`footer-view-item-${index}`}
+                        >
+                          <li className="mb-3 nav-item ">{t(item.keyTitle)}</li>
                         </a>
                       </Link>
                     )
@@ -84,7 +82,7 @@ const Footer = ({ footerItem, t }: any) => {
               </div>
               <div className="col-12 col-sm-6 mt-6 mt-sm-0">
                 <ul className="list-inline mb-0">
-                  {footerItem.socialItems.map(
+                  {footerPresenter.socialItems.map(
                     (item: SocialItem, index: number) => (
                       <li
                         className="list-inline-item"

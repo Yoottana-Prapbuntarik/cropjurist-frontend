@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import SectionItem from "./SectionInterfaces";
+import SectionPresenter from "./SectionInterfaces";
 import Section from "./Section";
 
-const sectionItem: SectionItem = {
+const sectionPresenter: SectionPresenter = {
   keyTitle: "headerIncorporation",
   keyDescription: "incorporationDescription",
   keyButtonTitle: "letStart",
@@ -10,13 +10,13 @@ const sectionItem: SectionItem = {
 };
 
 export const sectionIncorporationReducer = (
-  state: SectionItem = sectionItem
+  state: SectionPresenter = sectionPresenter
 ) => {
   return state;
 };
 
 const mapStateToProps = (state: any) => ({
-  sectionItem: state.sectionIncorporationReducer
+  sectionPresenter: state.sectionIncorporationReducer
 });
 
 export default connect(mapStateToProps)(Section);

@@ -6,7 +6,7 @@ export interface SubscribeItem {
   readonly keySubmitButton: string;
 }
 
-export interface FooterItem {
+export interface FooterPresenter {
   readonly subscribeItem: SubscribeItem;
   readonly menu: FooterMenu;
   readonly socialItems: SocialItem[];

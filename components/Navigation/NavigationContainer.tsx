@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Navigation from "./Navigation";
-import NavigationItem from "./NavigationInterfaces";
+import { NavigationItem, NavigationPresenter } from "./NavigationInterfaces";
 import { Dispatch } from "redux";
 import { i18n } from "../../i18n";
 
@@ -14,14 +14,18 @@ const navigationItems: NavigationItem[] = [
   { keyTitle: "signin", routePath: "/" }
 ];
 
+const navigationPresenter: NavigationPresenter = {
+  navigationItems: navigationItems
+};
+
 export const navigationReducer = (
-  state: NavigationItem[] = navigationItems,
+  state: NavigationPresenter = navigationPresenter,
   action: any
 ) => {
   switch (action.type) {
     case NavigationAction.CHANGE_LANGUAGE:
       i18n.changeLanguage(i18n.language === "en" ? "th" : "en");
-      return action.navigationItems;
+      return action.navigationPresenter;
     default:
       return state;
   }
@@ -29,11 +33,11 @@ export const navigationReducer = (
 
 const changeLanguageAction: any = () => ({
   type: NavigationAction.CHANGE_LANGUAGE,
-  navigationItems: navigationItems
+  navigationPresenter: navigationPresenter
 });
 
 const mapStateToProps = (state: any) => ({
-  navigationItems: state.navigationReducer
+  navigationPresenter: state.navigationReducer
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
