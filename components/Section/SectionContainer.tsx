@@ -5,7 +5,8 @@ import Section from "./Section";
 const sectionItem: SectionItem = {
   keyTitle: "sectionTitle",
   keyDescription: "description",
-  keyButtonTitle: "joinus"
+  keyButtonTitle: "joinus",
+  imagePath: "assets/images/landing/smartphone.png"
 };
 
 export const sectionReducer = (state: SectionItem = sectionItem) => {
