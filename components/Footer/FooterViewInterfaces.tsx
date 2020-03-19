@@ -6,7 +6,7 @@ export interface SubscribeItem {
   readonly keySubmitButton: string;
 }
 
-export interface FooterItem {
+export interface FooterPresenter {
   readonly subscribeItem: SubscribeItem;
   readonly menu: FooterMenu;
   readonly socialItems: SocialItem[];
@@ -19,10 +19,10 @@ export interface FooterMenu {
 
 export interface MenuItem {
   readonly keyTitle: string;
-  readonly routePath?: string;
+  readonly routePath: string;
 }
 
 export interface SocialItem {
   readonly name: string;
-  readonly routePath?: string;
+  readonly routePath: string;
 }

@@ -1,19 +1,20 @@
 import { connect } from "react-redux";
-import SectionItem from "./SectionInterfaces";
+import SectionPresenter from "./SectionInterfaces";
 import Section from "./Section";
 
-const sectionItem: SectionItem = {
+const sectionPresenter: SectionPresenter = {
   keyTitle: "sectionTitle",
   keyDescription: "description",
-  keyButtonTitle: "joinus"
+  keyButtonTitle: "joinus",
+  imagePath: "assets/images/landing/smartphone.png"
 };
 
-export const sectionReducer = (state: SectionItem = sectionItem) => {
+export const sectionReducer = (state: SectionPresenter = sectionPresenter) => {
   return state;
 };
 
 const mapStateToProps = (state: any) => ({
-  sectionItem: state.sectionReducer
+  sectionPresenter: state.sectionReducer
 });
 
 export default connect(mapStateToProps)(Section);

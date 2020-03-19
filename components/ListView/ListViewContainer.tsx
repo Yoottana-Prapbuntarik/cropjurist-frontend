@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ListView from "./ListView";
-import ListViewItem from "./ListViewInterfaces";
+import { ListViewPresenter, ListViewItem } from "./ListViewInterfaces";
 
 const listViewItems: ListViewItem[] = [
   {
@@ -30,12 +30,19 @@ const listViewItems: ListViewItem[] = [
   }
 ];
 
-export const listViewReducer = (state: ListViewItem[] = listViewItems) => {
+const listViewPresenter: ListViewPresenter = {
+  keyHeader: "features",
+  listViewItems: listViewItems
+};
+
+export const listViewReducer = (
+  state: ListViewPresenter = listViewPresenter
+) => {
   return state;
 };
 
 const mapStateToProps = (state: any) => ({
-  listItems: state.listViewReducer
+  listViewPresenter: state.listViewReducer
 });
 
 export default connect(mapStateToProps)(ListView);
