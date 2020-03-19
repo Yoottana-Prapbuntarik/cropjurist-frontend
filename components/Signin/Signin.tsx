@@ -1,36 +1,39 @@
-import React from "react";
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
 
-const Signin = () => {
+const Signin = ({ signinPresenter, t }: any) => {
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-5">
-          <h2 className="text-center mb-3">Sign In</h2>
+          <h2 className="text-center mb-3">
+            {t(signinPresenter.keySigninHeader)}
+          </h2>
           <form id="contact-form" method="post">
             <div className="messages"></div>
             <div className="form-group">
-              <label>User Name</label>
+              <label>
+                {t(signinPresenter.subscribeItem.signinLabelUsername)}
+              </label>
               <input
-                id="form_name"
                 type="text"
-                name="name"
                 className="form-control"
-                placeholder="User name"
-                data-error="Username is required."
+                placeholder={t(
+                  signinPresenter.subscribeItem.signinPlaceholderUsername
+                )}
               />
               <div className="help-block with-errors"></div>
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>
+                {t(signinPresenter.subscribeItem.signinLabelPassword)}
+              </label>
               <input
-                id="form_password"
                 type="password"
-                name="password"
                 className="form-control"
-                placeholder="Password"
-                data-error="password is required."
+                placeholder={t(
+                  signinPresenter.subscribeItem.signinPlaceholderPassword
+                )}
               />
               <div className="help-block with-errors"></div>
             </div>
@@ -38,22 +41,29 @@ const Signin = () => {
               <div className="remember-checkbox d-flex align-items-center justify-content-between">
                 <div className="checkbox">
                   <input type="checkbox" id="check2" name="check2" />
-                  <label htmlFor="check2">Remember me</label>
+                  <label htmlFor="check2">
+                    {t(signinPresenter.subscribeItem.signinRemember)}
+                  </label>
                 </div>
-                <a href="#">Forgot Password?</a>
+                <a href="#">{t(signinPresenter.subscribeItem.signinForgot)}</a>
               </div>
             </div>{" "}
-            <a href="#" className="btn btn-primary btn-block">
-              Login Now
-            </a>
+            <button type="submit" className="btn btn-primary btn-block">
+              {t(signinPresenter.subscribeItem.signinSubmit)}
+            </button>
           </form>
           <div className="d-flex align-items-center text-center justify-content-center mt-4">
-            <span className="text-muted mr-1">Don't have an account?</span>
-            <Link href="/singup">Sign Up</Link>
+            <span className="text-muted mr-1">
+              {t(signinPresenter.subscribeItem.signupAccount)}
+            </span>
+            <Link href="/singup">
+              {t(signinPresenter.subscribeItem.signup)}
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default withTranslation("common")(Signin);

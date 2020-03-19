@@ -1,11 +1,12 @@
 import React from "react";
 import LandingLayout from "../components/LandingLayout/LandingLayout";
-import SigninComponent from "../components/Signin/Signin";
-const Signin = () => {
+import Signin from "../components/Signin/SigninContainer";
+
+const SigninPage = () => {
   return (
     <LandingLayout>
-      <SigninComponent />
+      <Signin />
     </LandingLayout>
   );
 };
-export default Signin;
+export default SigninPage;
