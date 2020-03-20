@@ -14,7 +14,7 @@ const rootReducers = combineReducers({
   footerReducer: footerReducer,
   sectionIncorporationReducer: sectionIncorporationReducer,
   servicesReducer: servicesReducer,
-  signinReducer:signinReducer,
+  signinReducer:signinReducer
 });
 
 export default rootReducers;
