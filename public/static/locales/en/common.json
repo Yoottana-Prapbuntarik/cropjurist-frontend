@@ -35,9 +35,9 @@
   "signinPlaceholderUsername":"Username",
   "signinLabelPassword":"Password",
   "signinPlaceholderPassword":"Password",
-  "signinRemember":"Remember me",
-  "signinForgot":"Forgot Password?",
+  "remember":"Remember me",
+  "forgotPassword":"Forgot Password?",
   "signinSubmit":"Login now",
   "signupAccount":"Don't have an account?",
-  "signup":"Sign Up"
+  "signupButton":"Sign Up"
 }

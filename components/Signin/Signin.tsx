@@ -13,26 +13,26 @@ const Signin = ({ signinPresenter, t }: any) => {
             <div className="messages"></div>
             <div className="form-group">
               <label>
-                {t(signinPresenter.subscribeItem.signinLabelUsername)}
+                {t(signinPresenter.signinItem.keySigninLabelUsername)}
               </label>
               <input
                 type="text"
                 className="form-control"
                 placeholder={t(
-                  signinPresenter.subscribeItem.signinPlaceholderUsername
+                  signinPresenter.signinItem.keySigninPlaceholderUsername
                 )}
               />
               <div className="help-block with-errors"></div>
             </div>
             <div className="form-group">
               <label>
-                {t(signinPresenter.subscribeItem.signinLabelPassword)}
+                {t(signinPresenter.signinItem.keySigninLabelPassword)}
               </label>
               <input
                 type="password"
                 className="form-control"
                 placeholder={t(
-                  signinPresenter.subscribeItem.signinPlaceholderPassword
+                  signinPresenter.signinItem.keySigninPlaceholderPassword
                 )}
               />
               <div className="help-block with-errors"></div>
@@ -42,22 +42,22 @@ const Signin = ({ signinPresenter, t }: any) => {
                 <div className="checkbox">
                   <input type="checkbox" id="check2" name="check2" />
                   <label htmlFor="check2">
-                    {t(signinPresenter.subscribeItem.signinRemember)}
+                    {t(signinPresenter.signinItem.keyRemember)}
                   </label>
                 </div>
-                <a href="#">{t(signinPresenter.subscribeItem.signinForgot)}</a>
+                <a href="#">{t(signinPresenter.signinItem.keyForgotPassword)}</a>
               </div>
             </div>{" "}
             <button type="submit" className="btn btn-primary btn-block">
-              {t(signinPresenter.subscribeItem.signinSubmit)}
+              {t(signinPresenter.signinItem.keySigninSubmit)}
             </button>
           </form>
           <div className="d-flex align-items-center text-center justify-content-center mt-4">
             <span className="text-muted mr-1">
-              {t(signinPresenter.subscribeItem.signupAccount)}
+              {t(signinPresenter.signinItem.keySignupAccount)}
             </span>
             <Link href="/singup">
-              {t(signinPresenter.subscribeItem.signup)}
+              {t(signinPresenter.signinItem.keySignupButton)}
             </Link>
           </div>
         </div>

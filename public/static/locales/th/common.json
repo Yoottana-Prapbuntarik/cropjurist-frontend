@@ -35,9 +35,9 @@
   "signinPlaceholderUsername":"ชื่อผู้ใช่งาน",
   "signinLabelPassword":"รหัสผ่าน",
   "signinPlaceholderPassword":"รหัสผ่าน",
-  "signinRemember":"จดจำฉัน",
-  "signinForgot":"ลืมรหัสผ่าน?",
+  "remember":"จดจำฉัน",
+  "forgotPassword":"ลืมรหัสผ่าน?",
   "signinSubmit":"เข้าสู่ระบบ",
   "signupAccount":"ยังไม่มีบัญชี?",
-  "signup":"สมัครสมาชิก"
+  "signupButton":"สมัครสมาชิก"
 }
