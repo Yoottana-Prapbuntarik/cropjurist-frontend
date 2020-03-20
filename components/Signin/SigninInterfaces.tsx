@@ -1,17 +1,17 @@
-export interface SubscribeItem {
-  readonly signinLabelUsername: string;
-  readonly signinPlaceholderUsername: string;
-  readonly signinLabelPassword: string;
-  readonly signinPlaceholderPassword: string;
-  readonly signinRemember: string;
-  readonly signinForgot: string;
-  readonly signinSubmit: string;
-  readonly signupAccount: string;
-  readonly signup: string;
+export interface SigninItem  {
+  readonly keySigninLabelUsername: string;
+  readonly keySigninPlaceholderUsername: string;
+  readonly keySigninLabelPassword: string;
+  readonly keySigninPlaceholderPassword: string;
+  readonly keyRemember: string;
+  readonly keyForgotPassword: string;
+  readonly keySigninSubmit: string;
+  readonly keySignupAccount: string;
+  readonly keySignupButton: string;
 }
 
 export interface SiginPresenter {
   readonly keySigninHeader: string;
-  readonly subscribeItem: SubscribeItem;
+  readonly signinItem: SigninItem;
 }
 
