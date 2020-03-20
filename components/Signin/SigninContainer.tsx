@@ -1,23 +1,24 @@
 import { connect } from "react-redux";
 import Signin from "./Signin";
-import { SiginPresenter, SubscribeItem } from "./SigninInterfaces";
+import { SiginPresenter, SigninItem } from "./SigninInterfaces";
 
-const subscribeItems: SubscribeItem = {
-  signinLabelUsername: "signinLabelUsername",
-  signinPlaceholderUsername: "signinPlaceholderUsername",
-  signinLabelPassword: "signinLabelPassword",
-  signinPlaceholderPassword: "signinPlaceholderPassword",
-  signinRemember: "signinRemember",
-  signinForgot: "signinForgot",
-  signinSubmit: "signinSubmit",
-  signupAccount: "signupAccount",
-  signup: "signup"
+const signinItem: SigninItem = {
+  keySigninLabelUsername: "signinLabelUsername",
+  keySigninPlaceholderUsername: "signinPlaceholderUsername",
+  keySigninLabelPassword: "signinLabelPassword",
+  keySigninPlaceholderPassword: "signinPlaceholderPassword",
+  keyRemember: "remember",
+  keyForgotPassword: "forgotPassword",
+  keySigninSubmit: "signinSubmit",
+  keySignupAccount: "signupAccount",
+  keySignupButton: "signupButton"
 };
 
 const signinPresenter: SiginPresenter = {
   keySigninHeader: "signinHeader",
-  subscribeItem: subscribeItems
+  signinItem: signinItem
 };
+
 export const signinReducer = (state: SiginPresenter = signinPresenter) => {
   return state;
 };
