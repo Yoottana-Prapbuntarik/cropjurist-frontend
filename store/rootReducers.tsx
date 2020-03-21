@@ -5,7 +5,8 @@ import { listViewReducer } from "../components/ListView/ListViewContainer";
 import { footerReducer } from "../components/Footer/FooterViewContainer";
 import { sectionIncorporationReducer } from "../components/Section/SectionIncorporationContainer";
 import { servicesReducer } from "../components/Services/ServicesContainer";
-import { signinReducer } from '../components/Signin/SigninContainer';
+import { signinReducer } from "../components/Signin/SigninContainer";
+import { signupReducer } from "../components/Signup/SignupContainer";
 
 const rootReducers = combineReducers({
   navigationReducer: navigationReducer,
@@ -14,7 +15,8 @@ const rootReducers = combineReducers({
   footerReducer: footerReducer,
   sectionIncorporationReducer: sectionIncorporationReducer,
   servicesReducer: servicesReducer,
-  signinReducer:signinReducer
+  signinReducer: signinReducer,
+  signupReducer: signupReducer
 });
 
 export default rootReducers;
