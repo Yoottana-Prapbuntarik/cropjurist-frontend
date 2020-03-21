@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
+
 const Signup = ({ signupPresenter, t }: any) => {
   return (
     <div className="container">
