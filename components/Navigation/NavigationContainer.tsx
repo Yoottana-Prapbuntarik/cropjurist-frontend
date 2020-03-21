@@ -11,7 +11,7 @@ enum NavigationAction {
 const navigationItems: NavigationItem[] = [
   { keyTitle: "features", routePath: "/index" },
   { keyTitle: "incorporation", routePath: "/incorporation" },
-  { keyTitle: "signin", routePath: "/" }
+  { keyTitle: "signin", routePath: "/signin" }
 ];
 
 const navigationPresenter: NavigationPresenter = {

@@ -29,5 +29,15 @@
   "titleIncorporationSection": "Incorporation made easy, onlt 3 steps",
   "fillOnlineForm": "Fill our online form.",
   "mailItBack": "Sign it,mail it back.",
-  "llcReadyForBusiness": "Your LLC is ready for business."
+  "llcReadyForBusiness": "Your LLC is ready for business.",
+  "signinHeader":"Sign In",
+  "signinLabelUsername":"Username",
+  "signinPlaceholderUsername":"Username",
+  "signinLabelPassword":"Password",
+  "signinPlaceholderPassword":"Password",
+  "remember":"Remember me",
+  "forgotPassword":"Forgot Password?",
+  "signinSubmit":"Login now",
+  "signupAccount":"Don't have an account?",
+  "signupButton":"Sign Up"
 }
