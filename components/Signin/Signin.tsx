@@ -58,7 +58,7 @@ const Signin = ({ signinPresenter, t }: any) => {
             <span className="text-muted mr-1">
               {t(signinPresenter.signinItem.keySignupAccount)}
             </span>
-            <Link href="/singup">
+            <Link href="/signup">
               {t(signinPresenter.signinItem.keySignupButton)}
             </Link>
           </div>
