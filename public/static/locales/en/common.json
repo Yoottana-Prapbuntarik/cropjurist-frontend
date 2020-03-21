@@ -39,5 +39,18 @@
   "forgotPassword":"Forgot Password?",
   "signinSubmit":"Login now",
   "signupAccount":"Don't have an account?",
-  "signupButton":"Sign Up"
+  "signupButton":"Sign Up",
+  "signupHeader":"Sign Up",
+  "placeholderFirstNameSignup":"First name",
+  "placeholderLastNameSignup":"Last name",
+  "placeholderEmailSignup":"Email",
+  "placeholderPhoneNumber":"Phone",
+  "placeholderPasswordSignup":"Password",
+  "placeholderConfirmPasswordSignup":"Confirm Password",
+  "submitSignup":"Create Account",
+  "haveAccount":"Have An Account ?",
+  "signinAccount":"Sign In!",
+  "headerGender": "Gender",
+  "headerSelectCountry": "Select Country..."
 }
+
