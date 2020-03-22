@@ -9,14 +9,12 @@ const signupItemInputform: SingupItemsInputform = {
   keyPlaceholderFirstNameSignup: "placeholderFirstNameSignup",
   keyPlaceholderLastNameSignup: "placeholderLastNameSignup",
   keyPlaceholderEmailSignup: "placeholderEmailSignup",
-  keyPlaceholderPhoneNumber: "placeholderPhoneNumber",
+  keyPlaceholderReEnterEmailSignup:"placeholderReEnterEmailSignup",
   keyPlaceholderPasswordSignup: "placeholderPasswordSignup",
   keyPlaceholderConfirmPasswordSignup: "placeholderConfirmPasswordSignup",
   keySubmitSignup: "submitSignup",
   keyHaveAccount: "haveAccount",
-  keySigninAccount: "signinAccount",
-  keyHeaderGender: "headerGender",
-  keyHeaderSelectCountry: "headerSelectCountry"
+  keySigninAccount: "signinAccount"
 };
 
 const signupPresenter: SignupPresenter = {
