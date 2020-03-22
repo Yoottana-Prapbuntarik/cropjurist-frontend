@@ -38,21 +38,23 @@ const Signin = ({ signinPresenter, t }: any) => {
               <div className="help-block with-errors"></div>
             </div>
             <div className="form-group mt-4 mb-5">
-              <div className="remember-checkbox d-flex align-items-center justify-content-between">
+              <div className="remember-checkbox d-flex flex-wrap align-items-center justify-content-between">
                 <div className="checkbox">
                   <input type="checkbox" id="check2" name="check2" />
-                  <label htmlFor="check2">
+                  <label className="pl-1" htmlFor="check2">
                     {t(signinPresenter.signinItem.keyRemember)}
                   </label>
                 </div>
-                <a href="#">{t(signinPresenter.signinItem.keyForgotPassword)}</a>
+                <a href="#">
+                  {t(signinPresenter.signinItem.keyForgotPassword)}
+                </a>
               </div>
             </div>{" "}
             <button type="submit" className="btn btn-primary btn-block">
               {t(signinPresenter.signinItem.keySigninSubmit)}
             </button>
           </form>
-          <div className="d-flex align-items-center text-center justify-content-center mt-4">
+          <div className="d-flex align-items-center flex-wrap text-center justify-content-center mt-4">
             <span className="text-muted mr-1">
               {t(signinPresenter.signinItem.keySignupAccount)}
             </span>
