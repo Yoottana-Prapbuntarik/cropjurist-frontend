@@ -44,12 +44,10 @@
   "placeholderFirstNameSignup":"ชื่อจริง",
   "placeholderLastNameSignup":"นามสกุล",
   "placeholderEmailSignup":"อีเมลล์",
-  "placeholderPhoneNumber":"หมายเลขโทรศัพท์มือถือ",
+  "placeholderReEnterEmailSignup":"กรอกอีเมลล์อีกครั้ง",
   "placeholderPasswordSignup":"รหัสผ่าน",
   "placeholderConfirmPasswordSignup":"ยืนยันรหัสผ่าน",
   "submitSignup":"สร้างบัญชี",
   "haveAccount":"ฉันมีบัญชีผู้ใช้อยู่เเล้ว ?",
-  "signinAccount":"ลงชื่อเข้าใช้!",
-  "headerGender":"เพศ",
-  "headerSelectCountry":"เลือกประเทศ"
+  "signinAccount":"ลงชื่อเข้าใช้!"
 }

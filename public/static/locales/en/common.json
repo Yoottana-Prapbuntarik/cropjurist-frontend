@@ -44,13 +44,11 @@
   "placeholderFirstNameSignup":"First name",
   "placeholderLastNameSignup":"Last name",
   "placeholderEmailSignup":"Email",
-  "placeholderPhoneNumber":"Phone",
+  "placeholderReEnterEmailSignup":"Re-Enter-email",
   "placeholderPasswordSignup":"Password",
   "placeholderConfirmPasswordSignup":"Confirm Password",
   "submitSignup":"Create Account",
   "haveAccount":"Have An Account ?",
-  "signinAccount":"Sign In!",
-  "headerGender": "Gender",
-  "headerSelectCountry": "Select Country..."
+  "signinAccount":"Sign In!"
 }
 
