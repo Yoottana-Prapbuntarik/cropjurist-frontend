@@ -14,7 +14,8 @@ const signupItemsInputform: SingupItemsInputform = {
   keyPlaceholderConfirmPasswordSignup: "placeholderConfirmPasswordSignup",
   keySubmitSignup: "submitSignup",
   keyHaveAccount: "haveAccount",
-  keySigninAccount: "signinAccount"
+  keySigninAccount: "signinAccount",
+  keyimagePath: "assets/images/signup/signup-img.jpg"
 };
 
 const signupPresenter: SignupPresenter = {

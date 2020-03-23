@@ -5,7 +5,10 @@ const Signup = ({ signupPresenter, t }: any) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-8 col-md-10 ml-auto mr-auto">
+        <div className="col-lg-6">
+          <img className="img-responsive w-100" src={signupPresenter.signupItemInputform.keyimagePath} alt="image signup"/>
+          </div>
+        <div className="col-lg-6 col-md-10 ml-auto mr-auto">
           <h2 className="mt-3 mb-3 text-center">
             {t(signupPresenter.keySignupHeader)}
           </h2>
