@@ -5,11 +5,11 @@ import {
 } from "../Signup/SignupInterface";
 import { connect } from "react-redux";
 
-const signupItemInputform: SingupItemsInputform = {
+const signupItemsInputform: SingupItemsInputform = {
   keyPlaceholderFirstNameSignup: "placeholderFirstNameSignup",
   keyPlaceholderLastNameSignup: "placeholderLastNameSignup",
   keyPlaceholderEmailSignup: "placeholderEmailSignup",
-  keyPlaceholderReEnterEmailSignup:"placeholderReEnterEmailSignup",
+  keyPlaceholderReEnterEmailSignup: "placeholderReEnterEmailSignup",
   keyPlaceholderPasswordSignup: "placeholderPasswordSignup",
   keyPlaceholderConfirmPasswordSignup: "placeholderConfirmPasswordSignup",
   keySubmitSignup: "submitSignup",
@@ -19,7 +19,7 @@ const signupItemInputform: SingupItemsInputform = {
 
 const signupPresenter: SignupPresenter = {
   keySignupHeader: "signupHeader",
-  signupItemInputform: signupItemInputform
+  signupItemInputform: signupItemsInputform
 };
 
 export const signupReducer = (state: SignupPresenter = signupPresenter) => {
