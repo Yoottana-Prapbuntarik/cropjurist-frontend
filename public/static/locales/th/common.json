@@ -39,5 +39,15 @@
   "forgotPassword":"ลืมรหัสผ่าน?",
   "signinSubmit":"เข้าสู่ระบบ",
   "signupAccount":"ยังไม่มีบัญชี?",
-  "signupButton":"สมัครสมาชิก"
+  "signupButton":"สมัครสมาชิก",
+  "signupHeader":"สมัครสมาชิก",
+  "placeholderFirstNameSignup":"ชื่อจริง",
+  "placeholderLastNameSignup":"นามสกุล",
+  "placeholderEmailSignup":"อีเมลล์",
+  "placeholderReEnterEmailSignup":"กรอกอีเมลล์อีกครั้ง",
+  "placeholderPasswordSignup":"รหัสผ่าน",
+  "placeholderConfirmPasswordSignup":"ยืนยันรหัสผ่าน",
+  "submitSignup":"สร้างบัญชี",
+  "haveAccount":"ฉันมีบัญชีผู้ใช้อยู่เเล้ว ?",
+  "signinAccount":"ลงชื่อเข้าใช้!"
 }

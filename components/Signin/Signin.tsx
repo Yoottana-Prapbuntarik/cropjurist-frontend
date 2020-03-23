@@ -5,7 +5,7 @@ const Signin = ({ signinPresenter, t }: any) => {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-5">
+        <div className="col-lg-5 col-8">
           <h2 className="text-center mb-3">
             {t(signinPresenter.keySigninHeader)}
           </h2>
@@ -58,7 +58,7 @@ const Signin = ({ signinPresenter, t }: any) => {
             <span className="text-muted mr-1">
               {t(signinPresenter.signinItem.keySignupAccount)}
             </span>
-            <Link href="/singup">
+            <Link href="/signup">
               {t(signinPresenter.signinItem.keySignupButton)}
             </Link>
           </div>
