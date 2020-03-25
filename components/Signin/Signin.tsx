@@ -3,9 +3,16 @@ import { withTranslation } from "../../i18n";
 
 const Signin = ({ signinPresenter, t }: any) => {
   return (
-    <div className="container">
+    <div className="container min-vh-100">
       <div className="row justify-content-center">
-        <div className="col-lg-5 col-8">
+        <div className="col-lg-6">
+          <img
+            className="img-responsive w-100"
+            src={signinPresenter.signinItem.keyimagePath}
+            alt="image signin"
+          />
+        </div>
+        <div className="col-lg-6 col-8">
           <h2 className="text-center mb-3">
             {t(signinPresenter.keySigninHeader)}
           </h2>
