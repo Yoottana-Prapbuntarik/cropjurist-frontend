@@ -6,8 +6,10 @@ import ListView from "../components/ListView/ListViewContainer";
 const Features = () => {
   return (
     <LandingLayout>
-      <Section />
-      <ListView />
+      <div className="min-vh-100">
+        <Section />
+        <ListView />
+      </div>
     </LandingLayout>
   );
 };
