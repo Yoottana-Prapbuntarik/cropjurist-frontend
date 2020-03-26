@@ -11,7 +11,8 @@ const signinItem: SigninItem = {
   keyForgotPassword: "forgotPassword",
   keySigninSubmit: "signinSubmit",
   keySignupAccount: "signupAccount",
-  keySignupButton: "signupButton"
+  keySignupButton: "signupButton",
+  keyimagePath:"assets/images/signin/signin-img.jpg"
 };
 
 const signinPresenter: SiginPresenter = {
