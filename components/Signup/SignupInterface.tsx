@@ -8,6 +8,7 @@ export interface SingupItemsInputform {
   readonly keySubmitSignup: string;
   readonly keyHaveAccount: string;
   readonly keySigninAccount: string;
+  readonly keyimagePath : string;
 }
 
 export interface SignupPresenter {
