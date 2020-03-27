@@ -5,7 +5,9 @@ import Signup from "../components/Signup/SignupContainer";
 const SignupPage = () => {
   return (
     <LandingLayout>
-      <Signup />
+      <div className="min-vh-100">
+        <Signup />
+      </div>
     </LandingLayout>
   );
 };

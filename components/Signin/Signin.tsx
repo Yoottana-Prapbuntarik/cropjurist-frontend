@@ -3,7 +3,7 @@ import { withTranslation } from "../../i18n";
 
 const Signin = ({ signinPresenter, t }: any) => {
   return (
-    <div className="container min-vh-100">
+    <div className="container">
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <img

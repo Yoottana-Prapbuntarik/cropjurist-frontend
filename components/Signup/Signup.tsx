@@ -3,7 +3,7 @@ import { withTranslation } from "../../i18n";
 
 const Signup = ({ signupPresenter, t }: any) => {
   return (
-    <div className="container min-vh-100">
+    <div className="container">
       <div className="row">
         <div className="col-lg-6">
           <img className="img-responsive w-100" src={signupPresenter.signupItemInputform.keyimagePath} alt="image signup"/>

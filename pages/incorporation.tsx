@@ -6,8 +6,10 @@ import Services from "../components/Services/ServicesContainer";
 const Incorporation = () => {
   return (
     <LandingLayout>
-      <Section />
-      <Services />
+      <div className="min-vh-100">
+        <Section />
+        <Services />
+      </div>
     </LandingLayout>
   );
 };
