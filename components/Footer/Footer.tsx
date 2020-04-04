@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import EmailTextField from '../../Validated/FooterValidator/EmailTextField';
 import TextFieldSubmit from '../../Validated/FooterValidator/TextFieldSubmit';
 import SubmitFormFooter from '../../Validated/FooterValidator/SubmitFormFooter';
-import validate from '../../Validated/FooterValidator/EmailValidatorContainer';
+import validate from '../../Validated/FooterValidator/FooterValidatorContainer';
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
 import "./styles.scss";
 
