@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
 import { Field, reduxForm } from "redux-form";
+import EmailTextField from '../../Validated/FooterValidator/EmailTextField';
+import TextFieldSubmit from '../../Validated/FooterValidator/TextFieldSubmit';
+import SubmitFormFooter from '../../Validated/FooterValidator/SubmitFormFooter';
+import validate from '../../Validated/FooterValidator/EmailValidatorContainer';
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
-
 import "./styles.scss";
 
-const Footer = ({ footerPresenter, t }: any) => {
+const Footer = ({handleSubmit,footerPresenter, t }: any) => {
   return (
     <footer
       className="py-11 bg-primary position-relative"
@@ -33,17 +36,17 @@ const Footer = ({ footerPresenter, t }: any) => {
               <h6 className="text-light">
                 {t(footerPresenter.subscribeItem.keySubScribeDescription)}
               </h6>
-              <form id="mc-form" className="group">
-                <Field
+              <form id="mc-form" className="group" onSubmit={handleSubmit(SubmitFormFooter)} >
+              <Field
                   name="email"
                   type="email"
-                  component={emailField}
+                  component={EmailTextField}
                   label={t(footerPresenter.subscribeItem.keyEmail)}
-                />
+                />   
                 <Field
                   name="subscribe"
                   type="submit"
-                  component={submitButton}
+                  component={TextFieldSubmit}
                   label={t(footerPresenter.subscribeItem.keySubmitButton)}
                 />
               </form>
@@ -115,34 +118,9 @@ const Footer = ({ footerPresenter, t }: any) => {
   );
 };
 
-const emailField = ({ input, label, type }: any) => {
-  return (
-    <input
-      {...input}
-      placeholder={label}
-      type={type}
-      name="email"
-      className="email form-control email-subscribe-height"
-      id="mc-email"
-      required=""
-    />
-  );
-};
-
-const submitButton = ({ input, label, type }: any) => {
-  return (
-    <input
-      {...input}
-      className="btn btn-outline-light btn-block mt-3 mb-2"
-      type={type}
-      name="subscribe"
-      value={label}
-    />
-  );
-};
-
 export default withTranslation("common")(
   reduxForm({
-    form: "FooterForm"
+    form: "FooterForm",
+    validate
   })(Footer)
 );
