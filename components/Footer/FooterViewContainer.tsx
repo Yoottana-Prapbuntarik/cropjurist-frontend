@@ -5,6 +5,7 @@ import {
   FooterMenu,
   MenuItem,
   SocialItem,
+  ErrorMessageForm,
   FooterPresenter
 } from "./FooterViewInterfaces";
 
@@ -33,11 +34,14 @@ const subScribeItem: SubscribeItem = {
   keyEmail: "email",
   keySubmitButton: "subscribe"
 };
-
+const errorMessageForm: ErrorMessageForm = {
+  keyEmailErrorMessage : "EmailErrorMessage"
+}
 const footerPresenter: FooterPresenter = {
   subscribeItem: subScribeItem,
   menu: footerMenu,
-  socialItems: socialtems
+  socialItems: socialtems,
+  errorMessageForm:errorMessageForm
 };
 
 export const footerReducer = (state: FooterPresenter = footerPresenter) => {
