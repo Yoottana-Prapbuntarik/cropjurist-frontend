@@ -18,11 +18,11 @@
   "landingDocumentsitle": "All important documents in one place",
   "landingDocumentDescription": "Safekeeping and filing are important to your company for ease of references, tracking and will make everything smoother when it comes to Due Diligence process.",
   "pages": "Pages",
-  "subScribeTitle": "Newsletter",
-  "subScribeDescription": "Subscribe Our Newsletter",
-  "subDescriptionForSubScribe": "Get started for 1 Month free trial No Purchace required.",
-  "email": "Email Address",
-  "subscribe": "Subscribe",
+  "subScribeTitle": "ข่าวสารใหม่",
+  "subScribeDescription": "ติดตามเพื่อรับข่าวสาร",
+  "subDescriptionForSubScribe": "เริ่มต้นทดลองใช้ฟรี 1 เดือนโดยไม่มีค่าใช้จ่าย",
+  "email": "ที่อยู่อีเมล",
+  "subscribe": "สมัครรับข่าวสาร",
   "headerIncorporation": "LLC Incorporation",
   "incorporationDescription": "CorpJurist’s system design to allow you to incorporate an LLC under Thai laws with ease and efficient. Just fill the online form and wait for the documents package to arrived. Once signed and returned, we will take care of the filing and you will have an LLC ready for business!!",
   "letStart": "Let's start",
@@ -49,5 +49,7 @@
   "placeholderConfirmPasswordSignup":"ยืนยันรหัสผ่าน",
   "submitSignup":"สร้างบัญชี",
   "haveAccount":"ฉันมีบัญชีผู้ใช้อยู่เเล้ว ?",
-  "signinAccount":"ลงชื่อเข้าใช้!"
+  "signinAccount":"ลงชื่อเข้าใช้!",
+  "EmailErrorMessage":"รูปแบบอีเมลล์ไม่ถูกต้อง"
+
 }

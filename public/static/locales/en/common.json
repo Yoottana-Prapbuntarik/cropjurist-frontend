@@ -49,6 +49,7 @@
   "placeholderConfirmPasswordSignup":"Confirm Password",
   "submitSignup":"Create Account",
   "haveAccount":"Have An Account ?",
-  "signinAccount":"Sign In!"
+  "signinAccount":"Sign In!",
+  "EmailErrorMessage":"Invalid Email"
 }
 
