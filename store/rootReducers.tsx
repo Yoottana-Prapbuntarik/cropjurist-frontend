@@ -7,6 +7,8 @@ import { sectionIncorporationReducer } from "../components/Section/SectionIncorp
 import { servicesReducer } from "../components/Services/ServicesContainer";
 import { signinReducer } from "../components/Signin/SigninContainer";
 import { signupReducer } from "../components/Signup/SignupContainer";
+import { reducer as reduxFormReducer } from 'redux-form';
+
 
 const rootReducers = combineReducers({
   navigationReducer: navigationReducer,
@@ -16,7 +18,8 @@ const rootReducers = combineReducers({
   sectionIncorporationReducer: sectionIncorporationReducer,
   servicesReducer: servicesReducer,
   signinReducer: signinReducer,
-  signupReducer: signupReducer
+  signupReducer: signupReducer,
+  form: reduxFormReducer
 });
 
 export default rootReducers;
