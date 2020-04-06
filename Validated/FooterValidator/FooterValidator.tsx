@@ -1,5 +1,5 @@
 import { FormErrors } from "redux-form";
-import { ErrorField } from "../InterfaceValidator";
+import {ErrorField } from "../InterfaceValidator";
 
 const validate = (email,{ footerPresenter, t }: any
 ): FormErrors => {
@@ -9,8 +9,6 @@ const validate = (email,{ footerPresenter, t }: any
     errors.email = t(footerPresenter.errorMessageForm.keyEmailErrorMessage);
   } else if (!regexEmail.test(email.email)) {
     errors.email = t(footerPresenter.errorMessageForm.keyEmailErrorMessage);
-  } else if (regexEmail.test(email.email)) {
-    errors.email = "";
   }
   return errors;
 };
