@@ -50,6 +50,7 @@
   "submitSignup":"Create Account",
   "haveAccount":"Have An Account ?",
   "signinAccount":"Sign In!",
-  "EmailErrorMessage":"Invalid Email"
+  "EmailErrorMessage":"Invalid Email",
+  "PasswordErrorMessage":"Your password is incorrect"
 }
 
