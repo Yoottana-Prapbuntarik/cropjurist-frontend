@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
+import { Field } from "redux-form";
+import EmailTextField from "../../components/FieldComponents/EmailTextField";
+import SubmitSignin from '../../Validated/SigninValidator/SubmitSignin';
+import PasswordTextField from "../../components/FieldComponents/PasswordTextField";
+import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
 
-const Signin = ({ signinPresenter, t }: any) => {
+const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -16,33 +21,32 @@ const Signin = ({ signinPresenter, t }: any) => {
           <h2 className="text-center mb-3">
             {t(signinPresenter.keySigninHeader)}
           </h2>
-          <form id="contact-form" method="post">
+          <form id="contact-form" onSubmit={handleSubmit(SubmitSignin)}>
             <div className="messages"></div>
             <div className="form-group">
               <label>
                 {t(signinPresenter.signinItem.keySigninLabelUsername)}
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder={t(
+              <Field
+                name="email"
+                type="email"
+                component={EmailTextField}
+                styleTextError="text-danger"
+                label={t(
                   signinPresenter.signinItem.keySigninPlaceholderUsername
                 )}
               />
-              <div className="help-block with-errors"></div>
             </div>
             <div className="form-group">
               <label>
                 {t(signinPresenter.signinItem.keySigninLabelPassword)}
               </label>
-              <input
+              <Field 
+                name="password"
                 type="password"
-                className="form-control"
-                placeholder={t(
-                  signinPresenter.signinItem.keySigninPlaceholderPassword
-                )}
-              />
-              <div className="help-block with-errors"></div>
+                styleTextError="text-danger"
+                component={PasswordTextField}
+                label={t(signinPresenter.signinItem.keySigninPlaceholderPassword)}/>
             </div>
             <div className="form-group mt-4 mb-5">
               <div className="remember-checkbox d-flex flex-wrap align-items-center justify-content-between">
@@ -57,9 +61,12 @@ const Signin = ({ signinPresenter, t }: any) => {
                 </a>
               </div>
             </div>{" "}
-            <button type="submit" className="btn btn-primary btn-block">
-              {t(signinPresenter.signinItem.keySigninSubmit)}
-            </button>
+            <Field 
+                name="submit"
+                type="submit"
+                style="btn btn-primary btn-block"
+                component={ButtonSubmit}
+                label={t(signinPresenter.signinItem.keySigninSubmit)}/>
           </form>
           <div className="d-flex align-items-center flex-wrap text-center justify-content-center mt-4">
             <span className="text-muted mr-1">

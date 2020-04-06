@@ -67,7 +67,7 @@ const Signup = ({ signupPresenter, t }: any) => {
                   <div className="form-group">
                     <input
                       type="email"
-                      name="re-enter-email"
+                      name="confirmEmail"
                       className="form-control"
                       placeholder={t(
                         signupPresenter.signupItemInputform
