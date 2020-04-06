@@ -1,4 +1,7 @@
 import { connect } from "react-redux";
+import { withTranslation } from "../../i18n";
+import validate from "../../Validated/FooterValidator/FooterValidator";
+import { reduxForm } from "redux-form";
 import Footer from "./Footer";
 import {
   SubscribeItem,
@@ -6,25 +9,25 @@ import {
   MenuItem,
   SocialItem,
   ErrorMessageForm,
-  FooterPresenter
+  FooterPresenter,
 } from "./FooterViewInterfaces";
 
 const footerMenuItems: MenuItem[] = [
   { keyTitle: "features", routePath: "/index" },
   { keyTitle: "incorporation", routePath: "/incorporation" },
-  { keyTitle: "signin", routePath: "/" }
+  { keyTitle: "signin", routePath: "/" },
 ];
 
 const socialtems: SocialItem[] = [
   { name: "la la-facebook", routePath: "/" },
   { name: "la la-twitter", routePath: "/" },
   { name: "lab la-line", routePath: "/" },
-  { name: "la la-envelope", routePath: "/" }
+  { name: "la la-envelope", routePath: "/" },
 ];
 
 const footerMenu: FooterMenu = {
   keyHeaderTitle: "pages",
-  footerMenuItems: footerMenuItems
+  footerMenuItems: footerMenuItems,
 };
 
 const subScribeItem: SubscribeItem = {
@@ -32,16 +35,18 @@ const subScribeItem: SubscribeItem = {
   keySubScribeDescription: "subScribeDescription",
   keySubDescriptionForSubScribe: "subDescriptionForSubScribe",
   keyEmail: "email",
-  keySubmitButton: "subscribe"
+  keySubmitButton: "subscribe",
 };
+
 const errorMessageForm: ErrorMessageForm = {
-  keyEmailErrorMessage : "EmailErrorMessage"
-}
+  keyEmailErrorMessage: "EmailErrorMessage",
+};
+
 const footerPresenter: FooterPresenter = {
   subscribeItem: subScribeItem,
   menu: footerMenu,
   socialItems: socialtems,
-  errorMessageForm:errorMessageForm
+  errorMessageForm: errorMessageForm,
 };
 
 export const footerReducer = (state: FooterPresenter = footerPresenter) => {
@@ -49,7 +54,9 @@ export const footerReducer = (state: FooterPresenter = footerPresenter) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  footerPresenter: state.footerReducer
+  footerPresenter: state.footerReducer,
 });
 
-export default connect(mapStateToProps)(Footer);
+export default withTranslation("common")(
+  connect(mapStateToProps)(reduxForm({ form: "FooterForm", validate })(Footer))
+);

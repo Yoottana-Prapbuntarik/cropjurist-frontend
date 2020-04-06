@@ -10,11 +10,11 @@ export interface FooterPresenter {
   readonly subscribeItem: SubscribeItem;
   readonly menu: FooterMenu;
   readonly socialItems: SocialItem[];
-  readonly errorMessageForm:ErrorMessageForm;
+  readonly errorMessageForm: ErrorMessageForm;
 }
 
-export interface ErrorMessageForm{
-  readonly keyEmailErrorMessage:string;
+export interface ErrorMessageForm {
+  readonly keyEmailErrorMessage: string;
 }
 
 export interface FooterMenu {
