@@ -23,12 +23,12 @@ const signupItemsInputform: SingupItemsInputform = {
 };
 
 const errorMessageForm: ErrorMessageForm = {
-  keyFirstnameErrorMessage: "FirstnameErrorMessage",
-  keyLastnameErrorMessage: "LastnameErrorMessage",
-  keyEmailErrorMessage: "EmailErrorMessage",
-  keyConfirmEmailErrorMessage: "ConfirmEmailErrorMessage",
-  keyPasswordErrorMessage: "PasswordErrorMessage",
-  keyConfirmPasswordErrorMessage: "ConfirmPasswordErrorMessage",
+  keyFirstnameErrorMessage: "firstNameErrorMessage",
+  keyLastnameErrorMessage: "lastNameErrorMessage",
+  keyEmailErrorMessage: "emailErrorMessage",
+  keyConfirmEmailErrorMessage: "conFirmEmailErrorMessage",
+  keyPasswordErrorMessage: "passwordErrorMessage",
+  keyConfirmPasswordErrorMessage: "conFirmPasswordErrorMessage",
 };
 const signupPresenter: SignupPresenter = {
   keySignupHeader: "signupHeader",

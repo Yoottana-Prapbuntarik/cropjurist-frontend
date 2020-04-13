@@ -39,7 +39,7 @@ const subScribeItem: SubscribeItem = {
 };
 
 const errorMessageForm: ErrorMessageForm = {
-  keyEmailErrorMessage: "EmailErrorMessage",
+  keyEmailErrorMessage: "emailErrorMessage",
 };
 
 const footerPresenter: FooterPresenter = {
