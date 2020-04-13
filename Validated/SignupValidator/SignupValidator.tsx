@@ -3,6 +3,7 @@ import { ErrorField } from "../InterfaceValidator";
 
 const validate = (data, { signupPresenter, t }: any): FormErrors => {
   let regexEmail: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  let WhiteSpace = new RegExp(/^\s+$/);
   let errors: FormErrors<ErrorField> = {};
   if (data.name === undefined || data.name.length < 1) {
     errors.name = t(signupPresenter.errorMessageForm.keyFirstnameErrorMessage);
@@ -22,7 +23,11 @@ const validate = (data, { signupPresenter, t }: any): FormErrors => {
     errors.confirmEmail = t(
       signupPresenter.errorMessageForm.keyConfirmEmailErrorMessage
     );
-  } else if (data.password === undefined || data.password.length < 5) {
+  } else if (
+    data.password === undefined ||
+    data.password.length < 5 ||
+    WhiteSpace.test(data.password)
+  ) {
     errors.password = t(
       signupPresenter.errorMessageForm.keyPasswordErrorMessage
     );
