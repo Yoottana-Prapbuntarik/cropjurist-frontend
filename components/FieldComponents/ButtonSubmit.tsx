@@ -1,10 +1,10 @@
-const ButtonSubmit = ({ input, label, type , style }: any) => {
+const ButtonSubmit = ({ input,label, type , style }: any) => {
     return (
       <input
         {...input}
         className={style}
         type={type}
-        name="subscribe"
+        name={label}
         value={label}
       />
     );
