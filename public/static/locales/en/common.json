@@ -50,7 +50,12 @@
   "submitSignup":"Create Account",
   "haveAccount":"Have An Account ?",
   "signinAccount":"Sign In!",
-  "EmailErrorMessage":"Invalid Email",
-  "PasswordErrorMessage":"Your password is incorrect"
+  "FirstnameErrorMessage":"Please enter name",
+  "LastnameErrorMessage":"Please enter last name",
+  "emailErrorMessage":"Invalid Email",
+  "ConfirmEmailErrorMessage":"You have incorrectly confirmed the email",
+  "passwordErrorMessage":"Your password is incorrect",
+  "ConfirmPasswordErrorMessage":"You have confirmed the password is incorrect",
+  "isSigin":"Singin Successfully"
 }
 

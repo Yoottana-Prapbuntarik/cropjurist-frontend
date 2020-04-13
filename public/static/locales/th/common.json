@@ -50,6 +50,11 @@
   "submitSignup":"สร้างบัญชี",
   "haveAccount":"ฉันมีบัญชีผู้ใช้อยู่เเล้ว ?",
   "signinAccount":"ลงชื่อเข้าใช้!",
-  "EmailErrorMessage":"รูปแบบอีเมลล์ไม่ถูกต้อง",
-  "PasswordErrorMessage":"รหัสผ่านไม่ถูกต้อง"
+  "FirstnameErrorMessage":"กรุณากรอกชื่อ",
+  "LastnameErrorMessage":"กรุณานามสกุล",
+  "emailErrorMessage":"รูปแบบอีเมลล์ไม่ถูกต้อง",
+  "ConfirmEmailErrorMessage":"กรอกอีกเมลล์ไม่ตรงกัน",
+  "passwordErrorMessage":"รหัสผ่านไม่ถูกต้อง",
+  "ConfirmPasswordErrorMessage":"กรอกรหัสผ่านไม่ตรงกัน",
+  "isSigin":"เข้าสู่ระบบสำเร็จ"
 }
