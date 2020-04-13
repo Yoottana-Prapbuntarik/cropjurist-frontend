@@ -19,8 +19,8 @@ const signinItem: SigninItem = {
 };
 
 const errorMessageForm: ErrorMessageForm = {
-  keyEmailErrorMessage: "EmailErrorMessage",
-  keyPasswordErrorMessage:"PasswordErrorMessage",
+  keyEmailErrorMessage: "emailErrorMessage",
+  keyPasswordErrorMessage:"passwordErrorMessage",
 };
 const signinPresenter: SiginPresenter = {
   keySigninHeader: "signinHeader",

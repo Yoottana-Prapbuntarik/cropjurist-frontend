@@ -21,7 +21,7 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
           <h2 className="text-center mb-3">
             {t(signinPresenter.keySigninHeader)}
           </h2>
-          <form id="contact-form" onSubmit={handleSubmit(SubmitSignin)}>
+          <form  onSubmit={handleSubmit(SubmitSignin)}>
             <div className="messages"></div>
             <div className="form-group">
               <label>
