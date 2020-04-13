@@ -1,7 +1,6 @@
 const SubmitSignin = (value) => {
-    if (value.email && value.password) {
-      alert("เข้าสู่ระบบสำเร็จ");
+  if (value.email && value.password) {
+      alert("ดำเนินการสำเร็จ");
     }
-  };
-  export default SubmitSignin;
-  
+};
+export default SubmitSignin;
