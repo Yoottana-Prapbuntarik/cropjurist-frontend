@@ -10,8 +10,16 @@ export interface SingupItemsInputform {
   readonly keySigninAccount: string;
   readonly keyimagePath : string;
 }
-
+export interface ErrorMessageForm {
+  readonly keyFirstnameErrorMessage:string;
+  readonly keyLastnameErrorMessage:string;
+  readonly keyEmailErrorMessage: string;
+  readonly keyConfirmEmailErrorMessage: string;
+  readonly keyPasswordErrorMessage:string;
+  readonly keyConfirmPasswordErrorMessage:string;
+}
 export interface SignupPresenter {
   readonly keySignupHeader: string;
   readonly signupItemInputform: SingupItemsInputform;
+  readonly errorMessageForm:ErrorMessageForm;
 }
