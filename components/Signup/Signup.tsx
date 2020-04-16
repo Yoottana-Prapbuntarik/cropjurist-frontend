@@ -1,4 +1,4 @@
-import axios from "axios";
+import { postDataToDatabase } from "../../SubmitForm/SingupSubmit";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Field } from "redux-form";
@@ -12,42 +12,34 @@ import ConfirmPasswordTextField from "../../components/FieldComponents/ConfirmPa
 import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
 
 const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
-  const [dataSingup, singupUser] = useState({
+const [dataSingup, singupUser] = useState({
     first_name: "",
     last_name: "",
     email: "",
     password: "",
   });
-  const [isPostSignup, setBooleanPost] = useState(false);
 
-  const SubmitSignup = (event) => {
-    singupUser({
+const [isPostSignup, setBooleanPost] = useState(false);
+
+const SubmitSignup = (event) => {
+      singupUser({
       ...dataSingup,
       first_name: event.firstname,
       last_name: event.lastname,
       email: event.email,
       password: event.password,
-    });
-    setBooleanPost(true);
-  };
-  useEffect(() => {
-    if (isPostSignup) {
-      postDataToDatabase(dataSingup);
-    }
-  });
-  const postDataToDatabase = (postData) => {
-    axios
-      .post(
-        "https://apidocsbackend.herokuapp.com/api/v1/user/register/",
-        postData
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
       });
-  };
+    setBooleanPost(true);
+};
+
+    useEffect(() => {
+    if (isPostSignup) {
+      postDataToDatabase(dataSingup, {
+        success: t(signupPresenter.messageForm.keyIsSignup),
+        failed: t(signupPresenter.messageForm.keySignup),
+      });
+    }
+});
 
   return (
     <div className="container">
