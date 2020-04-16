@@ -1,54 +1,36 @@
 import { FormErrors } from "redux-form";
-import { ErrorField } from "../InterfaceValidator";
+import { ErrorField, regexExpression } from "../InterfaceValidator";
 
-const validate = (data, { signupPresenter, t }: any): FormErrors => {
-  let regexEmail: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-  let WhiteSpace = new RegExp(/^\s+$/);
+const validate = (dataSignup, { signupPresenter, t }: any): FormErrors => {
+
   let errors: FormErrors<ErrorField> = {};
-  if (data.firstname === undefined || data.firstname.length < 1) {
-    errors.firstname = t(
-      signupPresenter.errorMessageForm.keyFirstnameErrorMessage
-    );
+
+  if (!regexExpression.regexText.test(dataSignup.firstname) ||
+      !dataSignup.firstname) {
+      errors.firstname = t(signupPresenter.messageForm.keyFirstnameErrorMessage);
   }
-  if (data.lastname === undefined || data.lastname.length < 1) {
-    errors.lastname = t(
-      signupPresenter.errorMessageForm.keyLastnameErrorMessage
-    );
+  if (!regexExpression.regexText.test(dataSignup.lastname) ||
+      !dataSignup.lastname) {
+      errors.lastname = t(signupPresenter.messageForm.keyLastnameErrorMessage);
   }
-  if (!data.email) {
-    errors.email = t(signupPresenter.errorMessageForm.keyEmailErrorMessage);
+  if (!regexExpression.regexEmail.test(dataSignup.email) || 
+      !dataSignup.email) {
+      errors.email = t(signupPresenter.messageForm.keyEmailErrorMessage);
   }
-  if (!regexEmail.test(data.email)) {
-    errors.email = t(signupPresenter.errorMessageForm.keyEmailErrorMessage);
+
+  if (dataSignup.confirmEmail !== dataSignup.email) {
+      errors.confirmEmail = t(signupPresenter.messageForm.keyConfirmEmailErrorMessage);
   }
-  if (!data.confirmEmail) {
-    errors.confirmEmail = t(
-      signupPresenter.errorMessageForm.keyConfirmEmailErrorMessage
-    );
+
+  if (!regexExpression.regexPassword.test(dataSignup.password) ||
+      !dataSignup.password) {
+    errors.password = t(signupPresenter.messageForm.keyPasswordErrorMessage);
   }
-  if (data.confirmEmail !== data.email) {
-    errors.confirmEmail = t(
-      signupPresenter.errorMessageForm.keyConfirmEmailErrorMessage
-    );
+
+  if (dataSignup.confirmPassword !== dataSignup.password) {
+      errors.confirmPassword = t(signupPresenter.messageForm.keyConfirmPasswordErrorMessage);
   }
-  if (
-    data.password === undefined ||
-    data.password.length < 5 ||
-    WhiteSpace.test(data.password)
-  ) {
-    errors.password = t(
-      signupPresenter.errorMessageForm.keyPasswordErrorMessage
-    );
-  }
-  if (
-    data.confirmPassword === undefined ||
-    data.confirmPassword.length < 5 ||
-    data.confirmPassword !== data.password
-  ) {
-    errors.confirmPassword = t(
-      signupPresenter.errorMessageForm.keyConfirmPasswordErrorMessage
-    );
-  }
+
   return errors;
 };
 
