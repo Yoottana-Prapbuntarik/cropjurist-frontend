@@ -1,10 +1,10 @@
 import Signup from "../Signup/Signup";
 import { reduxForm } from "redux-form";
-import validate from '../../Validated/SignupValidator/SignupValidator';
+import validate from "../../Validated/SignupValidator/SignupValidator";
 import {
   SignupPresenter,
   SingupItemsInputform,
-  ErrorMessageForm,
+  MessageForm,
 } from "../Signup/SignupInterface";
 import { connect } from "react-redux";
 import { withTranslation } from "../../i18n";
@@ -22,18 +22,20 @@ const signupItemsInputform: SingupItemsInputform = {
   keyimagePath: "assets/images/signup/signup-img.jpg",
 };
 
-const errorMessageForm: ErrorMessageForm = {
+const messageForm: MessageForm = {
   keyFirstnameErrorMessage: "firstNameErrorMessage",
   keyLastnameErrorMessage: "lastNameErrorMessage",
   keyEmailErrorMessage: "emailErrorMessage",
   keyConfirmEmailErrorMessage: "conFirmEmailErrorMessage",
   keyPasswordErrorMessage: "passwordErrorMessage",
   keyConfirmPasswordErrorMessage: "conFirmPasswordErrorMessage",
+  keyIsSignup: "isSignup",
+  keySignup: "signup",
 };
 const signupPresenter: SignupPresenter = {
   keySignupHeader: "signupHeader",
   signupItemInputform: signupItemsInputform,
-  errorMessageForm: errorMessageForm,
+  messageForm: messageForm,
 };
 
 export const signupReducer = (state: SignupPresenter = signupPresenter) => {
@@ -45,5 +47,5 @@ const mapStateToProps = (state: any) => ({
 });
 
 export default withTranslation("common")(
-  connect(mapStateToProps)(reduxForm({ form: "SignupForm",validate })(Signup))
+  connect(mapStateToProps)(reduxForm({ form: "SignupForm", validate })(Signup))
 );

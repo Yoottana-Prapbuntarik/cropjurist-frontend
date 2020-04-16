@@ -8,18 +8,20 @@ export interface SingupItemsInputform {
   readonly keySubmitSignup: string;
   readonly keyHaveAccount: string;
   readonly keySigninAccount: string;
-  readonly keyimagePath : string;
+  readonly keyimagePath: string;
 }
-export interface ErrorMessageForm {
-  readonly keyFirstnameErrorMessage:string;
-  readonly keyLastnameErrorMessage:string;
+export interface MessageForm {
+  readonly keyFirstnameErrorMessage: string;
+  readonly keyLastnameErrorMessage: string;
   readonly keyEmailErrorMessage: string;
   readonly keyConfirmEmailErrorMessage: string;
-  readonly keyPasswordErrorMessage:string;
-  readonly keyConfirmPasswordErrorMessage:string;
+  readonly keyPasswordErrorMessage: string;
+  readonly keyConfirmPasswordErrorMessage: string;
+  readonly keyIsSignup: string;
+  readonly keySignup: string;
 }
 export interface SignupPresenter {
   readonly keySignupHeader: string;
   readonly signupItemInputform: SingupItemsInputform;
-  readonly errorMessageForm:ErrorMessageForm;
+  readonly messageForm: MessageForm;
 }
