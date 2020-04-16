@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import { withTranslation } from "../../i18n";
-import validate from '../../Validated/SigninValidator/SigninValidator';
+import validate from "../../Validated/SigninValidator/SigninValidator";
 import Signin from "./Signin";
-import { SiginPresenter, SigninItem, ErrorMessageForm } from "./SigninInterfaces";
+import { SiginPresenter, SigninItem, MessageForm } from "./SigninInterfaces";
 
 const signinItem: SigninItem = {
   keySigninLabelUsername: "signinLabelUsername",
@@ -18,14 +18,16 @@ const signinItem: SigninItem = {
   keyimagePath: "assets/images/signin/signin-img.jpg",
 };
 
-const errorMessageForm: ErrorMessageForm = {
+const messageForm: MessageForm = {
   keyEmailErrorMessage: "emailErrorMessage",
-  keyPasswordErrorMessage:"passwordErrorMessage",
+  keyPasswordErrorMessage: "passwordErrorMessage",
+  keyIsSignin: "isSignin",
+  keySignin: "userSignin",
 };
 const signinPresenter: SiginPresenter = {
   keySigninHeader: "signinHeader",
   signinItem: signinItem,
-  errorMessageForm: errorMessageForm,
+  messageForm: messageForm,
 };
 
 export const signinReducer = (state: SiginPresenter = signinPresenter) => {
@@ -37,5 +39,5 @@ const mapStateToProps = (state: any) => ({
 });
 
 export default withTranslation("common")(
-  connect(mapStateToProps)(reduxForm({form:'SigninForm',validate})(Signin))
+  connect(mapStateToProps)(reduxForm({ form: "SigninForm", validate })(Signin))
 );
