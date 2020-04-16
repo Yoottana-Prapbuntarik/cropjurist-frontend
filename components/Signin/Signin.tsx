@@ -1,12 +1,39 @@
 import Link from "next/link";
+import { postDataToDatabase } from "../../SubmitForm/SinginSubmit";
+import { useState, useEffect } from "react";
 import { withTranslation } from "../../i18n";
 import { Field } from "redux-form";
 import EmailTextField from "../../components/FieldComponents/EmailTextField";
-import SubmitSignin from '../../Validated/SigninValidator/SubmitSignin';
 import PasswordTextField from "../../components/FieldComponents/PasswordTextField";
 import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
 
 const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
+  const [isPostSignin, setBooleanSignin] = useState(false);
+
+  const [dataSingin, singinUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const SubmitSignin = (event) => {
+    singinUser({
+      ...dataSingin,
+      email: event.email,
+      password: event.password,
+    });
+    setBooleanSignin(true);
+  };
+
+  useEffect(() => {
+    if (isPostSignin) {
+      postDataToDatabase(dataSingin, {
+        success: t(signinPresenter.messageForm.keyIsSignin),
+        failed: t(signinPresenter.messageForm.keySignin),
+      });
+      setBooleanSignin(false);
+    }
+  });
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -21,7 +48,7 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
           <h2 className="text-center mb-3">
             {t(signinPresenter.keySigninHeader)}
           </h2>
-          <form  onSubmit={handleSubmit(SubmitSignin)}>
+          <form onSubmit={handleSubmit(SubmitSignin)}>
             <div className="messages"></div>
             <div className="form-group">
               <label>
@@ -41,12 +68,15 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
               <label>
                 {t(signinPresenter.signinItem.keySigninLabelPassword)}
               </label>
-              <Field 
+              <Field
                 name="password"
                 type="password"
                 styleTextError="text-danger"
                 component={PasswordTextField}
-                label={t(signinPresenter.signinItem.keySigninPlaceholderPassword)}/>
+                label={t(
+                  signinPresenter.signinItem.keySigninPlaceholderPassword
+                )}
+              />
             </div>
             <div className="form-group mt-4 mb-5">
               <div className="remember-checkbox d-flex flex-wrap align-items-center justify-content-between">
@@ -61,12 +91,13 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
                 </a>
               </div>
             </div>{" "}
-            <Field 
-                name="submit"
-                type="submit"
-                style="btn btn-primary btn-block"
-                component={ButtonSubmit}
-                label={t(signinPresenter.signinItem.keySigninSubmit)}/>
+            <Field
+              name="submit"
+              type="submit"
+              style="btn btn-primary btn-block"
+              component={ButtonSubmit}
+              label={t(signinPresenter.signinItem.keySigninSubmit)}
+            />
           </form>
           <div className="d-flex align-items-center flex-wrap text-center justify-content-center mt-4">
             <span className="text-muted mr-1">
