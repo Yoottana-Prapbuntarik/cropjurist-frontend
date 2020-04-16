@@ -11,7 +11,7 @@ const FirstNameTextField = ({
           {...input}
           placeholder={label}
           type={type}
-          name="name"
+          name="firstname"
           className="form-control"
           required=""
         />
