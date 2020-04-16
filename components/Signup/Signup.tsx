@@ -19,7 +19,7 @@ const [dataSingup, singupUser] = useState({
     password: "",
   });
 
-const [isPostSignup, setBooleanPost] = useState(false);
+const [isPostSignup, setBooleanSignup] = useState(false);
 
 const SubmitSignup = (event) => {
       singupUser({
@@ -29,7 +29,7 @@ const SubmitSignup = (event) => {
       email: event.email,
       password: event.password,
       });
-    setBooleanPost(true);
+    setBooleanSignup(true);
 };
 
     useEffect(() => {

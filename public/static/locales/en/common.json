@@ -56,7 +56,7 @@
   "conFirmEmailErrorMessage":  "You have incorrectly confirmed the email",
   "passwordErrorMessage":  "Your password is incorrect",
   "conFirmPasswordErrorMessage":  "You have confirmed the password is incorrect",
-  "isSignup": "Registration failed !",
+  "isSignup": "Registration Succesfully !",
   "signup": "Registration failed !"
 }
 
