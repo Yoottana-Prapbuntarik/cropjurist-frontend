@@ -56,6 +56,7 @@
   "ConfirmEmailErrorMessage":"You have incorrectly confirmed the email",
   "passwordErrorMessage":"Your password is incorrect",
   "ConfirmPasswordErrorMessage":"You have confirmed the password is incorrect",
-  "isSigin":"Singin Successfully"
+  "isSignin":"Singin Successfully",
+  "userSignin": "Signin Failed! Please check your email and password."
 }
 

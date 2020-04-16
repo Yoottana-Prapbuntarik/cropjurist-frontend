@@ -56,5 +56,6 @@
   "ConfirmEmailErrorMessage":"กรอกอีกเมลล์ไม่ตรงกัน",
   "passwordErrorMessage":"รหัสผ่านไม่ถูกต้อง",
   "ConfirmPasswordErrorMessage":"กรอกรหัสผ่านไม่ตรงกัน",
-  "isSigin":"เข้าสู่ระบบสำเร็จ"
+  "isSignin":"เข้าสู่ระบบสำเร็จ",
+  "userSignin": "ไม่สามารถเข้าสู่ระบบ กรุณาตรวจสอบอีเมลล์และรหัสผ่าน"
 }
