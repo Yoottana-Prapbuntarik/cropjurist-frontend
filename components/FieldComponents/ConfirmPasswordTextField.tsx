@@ -5,13 +5,14 @@ const PasswordTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
+
     return (
       <div>
         <input
           {...input}
           placeholder={label}
           type={type}
-          name="email"
+          name="confirmPassword"
           className="form-control"
         />
         <p className={styleTextError}>{touched && error && <span>{error}</span>}</p>
@@ -19,5 +20,5 @@ const PasswordTextField = ({
     );
   };
   
-  export default PasswordTextField;
+export default PasswordTextField;
   

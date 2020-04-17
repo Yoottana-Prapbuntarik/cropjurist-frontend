@@ -5,6 +5,7 @@ const LastNameTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
+
     return (
       <div>
         <input
@@ -20,5 +21,5 @@ const LastNameTextField = ({
     );
   };
   
-  export default LastNameTextField;
+export default LastNameTextField;
   

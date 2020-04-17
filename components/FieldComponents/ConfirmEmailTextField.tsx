@@ -5,6 +5,7 @@ const EmailTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
+
     return (
       <div>
         <input
@@ -20,5 +21,4 @@ const EmailTextField = ({
     );
   };
   
-  export default EmailTextField;
-  
+export default EmailTextField;

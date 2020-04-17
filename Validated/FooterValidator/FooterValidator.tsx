@@ -1,14 +1,12 @@
 import { FormErrors } from "redux-form";
-import {ErrorField } from "../InterfaceValidator";
+import { ErrorField, regexExpression } from "../InterfaceValidator";
 
-const validate = (email,{ footerPresenter, t }: any
-): FormErrors => {
-  let regexEmail: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  const validate = (dataFormFooter, { footerPresenter, t }: any): FormErrors => {
   let errors: FormErrors<ErrorField> = {};
-  if (!email.email) {
-    errors.email = t(footerPresenter.errorMessageForm.keyEmailErrorMessage);
-  } else if (!regexEmail.test(email.email)) {
-    errors.email = t(footerPresenter.errorMessageForm.keyEmailErrorMessage);
+  if (!regexExpression.regexEmail.test(dataFormFooter.email) ||
+      !dataFormFooter.email
+  ) {
+    errors.email = t(footerPresenter.messageForm.keyEmailErrorMessage);
   }
   return errors;
 };

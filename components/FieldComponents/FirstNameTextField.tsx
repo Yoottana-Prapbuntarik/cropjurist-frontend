@@ -5,13 +5,14 @@ const FirstNameTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
+
     return (
       <div>
         <input
           {...input}
           placeholder={label}
           type={type}
-          name="name"
+          name="firstname"
           className="form-control"
           required=""
         />
@@ -20,5 +21,5 @@ const FirstNameTextField = ({
     );
   };
   
-  export default FirstNameTextField;
+export default FirstNameTextField;
   

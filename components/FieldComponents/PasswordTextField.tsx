@@ -5,13 +5,14 @@ const PasswordTextField = ({
   styleTextError,
   meta: { touched, error },
 }: any) => {
+
   return (
     <div>
       <input
         {...input}
         placeholder={label}
         type={type}
-        name="email"
+        name="password"
         className="form-control"
       />
       <p className={styleTextError}>{touched && error && <span>{error}</span>}</p>
