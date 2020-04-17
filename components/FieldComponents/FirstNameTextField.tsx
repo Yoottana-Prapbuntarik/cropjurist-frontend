@@ -22,4 +22,3 @@ const FirstNameTextField = ({
   };
   
 export default FirstNameTextField;
-  
