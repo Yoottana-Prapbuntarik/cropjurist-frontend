@@ -1,11 +1,11 @@
 import Router from "next/router";
 import axios from "axios";
 
-export const postDataToDatabase = (postData, message) => {
+export const sendDataSignin = (dataSignin, message) => {
   axios({
     method: "post",
     url: "https://apidocsbackend.herokuapp.com/api/v1/user/login/",
-    data: postData,
+    data: dataSignin,
     headers: {
       "content-type": "application/json",
     },

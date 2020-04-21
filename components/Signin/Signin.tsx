@@ -1,38 +1,29 @@
 import Link from "next/link";
-import { postDataToDatabase } from "../../SubmitForm/SinginSubmit";
-import { useState, useEffect } from "react";
+import { sendDataSignin } from "../../SubmitForm/SinginSubmit";
 import { withTranslation } from "../../i18n";
 import { Field } from "redux-form";
 import EmailTextField from "../../components/FieldComponents/EmailTextField";
 import PasswordTextField from "../../components/FieldComponents/PasswordTextField";
 import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
+import CheckBox from "../../components/FieldComponents/CheckBox";
 
 const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
-  const [isPostSignin, setBooleanSignin] = useState(false);
-
-  const [dataSingin, singinUser] = useState({
-    email: "",
-    password: "",
-  });
-
+  
   const SubmitSignin = (event) => {
-    singinUser({
-      ...dataSingin,
+    if (event.checkbox === undefined) {
+      event.checkbox = false;
+    }
+    let dataSingin = {
       email: event.email,
       password: event.password,
-    });
-    setBooleanSignin(true);
-  };
+      is_remember: event.checkbox
+    };
 
-  useEffect(() => {
-    if (isPostSignin) {
-      postDataToDatabase(dataSingin, {
-        success: t(signinPresenter.messageForm.keyIsSignin),
-        failed: t(signinPresenter.messageForm.keySignin),
-      });
-      setBooleanSignin(false);
-    }
-  });
+    sendDataSignin(dataSingin, {
+      success: t(signinPresenter.messageForm.keyIsSignin),
+      failed: t(signinPresenter.messageForm.keySignin),
+    });
+  };
 
   return (
     <div className="container">
@@ -81,8 +72,8 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
             <div className="form-group mt-4 mb-5">
               <div className="remember-checkbox d-flex flex-wrap align-items-center justify-content-between">
                 <div className="checkbox">
-                  <input type="checkbox" id="check2" name="check2" />
-                  <label className="pl-1" htmlFor="check2">
+                  <Field type="checkbox" name="checkbox" component={CheckBox} />
+                  <label className="pl-1" htmlFor="checkbox">
                     {t(signinPresenter.signinItem.keyRemember)}
                   </label>
                 </div>
