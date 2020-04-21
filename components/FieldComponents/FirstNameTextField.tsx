@@ -5,7 +5,6 @@ const FirstNameTextField = ({
   styleTextError,
   meta: { touched, error },
 }: any) => {
-
   return (
     <div>
       <input

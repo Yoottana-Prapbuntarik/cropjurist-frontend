@@ -5,7 +5,6 @@ const LastNameTextField = ({
   styleTextError,
   meta: { touched, error },
 }: any) => {
-
   return (
     <div>
       <input

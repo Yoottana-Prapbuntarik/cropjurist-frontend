@@ -1,5 +1,4 @@
 const ButtonSubmit = ({ input,  label, type, style }: any) => {
-  
   return (
     <input
       {...input}
