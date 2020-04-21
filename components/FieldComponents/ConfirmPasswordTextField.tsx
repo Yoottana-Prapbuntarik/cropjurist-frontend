@@ -5,7 +5,6 @@ const PasswordTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
-
     return (
       <div>
         <input

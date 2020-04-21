@@ -5,7 +5,6 @@ const EmailTextField = ({
     styleTextError,
     meta: { touched, error },
   }: any) => {
-
     return (
       <div>
         <input

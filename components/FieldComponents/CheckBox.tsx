@@ -1,13 +1,13 @@
-const ButtonSubmit = ({ input,  label, type, style }: any) => {
+const CheckBox = ({ input,  label, type, style }: any) => {
     return (
       <input
         {...input}
         className={style}
         type={type}
         name={label}
-        value={label}
+        value={label}        
       />
     );
   };
 
-export default ButtonSubmit;
+export default CheckBox;
