@@ -1,37 +1,20 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
-import { useState, useEffect } from "react";
 import { Field } from "redux-form";
-import { postDataToDatabase } from "../../SubmitForm/FooterSubmit";
+import { sendEmail } from "../../SubmitForm/FooterSubmit";
 import EmailTextField from "../FieldComponents/EmailTextField";
 import ButtonSubmit from "../FieldComponents/ButtonSubmit";
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
 import "./styles.scss";
 
 const Footer = ({ handleSubmit, footerPresenter, t }: any) => {
-  const [isPostemailSubscribe, setBooleanSubscribe] = useState(false);
-
-  const [emailSubscribe, Subscribe] = useState({
-    email: "",
-  });
 
   const SubmitFooterSubscribe = (event) => {
-    Subscribe({
-      ...emailSubscribe,
-      email: event.email,
+    sendEmail(event.email, {
+      success: t(footerPresenter.messageForm.keyIsFooterSubscrbe),
+      failed: t(footerPresenter.messageForm.keyFooterSubscrbe),
     });
-    setBooleanSubscribe(true);
   };
-
-  useEffect(() => {
-    if (isPostemailSubscribe) {
-      postDataToDatabase(emailSubscribe, {
-        success: t(footerPresenter.messageForm.keyIsFooterSubscrbe),
-        failed: t(footerPresenter.messageForm.keyFooterSubscrbe),
-      });
-      setBooleanSubscribe(false);
-    }
-  });
 
   return (
     <footer
