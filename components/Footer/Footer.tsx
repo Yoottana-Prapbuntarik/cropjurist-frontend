@@ -1,11 +1,21 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
-import { Field, reduxForm } from "redux-form";
+import { Field } from "redux-form";
+import { sendEmail } from "../../SubmitForm/FooterSubmit";
+import EmailTextField from "../FieldComponents/EmailTextField";
+import ButtonSubmit from "../FieldComponents/ButtonSubmit";
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
-
 import "./styles.scss";
 
-const Footer = ({ footerPresenter, t }: any) => {
+const Footer = ({ handleSubmit, footerPresenter, t }: any) => {
+
+  const SubmitFooterSubscribe = (event) => {
+    sendEmail(event.email, {
+      success: t(footerPresenter.messageForm.keyIsFooterSubscrbe),
+      failed: t(footerPresenter.messageForm.keyFooterSubscrbe),
+    });
+  };
+
   return (
     <footer
       className="py-11 bg-primary position-relative"
@@ -33,17 +43,22 @@ const Footer = ({ footerPresenter, t }: any) => {
               <h6 className="text-light">
                 {t(footerPresenter.subscribeItem.keySubScribeDescription)}
               </h6>
-              <form id="mc-form" className="group">
+              <form
+                className="group"
+                onSubmit={handleSubmit(SubmitFooterSubscribe)}
+              >
                 <Field
                   name="email"
                   type="email"
-                  component={emailField}
+                  component={EmailTextField}
+                  styleTextError="text-white"
                   label={t(footerPresenter.subscribeItem.keyEmail)}
                 />
                 <Field
                   name="subscribe"
                   type="submit"
-                  component={submitButton}
+                  style="btn btn-outline-light btn-block mt-3 mb-2"
+                  component={ButtonSubmit}
                   label={t(footerPresenter.subscribeItem.keySubmitButton)}
                 />
               </form>
@@ -115,34 +130,4 @@ const Footer = ({ footerPresenter, t }: any) => {
   );
 };
 
-const emailField = ({ input, label, type }: any) => {
-  return (
-    <input
-      {...input}
-      placeholder={label}
-      type={type}
-      name="email"
-      className="email form-control email-subscribe-height"
-      id="mc-email"
-      required=""
-    />
-  );
-};
-
-const submitButton = ({ input, label, type }: any) => {
-  return (
-    <input
-      {...input}
-      className="btn btn-outline-light btn-block mt-3 mb-2"
-      type={type}
-      name="subscribe"
-      value={label}
-    />
-  );
-};
-
-export default withTranslation("common")(
-  reduxForm({
-    form: "FooterForm"
-  })(Footer)
-);
+export default withTranslation("common")(Footer);

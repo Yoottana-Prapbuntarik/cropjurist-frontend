@@ -10,9 +10,16 @@ export interface SigninItem  {
   readonly keySignupButton: string;
   readonly keyimagePath: string;
 }
+export interface MessageForm {
+  readonly keyEmailErrorMessage: string;
+  readonly keyPasswordErrorMessage: string;
+  readonly keyIsSignin: string;
+  readonly keySignin: string;
+}
 
 export interface SiginPresenter {
   readonly keySigninHeader: string;
   readonly signinItem: SigninItem;
+  readonly messageForm: MessageForm,
 }
 
