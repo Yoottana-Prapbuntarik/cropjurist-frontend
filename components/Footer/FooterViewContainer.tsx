@@ -8,7 +8,7 @@ import {
   FooterMenu,
   MenuItem,
   SocialItem,
-  ErrorMessageForm,
+  MessageForm,
   FooterPresenter,
 } from "./FooterViewInterfaces";
 
@@ -38,15 +38,17 @@ const subScribeItem: SubscribeItem = {
   keySubmitButton: "subscribe",
 };
 
-const errorMessageForm: ErrorMessageForm = {
+const messageForm: MessageForm = {
   keyEmailErrorMessage: "emailErrorMessage",
+  keyIsFooterSubscrbe:  "isFooterSubscrbe",
+  keyFooterSubscrbe:  "footerSubscrbe"
 };
 
 const footerPresenter: FooterPresenter = {
   subscribeItem: subScribeItem,
   menu: footerMenu,
   socialItems: socialtems,
-  errorMessageForm: errorMessageForm,
+  messageForm: messageForm,
 };
 
 export const footerReducer = (state: FooterPresenter = footerPresenter) => {

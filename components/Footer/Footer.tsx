@@ -1,13 +1,21 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
 import { Field } from "redux-form";
+import { sendEmail } from "../../SubmitForm/FooterSubmit";
 import EmailTextField from "../FieldComponents/EmailTextField";
 import ButtonSubmit from "../FieldComponents/ButtonSubmit";
-import SubmitFormFooter from "../../Validated/FooterValidator/SubmitFormFooter";
 import { MenuItem, SocialItem } from "./FooterViewInterfaces";
 import "./styles.scss";
 
 const Footer = ({ handleSubmit, footerPresenter, t }: any) => {
+
+  const SubmitFooterSubscribe = (event) => {
+    sendEmail(event.email, {
+      success: t(footerPresenter.messageForm.keyIsFooterSubscrbe),
+      failed: t(footerPresenter.messageForm.keyFooterSubscrbe),
+    });
+  };
+
   return (
     <footer
       className="py-11 bg-primary position-relative"
@@ -36,9 +44,8 @@ const Footer = ({ handleSubmit, footerPresenter, t }: any) => {
                 {t(footerPresenter.subscribeItem.keySubScribeDescription)}
               </h6>
               <form
-                id="mc-form"
                 className="group"
-                onSubmit={handleSubmit(SubmitFormFooter)}
+                onSubmit={handleSubmit(SubmitFooterSubscribe)}
               >
                 <Field
                   name="email"

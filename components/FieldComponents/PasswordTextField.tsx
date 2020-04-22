@@ -1,4 +1,4 @@
-const LastNameTextField = ({
+const PasswordTextField = ({
   input,
   label,
   type,
@@ -11,7 +11,7 @@ const LastNameTextField = ({
         {...input}
         placeholder={label}
         type={type}
-        name="lastname"
+        name="password"
         className="form-control"
         required=""
       />
@@ -20,4 +20,4 @@ const LastNameTextField = ({
   );
 };
 
-export default LastNameTextField;
+export default PasswordTextField;
