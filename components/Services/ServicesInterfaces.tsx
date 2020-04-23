@@ -1,10 +1,10 @@
 export interface ServiceItem {
-  readonly keyTitle: string;
-  readonly imagePath: string;
-  readonly style: string;
+	readonly keyTitle: string;
+	readonly imagePath: string;
+	readonly style: string;
 }
 
 export interface ServicesPresenter {
-  readonly keyHeader: string;
-  readonly serviceItems: ServiceItem[];
+	readonly keyHeader: string;
+	readonly serviceItems: ServiceItem[];
 }
