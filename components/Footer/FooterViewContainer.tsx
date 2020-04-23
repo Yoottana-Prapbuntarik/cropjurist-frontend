@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
-import validate from '../../Validated/FooterValidator/FooterValidator';
-import { reduxForm } from 'redux-form';
-import Footer from './Footer';
+import { subscribe, SubscribeAction } from '../../services/subscribe';
+import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
+import { Dispatch } from 'redux';
+
+import validate from '../../Validated/FooterValidator/FooterValidator';
+import Footer from './Footer';
 
 const footerMenuItems: MenuItem[] = [
 	{ keyTitle: 'features', routePath: '/index' },
@@ -44,12 +47,29 @@ const footerPresenter: FooterPresenter = {
 	messageForm: messageForm
 };
 
-export const footerReducer = (state: FooterPresenter = footerPresenter) => {
-	return state;
+export const footerReducer = (state: FooterPresenter = footerPresenter, action: any) => {
+	switch (action.type) {
+		case SubscribeAction.SendEmail_Success:
+			return state;
+		case SubscribeAction.SendEmail_Failed:
+			return state;
+		default:
+			return state;
+	}
 };
 
 const mapStateToProps = (state: any) => ({
 	footerPresenter: state.footerReducer
 });
 
-export default withTranslation('common')(connect(mapStateToProps)(reduxForm({ form: 'FooterForm', validate })(Footer)));
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+	submitSubscribe: (event: any) => {
+		console.log(event.email);
+		dispatch(subscribe(event.email));
+		dispatch(reset('FooterForm'));
+	}
+});
+
+const form = reduxForm({ form: 'FooterForm', validate })(Footer);
+
+export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form));
