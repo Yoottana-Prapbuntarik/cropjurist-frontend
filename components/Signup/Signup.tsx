@@ -1,6 +1,6 @@
 import { sendDataSignup } from "../../SubmitForm/SingupSubmit";
 import Link from "next/link";
-import { Field } from "redux-form";
+import { Field, reset } from "redux-form";
 import { withTranslation } from "../../i18n";
 import FirstNameTextField from "../../components/FieldComponents/FirstNameTextField";
 import LastNameTextField from "../../components/FieldComponents/LastNameTextField";
@@ -9,8 +9,11 @@ import ConfirmEmailTextField from "../../components/FieldComponents/ConfirmEmail
 import PasswordTextField from "../../components/FieldComponents/PasswordTextField";
 import ConfirmPasswordTextField from "../../components/FieldComponents/ConfirmPasswordTextField";
 import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
+import { useDispatch } from "react-redux";
 
 const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
+  
+  const dispatch = useDispatch();
   const SubmitSignup = (event) => {
     let dataSignup = {
       first_name: event.firstname,
@@ -23,6 +26,7 @@ const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
       success: t(signupPresenter.messageForm.keyIsSignup),
       failed: t(signupPresenter.messageForm.keySignup),
     });
+    dispatch(reset("SignupForm"));
   };
 
   return (

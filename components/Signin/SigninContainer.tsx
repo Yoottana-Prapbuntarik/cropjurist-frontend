@@ -6,15 +6,15 @@ import Signin from "./Signin";
 import { SiginPresenter, SigninItem, MessageForm } from "./SigninInterfaces";
 
 const signinItem: SigninItem = {
-  keySigninLabelUsername: "signinLabelUsername",
-  keySigninPlaceholderUsername: "signinPlaceholderUsername",
-  keySigninLabelPassword: "signinLabelPassword",
-  keySigninPlaceholderPassword: "signinPlaceholderPassword",
+  keySigninLabelUsername: "labelUsername",
+  keySigninPlaceholderUsername: "labelUsername",
+  keySigninLabelPassword: "labelPassword",
+  keySigninPlaceholderPassword: "labelPassword",
   keyRemember: "remember",
   keyForgotPassword: "forgotPassword",
   keySigninSubmit: "signinSubmit",
   keySignupAccount: "signupAccount",
-  keySignupButton: "signupButton",
+  keySignupButton: "signup",
   keyimagePath: "assets/images/signin/signin-img.jpg",
 };
 
@@ -25,7 +25,7 @@ const messageForm: MessageForm = {
   keySignin: "userSignin",
 };
 const signinPresenter: SiginPresenter = {
-  keySigninHeader: "signinHeader",
+  keySigninHeader: "signin",
   signinItem: signinItem,
   messageForm: messageForm,
 };

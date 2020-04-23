@@ -14,7 +14,7 @@ const signupItemsInputform: SingupItemsInputform = {
   keyPlaceholderLastNameSignup: "placeholderLastNameSignup",
   keyPlaceholderEmailSignup: "placeholderEmailSignup",
   keyPlaceholderReEnterEmailSignup: "placeholderReEnterEmailSignup",
-  keyPlaceholderPasswordSignup: "placeholderPasswordSignup",
+  keyPlaceholderPasswordSignup: "labelPassword",
   keyPlaceholderConfirmPasswordSignup: "placeholderConfirmPasswordSignup",
   keySubmitSignup: "submitSignup",
   keyHaveAccount: "haveAccount",
@@ -30,10 +30,10 @@ const messageForm: MessageForm = {
   keyPasswordErrorMessage: "passwordErrorMessage",
   keyConfirmPasswordErrorMessage: "conFirmPasswordErrorMessage",
   keyIsSignup: "isSignup",
-  keySignup: "signup",
+  keySignup: "notSignup",
 };
 const signupPresenter: SignupPresenter = {
-  keySignupHeader: "signupHeader",
+  keySignupHeader: "signup",
   signupItemInputform: signupItemsInputform,
   messageForm: messageForm,
 };
