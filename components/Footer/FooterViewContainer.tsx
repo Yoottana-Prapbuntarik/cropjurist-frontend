@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { withTranslation } from '../../i18n';
+import { withTranslation, i18n } from '../../i18n';
 import { subscribe, SubscribeAction } from '../../services/subscribe';
 import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
@@ -35,9 +35,7 @@ const subScribeItem: SubscribeItem = {
 };
 
 const messageForm: MessageForm = {
-	keyEmailErrorMessage: 'emailErrorMessage',
-	keyIsFooterSubscrbe: 'isFooterSubscrbe',
-	keyFooterSubscrbe: 'footerSubscrbe'
+	keyEmailErrorMessage: 'emailErrorMessage'
 };
 
 const footerPresenter: FooterPresenter = {
@@ -50,8 +48,10 @@ const footerPresenter: FooterPresenter = {
 export const footerReducer = (state: FooterPresenter = footerPresenter, action: any) => {
 	switch (action.type) {
 		case SubscribeAction.SendEmail_Success:
+			alert(i18n.t('isFooterSubscrbe'));
 			return state;
 		case SubscribeAction.SendEmail_Failed:
+			alert(i18n.t('footerSubscrbe'));
 			return state;
 		default:
 			return state;
@@ -64,7 +64,6 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 	submitSubscribe: (event: any) => {
-		console.log(event.email);
 		dispatch(subscribe(event.email));
 		dispatch(reset('FooterForm'));
 	}

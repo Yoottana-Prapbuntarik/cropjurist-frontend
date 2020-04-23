@@ -15,8 +15,6 @@ export interface FooterPresenter {
 
 export interface MessageForm {
 	readonly keyEmailErrorMessage: string;
-	readonly keyIsFooterSubscrbe: string;
-	readonly keyFooterSubscrbe: string;
 }
 
 export interface FooterMenu {
