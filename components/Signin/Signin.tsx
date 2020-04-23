@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { sendDataSignin } from "../../SubmitForm/SinginSubmit";
 import { withTranslation } from "../../i18n";
-import { Field } from "redux-form";
+import { Field, reset } from "redux-form";
+import { useDispatch } from "react-redux";
 import EmailTextField from "../../components/FieldComponents/EmailTextField";
 import PasswordTextField from "../../components/FieldComponents/PasswordTextField";
 import ButtonSubmit from "../../components/FieldComponents/ButtonSubmit";
@@ -9,6 +10,7 @@ import CheckBox from "../../components/FieldComponents/CheckBox";
 
 const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
   
+  const dispatch = useDispatch();
   const SubmitSignin = (event) => {
     if (event.checkbox === undefined) {
       event.checkbox = false;
@@ -23,6 +25,7 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
       success: t(signinPresenter.messageForm.keyIsSignin),
       failed: t(signinPresenter.messageForm.keySignin),
     });
+    dispatch(reset('SigninForm'));
   };
 
   return (

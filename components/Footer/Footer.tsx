@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { withTranslation } from "../../i18n";
-import { Field } from "redux-form";
+import { Field, reset } from "redux-form";
+import { useDispatch } from "react-redux";
 import { sendEmail } from "../../SubmitForm/FooterSubmit";
 import EmailTextField from "../FieldComponents/EmailTextField";
 import ButtonSubmit from "../FieldComponents/ButtonSubmit";
@@ -8,12 +9,14 @@ import { MenuItem, SocialItem } from "./FooterViewInterfaces";
 import "./styles.scss";
 
 const Footer = ({ handleSubmit, footerPresenter, t }: any) => {
-
+  
+  const dispatch = useDispatch();
   const SubmitFooterSubscribe = (event) => {
     sendEmail(event.email, {
       success: t(footerPresenter.messageForm.keyIsFooterSubscrbe),
       failed: t(footerPresenter.messageForm.keyFooterSubscrbe),
     });
+    dispatch(reset('FooterForm'));
   };
 
   return (
