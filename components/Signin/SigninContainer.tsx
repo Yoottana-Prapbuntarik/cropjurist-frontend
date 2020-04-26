@@ -36,7 +36,6 @@ const signinPresenter: SiginPresenter = {
 export const signinReducer = (state: SiginPresenter = signinPresenter, action: any) => {
 	switch (action.type) {
 		case SigninAction.Signin_Success:
-			// alert(i18n.t(action.keyMessage));
 			Router.push('/member');
 
 			return state;
