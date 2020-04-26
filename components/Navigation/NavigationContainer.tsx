@@ -4,7 +4,7 @@ import { NavigationItem, NavigationPresenter } from './NavigationInterfaces';
 import { Dispatch } from 'redux';
 import { i18n } from '../../i18n';
 import { reset } from 'redux-form';
-import { FormManager } from '../../manager/FormManager';
+import { FormManager } from '../../manager/formManager';
 
 enum NavigationAction {
 	CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
