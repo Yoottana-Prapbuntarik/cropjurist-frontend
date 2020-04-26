@@ -11,11 +11,11 @@ import Footer from './Footer';
 const footerMenuItems: MenuItem[] = [
 	{ keyTitle: 'features', routePath: '/index' },
 	{ keyTitle: 'incorporation', routePath: '/incorporation' },
-	{ keyTitle: 'signin', routePath: '/' }
+	{ keyTitle: 'signin', routePath: '/signin' },
 ];
 
 const socialtems: SocialItem[] = [
-	{ name: 'la la-facebook', routePath: '/' },
+	{ name: 'la la-facebook', routePath: 'https://www.fb.com/CorpJurist-107918860608547'  },
 	{ name: 'la la-twitter', routePath: '/' },
 	{ name: 'lab la-line', routePath: '/' },
 	{ name: 'la la-envelope', routePath: '/' }
@@ -31,7 +31,8 @@ const subScribeItem: SubscribeItem = {
 	keySubScribeDescription: 'subScribeDescription',
 	keySubDescriptionForSubScribe: 'subDescriptionForSubScribe',
 	keyEmail: 'email',
-	keySubmitButton: 'subscribe'
+	keySubmitButton: 'subscribe',
+	keyPages: "pages"
 };
 
 const messageForm: MessageForm = {

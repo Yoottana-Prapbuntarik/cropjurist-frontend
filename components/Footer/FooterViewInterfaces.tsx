@@ -4,6 +4,7 @@ export interface SubscribeItem {
 	readonly keySubScribeDescription: string;
 	readonly keyEmail: string;
 	readonly keySubmitButton: string;
+	readonly keyPages: string;
 }
 
 export interface FooterPresenter {
