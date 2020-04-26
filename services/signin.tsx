@@ -1,20 +1,31 @@
-import Router from 'next/router';
-import axios from 'axios';
+import service from './baseService';
+import { Dispatch } from 'redux';
 
-export const sendDataSignin = (dataSignin, message) => {
-	axios({
+export enum SigninAction {
+	Signin_Success = 'Signin_Success',
+	Signin_Failed = 'Signin_Failed'
+}
+
+export const signin: any = (dataSignin: any) => async (dispatch: Dispatch) => {
+	service({
 		method: 'post',
-		url: 'http://34.87.56.93/api/v1/user/login/',
-		data: dataSignin,
-		headers: {
-			'content-type': 'application/json'
-		}
+		url: 'user/login/',
+		data: dataSignin
 	})
 		.then((response) => {
-			if (response) alert(message.success);
-			Router.push('/member');
+			if (response) {
+				dispatch({
+					type: SigninAction.Signin_Success,
+					keyMessage: 'isSignin'
+				});
+			}
 		})
 		.catch((error) => {
-			if (error) alert(message.failed);
+			if (error) {
+				dispatch({
+					type: SigninAction.Signin_Failed,
+					keyMessage: 'userSignin'
+				});
+			}
 		});
 };

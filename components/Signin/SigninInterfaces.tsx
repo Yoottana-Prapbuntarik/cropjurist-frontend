@@ -1,25 +1,22 @@
-export interface SigninItem  {
-  readonly keySigninLabelUsername: string;
-  readonly keySigninPlaceholderUsername: string;
-  readonly keySigninLabelPassword: string;
-  readonly keySigninPlaceholderPassword: string;
-  readonly keyRemember: string;
-  readonly keyForgotPassword: string;
-  readonly keySigninSubmit: string;
-  readonly keySignupAccount: string;
-  readonly keySignupButton: string;
-  readonly keyimagePath: string;
+export interface SigninItem {
+	readonly keySigninLabelUsername: string;
+	readonly keySigninPlaceholderUsername: string;
+	readonly keySigninLabelPassword: string;
+	readonly keySigninPlaceholderPassword: string;
+	readonly keyRemember: string;
+	readonly keyForgotPassword: string;
+	readonly keySigninSubmit: string;
+	readonly keySignupAccount: string;
+	readonly keySignupButton: string;
+	readonly keyimagePath: string;
 }
 export interface MessageForm {
-  readonly keyEmailErrorMessage: string;
-  readonly keyPasswordErrorMessage: string;
-  readonly keyIsSignin: string;
-  readonly keySignin: string;
+	readonly keyEmailErrorMessage: string;
+	readonly keyPasswordErrorMessage: string;
 }
 
 export interface SiginPresenter {
-  readonly keySigninHeader: string;
-  readonly signinItem: SigninItem;
-  readonly messageForm: MessageForm,
+	readonly keySigninHeader: string;
+	readonly signinItem: SigninItem;
+	readonly messageForm: MessageForm;
 }
-
