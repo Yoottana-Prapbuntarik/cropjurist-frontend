@@ -1,32 +1,12 @@
 import Link from 'next/link';
-import { sendDataSignin } from '../../services/signin';
 import { withTranslation } from '../../i18n';
-import { Field, reset } from 'redux-form';
-import { useDispatch } from 'react-redux';
+import { Field } from 'redux-form';
 import EmailTextField from '../../components/FieldComponents/EmailTextField';
 import PasswordTextField from '../../components/FieldComponents/PasswordTextField';
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
 import CheckBox from '../../components/FieldComponents/CheckBox';
 
-const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
-	const dispatch = useDispatch();
-	const SubmitSignin = (event) => {
-		if (event.checkbox === undefined) {
-			event.checkbox = false;
-		}
-		let dataSingin = {
-			email: event.email,
-			password: event.password,
-			is_remember: event.checkbox
-		};
-
-		sendDataSignin(dataSingin, {
-			success: t(signinPresenter.messageForm.keyIsSignin),
-			failed: t(signinPresenter.messageForm.keySignin)
-		});
-		dispatch(reset('SigninForm'));
-	};
-
+const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
 	return (
 		<div className="container">
 			<div className="row justify-content-center">
@@ -39,7 +19,7 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
 				</div>
 				<div className="col-lg-6 col-8">
 					<h2 className="text-center mb-3">{t(signinPresenter.keySigninHeader)}</h2>
-					<form onSubmit={handleSubmit(SubmitSignin)}>
+					<form onSubmit={handleSubmit(submitSignin)}>
 						<div className="messages" />
 						<div className="form-group">
 							<label>{t(signinPresenter.signinItem.keySigninLabelUsername)}</label>

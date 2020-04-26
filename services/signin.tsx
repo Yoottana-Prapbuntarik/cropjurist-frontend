@@ -1,17 +1,33 @@
-import Router from 'next/router';
+// import Router from 'next/router';
 import service from './baseService';
+import { Dispatch } from 'redux';
 
-export const sendDataSignin = (dataSignin: any, message: any) => {
+export enum SigninAction {
+	Signin_Success = 'Signin_Success',
+	Signin_Failed = 'Signin_Failed'
+}
+
+export const signin: any = (dataSignin: any) => async (dispatch: Dispatch) => {
 	service({
 		method: 'post',
 		url: 'user/login/',
 		data: dataSignin
 	})
 		.then((response) => {
-			if (response) alert(message.success);
-			Router.push('/member');
+			if (response) {
+				dispatch({
+					type: SigninAction.Signin_Success,
+					keyMessage: 'isSignin'
+				});
+			}
+			// Router.push('/member');
 		})
 		.catch((error) => {
-			if (error) alert(message.failed);
+			if (error) {
+				dispatch({
+					type: SigninAction.Signin_Failed,
+					keyMessage: 'userSignin'
+				});
+			}
 		});
 };
