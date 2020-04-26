@@ -1,14 +1,11 @@
 import Router from 'next/router';
-import axios from 'axios';
+import service from './baseService';
 
 export const sendDataSignup = (dataSignup, message) => {
-	axios({
+	service({
 		method: 'post',
-		url: 'http://34.87.56.93/api/v1/user/register/',
-		data: dataSignup,
-		headers: {
-			'content-type': 'application/json'
-		}
+		url: 'user/register/',
+		data: dataSignup
 	})
 		.then((response) => {
 			if (response) alert(message.success);
