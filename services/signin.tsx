@@ -1,14 +1,11 @@
 import Router from 'next/router';
-import axios from 'axios';
+import service from './baseService';
 
-export const sendDataSignin = (dataSignin, message) => {
-	axios({
+export const sendDataSignin = (dataSignin: any, message: any) => {
+	service({
 		method: 'post',
-		url: 'http://34.87.56.93/api/v1/user/login/',
-		data: dataSignin,
-		headers: {
-			'content-type': 'application/json'
-		}
+		url: 'user/login/',
+		data: dataSignin
 	})
 		.then((response) => {
 			if (response) alert(message.success);
