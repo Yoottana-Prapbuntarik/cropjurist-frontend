@@ -3,6 +3,8 @@ import Navigation from './Navigation';
 import { NavigationItem, NavigationPresenter } from './NavigationInterfaces';
 import { Dispatch } from 'redux';
 import { i18n } from '../../i18n';
+import { reset } from 'redux-form';
+import { FormManager } from '../../manager/FormManager';
 
 enum NavigationAction {
 	CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
@@ -38,7 +40,13 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-	changeLanguage: () => dispatch(changeLanguageAction())
+	changeLanguage: () => {
+		dispatch(changeLanguageAction());
+
+		const forms = [ FormManager.FooterForm, FormManager.SigninForm, FormManager.SignupForm ];
+
+		forms.forEach((element) => dispatch(reset(element)));
+	}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

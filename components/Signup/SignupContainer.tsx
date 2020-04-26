@@ -3,6 +3,8 @@ import { reduxForm } from 'redux-form';
 import { SignupPresenter, SingupItemsInputform, MessageForm } from '../Signup/SignupInterface';
 import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
+import { FormManager } from '../../manager/FormManager';
+
 import validate from '../../Validated/SignupValidator/SignupValidator';
 
 const signupItemsInputform: SingupItemsInputform = {
@@ -43,4 +45,6 @@ const mapStateToProps = (state: any) => ({
 	signupPresenter: state.signupReducer
 });
 
-export default withTranslation('common')(connect(mapStateToProps)(reduxForm({ form: 'SignupForm', validate })(Signup)));
+export default withTranslation('common')(
+	connect(mapStateToProps)(reduxForm({ form: FormManager.SignupForm, validate })(Signup))
+);

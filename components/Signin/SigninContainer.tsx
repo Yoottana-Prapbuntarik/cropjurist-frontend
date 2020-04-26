@@ -4,6 +4,7 @@ import { withTranslation, i18n } from '../../i18n';
 import { SiginPresenter, SigninItem, MessageForm } from './SigninInterfaces';
 import { signin, SigninAction } from '../../services/signin';
 import { Dispatch } from 'redux';
+import { FormManager } from '../../manager/FormManager';
 
 import validate from '../../Validated/SigninValidator/SigninValidator';
 import Signin from './Signin';
@@ -60,10 +61,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 		};
 
 		dispatch(signin(dataSingin));
-		dispatch(reset('SigninForm'));
+		dispatch(reset(FormManager.SigninForm));
 	}
 });
 
-const form = reduxForm({ form: 'SigninForm', validate })(Signin);
+const form = reduxForm({ form: FormManager.SigninForm, validate })(Signin);
 
 export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form));

@@ -4,6 +4,7 @@ import { subscribe, SubscribeAction } from '../../services/subscribe';
 import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';
+import { FormManager } from '../../manager/FormManager';
 
 import validate from '../../Validated/FooterValidator/FooterValidator';
 import Footer from './Footer';
@@ -11,11 +12,11 @@ import Footer from './Footer';
 const footerMenuItems: MenuItem[] = [
 	{ keyTitle: 'features', routePath: '/index' },
 	{ keyTitle: 'incorporation', routePath: '/incorporation' },
-	{ keyTitle: 'signin', routePath: '/signin' },
+	{ keyTitle: 'signin', routePath: '/signin' }
 ];
 
 const socialtems: SocialItem[] = [
-	{ name: 'la la-facebook', routePath: 'https://www.fb.com/CorpJurist-107918860608547'  },
+	{ name: 'la la-facebook', routePath: 'https://www.fb.com/CorpJurist-107918860608547' },
 	{ name: 'la la-twitter', routePath: '/' },
 	{ name: 'lab la-line', routePath: '/' },
 	{ name: 'la la-envelope', routePath: '/' }
@@ -32,7 +33,7 @@ const subScribeItem: SubscribeItem = {
 	keySubDescriptionForSubScribe: 'subDescriptionForSubScribe',
 	keyEmail: 'email',
 	keySubmitButton: 'subscribe',
-	keyPages: "pages"
+	keyPages: 'pages'
 };
 
 const messageForm: MessageForm = {
@@ -66,10 +67,10 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 	submitSubscribe: (event: any) => {
 		dispatch(subscribe(event.email));
-		dispatch(reset('FooterForm'));
+		dispatch(reset(FormManager.FooterForm));
 	}
 });
 
-const form = reduxForm({ form: 'FooterForm', validate })(Footer);
+const form = reduxForm({ form: FormManager.FooterForm, validate })(Footer);
 
 export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form));
