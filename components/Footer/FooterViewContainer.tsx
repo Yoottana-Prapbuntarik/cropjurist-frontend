@@ -48,10 +48,10 @@ const footerPresenter: FooterPresenter = {
 export const footerReducer = (state: FooterPresenter = footerPresenter, action: any) => {
 	switch (action.type) {
 		case SubscribeAction.SendEmail_Success:
-			alert(i18n.t('isFooterSubscrbe'));
+			alert(i18n.t(action.keyMessage));
 			return state;
 		case SubscribeAction.SendEmail_Failed:
-			alert(i18n.t('footerSubscrbe'));
+			alert(i18n.t(action.keyMessage));
 			return state;
 		default:
 			return state;

@@ -5,8 +5,14 @@ export enum SubscribeAction {
 
 export const subscribe: any = (email: any) => {
 	if (email) {
-		return { type: SubscribeAction.SendEmail_Success };
+		return {
+			type: SubscribeAction.SendEmail_Success,
+			keyMessage: 'isFooterSubscrbe'
+		};
 	} else {
-		return { type: SubscribeAction.SendEmail_Failed };
+		return {
+			type: SubscribeAction.SendEmail_Failed,
+			keyMessage: 'footerSubscrbe'
+		};
 	}
 };
