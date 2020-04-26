@@ -15,7 +15,7 @@ const PasswordTextField = ({
         className="form-control"
         required=""
       />
-      <p className={styleTextError}>{touched && error && <span>{error}</span>}</p>
+      <p className={`${styleTextError} text-left`}>{touched && error && <span>{error}</span>}</p>
     </div>
   );
 };

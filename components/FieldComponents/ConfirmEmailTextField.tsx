@@ -15,7 +15,7 @@ const EmailTextField = ({
         className="email form-control email-subscribe-height"
         required=""
       />
-      <p className={styleTextError}>{touched && error && <span>{error}</span>}</p>
+      <p className={`${styleTextError} text-left`}>{touched && error && <span>{error}</span>}</p>
     </div>
   );
 };
