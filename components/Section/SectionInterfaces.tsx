@@ -3,4 +3,5 @@ export default interface SectionPresenter {
 	readonly keyDescription: string;
 	readonly keyButtonTitle: string;
 	readonly imagePath: string;
+	readonly routePath: string;	
 };

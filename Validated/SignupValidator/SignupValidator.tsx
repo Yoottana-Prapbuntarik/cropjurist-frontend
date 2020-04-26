@@ -4,10 +4,10 @@ import { ErrorField, regexExpression } from '../InterfaceValidator';
 const validate = (dataSignup, { signupPresenter, t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
-	if (!regexExpression.regexText.test(dataSignup.firstname) || !dataSignup.firstname) {
+	if (!regexExpression.regexText.test(dataSignup.firstName) || !dataSignup.firstName) {
 		errors.firstName = t(signupPresenter.messageForm.keyFirstnameErrorMessage);
 	}
-	if (!regexExpression.regexText.test(dataSignup.lastname) || !dataSignup.lastname) {
+	if (!regexExpression.regexText.test(dataSignup.lastName) || !dataSignup.lastName) {
 		errors.lastName = t(signupPresenter.messageForm.keyLastnameErrorMessage);
 	}
 	if (!regexExpression.regexEmail.test(dataSignup.email) || !dataSignup.email) {
