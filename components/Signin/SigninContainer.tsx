@@ -7,6 +7,7 @@ import { Dispatch } from 'redux';
 
 import validate from '../../Validated/SigninValidator/SigninValidator';
 import Signin from './Signin';
+import Router from 'next/router';
 
 const signinItem: SigninItem = {
 	keySigninLabelUsername: 'labelUsername',
@@ -36,6 +37,8 @@ export const signinReducer = (state: SiginPresenter = signinPresenter, action: a
 	switch (action.type) {
 		case SigninAction.Signin_Success:
 			alert(i18n.t(action.keyMessage));
+			Router.push('/member');
+
 			return state;
 		case SigninAction.Signin_Failed:
 			alert(i18n.t(action.keyMessage));

@@ -1,4 +1,3 @@
-// import Router from 'next/router';
 import service from './baseService';
 import { Dispatch } from 'redux';
 
@@ -20,7 +19,6 @@ export const signin: any = (dataSignin: any) => async (dispatch: Dispatch) => {
 					keyMessage: 'isSignin'
 				});
 			}
-			// Router.push('/member');
 		})
 		.catch((error) => {
 			if (error) {
