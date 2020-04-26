@@ -48,7 +48,7 @@ const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
 									<div className="form-group">
 										<Field
 											type="text"
-											name="firstname"
+											name="firstName"
 											component={FirstNameTextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderFirstNameSignup)}
 											styleTextError="text-danger"
@@ -61,7 +61,7 @@ const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
 									<div className="form-group">
 										<Field
 											type="text"
-											name="lastname"
+											name="lastName"
 											component={LastNameTextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderLastNameSignup)}
 											styleTextError="text-danger"
