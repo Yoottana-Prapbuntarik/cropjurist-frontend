@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import service from './baseService';
 
-export const sendDataSignup = (dataSignup, message) => {
+export const sendDataSignup = (dataSignup: any, message: any) => {
 	service({
 		method: 'post',
 		url: 'user/register/',

@@ -14,8 +14,6 @@ const Signin = ({ handleSubmit, signinPresenter, t }: any) => {
 		if (event.checkbox === undefined) {
 			event.checkbox = false;
 		}
-
-		alert('hame');
 		let dataSingin = {
 			email: event.email,
 			password: event.password,
