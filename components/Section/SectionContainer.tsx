@@ -6,7 +6,8 @@ const sectionPresenter: SectionPresenter = {
 	keyTitle: 'sectionTitle',
 	keyDescription: 'description',
 	keyButtonTitle: 'joinus',
-	imagePath: 'assets/images/landing/smartphone.png'
+	imagePath: 'assets/images/landing/smartphone.png',
+	routePath: '/signin'
 };
 
 export const sectionReducer = (state: SectionPresenter = sectionPresenter) => {

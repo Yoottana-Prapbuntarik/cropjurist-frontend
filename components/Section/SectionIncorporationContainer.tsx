@@ -6,7 +6,9 @@ const sectionPresenter: SectionPresenter = {
 	keyTitle: 'headerIncorporation',
 	keyDescription: 'incorporationDescription',
 	keyButtonTitle: 'letStart',
-	imagePath: 'assets/images/incorporation/incorporation.png'
+	imagePath: 'assets/images/incorporation/incorporation.png',
+	routePath: '/signin'
+
 };
 
 export const sectionIncorporationReducer = (state: SectionPresenter = sectionPresenter) => {
