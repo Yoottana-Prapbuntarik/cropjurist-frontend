@@ -49,7 +49,7 @@
 	"lastNameErrorMessage": "กรุณานามสกุล",
 	"emailErrorMessage": "รูปแบบอีเมลล์ไม่ถูกต้อง",
 	"conFirmEmailErrorMessage": "กรอกอีกเมลล์ไม่ตรงกัน",
-	"passwordErrorMessage": "รหัสผ่านไม่ถูกต้อง",
+	"passwordErrorMessage": "รหัสผ่านไม่ถูกต้อง (รหัสผ่านต้องมากกว่า 4 ตัวอักษร)",
 	"conFirmPasswordErrorMessage": "กรอกรหัสผ่านไม่ตรงกัน",
 	"isSignup": "สมัครสมาชิกสำเร็จ !",
 	"notSignup": "สมัครสมาชิกไม่สำเร็จ !",

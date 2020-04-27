@@ -49,7 +49,7 @@
 	"lastNameErrorMessage": "Please enter last name",
 	"emailErrorMessage": "Invalid Email",
 	"conFirmEmailErrorMessage": "You have incorrectly confirmed the email",
-	"passwordErrorMessage": "Your password is incorrect",
+	"passwordErrorMessage": "Your password is incorrect (password must more than 4 characters)",
 	"conFirmPasswordErrorMessage": "You have confirmed the password is incorrect",
 	"isSignup": "Registration Succesfully !",
 	"notSignup": "Registration failed !",
