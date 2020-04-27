@@ -1,5 +1,6 @@
 import service from './baseAPIs';
 import { Dispatch } from 'redux';
+import { KeyManager } from '../manager/keyManager';
 
 export enum SigninAction {
 	Signin_Success = 'Signin_Success',
@@ -15,8 +16,7 @@ export const signin: any = (email: string, password: string, isRemember?: boolea
 		.then((response) => {
 			if (response) {
 				dispatch({
-					type: SigninAction.Signin_Success,
-					keyMessage: 'isSignin'
+					type: SigninAction.Signin_Success
 				});
 			}
 		})
@@ -24,7 +24,7 @@ export const signin: any = (email: string, password: string, isRemember?: boolea
 			if (error) {
 				dispatch({
 					type: SigninAction.Signin_Failed,
-					keyMessage: 'userSignin'
+					keyMessage: error.data[KeyManager.KeyMessage]
 				});
 			}
 		});

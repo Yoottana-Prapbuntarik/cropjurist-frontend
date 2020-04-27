@@ -42,6 +42,7 @@ export const signinReducer = (state: SiginPresenter = signinPresenter, action: a
 			return state;
 		case SigninAction.Signin_Failed:
 			alert(i18n.t(action.keyMessage));
+
 			return state;
 		default:
 			return state;
