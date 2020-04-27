@@ -1,5 +1,5 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField, regexExpression } from '../InterfaceValidator';
+import { ErrorField, regexExpression } from '../interfaceValidator';
 
 const validate = (dataSignup, { signupPresenter, t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};

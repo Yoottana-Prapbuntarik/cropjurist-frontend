@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
 
-import validate from '../../Validator/SignupValidator/SignupValidator';
+import validate from '../../validator/SignupValidator/SignupValidator';
 
 const signupItemsInputform: SingupItemsInputform = {
 	keyPlaceholderFirstNameSignup: 'placeholderFirstNameSignup',

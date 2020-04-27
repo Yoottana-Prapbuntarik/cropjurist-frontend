@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { withTranslation, i18n } from '../../i18n';
-import { subscribe, SubscribeAction } from '../../apis/subscribe';
+import { subscribe, SubscribeAction } from '../../apis/subscribeAPIClient';
 import { reduxForm, reset } from 'redux-form';
-import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
+import { SubscribeItem, FooterMenu, MenuItem, SocialItem, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 
-import validate from '../../Validator/FooterValidator/FooterValidator';
+import validate from '../../validator/subscribeValidator/subscribeValidator';
 import Footer from './Footer';
 
 const footerMenuItems: MenuItem[] = [
@@ -36,15 +36,10 @@ const subScribeItem: SubscribeItem = {
 	keyPages: 'pages'
 };
 
-const messageForm: MessageForm = {
-	keyEmailErrorMessage: 'emailErrorMessage'
-};
-
 const footerPresenter: FooterPresenter = {
 	subscribeItem: subScribeItem,
 	menu: footerMenu,
-	socialItems: socialtems,
-	messageForm: messageForm
+	socialItems: socialtems
 };
 
 export const footerReducer = (state: FooterPresenter = footerPresenter, action: any) => {

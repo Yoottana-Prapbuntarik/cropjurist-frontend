@@ -1,27 +1,24 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField, regexExpression } from '../InterfaceValidator';
-import { KeyManager } from '../../manager/keyManager';
+import { ErrorField } from '../interfaceValidator';
+import { emailValidator } from '../emailValidator/emailValidator';
+import { passwordValidator } from '../passwordValidator/passwordValidator';
 
 const validate = (signinInformation: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
-	if (isEmail(signinInformation.email)) {
-		errors.email = t(KeyManager.EmailInvalid);
+	let emailValidatorResult = emailValidator(signinInformation.email);
+
+	if (!emailValidatorResult.status) {
+		errors.email = t(emailValidatorResult.keyMessage);
 	}
 
-	if (isPassword(signinInformation.password)) {
-		errors.password = t(KeyManager.PasswordInvalid);
+	let passwordValidatorResult = passwordValidator(signinInformation.password);
+
+	if (!passwordValidatorResult.status) {
+		errors.password = t(passwordValidatorResult.keyMessage);
 	}
 
 	return errors;
-};
-
-const isEmail = (email: string) => {
-	return !regexExpression.regexEmail.test(email) || !email;
-};
-
-const isPassword = (password: string) => {
-	return !regexExpression.regexPassword.test(password) || !password;
 };
 
 export default validate;
