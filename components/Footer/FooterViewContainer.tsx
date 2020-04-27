@@ -4,7 +4,7 @@ import { subscribe, SubscribeAction } from '../../services/subscribe';
 import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';
-import { FormManager } from '../../manager/FormManager';
+import { FormManager } from '../../manager/formManager';
 
 import validate from '../../Validated/FooterValidator/FooterValidator';
 import Footer from './Footer';

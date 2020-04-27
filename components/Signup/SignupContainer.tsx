@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { SignupPresenter, SingupItemsInputform, MessageForm } from '../Signup/SignupInterface';
 import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
-import { FormManager } from '../../manager/FormManager';
+import { FormManager } from '../../manager/formManager';
 
 import validate from '../../Validated/SignupValidator/SignupValidator';
 

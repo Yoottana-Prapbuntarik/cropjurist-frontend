@@ -4,7 +4,7 @@ import { withTranslation, i18n } from '../../i18n';
 import { SiginPresenter, SigninItem, MessageForm } from './SigninInterfaces';
 import { signin, SigninAction } from '../../services/signin';
 import { Dispatch } from 'redux';
-import { FormManager } from '../../manager/FormManager';
+import { FormManager } from '../../manager/formManager';
 
 import validate from '../../Validated/SigninValidator/SigninValidator';
 import Signin from './Signin';
