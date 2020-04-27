@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withTranslation, i18n } from '../../i18n';
-import { subscribe, SubscribeAction } from '../../services/subscribe';
+import { subscribe, SubscribeAction } from '../../apis/subscribe';
 import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';

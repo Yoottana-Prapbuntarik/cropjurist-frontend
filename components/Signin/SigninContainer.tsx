@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { reduxForm, reset } from 'redux-form';
 import { withTranslation, i18n } from '../../i18n';
 import { SiginPresenter, SigninItem, MessageForm } from './SigninInterfaces';
-import { signin, SigninAction } from '../../services/signin';
+import { signin, SigninAction } from '../../apis/signinAPIClient';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 
@@ -54,13 +54,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 	submitSignin: (event: any) => {
-		let dataSingin: any = {
-			email: event.email,
-			password: event.password,
-			is_remember: event.checkbox
-		};
-
-		dispatch(signin(dataSingin));
+		dispatch(signin(event.email, event.password, event.checkbox));
 		dispatch(reset(FormManager.SigninForm));
 	}
 });

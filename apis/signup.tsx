@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import service from './baseService';
+import service from './baseAPIs';
 
 export const sendDataSignup = (dataSignup: any, message: any) => {
 	service({

@@ -1,4 +1,4 @@
-import service from './baseService';
+import service from './baseAPIs';
 import { Dispatch } from 'redux';
 
 export enum SigninAction {
@@ -6,11 +6,11 @@ export enum SigninAction {
 	Signin_Failed = 'Signin_Failed'
 }
 
-export const signin: any = (dataSignin: any) => async (dispatch: Dispatch) => {
+export const signin: any = (email: string, password: string, isRemember?: boolean) => async (dispatch: Dispatch) => {
 	service({
 		method: 'post',
 		url: 'user/login/',
-		data: dataSignin
+		data: params(email, password, isRemember)
 	})
 		.then((response) => {
 			if (response) {
@@ -28,4 +28,19 @@ export const signin: any = (dataSignin: any) => async (dispatch: Dispatch) => {
 				});
 			}
 		});
+};
+
+const params = (email: string, password: string, isRemember?: boolean) => {
+	if (isRemember == undefined) {
+		return {
+			email: email,
+			password: password
+		};
+	}
+
+	return {
+		email: email,
+		password: password,
+		is_remember: isRemember
+	};
 };

@@ -1,4 +1,4 @@
-import { sendDataSignup } from '../../services/signup';
+import { sendDataSignup } from '../../apis/signup';
 import Link from 'next/link';
 import { Field, reset } from 'redux-form';
 import { withTranslation } from '../../i18n';
