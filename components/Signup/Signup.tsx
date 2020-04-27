@@ -1,6 +1,5 @@
-import { sendDataSignup } from '../../apis/signup';
 import Link from 'next/link';
-import { Field, reset } from 'redux-form';
+import { Field } from 'redux-form';
 import { withTranslation } from '../../i18n';
 import FirstNameTextField from '../../components/FieldComponents/FirstNameTextField';
 import LastNameTextField from '../../components/FieldComponents/LastNameTextField';
@@ -9,25 +8,8 @@ import ConfirmEmailTextField from '../../components/FieldComponents/ConfirmEmail
 import PasswordTextField from '../../components/FieldComponents/PasswordTextField';
 import ConfirmPasswordTextField from '../../components/FieldComponents/ConfirmPasswordTextField';
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
-import { useDispatch } from 'react-redux';
 
-const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
-	const dispatch = useDispatch();
-	const SubmitSignup = (event) => {
-		let dataSignup = {
-			first_name: event.firstname,
-			last_name: event.lastname,
-			email: event.email,
-			password: event.password
-		};
-
-		sendDataSignup(dataSignup, {
-			success: t(signupPresenter.messageForm.keyIsSignup),
-			failed: t(signupPresenter.messageForm.keySignup)
-		});
-		dispatch(reset('SignupForm'));
-	};
-
+const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 	return (
 		<div className="container">
 			<div className="row">
@@ -41,7 +23,7 @@ const Signup = ({ handleSubmit, signupPresenter, t }: any) => {
 				<div className="col-lg-6 col-md-10 ml-auto mr-auto">
 					<h2 className="mt-3 mb-3 text-center">{t(signupPresenter.keySignupHeader)}</h2>
 					<div className="register-form text-center">
-						<form onSubmit={handleSubmit(SubmitSignup)}>
+						<form onSubmit={handleSubmit(submitSignup)}>
 							<div className="messages" />
 							<div className="row">
 								<div className="col-md-6">

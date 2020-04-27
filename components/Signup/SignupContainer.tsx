@@ -1,11 +1,13 @@
-import Signup from '../Signup/Signup';
-import { reduxForm } from 'redux-form';
-import { SignupPresenter, SingupItemsInputform, MessageForm } from '../Signup/SignupInterface';
+import { reduxForm, reset } from 'redux-form';
+import { SignupPresenter, SingupItemsInputform } from '../Signup/SignupInterface';
 import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
+import { signup } from '../../apis/signupAPIClient';
+import { Dispatch } from 'redux';
 
-import validate from '../../validator/SignupValidator/SignupValidator';
+import Signup from '../Signup/Signup';
+import validate from '../../validator/signupValidator/signupValidator';
 
 const signupItemsInputform: SingupItemsInputform = {
 	keyPlaceholderFirstNameSignup: 'placeholderFirstNameSignup',
@@ -20,21 +22,9 @@ const signupItemsInputform: SingupItemsInputform = {
 	keyimagePath: 'assets/images/signup/signup-img.jpg'
 };
 
-const messageForm: MessageForm = {
-	keyFirstnameErrorMessage: 'firstNameErrorMessage',
-	keyLastnameErrorMessage: 'lastNameErrorMessage',
-	keyEmailErrorMessage: 'emailErrorMessage',
-	keyConfirmEmailErrorMessage: 'conFirmEmailErrorMessage',
-	keyPasswordErrorMessage: 'passwordErrorMessage',
-	keyConfirmPasswordErrorMessage: 'conFirmPasswordErrorMessage',
-	keyIsSignup: 'isSignup',
-	keySignup: 'notSignup'
-};
-
 const signupPresenter: SignupPresenter = {
 	keySignupHeader: 'signup',
-	signupItemInputform: signupItemsInputform,
-	messageForm: messageForm
+	signupItemInputform: signupItemsInputform
 };
 
 export const signupReducer = (state: SignupPresenter = signupPresenter) => {
@@ -45,6 +35,13 @@ const mapStateToProps = (state: any) => ({
 	signupPresenter: state.signupReducer
 });
 
-export default withTranslation('common')(
-	connect(mapStateToProps)(reduxForm({ form: FormManager.SignupForm, validate })(Signup))
-);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+	submitSignup: (event: any) => {
+		dispatch(signup(event.firstname, event.lastname, event.email, event.password));
+		dispatch(reset(FormManager.SignupForm));
+	}
+});
+
+const form = reduxForm({ form: FormManager.SignupForm, validate })(Signup);
+
+export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form));

@@ -1,29 +1,49 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField, regexExpression } from '../interfaceValidator';
+import { ErrorField } from '../interfaceValidator';
+import { plainTextValidator, Field } from '../plainTextValidator/plainTextValidator';
+import { emailValidator, emailMatchingValidator } from '../emailValidator/emailValidator';
+import { passwordValidator, passwordMatchingValidator } from '../passwordValidator/passwordValidator';
 
-const validate = (dataSignup, { signupPresenter, t }: any): FormErrors => {
+const validate = (signupInformation: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
-	if (!regexExpression.regexText.test(dataSignup.firstName) || !dataSignup.firstName) {
-		errors.firstName = t(signupPresenter.messageForm.keyFirstnameErrorMessage);
-	}
-	if (!regexExpression.regexText.test(dataSignup.lastName) || !dataSignup.lastName) {
-		errors.lastName = t(signupPresenter.messageForm.keyLastnameErrorMessage);
-	}
-	if (!regexExpression.regexEmail.test(dataSignup.email) || !dataSignup.email) {
-		errors.email = t(signupPresenter.messageForm.keyEmailErrorMessage);
+	let firstNameValidatorResult = plainTextValidator(signupInformation.firstName, Field.FirstName);
+	console.log(firstNameValidatorResult.status);
+	if (!firstNameValidatorResult.status) {
+		errors.firstName = t(firstNameValidatorResult.keyMessage);
 	}
 
-	if (dataSignup.confirmEmail !== dataSignup.email) {
-		errors.confirmEmail = t(signupPresenter.messageForm.keyConfirmEmailErrorMessage);
+	let lastNameValidatorResult = plainTextValidator(signupInformation.lastName, Field.LastName);
+
+	if (!lastNameValidatorResult.status) {
+		errors.lastName = t(lastNameValidatorResult.keyMessage);
 	}
 
-	if (!regexExpression.regexPassword.test(dataSignup.password) || !dataSignup.password) {
-		errors.password = t(signupPresenter.messageForm.keyPasswordErrorMessage);
+	let emailValidatorResult = emailValidator(signupInformation.email);
+
+	if (!emailValidatorResult.status) {
+		errors.email = t(emailValidatorResult.keyMessage);
 	}
 
-	if (dataSignup.confirmPassword !== dataSignup.password) {
-		errors.confirmPassword = t(signupPresenter.messageForm.keyConfirmPasswordErrorMessage);
+	let emailMatchingValidatorResult = emailMatchingValidator(signupInformation.email, signupInformation.confirmEmail);
+
+	if (!emailMatchingValidatorResult.status) {
+		errors.confirmEmail = t(emailMatchingValidatorResult.keyMessage);
+	}
+
+	let passwordValidatorResult = passwordValidator(signupInformation.password);
+
+	if (!passwordValidatorResult.status) {
+		errors.password = t(passwordValidatorResult.keyMessage);
+	}
+
+	let passwordMatchingValidatorResult = passwordMatchingValidator(
+		signupInformation.password,
+		signupInformation.confirmPassword
+	);
+
+	if (!passwordMatchingValidatorResult.status) {
+		errors.confirmPassword = t(passwordMatchingValidatorResult.keyMessage);
 	}
 
 	return errors;
