@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { reduxForm, reset } from 'redux-form';
 import { withTranslation, i18n } from '../../i18n';
-import { SiginPresenter, SigninItem, MessageForm } from './SigninInterfaces';
+import { SiginPresenter, SigninItem } from './SigninInterfaces';
 import { signin, SigninAction } from '../../apis/signinAPIClient';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
+import { routeToMemberPage } from '../../manager/routerManager';
 
-import validate from '../../Validated/SigninValidator/SigninValidator';
+import validate from '../../Validator/SigninValidator/SigninValidator';
 import Signin from './Signin';
 import Router from 'next/router';
 
@@ -23,21 +24,15 @@ const signinItem: SigninItem = {
 	keyimagePath: 'assets/images/signin/signin-img.jpg'
 };
 
-const messageForm: MessageForm = {
-	keyEmailErrorMessage: 'emailErrorMessage',
-	keyPasswordErrorMessage: 'passwordErrorMessage'
-};
-
 const signinPresenter: SiginPresenter = {
 	keySigninHeader: 'signin',
-	signinItem: signinItem,
-	messageForm: messageForm
+	signinItem: signinItem
 };
 
 export const signinReducer = (state: SiginPresenter = signinPresenter, action: any) => {
 	switch (action.type) {
 		case SigninAction.Signin_Success:
-			Router.push('/member');
+			Router.push(routeToMemberPage);
 
 			return state;
 		case SigninAction.Signin_Failed:

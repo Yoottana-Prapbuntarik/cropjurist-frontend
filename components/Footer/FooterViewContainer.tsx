@@ -6,7 +6,7 @@ import { SubscribeItem, FooterMenu, MenuItem, SocialItem, MessageForm, FooterPre
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 
-import validate from '../../Validated/FooterValidator/FooterValidator';
+import validate from '../../Validator/FooterValidator/FooterValidator';
 import Footer from './Footer';
 
 const footerMenuItems: MenuItem[] = [

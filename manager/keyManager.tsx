@@ -1,3 +1,5 @@
 export enum KeyManager {
-	KeyMessage = 'key_message'
+	Message = 'key_message',
+	EmailInvalid = 'emailErrorMessage',
+	PasswordInvalid = 'passwordErrorMessage'
 }
