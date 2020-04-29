@@ -5,7 +5,6 @@ import { withTranslation } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
 import { signup } from '../../apis/signupAPIClient';
 import { Dispatch } from 'redux';
-
 import Signup from '../Signup/Signup';
 import validate from '../../validator/SignupValidator/SignupValidator';
 
