@@ -50,7 +50,7 @@ const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
 										{t(signinPresenter.signinItem.keyRemember)}
 									</label>
 								</div>
-								<a href="#">{t(signinPresenter.signinItem.keyForgotPassword)}</a>
+								<Link href="/forgotpassword">{t(signinPresenter.signinItem.keyForgotPassword)}</Link>
 							</div>
 						</div>{' '}
 						<Field
