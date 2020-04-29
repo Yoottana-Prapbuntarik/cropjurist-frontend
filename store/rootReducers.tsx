@@ -7,6 +7,7 @@ import { sectionIncorporationReducer } from "../components/Section/SectionIncorp
 import { servicesReducer } from "../components/Services/ServicesContainer";
 import { signinReducer } from "../components/Signin/SigninContainer";
 import { signupReducer } from "../components/Signup/SignupContainer";
+import { ForgotPasswordReducer  } from '../components/ForgotPassword/ForgotPasswordContainer';
 import { reducer as reduxFormReducer } from 'redux-form';
 
 
@@ -19,6 +20,7 @@ const rootReducers = combineReducers({
   servicesReducer: servicesReducer,
   signinReducer: signinReducer,
   signupReducer: signupReducer,
+  ForgotPasswordReducer: ForgotPasswordReducer,
   form: reduxFormReducer
 });
 
