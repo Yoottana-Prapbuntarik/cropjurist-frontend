@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { withTranslation } from '../../i18n';
 import { Field } from 'redux-form';
-// import EmailTextField from '../FieldComponents/EmailTextField';
 import TextField from '../FieldComponents/TextField';
 import ButtonSubmit from '../FieldComponents/ButtonSubmit';
 import { MenuItem, SocialItem } from './FooterViewInterfaces';
