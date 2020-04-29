@@ -2,7 +2,7 @@ import { FormErrors } from 'redux-form';
 import { ErrorField } from '../interfaceValidator';
 import { emailValidator } from '../emailValidator/emailValidator';
 
-const validate = (subscribeInformation, { t }: any): FormErrors => {
+const validate = (subscribeInformation: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
 	let emailValidatorResult = emailValidator(subscribeInformation.email);

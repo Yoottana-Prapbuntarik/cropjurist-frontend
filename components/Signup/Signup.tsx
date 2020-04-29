@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import { Field } from 'redux-form';
 import { withTranslation } from '../../i18n';
-import FirstNameTextField from '../../components/FieldComponents/FirstNameTextField';
-import LastNameTextField from '../../components/FieldComponents/LastNameTextField';
-import EmailTextField from '../../components/FieldComponents/EmailTextField';
-import ConfirmEmailTextField from '../../components/FieldComponents/ConfirmEmailTextField';
-import PasswordTextField from '../../components/FieldComponents/PasswordTextField';
-import ConfirmPasswordTextField from '../../components/FieldComponents/ConfirmPasswordTextField';
+import TextField from '../../components/FieldComponents/TextField';
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
 
 const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
@@ -31,9 +26,10 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="text"
 											name="firstName"
-											component={FirstNameTextField}
+											component={TextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderFirstNameSignup)}
 											styleTextError="text-danger"
+											className="form-control"
 											data-error="Firstname is required."
 										/>
 										<div className="help-block with-errors" />
@@ -44,9 +40,10 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="text"
 											name="lastName"
-											component={LastNameTextField}
+											component={TextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderLastNameSignup)}
 											styleTextError="text-danger"
+											className="form-control"
 											data-error="Lastname is required."
 										/>
 										<div className="help-block with-errors" />
@@ -59,8 +56,9 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="email"
 											name="email"
-											component={EmailTextField}
+											component={TextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderEmailSignup)}
+											className="email form-control email-subscribe-height"
 											styleTextError="text-danger"
 											data-error="Valid email is required."
 										/>
@@ -72,11 +70,12 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="email"
 											name="confirmEmail"
-											component={ConfirmEmailTextField}
+											component={TextField}
 											label={t(
 												signupPresenter.signupItemInputform.keyPlaceholderReEnterEmailSignup
 											)}
 											styleTextError="text-danger"
+											className="email form-control email-subscribe-height"
 											data-error="Valid email is required."
 										/>
 										<div className="help-block with-errors" />
@@ -89,9 +88,10 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="password"
 											name="password"
-											component={PasswordTextField}
+											component={TextField}
 											label={t(signupPresenter.signupItemInputform.keyPlaceholderPasswordSignup)}
 											styleTextError="text-danger"
+											className="form-control"
 											data-error="password is required."
 										/>
 										<div className="help-block with-errors" />
@@ -102,11 +102,12 @@ const Signup = ({ handleSubmit, signupPresenter, submitSignup, t }: any) => {
 										<Field
 											type="password"
 											name="confirmPassword"
-											component={ConfirmPasswordTextField}
+											component={TextField}
 											label={t(
 												signupPresenter.signupItemInputform.keyPlaceholderConfirmPasswordSignup
 											)}
 											styleTextError="text-danger"
+											className="form-control"
 											data-error="Conform Password is required."
 										/>
 										<div className="help-block with-errors" />

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { withTranslation } from '../../i18n';
 import { Field } from 'redux-form';
-import EmailTextField from '../../components/FieldComponents/EmailTextField';
-import PasswordTextField from '../../components/FieldComponents/PasswordTextField';
+import TextField from '../../components/FieldComponents/TextField';
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
 import CheckBox from '../../components/FieldComponents/CheckBox';
 
@@ -26,8 +25,9 @@ const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
 							<Field
 								name="email"
 								type="email"
-								component={EmailTextField}
+								component={TextField}
 								styleTextError="text-danger"
+								className="email form-control email-subscribe-height"
 								label={t(signinPresenter.signinItem.keySigninPlaceholderUsername)}
 							/>
 						</div>
@@ -37,7 +37,8 @@ const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
 								name="password"
 								type="password"
 								styleTextError="text-danger"
-								component={PasswordTextField}
+								component={TextField}
+								className="form-control"
 								label={t(signinPresenter.signinItem.keySigninPlaceholderPassword)}
 							/>
 						</div>
