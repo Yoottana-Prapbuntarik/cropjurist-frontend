@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 	changeLanguage: () => {
 		dispatch(changeLanguageAction());
 
-		const forms = [ FormManager.FooterForm, FormManager.SigninForm, FormManager.SignupForm ];
+		const forms = [ FormManager.FooterForm, FormManager.SigninForm, FormManager.SignupForm, FormManager.ForgotForm ];
 
 		forms.forEach((element) => dispatch(reset(element)));
 	}
