@@ -8,7 +8,7 @@ const validate = (signupInformation: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
 	let firstNameValidatorResult = plainTextValidator(signupInformation.firstName, Field.FirstName);
-	console.log(firstNameValidatorResult.status);
+
 	if (!firstNameValidatorResult.status) {
 		errors.firstName = t(firstNameValidatorResult.keyMessage);
 	}

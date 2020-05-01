@@ -26,7 +26,7 @@ export const signup: any = (firstName: string, lastName: string, email: string, 
 			if (error) {
 				dispatch({
 					type: SignupAction.Signup_Failed,
-					keyMessage: error.data[KeyManager.Message]
+					keyMessage: error.error.response[KeyManager.Message]
 				});
 			}
 		});
