@@ -4,5 +4,5 @@ export interface ForgotPassworPresenter {
   readonly keySubtitle: string;
   readonly keyButtonName: string;
   readonly keyBackToLogin: string;
-  readonly keyimagePath: string;
+  readonly keyImagePath: string;
 }
