@@ -6,7 +6,7 @@ export enum ForgotAction {
 	ResetPassword_Failed = 'ResetPassword_Failed'
 }
 
-export const fotgotPassword: any = (email: string) => async (dispatch: Dispatch) => {
+export const fotgotPasswordForm: any = (email: string) => async (dispatch: Dispatch) => {
 	service({
 		method: 'post',
 		url: 'user/password_reset/',
@@ -16,7 +16,7 @@ export const fotgotPassword: any = (email: string) => async (dispatch: Dispatch)
 			if (response) {
 				dispatch({
 					type: ForgotAction.ResetPassword_Success,
-					keyMessage: 'isForgotPassword'
+					keyMessage: 'forgotPasswordSuccess'
 				});
 			}
 		})
@@ -25,16 +25,15 @@ export const fotgotPassword: any = (email: string) => async (dispatch: Dispatch)
 			if (error) {
 				dispatch({
 					type: ForgotAction.ResetPassword_Failed,
-					keyMessage: 'fogotPasswordFailed'
+					keyMessage: 'forgotPasswordFailed'
 
 				});
 			}
 		});
-	};
+};
 
 const params = (email: string) => {
-        if(email)
-        return {
-			email: email
-		};
+	return {
+		email: email
+	}
 };
