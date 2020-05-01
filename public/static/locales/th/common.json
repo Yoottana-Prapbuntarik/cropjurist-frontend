@@ -58,8 +58,8 @@
 	"footerSubscrbe": "ติดตามเพื่อรับข่าวสารล้มเหลว",
 	"forgotHeader": "ลืมรหัสผ่านหรือไม่",
 	"forgotySubtitle": "ใส่อีเมลของคุณเพื่อรีเซ็ตรหัสผ่านของคุณ.",
-	"btnForgot": "รีเซ็ตรหัสผ่าน",
+	"buttonForgotPassword": "รีเซ็ตรหัสผ่าน",
 	"backToLogin": "กลับไปหน้าเข้าสู่ระบบ",
-	"isForgotPassword": "โปรดตรวจอีเมลล์ของคุณ",
-	"fogotPasswordFailed": "กรุณาใส่อีเมลที่ใช้ในการลงทะเบียน"
+	"forgotPasswordSuccess": "โปรดตรวจอีเมลล์ของคุณ",
+	"forgotPasswordFailed": "กรุณาใส่อีเมลที่ใช้ในการลงทะเบียน"
 }

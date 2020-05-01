@@ -58,8 +58,8 @@
 	"CannotSubscribe": "Failed to Subscribe",
 	"forgotHeader": "Forgot your password?",
 	"forgotySubtitle": "Enter your email to reset your password.",
-	"btnForgot": "Reset your password",
+	"buttonForgotPassword": "Reset your password",
 	"backToLogin": "Back to sign in",
-	"isForgotPassword": "Please check your email.",
-	"fogotPasswordFailed": "Please enter the email used to register."
+	"forgotPasswordSuccess": "Please check your email.",
+	"forgotPasswordFailed": "Please enter the email used to register."
 }
