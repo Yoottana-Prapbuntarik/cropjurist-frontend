@@ -10,7 +10,7 @@ const ForgotPassword = ({handleSubmit ,submitResetPassword , forgotPassworPresen
         <div className="row">
       <div className="col-md-6 col-12">
 		<img className="img-responsive w-100"
-		     src={forgotPassworPresenter.keyimagePath} alt="image signin"/>  
+		     src={forgotPassworPresenter.keyImagePath} alt="image signin"/>  
         </div>
       <div className="col-md-6 col-12 mt-5">
             <div>
