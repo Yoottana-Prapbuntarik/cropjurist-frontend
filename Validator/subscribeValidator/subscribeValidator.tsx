@@ -1,5 +1,5 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField } from '../interfaceValidator';
+import { ErrorField } from '../InterfaceValidator';
 import { emailValidator } from '../emailValidator/emailValidator';
 
 const validate = (subscribeInformation: any, { t }: any): FormErrors => {
