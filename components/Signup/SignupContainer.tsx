@@ -6,7 +6,7 @@ import { FormManager } from '../../manager/formManager';
 import { signup } from '../../apis/signupAPIClient';
 import { Dispatch } from 'redux';
 import Signup from '../Signup/Signup';
-import validate from '../../validator/SignupValidator/SignupValidator';
+import validate from '../../validator/signupValidator/signupValidator';
 
 const signupItemsInputform: SingupItemsInputform = {
 	keyPlaceholderFirstNameSignup: 'placeholderFirstNameSignup',
