@@ -55,5 +55,11 @@
 	"notSignup": "สมัครสมาชิกไม่สำเร็จ !",
 	"CannotAuthenticated": "ไม่สามารถลงชื่อ กรุณาตรวจสอบอีเมลล์และรหัสผ่าน",
 	"isFooterSubscrbe": "ติดตามเพื่อรับข่าวสารสำเร็จ",
-	"footerSubscrbe": "ติดตามเพื่อรับข่าวสารล้มเหลว"
+	"footerSubscrbe": "ติดตามเพื่อรับข่าวสารล้มเหลว",
+	"forgotHeader": "ลืมรหัสผ่านหรือไม่",
+	"forgotySubtitle": "ใส่อีเมลของคุณเพื่อรีเซ็ตรหัสผ่านของคุณ.",
+	"buttonForgotPassword": "รีเซ็ตรหัสผ่าน",
+	"backToLogin": "กลับไปหน้าเข้าสู่ระบบ",
+	"forgotPasswordSuccess": "โปรดตรวจอีเมลล์ของคุณ",
+	"forgotPasswordFailed": "กรุณาใส่อีเมลที่ใช้ในการลงทะเบียน"
 }

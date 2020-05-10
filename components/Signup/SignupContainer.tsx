@@ -5,7 +5,6 @@ import { withTranslation } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
 import { signup } from '../../apis/signupAPIClient';
 import { Dispatch } from 'redux';
-
 import Signup from '../Signup/Signup';
 import validate from '../../validator/SignupValidator/SignupValidator';
 
@@ -37,7 +36,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 	submitSignup: (event: any) => {
-		dispatch(signup(event.firstname, event.lastname, event.email, event.password));
+		dispatch(signup(event.firstName, event.lastName, event.email, event.password));
 		dispatch(reset(FormManager.SignupForm));
 	}
 });

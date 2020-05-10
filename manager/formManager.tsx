@@ -1,5 +1,6 @@
 export enum FormManager {
 	FooterForm = 'FooterForm',
 	SigninForm = 'SigninForm',
-	SignupForm = 'SignupForm'
+	SignupForm = 'SignupForm',
+	ForgotPasswordForm = 'ForgotPasswordForm'
 }

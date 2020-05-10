@@ -55,5 +55,11 @@
 	"notSignup": "Registration failed !",
 	"CannotAuthenticated": "Signin Failed! Please check your email and password.",
 	"isFooterSubscrbe": "Subscribe Successfully",
-	"CannotSubscribe": "Failed to Subscribe"
+	"CannotSubscribe": "Failed to Subscribe",
+	"forgotHeader": "Forgot your password?",
+	"forgotySubtitle": "Enter your email to reset your password.",
+	"buttonForgotPassword": "Reset your password",
+	"backToLogin": "Back to sign in",
+	"forgotPasswordSuccess": "Please check your email.",
+	"forgotPasswordFailed": "Please enter the email used to register."
 }
