@@ -5,5 +5,16 @@ export enum KeyManager {
 	FirstNameInValid = 'firstNameErrorMessage',
 	LastNameInValid = 'lastNameErrorMessage',
 	EmailDoesNotMatch = 'conFirmEmailErrorMessage',
-	PasswordDoesNotMatch = 'conFirmPasswordErrorMessage'
+	PasswordDoesNotMatch = 'conFirmPasswordErrorMessage',
+	CompanyNameInvalid = 'companyNameInvalid',
+	RegistrationNoInvalid = 'registrationNoInvalid',
+	AddressNoInvalid = 'addressNoInvalid',
+	VillageInvalid = 'villageInvalid',
+	RoadInvalid = 'roadInvalid',
+	ProvinceInvalid = 'provinceInvalid',
+	DistrictInvalid = 'districtInvalid',
+	SubDistrictInvalid = 'subDistrictInvalid',
+	ZipCodeInvalid = 'zipCodeInvalid',
+	AuditorLicenseInvalid = 'auditorLicenseInvalid',
+	AuditorNameInvalid = 'auditorNameInvalid'
 }

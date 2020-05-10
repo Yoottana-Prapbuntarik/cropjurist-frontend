@@ -1,1 +1,1 @@
-export const routeToMemberPage = '/member';
+export const routeToMemberPage = '/companyInformation';
