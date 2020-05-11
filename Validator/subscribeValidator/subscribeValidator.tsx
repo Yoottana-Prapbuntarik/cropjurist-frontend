@@ -1,4 +1,4 @@
-import { FormErrors } from 'redux-form';
+import { FormErrors } from 'validator/subscribeValidator/node_modules/redux-form';
 import { ErrorField } from '../InterfaceValidator';
 import { emailValidator } from '../emailValidator/emailValidator';
 
