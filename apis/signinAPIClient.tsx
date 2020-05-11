@@ -21,11 +21,10 @@ export const signin: any = (email: string, password: string, isRemember?: boolea
 			}
 		})
 		.catch((error) => {
-			console.log(JSON.stringify(error));
 			if (error) {
 				dispatch({
 					type: SigninAction.Signin_Failed,
-					keyMessage: error.data[KeyManager.Message]
+					keyMessage: error.response.data[KeyManager.Message]
 				});
 			}
 		});

@@ -53,7 +53,7 @@
 	"conFirmPasswordErrorMessage": "You have confirmed the password is incorrect",
 	"isSignup": "Registration Succesfully !",
 	"notSignup": "Registration failed !",
-	"cannotAuthenticated": "Signin Failed! Please check your email and password.",
+	"CannotAuthenticated": "Signin Failed! Please check your email and password.",
 	"isFooterSubscrbe": "Subscribe Successfully",
 	"CannotSubscribe": "Failed to Subscribe",
 	"forgotHeader": "Forgot your password?",
