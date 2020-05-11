@@ -1,4 +1,4 @@
-import { FormErrors } from 'validator/SignupValidator/node_modules/redux-form';
+import { FormErrors } from 'redux-form';
 import { ErrorField } from '../InterfaceValidator';
 import { plainTextValidator, Field } from '../plainTextValidator/plainTextValidator';
 import { emailValidator, emailMatchingValidator } from '../emailValidator/emailValidator';
