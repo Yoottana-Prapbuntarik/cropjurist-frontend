@@ -42,8 +42,8 @@ const Navigation = ({ navigationPresenter, changeLanguage, t }: any) => {
 									</ul>
 								</div>
 								<button className="btn d-lg-block" onClick={() => dispatch(changeLanguage)}>
-                                {t('languages')}
-                            </button>
+									{t('languages')}
+								</button>
 							</nav>
 						</div>
 					</div>
