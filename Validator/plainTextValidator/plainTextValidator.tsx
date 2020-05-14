@@ -1,4 +1,4 @@
-import { regexExpression } from '../InterfaceValidator';
+import { regexExpression } from '../interfaceValidator';
 import { KeyManager } from '../../manager/keyManager';
 
 export enum Field {
@@ -7,8 +7,8 @@ export enum Field {
 	CompanyName1 = 'CompanyName1',
 	CompanyName2 = 'CompanyName2',
 	CompanyName3 = 'CompanyName3',
-	RegistrationNo = 'RegistrationNo',
-	AddressNo = 'AddressNo',
+	RegistrationNumber = 'RegistrationNumber',
+	AddressNumber = 'AddressNumber',
 	Village = 'Village',
 	Road = 'Road',
 	Province = 'Province',
@@ -32,7 +32,7 @@ export const plainTextValidator = (text: string, field: Field) => {
 		};
 };
 
-export const plainTextAndWhitespaceValidator = (text: string, field: Field) => {
+export const plainTextOrWhitespaceValidator = (text: string, field: Field) => {
 	if (isPlainTextAndWhitespace(text)) {
 		return {
 			status: true,
@@ -57,10 +57,10 @@ const keyErrorMessage = (field: Field) => {
 			return KeyManager.CompanyNameInvalid;
 		case Field.CompanyName3:
 			return KeyManager.CompanyNameInvalid;
-		case Field.RegistrationNo:
-			return KeyManager.RegistrationNoInvalid;
-		case Field.AddressNo:
-			return KeyManager.AddressNoInvalid;
+		case Field.RegistrationNumber:
+			return KeyManager.RegistrationNumberInvalid;
+		case Field.AddressNumber:
+			return KeyManager.AddressNumberInvalid;
 		case Field.Village:
 			return KeyManager.VillageInvalid;
 		case Field.Road:
@@ -78,7 +78,7 @@ const keyErrorMessage = (field: Field) => {
 		case Field.AuditorName:
 			return KeyManager.AuditorNameInvalid;
 		default:
-			return null;
+			return '';
 	}
 };
 
@@ -87,5 +87,5 @@ const isPlainText = (text: string) => {
 };
 
 const isPlainTextAndWhitespace = (text: string) => {
-	return regexExpression.regexTextAndWhitespace.test(text) || text == undefined;
+	return regexExpression.regexTextOrWhiteSpace.test(text) || text == undefined;
 }

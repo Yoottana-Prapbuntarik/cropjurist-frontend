@@ -1,5 +1,5 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField } from '../InterfaceValidator';
+import { ErrorField } from '../interfaceValidator';
 import { emailValidator } from '../emailValidator/emailValidator';
 import { passwordValidator } from '../passwordValidator/passwordValidator';
 
