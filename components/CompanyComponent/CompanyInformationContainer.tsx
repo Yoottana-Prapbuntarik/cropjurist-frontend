@@ -23,8 +23,8 @@ const labelCompanyName: LabelCompanyName[] = [
 ];
 
 const labelAddress: LabelAddress[] = [
-	{ keyLabelName: 'registrationNo' },
-	{ keyLabelName: 'addressNo' },
+	{ keyLabelName: 'registrationNumber' },
+	{ keyLabelName: 'addressNumber' },
 	{ keyLabelName: 'village' },
 	{ keyLabelName: 'road' }
 ];

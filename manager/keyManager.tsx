@@ -7,7 +7,7 @@ export enum KeyManager {
 	EmailDoesNotMatch = 'conFirmEmailErrorMessage',
 	PasswordDoesNotMatch = 'conFirmPasswordErrorMessage',
 	CompanyNameInvalid = 'companyNameInvalid',
-	RegistrationNumberInvalid = 'RegistrationNumberInvalid',
+	RegistrationNumberInvalid = 'registrationNumberInvalid',
 	AddressNumberInvalid = 'addressNumberInvalid',
 	VillageInvalid = 'villageInvalid',
 	RoadInvalid = 'roadInvalid',
