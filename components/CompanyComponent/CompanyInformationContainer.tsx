@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
 import { reduxForm, reset } from 'redux-form';
 import { companyInformationForm } from '../../apis/companyInformationAPIClient';
-import validate from '../../Validator/informationValidator/informationValidator';
+import validate from '../../validator/informationValidator/informationValidator';
 import {
 	CompanyInformationPresenter,
 	LabelCompanyName,
@@ -30,28 +30,28 @@ const labelAddress: LabelAddress[] = [
 ];
 
 const optionSelectProvince: OptionSelect[] = [
-	{ optionSelctName: 'ฺโปรดเลือกข้อมูล', optionValue: undefined },
+	{ optionSelctName: 'selectData', optionValue: undefined },
 	{ optionSelctName: 'ฺกรุงเทพมหานคร', optionValue: 'ฺกรุงเทพมหานคร' },
 	{ optionSelctName: 'เชียงราย', optionValue: 'เชียงราย' },
 	{ optionSelctName: 'ลำปาง', optionValue: 'ลำปาง' }
 ];
 
 const optionSelectDistrict: OptionSelect[] = [
-	{ optionSelctName: 'โปรดเลือกข้อมูล', optionValue: undefined },
+	{ optionSelctName: 'selectData', optionValue: undefined },
 	{ optionSelctName: 'จอมทอง', optionValue: 'จอมทอง' },
 	{ optionSelctName: 'บางขุนเทียน', optionValue: 'บางขุนเทียน' },
 	{ optionSelctName: 'คลองสามวา', optionValue: 'คลองสามวา' }
 ];
 
 const optionSelectSubDistrict: OptionSelect[] = [
-	{ optionSelctName: 'โปรดเลือกข้อมูล', optionValue: undefined },
+	{ optionSelctName: 'selectData', optionValue: undefined },
 	{ optionSelctName: 'บางมด', optionValue: 'บางมด' },
 	{ optionSelctName: 'บางแค', optionValue: 'บางแค' },
 	{ optionSelctName: 'บางเขน', optionValue: 'บางเขน' }
 ];
 
 const optionSelectZipCode: OptionSelect[] = [
-	{ optionSelctName: 'โปรดเลือกข้อมูล', optionValue: undefined },
+	{ optionSelctName: 'selectData', optionValue: undefined },
 	{ optionSelctName: '10150', optionValue: '10150' },
 	{ optionSelctName: '77777', optionValue: '77777' },
 	{ optionSelctName: '10500', optionValue: '10500' }

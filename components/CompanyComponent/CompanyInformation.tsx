@@ -18,7 +18,7 @@ const CompanyInformation = ({ companyInformationPresenter, submitCompanyInformat
                 {companyInformationPresenter.labelCompanyName.map(
                     (item: LabelCompanyName, index: number) => {
                         return (
-                            <div className="col-12" key={index}>
+                            <div className="col-12" key={`${item.keyCompanyName}${index}`}>
                                 <div className="form-group">
                                     <div className="row">
                                         <div className="col-12">
@@ -51,7 +51,7 @@ const CompanyInformation = ({ companyInformationPresenter, submitCompanyInformat
                                             <label>
                                                 {t(item.keyLabelName)}
                                             </label>
-                                            <div key={index}>
+                                            <div>
                                                 <Field
                                                     name={item.keyLabelName}
                                                     type="text"
@@ -68,17 +68,17 @@ const CompanyInformation = ({ companyInformationPresenter, submitCompanyInformat
                             {companyInformationPresenter.labelAddressDropdown.map(
                                 (item: LabelAddressDropdown, index: number) => {
                                     return (
-                                        <div className="col-md-6 col-12" key={index}>
+                                        <div className="col-md-6 col-12" key={`${item.keyLabelNameDropdown}${index}`}>
                                             {t(item.keyLabelNameDropdown)}
                                             <Field
                                                 style="form-control"
                                                 name={item.keyLabelNameDropdown} key={index} component={SelectField}
                                                 styleTextError="text-danger"
                                             >
-                                                {item.optionSelect.map(optionSelect => {
+                                                {item.optionSelect.map((optionSelect,index: number) => {
                                                     return (
-                                                        <option value={optionSelect.optionValue}>
-                                                            {optionSelect.optionSelctName}
+                                                        <option value={optionSelect.optionValue} key={index}>
+                                                            {t(optionSelect.optionSelctName)}
                                                         </option>
                                                     )
                                                 })}
