@@ -8,8 +8,8 @@ export interface ErrorField {
 	companyName1: string;
 	companyName2: string;
 	companyName3: string;
-	registrationNo: string;
-	addressNo: string;
+	registrationNumber: string;
+	addressNumber: string;
 	village: string;
 	road: string;
 	province: string;
@@ -23,6 +23,6 @@ export interface ErrorField {
 export const regexExpression = {
 	regexEmail: new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i),
 	regexText: new RegExp(/^[a-zA-Z0-9ก-๙]*$/),
-	regexTextAndWhitespace: new RegExp(/^[a-zA-Z0-9ก-๙]*$/),
+	regexTextOrWhiteSpace: new RegExp(/^[a-zA-Z0-9ก-๙]*$/),
 	regexPassword: new RegExp(/^[a-zA-Z0-9]{5,}$/)
 };
