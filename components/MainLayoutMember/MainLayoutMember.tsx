@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { withTranslation } from '../../i18n';
-
-import NavigationMember from '../NavigationMember/NavigationMemberContainer';
+import NavigationIncorporationContainer from '../../components/Navigation/NavigationIncorporationContainer';
 const MainLayoutMember = (props: any) => (
 	<div className="page-wrapper">
 		<Head>
@@ -11,7 +10,7 @@ const MainLayoutMember = (props: any) => (
 			<script src="assets/js/theme-plugin.js" />
 			<script src="assets/js/theme-script.js" />
 		</Head>
-		<NavigationMember />
+		<NavigationIncorporationContainer/>
 		{props.children}
 	</div>
 );

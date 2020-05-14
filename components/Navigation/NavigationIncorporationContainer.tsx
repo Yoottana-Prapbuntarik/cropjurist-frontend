@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import NavigationMember from './NavigationMember';
-import { NavigationMemberPresenter, NavigationMemberItem } from './NavigationMemberInterface';
+import Navigation from './Navigation';
+import { NavigationMemberPresenter, NavigationMemberItem } from './NavigationInterfaces';
 import { Dispatch } from 'redux';
 import { i18n } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
 import { reset } from 'redux-form';
 
-enum NavigationMemberAction {
+enum NavigationIncorporationAction {
     CHANGE_LANGUAGE_MEMBER_MENU = 'CHANGE_LANGUAGE_MEMBER_MENU'
 }
 
@@ -18,9 +18,9 @@ const navigationMemberPresenter: NavigationMemberPresenter = {
     navigationMemberItem: navigationMemberItem
 }
 
-export const navigationMemberReducer = (state: NavigationMemberPresenter = navigationMemberPresenter, action: any) => {
+export const navigationIncorporationReducer = (state: NavigationMemberPresenter = navigationMemberPresenter, action: any) => {
     switch (action.type) {
-        case NavigationMemberAction.CHANGE_LANGUAGE_MEMBER_MENU:
+        case NavigationIncorporationAction.CHANGE_LANGUAGE_MEMBER_MENU:
             i18n.changeLanguage(i18n.language === 'en' ? 'th' : 'en');
             return action.navigationMemberPresenter
         default:
@@ -29,12 +29,12 @@ export const navigationMemberReducer = (state: NavigationMemberPresenter = navig
 }
 
 const changeLanguageAction: any = () => ({
-    type: NavigationMemberAction.CHANGE_LANGUAGE_MEMBER_MENU,
+    type: NavigationIncorporationAction.CHANGE_LANGUAGE_MEMBER_MENU,
     navigationMemberPresenter: navigationMemberPresenter
 });
 
 const mapStateToProps = (state: any) => ({
-    navigationMemberPresenter: state.navigationMemberReducer
+    navigationMemberPresenter: state.navigationIncorporationReducer
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationMember);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

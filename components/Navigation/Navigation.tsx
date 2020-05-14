@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { NavigationItem } from './NavigationInterfaces';
+import { NavigationItem, NavigationMemberItem } from './NavigationInterfaces';
 import { withTranslation } from '../../i18n';
 import { useDispatch } from 'react-redux';
-
-const Navigation = ({ navigationPresenter, changeLanguage, t }: any) => {
+const Navigation = ({ navigationPresenter, navigationMemberPresenter, changeLanguage, t }: any) => {
 	const dispatch = useDispatch();
+	
 	return (
 		<header className="site-header">
 			<div id="header-wrap">
@@ -28,17 +28,31 @@ const Navigation = ({ navigationPresenter, changeLanguage, t }: any) => {
 								</button>
 								<div className="collapse navbar-collapse" id="navbarNav">
 									<ul className="navbar-nav ml-auto">
-										{navigationPresenter.navigationItems.map(
-											(item: NavigationItem, index: number) => (
-												<li className="nav-item" key={`navigation-item-${index}`}>
-													<Link href={item.routePath}>
-														<a className="nav-link " href="#">
-															{t(item.keyTitle)}
-														</a>
-													</Link>
-												</li>
-											)
-										)}
+										{
+											navigationPresenter !== undefined ?
+												navigationPresenter.navigationItems.map(
+													(item: NavigationItem, index: number) => (
+														<li className="nav-item" key={`navigation-item-${index}`}>
+															<Link href={item.routePath}>
+																<a className="nav-link " href="#">
+																	{t(item.keyTitle)}
+																</a>
+															</Link>
+														</li>
+													)
+												) :
+												navigationMemberPresenter.navigationMemberItem.map(
+													(item: NavigationMemberItem, index: number) => (
+														<li className="nav-item" key={`navigation-item-${index}`}>
+															<Link href={item.routePathMemberMenu}>
+																<a className="nav-link " href="#">
+																	{t(item.keyTitleMemberMenu)}
+																</a>
+															</Link>
+														</li>
+													)
+												)
+										}
 									</ul>
 								</div>
 								<button className="btn d-lg-block" onClick={() => dispatch(changeLanguage)}>
