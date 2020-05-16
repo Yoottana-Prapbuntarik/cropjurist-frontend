@@ -1,5 +1,5 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField } from '../InterfaceValidator';
+import { ErrorField } from '../interfaceValidator';
 import { plainTextValidator, Field } from '../plainTextValidator/plainTextValidator';
 import { emailValidator, emailMatchingValidator } from '../emailValidator/emailValidator';
 import { passwordValidator, passwordMatchingValidator } from '../passwordValidator/passwordValidator';
@@ -8,7 +8,7 @@ const validate = (signupInformation: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
 
 	let firstNameValidatorResult = plainTextValidator(signupInformation.firstName, Field.FirstName);
-	console.log(firstNameValidatorResult.status);
+
 	if (!firstNameValidatorResult.status) {
 		errors.firstName = t(firstNameValidatorResult.keyMessage);
 	}

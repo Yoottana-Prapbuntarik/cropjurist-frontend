@@ -8,6 +8,9 @@ import { servicesReducer } from '../components/Services/ServicesContainer';
 import { signinReducer } from '../components/Signin/SigninContainer';
 import { signupReducer } from '../components/Signup/SignupContainer';
 import { forgotPasswordReducer } from '../components/ForgotPassword/ForgotPasswordContainer';
+import {navigationIncorporationReducer} from '../components/Navigation/NavigationIncorporationContainer';
+import { inCorporationManagerReducer } from '../components/IncorporationManager/IncorporationManagerContainer';
+import { companyInformationReducer } from '../components/CompanyComponent/CompanyInformationContainer';
 import { reducer as reduxFormReducer } from 'redux-form';
 
 const rootReducers = combineReducers({
@@ -20,6 +23,9 @@ const rootReducers = combineReducers({
 	signinReducer: signinReducer,
 	signupReducer: signupReducer,
 	forgotPasswordReducer: forgotPasswordReducer,
+	inCorporationManagerReducer: inCorporationManagerReducer,
+	companyInformationReducer: companyInformationReducer,
+	navigationIncorporationReducer: navigationIncorporationReducer,
 	form: reduxFormReducer
 });
 
