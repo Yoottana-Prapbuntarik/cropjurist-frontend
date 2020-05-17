@@ -2,16 +2,17 @@ import { withTranslation } from '../../i18n';
 import { Field } from 'redux-form';
 import TextField from '../FieldComponents/TextField';
 import ButtonSubmit from '../FieldComponents/ButtonSubmit';
-const ChangePassword = ({ changePasswordPresenter, t }: any) => {
+
+const ChangePassword = ({ handleSubmit, changePassword, changePasswordPresenter, t }: any) => {
     return (
         <div className="container my-5">
             <div className="row align-items-center">
                 <div className="col-lg-6 col-12">
-                    <img src={changePasswordPresenter.keyImagePath} alt="image change password page" />
+                    <img className="w-100" src={changePasswordPresenter.keyImagePath} alt="image change password page" />
                 </div>
                 <div className="col-lg-6 col-12 my-5">
                     <h3 className="mb-5">{t(changePasswordPresenter.keyTitleChangePassword)}</h3>
-                    <form>
+                    <form onSubmit={handleSubmit(changePassword)}>
                         <div className="form-group">
                             <label>{t(changePasswordPresenter.keyNewPassword)}</label>
                             <Field

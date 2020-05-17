@@ -4,7 +4,7 @@ import { reduxForm, reset } from 'redux-form';
 import validate from '../../validate/changePasswordValidator/changePasswordValidator';
 import { ChangePasswordPresenter } from './ChangePasswordInterface';
 import { FormManager } from '../../manager/formManager';
-import { changePassword } from '../../apis/changePasswordAPIClient';
+import { changePassword, changePasswordAction } from '../../apis/changePasswordAPIClient';
 import { withTranslation } from '../../i18n';
 import { Dispatch } from 'redux';
 
@@ -13,11 +13,18 @@ const changePasswordPresenter: ChangePasswordPresenter = {
     keyNewPassword: "newPassword",
     keyConfirmNewPassword: "placeholderConfirmPasswordSignup",
     keySubmitResetPassword: "changePassword",
-    keyImagePath: 'assets/images/changepassword/changepassword.jpg'
+    keyImagePath: '../../assets/images/changepassword/changepassword.jpg'
 }
 
-export const changePasswordReducer = (state: ChangePasswordPresenter = changePasswordPresenter) => {
-    return state;
+export const changePasswordReducer = (state: ChangePasswordPresenter = changePasswordPresenter, action: any) => {
+    switch (action.type) {
+        case changePasswordAction.changePassword_Success:
+            return state;
+        case changePasswordAction.changePassword_Failed:
+            return state;
+        default:
+            return state;
+    }
 }
 
 const mapStateToProps = (state: any) => ({
@@ -25,9 +32,9 @@ const mapStateToProps = (state: any) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    submitSignin: (event: any) => {
+    changePassword: (event: any) => {
         dispatch(changePassword(event.password));
-        dispatch(reset(FormManager.SigninForm));
+        dispatch(reset(FormManager.ChangePasswordForm));
     }
 });
 
