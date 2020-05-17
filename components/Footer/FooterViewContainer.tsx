@@ -5,7 +5,7 @@ import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
-import validate from '../../validator/subscribeValidator/subscribeValidator';
+import validate from '../../testvalidate/subscribeValidator/subscribeValidator';
 import Footer from './Footer';
 
 const footerMenuItems: MenuItem[] = [

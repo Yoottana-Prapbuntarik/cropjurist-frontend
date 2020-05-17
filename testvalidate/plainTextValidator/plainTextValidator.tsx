@@ -1,4 +1,4 @@
-import { regexExpression } from '../interfaceValidator';
+import { regexExpression } from '../interface';
 import { KeyManager } from '../../manager/keyManager';
 
 export enum Field {
@@ -26,10 +26,10 @@ export const plainTextValidator = (text: string, field: Field) => {
 			keyMessage: null
 		};
 	}
-		return {
-			status: false,
-			keyMessage: keyErrorMessage(field)
-		};
+	return {
+		status: false,
+		keyMessage: keyErrorMessage(field)
+	};
 };
 
 export const plainTextOrWhitespaceValidator = (text: string, field: Field) => {
@@ -37,13 +37,13 @@ export const plainTextOrWhitespaceValidator = (text: string, field: Field) => {
 		return {
 			status: true,
 			keyMessage: null
-		}
-	}
-		return {
-			status: false,
-			keyMessage: keyErrorMessage(field)
 		};
-}
+	}
+	return {
+		status: false,
+		keyMessage: keyErrorMessage(field)
+	};
+};
 
 const keyErrorMessage = (field: Field) => {
 	switch (field) {
@@ -88,4 +88,4 @@ const isPlainText = (text: string) => {
 
 const isPlainTextAndWhitespace = (text: string) => {
 	return regexExpression.regexTextOrWhiteSpace.test(text) || text == undefined;
-}
+};

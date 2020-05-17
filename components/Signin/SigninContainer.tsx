@@ -6,7 +6,7 @@ import { signin, SigninAction } from '../../apis/signinAPIClient';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 import { routeToMemberPage } from '../../manager/routerManager';
-import validate from '../../Validator/SigninValidator/SigninValidator';
+import validate from '../../testvalidate/signin/signin';
 import Signin from './Signin';
 import Router from 'next/router';
 

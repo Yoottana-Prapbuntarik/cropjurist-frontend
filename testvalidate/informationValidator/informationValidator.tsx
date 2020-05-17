@@ -1,18 +1,18 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField } from '../interfaceValidator';
+import { ErrorField } from '../interface';
 import { plainTextValidator, plainTextOrWhitespaceValidator, Field } from '../plainTextValidator/plainTextValidator';
 
 const validate = (informationForm: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
-	
+
 	let companyNameValidatorResult = plainTextValidator(informationForm.companyName1, Field.CompanyName1);
-	
+
 	if (!companyNameValidatorResult.status) {
 		errors.companyName1 = t(companyNameValidatorResult.keyMessage);
 	}
-	
+
 	let companyNameValidatorResult2 = plainTextOrWhitespaceValidator(informationForm.companyName2, Field.CompanyName2);
-	
+
 	if (!companyNameValidatorResult2.status) {
 		errors.companyName2 = t(companyNameValidatorResult2.keyMessage);
 	}
@@ -23,7 +23,10 @@ const validate = (informationForm: any, { t }: any): FormErrors => {
 		errors.companyName3 = t(companyNameValidatorResult3.keyMessage);
 	}
 
-	let registrationNumberValidatorResult = plainTextValidator(informationForm.registrationNumber, Field.RegistrationNumber);
+	let registrationNumberValidatorResult = plainTextValidator(
+		informationForm.registrationNumber,
+		Field.RegistrationNumber
+	);
 
 	if (!registrationNumberValidatorResult.status) {
 		errors.registrationNumber = t(registrationNumberValidatorResult.keyMessage);
@@ -74,12 +77,11 @@ const validate = (informationForm: any, { t }: any): FormErrors => {
 	let auditorLicenseValidatorResult = plainTextValidator(informationForm.auditorLicense, Field.AuditorLicense);
 
 	if (!auditorLicenseValidatorResult.status) {
-		
 		errors.auditorLicense = t(auditorLicenseValidatorResult.keyMessage);
 	}
-	
+
 	let auditorNameValidatorResult = plainTextValidator(informationForm.auditorName, Field.AuditorName);
-	
+
 	if (!auditorNameValidatorResult.status) {
 		errors.auditorName = t(auditorNameValidatorResult.keyMessage);
 	}
