@@ -11,7 +11,7 @@ import { forgotPasswordReducer } from '../components/ForgotPassword/ForgotPasswo
 import {navigationIncorporationReducer} from '../components/Navigation/NavigationIncorporationContainer';
 import { inCorporationManagerReducer } from '../components/IncorporationManager/IncorporationManagerContainer';
 import { companyInformationReducer } from '../components/CompanyComponent/CompanyInformationContainer';
-import { activateAccountReducer } from '../components/ActivateAccount/ActivateAccountInterfaceActivateAccountContainer';
+import { activateAccountReducer } from '../components/ActivateAccount/ActivateAccountContainer';
 import { changePasswordReducer } from '../components/ChangePassword/ChangePasswordContainer';
 import { reducer as reduxFormReducer } from 'redux-form';
 
