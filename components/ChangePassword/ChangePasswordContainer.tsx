@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ChangePassword from './ChangePassword';
 import { reduxForm, reset } from 'redux-form';
-import validate from '../../validator/changePasswordValidator/changePasswordValidator';
+import validate from '../../validate/changePasswordValidator/changePasswordValidator';
 import { ChangePasswordPresenter } from './ChangePasswordInterface';
 import { FormManager } from '../../manager/formManager';
 import { changePassword } from '../../apis/changePasswordAPIClient';

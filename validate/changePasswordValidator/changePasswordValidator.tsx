@@ -1,5 +1,5 @@
 import { FormErrors } from 'redux-form';
-import { ErrorField } from '../InterfaceValidator';
+import { ErrorField } from '../interface';
 import { passwordValidator, passwordMatchingValidator } from '../passwordValidator/passwordValidator';
 
 const validate = (changePasswordInformation: any, { t }: any): FormErrors => {

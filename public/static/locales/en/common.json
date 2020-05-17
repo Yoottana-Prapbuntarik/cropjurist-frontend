@@ -62,7 +62,6 @@
 	"backToLogin": "Back to sign in",
 	"forgotPasswordSuccess": "Please check your email.",
 	"forgotPasswordFailed": "Please enter the email used to register.",
-<<<<<<< Updated upstream
 	"signout": "Sign out",
 	"memberLayoutTitle": "Welcome back",
 	"companyInformation": "Information",
@@ -100,12 +99,10 @@
 	"zipCodeInvalid": "Invalid Zip Code",
 	"auditorLicenseInvalid": "Invalid Auditor License",
 	"auditorNameInvalid": "Invalid Auditor Name",
-	"selectData": "Please select your data ."
-=======
+	"selectData": "Please select your data .",
 	"titleActivateAccount" : "Welcome to CorpJurist",
 	"detailActivateAccount" : "Now. You canuse your email and password to access the system.",
 	"titleChangePassword": "Change the password",
 	"newPassword": "Please enter new password.",
 	"changePassword": "Change password"
->>>>>>> Stashed changes
 }
