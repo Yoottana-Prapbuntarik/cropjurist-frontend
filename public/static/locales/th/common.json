@@ -62,6 +62,7 @@
 	"backToLogin": "กลับไปหน้าเข้าสู่ระบบ",
 	"forgotPasswordSuccess": "โปรดตรวจอีเมลล์ของคุณ",
 	"forgotPasswordFailed": "กรุณาใส่อีเมลที่ใช้ในการลงทะเบียน",
+<<<<<<< Updated upstream
 	"signout": "ออกจากระบบ",
 	"memberLayoutTitle": "ยินดีต้อนรับ",
 	"companyInformation": "ข้อมูลบริษัท",
@@ -100,4 +101,11 @@
 	"auditorLicenseInvalid": "คุณกรอกเลขที่ใบอนุญาตไม่ถูกต้อง",
 	"auditorNameInvalid": "คุณกรอกชื่อผู้ตรวจสอบไม่ถูกต้อง",
 	"selectData": "โปรดเลือกข้อมูล"
+=======
+	"titleActivateAccount" : "ยินดีต้อนรับสู่ CorpJurist",
+	"detailActivateAccount" : "ตอนนี้คุณสามารถใช้อีเมลและรหัสผ่านเพื่อเข้าสู่ระบบได้ทันที",
+	"titleChangePassword": "เปลี่ยนรหัสผ่านใหม่",
+	"newPassword": "ป้อนรหัสผ่านใหม่",
+	"changePassword": "เปลี่ยนรหัสผ่าน"
+>>>>>>> Stashed changes
 }

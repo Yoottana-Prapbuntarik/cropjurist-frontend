@@ -6,7 +6,11 @@ import { ForgotPasswordPresenter } from './ForgotPasswordInterface';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 import ForgotPassword from './ForgotPassword';
+<<<<<<< Updated upstream
 import validate from '../../validate/forgotPassword/forgotPasswordValidator';
+=======
+import validate from '../../validator/forgotPasswordValidator/forgotPasswordValidator';
+>>>>>>> Stashed changes
 
 const forgotPasswordPresenter: ForgotPasswordPresenter = {
 	keyEmail: 'email',

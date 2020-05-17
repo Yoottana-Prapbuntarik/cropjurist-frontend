@@ -6,7 +6,11 @@ import { FormManager } from '../../manager/formManager';
 import { signup } from '../../apis/signupAPIClient';
 import { Dispatch } from 'redux';
 import Signup from '../Signup/Signup';
+<<<<<<< Updated upstream
 import validate from '../../validate/signupValidator/signupValidator';
+=======
+import validate from '../../validator/signupValidator/signupValidator';
+>>>>>>> Stashed changes
 
 const signupItemsInputform: SingupItemsInputform = {
 	keyPlaceholderFirstNameSignup: 'placeholderFirstNameSignup',

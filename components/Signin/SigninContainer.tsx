@@ -6,7 +6,11 @@ import { signin, SigninAction } from '../../apis/signinAPIClient';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 import { routeToMemberPage } from '../../manager/routerManager';
+<<<<<<< Updated upstream
 import validate from '../../validate/signinValidator/signinValidator';
+=======
+import validate from '../../validator/signinValidator/signinValidator';
+>>>>>>> Stashed changes
 import Signin from './Signin';
 import Router from 'next/router';
 

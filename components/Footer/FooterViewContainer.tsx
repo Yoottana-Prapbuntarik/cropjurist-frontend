@@ -5,7 +5,12 @@ import { reduxForm, reset } from 'redux-form';
 import { SubscribeItem, FooterMenu, MenuItem, SocialItem, FooterPresenter } from './FooterViewInterfaces';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
+<<<<<<< Updated upstream
 import validate from '../../validate/subscribeValidator/subscribeValidator';
+=======
+
+import validate from '../../validator/subscribeValidator/subscribeValidator';
+>>>>>>> Stashed changes
 import Footer from './Footer';
 
 const footerMenuItems: MenuItem[] = [
