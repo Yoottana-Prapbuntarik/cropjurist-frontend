@@ -6,7 +6,7 @@ import { ForgotPasswordPresenter } from './ForgotPasswordInterface';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 import ForgotPassword from './ForgotPassword';
-import validate from '../../testvalidate/forgotPassword/forgotPasswordValidator';
+import validate from '../../validate/forgotPassword/forgotPasswordValidator';
 
 const forgotPasswordPresenter: ForgotPasswordPresenter = {
 	keyEmail: 'email',
