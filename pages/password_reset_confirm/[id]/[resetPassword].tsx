@@ -6,9 +6,9 @@ import { themeManager } from '../../../manager/themeManager';
 const resetPassword = () => {
 	return (
 		<LandingLayout
-		styleTheme={themeManager.StylesMainSubFolder}
-		themePlugin={themeManager.ThemePluginMainSubFolder}
-		themeScript={themeManager.ThemeScriptMainSubFolder}
+			styleTheme={themeManager.StylesMainSubFolder}
+			themePlugin={themeManager.ThemePluginMainSubFolder}
+			themeScript={themeManager.ThemeScriptMainSubFolder}
 		>
 			<div className="min-vh-100">
 				<ChangePassword />
