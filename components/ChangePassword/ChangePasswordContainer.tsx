@@ -5,7 +5,7 @@ import validate from '../../validate/changePasswordValidator/changePasswordValid
 import { ChangePasswordPresenter } from './ChangePasswordInterface';
 import { FormManager } from '../../manager/formManager';
 import { changePassword, changePasswordAction } from '../../apis/changePasswordAPIClient';
-import { withTranslation } from '../../i18n';
+import { withTranslation, i18n } from '../../i18n';
 import { Dispatch } from 'redux';
 
 const changePasswordPresenter: ChangePasswordPresenter = {
@@ -19,8 +19,10 @@ const changePasswordPresenter: ChangePasswordPresenter = {
 export const changePasswordReducer = (state: ChangePasswordPresenter = changePasswordPresenter, action: any) => {
     switch (action.type) {
         case changePasswordAction.changePassword_Success:
+            alert(i18n.t(action.keyMessage));
             return state;
         case changePasswordAction.changePassword_Failed:
+            alert(i18n.t(action.keyMessage));
             return state;
         default:
             return state;
