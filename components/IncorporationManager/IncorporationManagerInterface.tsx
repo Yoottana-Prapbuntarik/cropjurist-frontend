@@ -15,6 +15,7 @@ export interface MemberDialog {
 }
 
 export interface MemberPresenter {
+    readonly keyIncorporationTitle: string;
     readonly memberItems: MemberItems;
     readonly memberDialog: MemberDialog;
 }

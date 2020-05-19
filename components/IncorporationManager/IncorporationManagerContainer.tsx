@@ -24,6 +24,7 @@ const memberItems: MemberItems = {
 };
 
 const memberPresenter: MemberPresenter = {
+    keyIncorporationTitle: "incorporation",
     memberItems: memberItems,
     memberDialog: memberDialog
 };
