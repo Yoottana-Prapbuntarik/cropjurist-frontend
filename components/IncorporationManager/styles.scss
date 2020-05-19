@@ -1,8 +1,9 @@
 .active{
-    position: relative;
-    top: 2px;
-    content:'';
-    background: #333333;
-    width: 60%;
-    height: 3px;
+    border-bottom: 3px solid #1360ef;
+}
+
+@media (max-width: 1200px) {  
+    .text-link-IncorporationManager a{
+        font-size: 15px !important;
+    }
 }
