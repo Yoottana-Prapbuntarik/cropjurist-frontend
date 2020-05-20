@@ -1,25 +1,27 @@
 import { Dispatch } from "redux";
-import service from './baseAPIs';
-import { KeyManager } from '../manager/keyManager';
+import {serviceResetPassword} from './baseAPIs';
 
 export enum changePasswordAction {
     changePassword_Success = 'changePassword_Success',
     changePassword_Failed = 'changePassword_Failed'
 }
 
-export const changePassword: any = (password: string) => async (dispatch: Dispatch
+export const changePassword: any = (password: string, tokenID: string, uuId: string) => async (dispatch: Dispatch
 ) => {
-    service({
+    const url = `password_reset_confirm/${tokenID}/${uuId}/`;
+    
+    serviceResetPassword({
         method: 'post',
-        url: `password_reset_confirm/verfication_key/pk_id`,
+        url: url,
         data: params(password)
     })
+
         .then((response) => {
 
             if (response) {
                 dispatch({
                     type: changePasswordAction.changePassword_Success,
-                    keyMessage: response.data[KeyManager.Message]
+                    keyMessage: response.data.Message
                 });
             }
         })
@@ -29,7 +31,7 @@ export const changePassword: any = (password: string) => async (dispatch: Dispat
             if (error) {
                 dispatch({
                     type: changePasswordAction.changePassword_Failed,
-                    keyMessage: error.response.data[KeyManager.Message]
+                    keyMessage: error.response.data.non_field_errors[0]
                 });
             }
         });
