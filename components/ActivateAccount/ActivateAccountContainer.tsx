@@ -3,7 +3,7 @@ import { ActivateAccountPresenter } from './ActivateAccountInterface';
 import ActivateAccount from './ActivateAccount';
 
 const activateAccountPresenter: ActivateAccountPresenter = {
-	keyImagePath: '../../assets/images/activate/activate.jpg',
+	keyImagePath: '../../../assets/images/activate/activate.jpg',
 	keyTitleActivateAccount: 'titleActivateAccount',
 	keyDetailActivateAccount: 'detailActivateAccount',
 	keyBackToSignin: 'signin'
@@ -13,10 +13,8 @@ export const activateAccountReducer = (state: ActivateAccountPresenter = activat
 	return state;
 };
 
-const mapStateToProps = (state: any, ownProps: any) => ({
+const mapStateToProps = (state: any) => ({
 	activateAccountPresenter: state.activateAccountReducer,
-	tokenID: ownProps.tokenID,
-	UUID: ownProps.UUID
 });
 
 export default connect(mapStateToProps)(ActivateAccount);
