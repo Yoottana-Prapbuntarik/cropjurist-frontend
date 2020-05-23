@@ -6,7 +6,9 @@ import { ForgotPasswordPresenter } from './ForgotPasswordInterface';
 import { Dispatch } from 'redux';
 import { FormManager } from '../../manager/formManager';
 import ForgotPassword from './ForgotPassword';
-import validate from '../../validator/forgotPasswordValidator/forgotPasswordValidator';
+import validate from '../../validate/forgotPassword/forgotPasswordValidator';
+import Router from 'next/router';
+import { routeToSignin } from '../../manager/routerManager';
 
 const forgotPasswordPresenter: ForgotPasswordPresenter = {
 	keyEmail: 'email',
@@ -21,6 +23,7 @@ export const forgotPasswordReducer = (state: ForgotPasswordPresenter = forgotPas
 	switch (action.type) {
 		case ForgotAction.ResetPassword_Success:
 			alert(i18n.t(action.keyMessage));
+			Router.push(routeToSignin);
 			return state;
 		case ForgotAction.ResetPassword_Failed:
 			alert(i18n.t(action.keyMessage));

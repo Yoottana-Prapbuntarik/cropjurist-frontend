@@ -14,18 +14,22 @@ export const signup: any = (firstName: string, lastName: string, email: string, 
 		url: 'user/register/',
 		data: params(firstName, lastName, email, password)
 	})
+
 		.then((response) => {
 			if (response) {
+				console.log(response);
 				dispatch({
-					type: SignupAction.Signup_Success
+					type: SignupAction.Signup_Success,
+					keyMessage: 'isSignup'
 				});
 			}
 		})
+		
 		.catch((error) => {
 			if (error) {
 				dispatch({
 					type: SignupAction.Signup_Failed,
-					keyMessage: 'notSignup'
+					keyMessage: error.response.data.email[0]
 				});
 			}
 		});

@@ -11,6 +11,8 @@ import { forgotPasswordReducer } from '../components/ForgotPassword/ForgotPasswo
 import {navigationIncorporationReducer} from '../components/Navigation/NavigationIncorporationContainer';
 import { inCorporationManagerReducer } from '../components/IncorporationManager/IncorporationManagerContainer';
 import { companyInformationReducer } from '../components/CompanyComponent/CompanyInformationContainer';
+import { activateAccountReducer } from '../components/ActivateAccount/ActivateAccountContainer';
+import { changePasswordReducer } from '../components/ChangePassword/ChangePasswordContainer';
 import { reducer as reduxFormReducer } from 'redux-form';
 
 const rootReducers = combineReducers({
@@ -26,6 +28,8 @@ const rootReducers = combineReducers({
 	inCorporationManagerReducer: inCorporationManagerReducer,
 	companyInformationReducer: companyInformationReducer,
 	navigationIncorporationReducer: navigationIncorporationReducer,
+	activateAccountReducer: activateAccountReducer,
+	changePasswordReducer: changePasswordReducer,
 	form: reduxFormReducer
 });
 

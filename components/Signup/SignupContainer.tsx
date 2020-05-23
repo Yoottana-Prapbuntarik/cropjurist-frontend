@@ -1,12 +1,14 @@
 import { reduxForm, reset } from 'redux-form';
 import { SignupPresenter, SingupItemsInputform } from '../Signup/SignupInterface';
 import { connect } from 'react-redux';
-import { withTranslation } from '../../i18n';
+import { withTranslation, i18n } from '../../i18n';
 import { FormManager } from '../../manager/formManager';
-import { signup } from '../../apis/signupAPIClient';
+import { signup, SignupAction } from '../../apis/signupAPIClient';
 import { Dispatch } from 'redux';
 import Signup from '../Signup/Signup';
-import validate from '../../Validator/SignupValidator/SignupValidator';
+import Router from 'next/router';
+import { routeToSignin } from '../../manager/routerManager';
+import validate from '../../validate/signupValidator/signupValidator';
 
 const signupItemsInputform: SingupItemsInputform = {
 	keyPlaceholderFirstNameSignup: 'placeholderFirstNameSignup',
@@ -26,8 +28,15 @@ const signupPresenter: SignupPresenter = {
 	signupItemInputform: signupItemsInputform
 };
 
-export const signupReducer = (state: SignupPresenter = signupPresenter) => {
-	return state;
+export const signupReducer = (state: SignupPresenter = signupPresenter, action: any) => {
+	switch (action.type) {
+		case SignupAction.Signup_Success:
+			alert(i18n.t(action.keyMessage));
+			Router.push(routeToSignin);
+		case SignupAction.Signup_Failed:
+		default:
+			return state;
+	}
 };
 
 const mapStateToProps = (state: any) => ({

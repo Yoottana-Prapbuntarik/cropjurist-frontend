@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from '../../i18n';
 import { reduxForm, reset } from 'redux-form';
 import { companyInformationForm } from '../../apis/companyInformationAPIClient';
-import validate from '../../validator/informationValidator/informationValidator';
+import validate from '../../validate/informationValidator/informationValidator';
 import {
 	CompanyInformationPresenter,
 	LabelCompanyName,

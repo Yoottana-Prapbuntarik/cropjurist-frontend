@@ -1,4 +1,4 @@
-import { regexExpression } from '../interfaceValidator';
+import { regexExpression } from '../interface';
 import { KeyManager } from '../../manager/keyManager';
 
 export const emailValidator = (email: string) => {

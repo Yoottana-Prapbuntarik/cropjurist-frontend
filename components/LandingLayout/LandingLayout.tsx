@@ -8,13 +8,13 @@ const LandingLayout = (props: any) => (
 		<Head>
 			<title>{props.t('landingTitle')}</title>
 
-			<link href="styles/plugins/theme-plugin.css" rel="stylesheet" />
-			<script src="assets/js/theme-plugin.js" />
-			<script src="assets/js/theme-script.js" />
+			<link href={props.styleTheme} rel="stylesheet" />
+			<script src={props.themePlugin} />
+			<script src={props.themeScript} />
 		</Head>
 		<Navigation />
 		{props.children}
-		<Footer />
+		<Footer/>
 	</div>
 );
 

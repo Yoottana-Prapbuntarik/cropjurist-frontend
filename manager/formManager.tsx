@@ -4,4 +4,5 @@ export enum FormManager {
 	SignupForm = 'SignupForm',
 	ForgotPasswordForm = 'ForgotPasswordForm',
 	InformationForm = 'InformationForm',
+	ChangePasswordForm = 'ChangePasswordForm'
 }
