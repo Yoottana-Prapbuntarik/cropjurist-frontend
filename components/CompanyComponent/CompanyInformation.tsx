@@ -6,8 +6,23 @@ import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
 import SelectField from '../../components/FieldComponents/SelectField';
 import { LabelCompanyName, LabelAddress, LabelAddressDropdown } from "./CompanyInformationInterface";
 import './styles.scss';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import Router from 'next/router';
 
-const CompanyInformation = ({ companyInformationPresenter, submitCompanyInformation, handleSubmit, t }: any) => {
+const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
+    formSelectProvinces, submitCompanyInformation, handleSubmit,
+    formSelectDistrict, formSelectSubDistrict, t }: any) => {
+    const Dispatch = useDispatch();
+
+    useEffect(() => {
+        if (localStorage.getItem('access-token')) {
+        } else {
+            alert('คุณยังไม่ได้ทำการเข้าสู่ระบบ');
+            Router.push('/signin')
+        }
+    }, []);
+
     return (
         <div className="row justify-content-center">
             <div className="col-12 mb-2">
@@ -72,16 +87,53 @@ const CompanyInformation = ({ companyInformationPresenter, submitCompanyInformat
                                             {t(item.keyLabelNameDropdown)}
                                             <Field
                                                 style="form-control"
-                                                name={item.keyLabelNameDropdown} key={index} component={SelectField}
+                                                name={item.keyLabelNameDropdown}
+                                                key={index} component={SelectField}
                                                 styleTextError="text-danger"
+                                                onChangeValue={
+                                                    item.keyLabelNameDropdown === "province" ? formSelectProvinces :
+                                                        item.keyLabelNameDropdown === "district" ? formSelectDistrict :
+                                                            item.keyLabelNameDropdown === "subDistrict" ? formSelectSubDistrict : () => { }
+                                                }
+                                                onFocus={() => item.keyLabelNameDropdown === "province" && Dispatch(showAllProvinces)}
                                             >
-                                                {item.optionSelect.map((optionSelect,index: number) => {
-                                                    return (
-                                                        <option value={optionSelect.optionValue} key={index}>
-                                                            {t(optionSelect.optionSelctName)}
-                                                        </option>
-                                                    )
-                                                })}
+                                                {
+                                                    item.keyLabelNameDropdown === "province" ?
+                                                        companyInformationPresenter.provincesItem.map((listProvincesItems, index: number) => {
+                                                            return (
+                                                                <option value={listProvincesItems.province_id} key={index}>
+                                                                    {t(listProvincesItems.name)}
+                                                                </option>
+                                                            )
+                                                        }) :
+
+                                                        item.keyLabelNameDropdown === "district" ?
+                                                            companyInformationPresenter.districtItem.map((listDistrict, index: number) => {
+                                                                return (
+                                                                    <option value={listDistrict.district_id} key={index}>
+                                                                        {t(listDistrict.name)}
+                                                                    </option>
+                                                                )
+                                                            })
+                                                            :
+
+                                                            item.keyLabelNameDropdown === "subDistrict" ?
+                                                                companyInformationPresenter.subDistrictItem.map((listSubDistrict, index: number) => {
+                                                                    return (
+                                                                        <option value={listSubDistrict.sub_district_id} key={index}>
+                                                                            {t(listSubDistrict.name)}
+                                                                        </option>
+                                                                    )
+                                                                })
+                                                                :
+                                                                companyInformationPresenter.zipCode.map((listZipCode, index: number) => {
+                                                                    return (
+                                                                        <option value={listZipCode.zipcode} key={index}>
+                                                                            {t(listZipCode.zipcode)}
+                                                                        </option>
+                                                                    )
+                                                                })
+                                                }
                                             </Field>
                                         </div>
                                     )
