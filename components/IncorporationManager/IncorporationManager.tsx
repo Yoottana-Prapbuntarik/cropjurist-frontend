@@ -10,9 +10,9 @@ const Member = ({ memberPresenter, t, children }: any) => {
     return (
         <div className="container-fluid p-5">
             <div className="container">
-                <h5 className="text-center my-2">
+                <h3 className="text-center my-2">
                     {t(memberPresenter.keyIncorporationTitle)}
-                </h5>
+                </h3>
                 <div className="row shadow-sm">
                     {memberPresenter.memberItems.linkItems.map((item: LinkItems, index: number) => {
                         return (
