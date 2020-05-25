@@ -19,6 +19,8 @@ export const signin: any = (email: string, password: string, isRemember?: boolea
 					type: SigninAction.Signin_Success
 				});
 			}
+
+			localStorage.setItem('access-token', response.data.token);
 		})
 		.catch((error) => {
 			if (error) {
