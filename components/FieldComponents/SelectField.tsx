@@ -1,9 +1,17 @@
-const SelectField = ({ input, label, style, children, styleTextError,  meta: { touched, error } }: any) => {
+const SelectField = ({ input, onChangeValue, name, label, style, children, styleTextError, meta: { touched, error } }: any) => {
     return (
         <div>
             <label>{label}</label>
             <div>
-                <select className={style} {...input}
+                <select
+                    className={style}
+                    {...input}
+                    name={name}
+                    onChange={(e) => {
+                        const val = e.target.value
+                        input.onChange(val)
+                        onChangeValue(val)
+                    }}
                 >
                     {children}
                 </select>

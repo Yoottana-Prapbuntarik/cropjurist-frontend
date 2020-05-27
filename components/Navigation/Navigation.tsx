@@ -45,7 +45,7 @@ const Navigation = ({ navigationPresenter, navigationMemberPresenter, changeLang
 													(item: NavigationMemberItem, index: number) => (
 														<li className="nav-item" key={`navigation-item-${index}`}>
 															<Link href={item.routePathMemberMenu}>
-																<a className="nav-link " href="#">
+																<a className="nav-link " href="#" onClick={()=>{localStorage.removeItem('access-token')}}>
 																	{t(item.keyTitleMemberMenu)}
 																</a>
 															</Link>
