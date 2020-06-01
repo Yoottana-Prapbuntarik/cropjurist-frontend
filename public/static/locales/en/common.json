@@ -88,7 +88,7 @@
 	"dialogSubTitle": "Thai law required at least 3 shareholders in order to incorporate thai company. However, the laws didn't stipulated the shareholding proporation of each shareholders, therefore you can adjust the proportion of the shares in the company as you see fit.",
 	"dialogDetai": "Details you're about to add must be in accordance to what shown in your passport (or ID card, case you're Thai)",
 	"close": "Close",
-	"companyNameInvalid": "Invalid Address",
+	"companyNameInvalid": "Invalid Company Name",
 	"registrationNumberInvalid": "Invalid Registration Number",
 	"addressNumberInvalid": "Invalid Address Number",
 	"villageInvalid": "Invalid Village",
@@ -104,5 +104,7 @@
 	"detailActivateAccount" : "Now. You canuse your email and password to access the system.",
 	"titleChangePassword": "Change the password",
 	"newPassword": "Please enter new password.",
-	"changePassword": "Change password"
+	"changePassword": "Change password",
+	"changePasswordFaled": "Change password failed",
+	"pleaseSignin": "You are not sign in."
 }
