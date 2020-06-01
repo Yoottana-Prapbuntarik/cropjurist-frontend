@@ -3,7 +3,7 @@ import join from 'url-join'
 
 // const productionURL = 'https://corpjurist.com/api/v1/';
 const devURL = 'https://dev.corpjurist.com/api/v1/';
-const devURLResetPassword = 'https://dev.corpjurist.com/api/';
+const devURLManageUser = 'https://dev.corpjurist.com/api/';
 const service = axios.create({
 	baseURL: devURL,
 	headers: { 'content-type': 'application/json' }
@@ -12,9 +12,14 @@ const service = axios.create({
 export default service;
 
 export const serviceResetPassword = axios.create({
-	baseURL: devURLResetPassword,
+	baseURL: devURLManageUser,
 	headers: { 'content-type': 'application/json' }
 });
+
+export const serviceVerify = axios.create({
+	baseURL: devURLManageUser,
+	headers: {'content-type': 'application/json'}
+})
 
 axios.interceptors.request.use(async (config) => {
 	const token = localStorage.getItem("access-token");
