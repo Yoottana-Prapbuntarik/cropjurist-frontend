@@ -16,5 +16,6 @@ export enum KeyManager {
 	SubDistrictInvalid = 'subDistrictInvalid',
 	ZipCodeInvalid = 'zipCodeInvalid',
 	AuditorLicenseInvalid = 'auditorLicenseInvalid',
-	AuditorNameInvalid = 'auditorNameInvalid'
+	AuditorNameInvalid = 'auditorNameInvalid',
+	ChangePasswordFaled = 'changePasswordFaled'
 }
