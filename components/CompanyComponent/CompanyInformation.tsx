@@ -11,18 +11,20 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 
 const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
-    formSelectProvinces, submitCompanyInformation, handleSubmit,
+    formSelectProvinces, submitCompanyInformation, handleSubmit, getCurrentCompanyInformation,
     formSelectDistrict, formSelectSubDistrict, t }: any) => {
     const Dispatch = useDispatch();
 
     useEffect(() => {
         if (localStorage.getItem('access-token')) {
-        } else {
-            alert('คุณยังไม่ได้ทำการเข้าสู่ระบบ');
+            getCurrentCompanyInformation();
+        } 
+        else {
+            alert(t(companyInformationPresenter.keyPleaseSignin));
             Router.push('/signin')
         }
     }, []);
-
+    
     return (
         <div className="row justify-content-center">
             <div className="col-12 mb-2">
@@ -38,12 +40,13 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                                     <div className="row">
                                         <div className="col-12">
                                             <Field
-                                                name={item.keyCompanyName}
+                                                name={item.name}
                                                 type="text"
                                                 component={TextField}
                                                 styleTextError="text-danger"
                                                 className="form-control"
                                                 label={t(item.keyCompanyName)}
+                                                value={item.keyCompanyName}
                                             />
                                         </div>
                                     </div>
@@ -73,7 +76,7 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                                                     component={TextField}
                                                     styleTextError="text-danger"
                                                     className="form-control"
-                                                    label={t(item.keyLabelName)}
+                                                    label={t(item.name)}
                                                 />
                                             </div>
                                         </div>
@@ -164,7 +167,7 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                         component={TextField}
                         styleTextError="text-danger"
                         className="form-control"
-                        label={t(companyInformationPresenter.labelAuditor.keyLicense)}
+                        label={t(companyInformationPresenter.labelAuditor.valueLicense)}
                     />
                 </div>
                 <div className="col-12">
@@ -177,7 +180,7 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                         component={TextField}
                         styleTextError="text-danger"
                         className="form-control"
-                        label={t(companyInformationPresenter.labelAuditor.keyAuditorName)}
+                        label={t(companyInformationPresenter.labelAuditor.valueAuditorName)}
                     />
                 </div>
                 <div className="col-12">
