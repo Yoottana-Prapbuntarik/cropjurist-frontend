@@ -1,10 +1,11 @@
 export interface LabelCompanyName {
-    readonly name: string;
-    readonly keyCompanyName: string;
+    name: string
+    keyCompanyName: string;
 }
 
 export interface LabelAddress {
     readonly keyLabelName: string;
+    readonly name: string;
 }
 
 export interface LabelAddressDropdown {
@@ -18,7 +19,9 @@ export interface LabelCheckbox {
 
 export interface LabelAuditor {
     readonly keyLicense: string;
+    valueLicense: string;
     readonly keyAuditorName: string;
+    valueAuditorName: string;
 }
 
 export interface ProvincesItem {
@@ -54,4 +57,5 @@ export interface CompanyInformationPresenter {
     districtItem: DistrictItem[];
     subDistrictItem: SubDistrictItem[];
     zipCode: ZipCode[];
+    readonly keyPleaseSignin: string;
 }

@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import { withTranslation, i18n } from '../../i18n';
 import { reduxForm, reset } from 'redux-form';
 import { companyInformationForm, SendInformationCompany } from '../../apis/companyInformationAPIClient';
-import { chooseProvinces, chooseProvincesAction } from '../../apis/chooseProvincesAPI';
-import { chooseDistrict, chooseDistrictAction } from '../../apis/chooseDistrictAPI';
-import { chooseSubDistrict, chooseSubDistrictAction } from '../../apis/chooseSubDistrict';
-import { chooseZipCode, chooseZipCodeAction } from '../../apis/chooseZipCode';
+import { getInformationCompany, getInformationCompanyAction } from '../../apis/getInformationCompanyAPIClient';
+import {
+	companyInformationAddressAction, chooseProvinces,
+	chooseDistrict, chooseSubDistrict, chooseZipCode
+} from '../../apis/companyInfomationAddressAPIClient';
 import validate from '../../validate/informationValidator/informationValidator';
 import {
 	CompanyInformationPresenter,
@@ -39,10 +40,10 @@ const labelCompanyName: LabelCompanyName[] = [
 ];
 
 const labelAddress: LabelAddress[] = [
-	{ keyLabelName: 'registrationNumber' },
-	{ keyLabelName: 'addressNumber' },
-	{ keyLabelName: 'village' },
-	{ keyLabelName: 'road' }
+	{ keyLabelName: 'registrationNumber', name: "registrationNumber" },
+	{ keyLabelName: 'addressNumber', name: "addressNumber" },
+	{ keyLabelName: 'village', name: "village" },
+	{ keyLabelName: 'road', name: "road" }
 ];
 
 const labelAddressDropdown: LabelAddressDropdown[] = [
@@ -59,7 +60,9 @@ const labelCheckbox: LabelCheckbox = {
 
 const labelAuditor: LabelAuditor = {
 	keyLicense: 'auditorLicense',
-	keyAuditorName: 'auditorName'
+	keyAuditorName: 'auditorName',
+	valueLicense: 'auditorLicense',
+	valueAuditorName: 'auditorName',
 };
 
 const provincesItem: ProvincesItem[] = [
@@ -88,6 +91,12 @@ const zipCode: ZipCode[] = [
 	}
 ]
 
+enum defineIndexInArray {
+	indexOne = 0,
+	indexTwo = 1,
+	indexThree = 2,
+}
+
 const companyInformationPresenter: CompanyInformationPresenter = {
 	keyTitleCompany: 'titleCompany',
 	keyTitleAddress: 'titleAddress',
@@ -101,12 +110,13 @@ const companyInformationPresenter: CompanyInformationPresenter = {
 	provincesItem: provincesItem,
 	districtItem: districtItem,
 	subDistrictItem: subDistrictItem,
-	zipCode: zipCode
+	zipCode: zipCode,
+	keyPleaseSignin: 'pleaseSignin'
 };
 
 export const companyInformationReducer = (state: CompanyInformationPresenter = companyInformationPresenter, action: any) => {
 	switch (action.type) {
-		case chooseProvincesAction.chooseProvinces_Success:
+		case companyInformationAddressAction.chooseProvinces_Success:
 			let reseProvinces = [{ sub_district_id: 0, name: "selectData" }];
 			newProvincesAction = reseProvinces.concat(action.key_provinces);
 			return {
@@ -114,7 +124,7 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 				provincesItem: newProvincesAction,
 			}
 
-		case chooseDistrictAction.chooseDistrict_Success:
+		case companyInformationAddressAction.chooseDistrict_Success:
 			let resetDistrict = [{ district_id: 0, name: "selectData" }];
 			newDistrictAction = resetDistrict.concat(action.key_district);
 			return {
@@ -122,7 +132,7 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 				districtItem: newDistrictAction
 			}
 
-		case chooseSubDistrictAction.chooseSubDistrict_Success:
+		case companyInformationAddressAction.chooseSubDistrict_Success:
 			let resetSubDistrict = [{ sub_district_id: 0, name: "selectData" }];
 			newSubDistrictAction = resetSubDistrict.concat(action.key_sub_district);
 			return {
@@ -130,7 +140,7 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 				subDistrictItem: newSubDistrictAction
 			}
 
-		case chooseZipCodeAction.chooseZipCode_Success:
+		case companyInformationAddressAction.chooseZipCode_Success:
 			let resetZipCode = [{ zipcode: "selectData" }];
 			newZipCodeAction = resetZipCode.concat(action.key_zip_code);
 			return {
@@ -140,9 +150,49 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 
 		case SendInformationCompany.SendInformationCompany_Success:
 			alert(i18n.t(action.keyMessage));
-		
+
 		case SendInformationCompany.SendInformationCompany_Failed:
 			alert(i18n.t(action.keyMessage));
+
+		case getInformationCompanyAction.getInformationCompany_Success:
+			if (action.getInformationCompany !== undefined) {
+
+				let currentCompanyName = [
+					{ name: 'companyName1', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexOne].keyCompanyName = action.getInformationCompany.company_name_1 },
+					{ name: 'companyName2', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexTwo].keyCompanyName = action.getInformationCompany.company_name_2 },
+					{ name: 'companyName3', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexThree].keyCompanyName = action.getInformationCompany.company_name_3 },
+				]
+
+				let currentAddress = [
+					{ keyLabelName: 'registrationNumber', name: action.getInformationCompany.registration_no },
+					{ keyLabelName: 'addressNumber', name: action.getInformationCompany.address_no },
+					{ keyLabelName: 'village', name: action.getInformationCompany.village },
+					{ keyLabelName: 'road', name: action.getInformationCompany.road },
+				]
+
+				let currentProvinces = [{ sub_district_id: 0, name: action.getInformationCompany.province }];
+				let currentDistrict = [{ district_id: 0, name: action.getInformationCompany.district }];
+				let currentSubDistrict = [{ sub_district_id: 0, name: action.getInformationCompany.sub_district }];
+				let currentZipCode = [{ zipcode: action.getInformationCompany.zipcode }];
+				let currentLincense = {
+					keyLicense: 'auditorLicense',
+					keyAuditorName: 'auditorName',
+					valueLicense: action.getInformationCompany.license_number,
+					valueAuditorName: action.getInformationCompany.auditor_name,
+				}
+				return {
+					...state,
+					labelCompanyName: currentCompanyName,
+					labelAddress: currentAddress,
+					provincesItem: currentProvinces,
+					districtItem: currentDistrict,
+					subDistrictItem: currentSubDistrict,
+					zipCode: currentZipCode,
+					labelAuditor: currentLincense
+				}
+			} else {
+				return state;
+			}
 
 		default:
 			return state;
@@ -158,8 +208,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 		let provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id == event.province);
 		let districtData = newDistrictAction.find(districtArray => districtArray.district_id == event.district);
 		let subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id == event.subDistrict);
-		dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
-			event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName));
+		if (provinceData !== undefined && provinceData !== undefined && subDistrictData !== undefined) {
+			dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
+				event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName));
+		}
+		
 		dispatch(reset(FormManager.InformationForm));
 		newDistrictAction = [];
 		newProvincesAction = [];
@@ -167,7 +220,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 		newZipCodeAction = [];
 	},
 
-	showAllProvinces: () => dispatch(chooseProvinces()),
+	showAllProvinces: () => { dispatch(chooseProvinces()) },
+
+	getCurrentCompanyInformation: () => { dispatch(getInformationCompany()) },
 
 	formSelectProvinces: (event: any) => {
 		dispatch(chooseDistrict(event))

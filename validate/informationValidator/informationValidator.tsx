@@ -1,6 +1,6 @@
 import { FormErrors } from 'redux-form';
 import { ErrorField } from '../interface';
-import { plainTextValidator, plainTextOrWhitespaceValidator, Field } from '../plainTextValidator/plainTextValidator';
+import { plainTextValidator, Field } from '../plainTextValidator/plainTextValidator';
 
 const validate = (informationForm: any, { t }: any): FormErrors => {
 	let errors: FormErrors<ErrorField> = {};
@@ -11,13 +11,13 @@ const validate = (informationForm: any, { t }: any): FormErrors => {
 		errors.companyName1 = t(companyNameValidatorResult.keyMessage);
 	}
 
-	let companyNameValidatorResult2 = plainTextOrWhitespaceValidator(informationForm.companyName2, Field.CompanyName2);
+	let companyNameValidatorResult2 = plainTextValidator(informationForm.companyName2, Field.CompanyName2);
 
 	if (!companyNameValidatorResult2.status) {
 		errors.companyName2 = t(companyNameValidatorResult2.keyMessage);
 	}
 
-	let companyNameValidatorResult3 = plainTextOrWhitespaceValidator(informationForm.companyName3, Field.CompanyName3);
+	let companyNameValidatorResult3 = plainTextValidator(informationForm.companyName3, Field.CompanyName3);
 
 	if (!companyNameValidatorResult3.status) {
 		errors.companyName3 = t(companyNameValidatorResult3.keyMessage);

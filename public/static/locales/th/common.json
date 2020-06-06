@@ -104,5 +104,7 @@
 	"detailActivateAccount" : "ตอนนี้คุณสามารถใช้อีเมลและรหัสผ่านเพื่อเข้าสู่ระบบได้ทันที",
 	"titleChangePassword": "เปลี่ยนรหัสผ่านใหม่",
 	"newPassword": "ป้อนรหัสผ่านใหม่",
-	"changePassword": "เปลี่ยนรหัสผ่าน"
+	"changePassword": "เปลี่ยนรหัสผ่าน",
+	"changePasswordFaled": "เกิดความผิดพลาดในการเปลี่ยนรหัสผ่าน",
+	"pleaseSignin": "คุณไม่ได้ลงชื่อเข้าใช้งาน"
 }

@@ -1,8 +1,16 @@
 import { withTranslation } from '../../i18n';
 import { routeToSignin } from '../../manager/routerManager';
 import Router from 'next/router';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-const ActivateAccount = ({ activateAccountPresenter, t }: any) => {
+const ActivateAccount = ({ activateAccountPresenter, verificationUser, t }: any) => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(verificationUser);
+	}, []);
+
 	return (
 		<div className="container my-5">
 			<div className="row align-items-center">
