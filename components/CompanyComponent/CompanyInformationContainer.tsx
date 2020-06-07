@@ -7,7 +7,6 @@ import {
 	companyInformationAddressAction, chooseProvinces,
 	chooseDistrict, chooseSubDistrict, chooseZipCode
 } from '../../apis/companyInfomationAddressAPIClient';
-import validate from '../../validate/informationValidator/informationValidator';
 import {
 	CompanyInformationPresenter,
 	LabelCompanyName,
@@ -65,31 +64,13 @@ const labelAuditor: LabelAuditor = {
 	valueAuditorName: 'auditorName',
 };
 
-const provincesItem: ProvincesItem[] = [
-	{
-		province_id: 0,
-		name: "selectData"
-	}
-]
+const provincesItem: ProvincesItem[] = [{ province_id: 0, name: "selectData" }]
 
-const districtItem: DistrictItem[] = [
-	{
-		district_id: 0,
-		name: "selectData"
-	}
-]
-const subDistrictItem: SubDistrictItem[] = [
-	{
-		sub_district_id: 0,
-		name: "selectData"
-	}
-]
+const districtItem: DistrictItem[] = [{ district_id: 0, name: "selectData" }]
 
-const zipCode: ZipCode[] = [
-	{
-		zipcode: "selectData"
-	}
-]
+const subDistrictItem: SubDistrictItem[] = [{ sub_district_id: 0, name: "selectData" }]
+
+const zipCode: ZipCode[] = [{ zipcode: "selectData" }]
 
 enum defineIndexInArray {
 	indexOne = 0,
@@ -132,6 +113,13 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 				districtItem: newDistrictAction
 			}
 
+		case companyInformationAddressAction.chooseDistrict_Failed:
+			let chooseDistrictFailed = [{ district_id: 0, name: "selectData" }];
+			return {
+				...state,
+				districtItem: chooseDistrictFailed
+			}
+
 		case companyInformationAddressAction.chooseSubDistrict_Success:
 			let resetSubDistrict = [{ sub_district_id: 0, name: "selectData" }];
 			newSubDistrictAction = resetSubDistrict.concat(action.key_sub_district);
@@ -140,12 +128,26 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 				subDistrictItem: newSubDistrictAction
 			}
 
+		case companyInformationAddressAction.chooseSubDistrict_Failed:
+			let chooseSubDistrictFailed = [{ sub_district_id: 0, name: "selectData" }];
+			return {
+				...state,
+				subDistrictItem: chooseSubDistrictFailed
+			}
+
 		case companyInformationAddressAction.chooseZipCode_Success:
 			let resetZipCode = [{ zipcode: "selectData" }];
 			newZipCodeAction = resetZipCode.concat(action.key_zip_code);
 			return {
 				...state,
 				zipCode: newZipCodeAction
+			}
+
+		case companyInformationAddressAction.chooseZipCode_Failed:
+			let chooseZipCodeFailed = [{ zipcode: "selectData" }];
+			return {
+				...state,
+				zipCode: chooseZipCodeFailed
 			}
 
 		case SendInformationCompany.SendInformationCompany_Success:
@@ -212,7 +214,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 			dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
 				event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName));
 		}
-		
+
 		dispatch(reset(FormManager.InformationForm));
 		newDistrictAction = [];
 		newProvincesAction = [];
@@ -240,6 +242,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 	}
 });
 
-const form = reduxForm({ form: FormManager.InformationForm, validate })(companyInformation);
+const form = reduxForm({ form: FormManager.InformationForm })(companyInformation);
 
 export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form));
