@@ -17,5 +17,6 @@ export enum KeyManager {
 	ZipCodeInvalid = 'zipCodeInvalid',
 	AuditorLicenseInvalid = 'auditorLicenseInvalid',
 	AuditorNameInvalid = 'auditorNameInvalid',
-	ChangePasswordFaled = 'changePasswordFaled'
+	ChangePasswordFaled = 'changePasswordFaled',
+	SendInformationCompanySuccess = 'sendInformationCompanySuccess'
 }
