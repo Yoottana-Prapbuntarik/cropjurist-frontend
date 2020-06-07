@@ -5,8 +5,6 @@ export enum Field {
 	FirstName = 'FirstName',
 	LastName = 'LastName',
 	CompanyName1 = 'CompanyName1',
-	CompanyName2 = 'CompanyName2',
-	CompanyName3 = 'CompanyName3',
 	RegistrationNumber = 'RegistrationNumber',
 	AddressNumber = 'AddressNumber',
 	Village = 'Village',
@@ -49,35 +47,44 @@ const keyErrorMessage = (field: Field) => {
 	switch (field) {
 		case Field.FirstName:
 			return KeyManager.FirstNameInValid;
+
 		case Field.LastName:
 			return KeyManager.LastNameInValid;
+
 		case Field.CompanyName1:
 			return KeyManager.CompanyNameInvalid;
-		case Field.CompanyName2:
-			return KeyManager.CompanyNameInvalid;
-		case Field.CompanyName3:
-			return KeyManager.CompanyNameInvalid;
+
 		case Field.RegistrationNumber:
 			return KeyManager.RegistrationNumberInvalid;
+
 		case Field.AddressNumber:
 			return KeyManager.AddressNumberInvalid;
+
 		case Field.Village:
 			return KeyManager.VillageInvalid;
+
 		case Field.Road:
 			return KeyManager.RoadInvalid;
 		case Field.Province:
 			return KeyManager.ProvinceInvalid;
+
 		case Field.District:
 			return KeyManager.DistrictInvalid;
+
 		case Field.SubDistrict:
 			return KeyManager.SubDistrictInvalid;
+
 		case Field.ZipCode:
 			return KeyManager.ZipCodeInvalid;
+
 		case Field.AuditorLicense:
 			return KeyManager.AuditorLicenseInvalid;
+
 		case Field.AuditorName:
 			return KeyManager.AuditorNameInvalid;
+
 		default:
+			
 			return '';
 	}
 };
