@@ -106,5 +106,6 @@
 	"newPassword": "Please enter new password.",
 	"changePassword": "Change password",
 	"changePasswordFaled": "Change password failed",
-	"pleaseSignin": "You are not sign in."
+	"pleaseSignin": "You are not sign in.",
+	"sendInformationCompanySuccess": "Saved data Successfully"
 }
