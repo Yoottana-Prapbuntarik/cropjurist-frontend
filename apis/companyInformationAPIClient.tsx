@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
-import {serviceSetToken} from "../apis/baseAPIs";
+import { serviceSetToken } from "../apis/baseAPIs";
+import { KeyManager } from '../manager/keyManager';
 
 export enum SendInformationCompany {
     SendInformationCompany_Success = 'SendInformationCompany_Success',
@@ -12,22 +13,24 @@ export const companyInformationForm: any = (company_name_1: string, company_name
     license_number: string, auditor_name: string) => async (dispatch: Dispatch
     ) => {
 
-        serviceSetToken ({
+        serviceSetToken({
             method: 'post',
             url: 'company_information/',
             data: params(company_name_1, company_name_2, company_name_3,
-                         registration_no, address_no, village, road,
-                         province, district, sub_district, zipcode,
-                         license_number, auditor_name)
-            })
+                registration_no, address_no, village, road,
+                province, district, sub_district, zipcode,
+                license_number, auditor_name)
+        })
+        
             .then((response) => {
                 if (response) {
                     dispatch({
                         type: SendInformationCompany.SendInformationCompany_Success,
-                        keyMessage: 'forgotPasswordSuccess'
+                        keyMessage: KeyManager.SendInformationCompanySuccess
                     });
                 }
             })
+
             .catch((error) => {
                 if (error) {
                     dispatch({

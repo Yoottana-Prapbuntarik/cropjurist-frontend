@@ -11,18 +11,6 @@ const validate = (informationForm: any, { t }: any): FormErrors => {
 		errors.companyName1 = t(companyNameValidatorResult.keyMessage);
 	}
 
-	let companyNameValidatorResult2 = plainTextValidator(informationForm.companyName2, Field.CompanyName2);
-
-	if (!companyNameValidatorResult2.status) {
-		errors.companyName2 = t(companyNameValidatorResult2.keyMessage);
-	}
-
-	let companyNameValidatorResult3 = plainTextValidator(informationForm.companyName3, Field.CompanyName3);
-
-	if (!companyNameValidatorResult3.status) {
-		errors.companyName3 = t(companyNameValidatorResult3.keyMessage);
-	}
-
 	let registrationNumberValidatorResult = plainTextValidator(
 		informationForm.registrationNumber,
 		Field.RegistrationNumber
