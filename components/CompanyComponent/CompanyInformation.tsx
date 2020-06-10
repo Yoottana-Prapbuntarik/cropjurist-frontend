@@ -10,28 +10,32 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import Router from 'next/router';
 
+enum StatusCode {
+    success = 200
+}
+
 const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
-    formSelectProvinces, submitCompanyInformation, handleSubmit, getCurrentCompanyInformation,
+    formSelectProvinces, submitCompanyInformation, updateCompanyInformation, handleSubmit, getCurrentCompanyInformation,
     formSelectDistrict, formSelectSubDistrict, t }: any) => {
     const Dispatch = useDispatch();
 
     useEffect(() => {
         if (localStorage.getItem('access-token')) {
-            getCurrentCompanyInformation();
-        } 
+            Dispatch(getCurrentCompanyInformation);
+        }
         else {
             alert(t(companyInformationPresenter.keyPleaseSignin));
             Router.push('/signin')
         }
     }, []);
-    
+
     return (
         <div className="row justify-content-center">
             <div className="col-12 mb-2">
                 {t(companyInformationPresenter.keyTitleCompany)}
                 <div className="underline"></div>
             </div>
-            <form onSubmit={handleSubmit(submitCompanyInformation)}>
+            <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success ? updateCompanyInformation : submitCompanyInformation)}>
                 {companyInformationPresenter.labelCompanyName.map(
                     (item: LabelCompanyName, index: number) => {
                         return (
@@ -89,6 +93,11 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                                         <div className="col-md-6 col-12" key={`${item.keyLabelNameDropdown}${index}`}>
                                             {t(item.keyLabelNameDropdown)}
                                             <Field
+
+                                                disabledState={
+                                                    companyInformationPresenter.stateSelectInformation === item.keyLabelNameDropdown ||
+                                                        item.keyLabelNameDropdown === "province" ? false : true
+                                                }
                                                 style="form-control"
                                                 name={item.keyLabelNameDropdown}
                                                 key={index} component={SelectField}

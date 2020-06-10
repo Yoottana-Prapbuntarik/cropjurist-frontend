@@ -53,9 +53,11 @@ export interface CompanyInformationPresenter {
     readonly labelCheckbox: LabelCheckbox;
     readonly labelAuditor: LabelAuditor;
     readonly labelCompanyName: LabelCompanyName[];
+    readonly keyPleaseSignin: string;
+    stateSelectInformation: string
+    keyGetCurrentInfomationStatus: number;
     provincesItem: ProvincesItem[];
     districtItem: DistrictItem[];
     subDistrictItem: SubDistrictItem[];
     zipCode: ZipCode[];
-    readonly keyPleaseSignin: string;
 }
