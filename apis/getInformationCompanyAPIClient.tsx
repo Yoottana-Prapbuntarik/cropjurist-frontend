@@ -21,12 +21,14 @@ export const getInformationCompany: any = () => async (dispatch: Dispatch) => {
             if (response) {
                 dispatch({
                     type: getInformationCompanyAction.getInformationCompany_Success,
-                    getInformationCompany: response.data[defineIndexInArray.indexOne]
+                    getInformationCompany: response.data[defineIndexInArray.indexOne],
+                    keyStatus: response.status
                 })
             }
         })
 
         .catch((error)=>{
+            console.log(error)
             dispatch({
                 type: getInformationCompanyAction.getInformationCompany_Failed,
                 getInformationCompany: error.response.data
