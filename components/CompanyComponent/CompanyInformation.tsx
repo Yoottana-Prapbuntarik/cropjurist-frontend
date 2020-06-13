@@ -1,10 +1,10 @@
 import { withTranslation } from '../../i18n';
 import { Field } from 'redux-form';
-import TextField from '../../components/FieldComponents/TextField';
+import CustomeTextField from '../../components/FieldComponents/CustomeTextField';
 import CheckBox from '../../components/FieldComponents/CheckBox';
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit';
 import SelectField from '../../components/FieldComponents/SelectField';
-import { LabelCompanyName, LabelAddress, LabelAddressDropdown } from "./CompanyInformationInterface";
+import { LabelAddressDropdown } from "./CompanyInformationInterface";
 import './styles.scss';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -14,9 +14,15 @@ enum StatusCode {
     success = 200
 }
 
+enum LengthData {
+    oneData = 1
+}
+
 const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
     formSelectProvinces, submitCompanyInformation, updateCompanyInformation, handleSubmit, getCurrentCompanyInformation,
-    formSelectDistrict, formSelectSubDistrict, t }: any) => {
+    formSelectDistrict, formSelectSubDistrict, ChangeTextFieldCompanyName1, ChangeTextFieldCompanyName2, ChangeTextFieldCompanyName3,
+    ChangeTextFieldRegistrationNumber, ChangeTextFieldAddressNumber, ChangeTextFieldVillage, ChangeTextFieldRoad, ChangeTextFieldAuditorLicense,
+    ChangeTextFieldAuditor, t }: any) => {
     const Dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,29 +42,46 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                 <div className="underline"></div>
             </div>
             <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success ? updateCompanyInformation : submitCompanyInformation)}>
-                {companyInformationPresenter.labelCompanyName.map(
-                    (item: LabelCompanyName, index: number) => {
-                        return (
-                            <div className="col-12" key={`${item.keyCompanyName}${index}`}>
-                                <div className="form-group">
-                                    <div className="row">
-                                        <div className="col-12">
-                                            <Field
-                                                name={item.name}
-                                                type="text"
-                                                component={TextField}
-                                                styleTextError="text-danger"
-                                                className="form-control"
-                                                label={t(item.keyCompanyName)}
-                                                value={item.keyCompanyName}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                <div className="col-12" >
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-12">
+                                <Field
+                                    name={companyInformationPresenter.labelCompanyName1.name}
+                                    type="text"
+                                    component={CustomeTextField}
+                                    styleTextError="text-danger"
+                                    className="form-control"
+                                    label={t(companyInformationPresenter.labelCompanyName1.keyCompanyName)}
+                                    currentValue={companyInformationPresenter.labelCompanyName1.valueCompanyName}
+                                    onChange={(event: any) => ChangeTextFieldCompanyName1(event.target.value)} />
                             </div>
-                        )
-                    }
-                )}
+                            <div className="col-12">
+                                <Field
+                                    name={companyInformationPresenter.labelCompanyName2.name}
+                                    type="text"
+                                    component={CustomeTextField}
+                                    styleTextError="text-danger"
+                                    className="form-control"
+                                    label={t(companyInformationPresenter.labelCompanyName2.keyCompanyName)}
+                                    currentValue={companyInformationPresenter.labelCompanyName2.valueCompanyName}
+                                    onChange={(event: any) => ChangeTextFieldCompanyName2(event.target.value)} />
+                            </div>
+                            <div className="col-12">
+                                <Field
+                                    name={companyInformationPresenter.labelCompanyName3.name}
+                                    type="text"
+                                    component={CustomeTextField}
+                                    styleTextError="text-danger"
+                                    className="form-control"
+                                    label={t(companyInformationPresenter.labelCompanyName3.keyCompanyName)}
+                                    currentValue={companyInformationPresenter.labelCompanyName3.valueCompanyName}
+                                    onChange={(event: any) => ChangeTextFieldCompanyName3(event.target.value)} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="col-12">
                     {t(companyInformationPresenter.keyTitleAddress)}
                     <div className="underline"></div>
@@ -66,37 +89,85 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                 <div className="col-12">
                     <div className="form-group">
                         <div className="row">
-                            {companyInformationPresenter.labelAddress.map(
-                                (item: LabelAddress, index: number) => {
-                                    return (
-                                        <div className="col-md-6 col-12" key={index}>
-                                            <label>
-                                                {t(item.keyLabelName)}
-                                            </label>
-                                            <div>
-                                                <Field
-                                                    name={item.keyLabelName}
-                                                    type="text"
-                                                    component={TextField}
-                                                    styleTextError="text-danger"
-                                                    className="form-control"
-                                                    label={t(item.name)}
-                                                />
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
+                            <div className="col-md-6 col-12">
+                                <label>
+                                    {t(companyInformationPresenter.labelRegistrationNumber.keyLabelName)}
+                                </label>
+                                <div>
+                                    <Field
+                                        name={companyInformationPresenter.labelRegistrationNumber.name}
+                                        type="text"
+                                        component={CustomeTextField}
+                                        styleTextError="text-danger"
+                                        className="form-control"
+                                        label={t(companyInformationPresenter.labelRegistrationNumber.keyLabelName)}
+                                        currentValue={companyInformationPresenter.labelRegistrationNumber.valueLabelAddress}
+                                        onChange={(event: any) => ChangeTextFieldRegistrationNumber(event.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-md-6 col-12">
+                                <label>
+                                    {t(companyInformationPresenter.labelAddressNumber.keyLabelName)}
+                                </label>
+                                <div>
+                                    <Field
+                                        name={companyInformationPresenter.labelAddressNumber.name}
+                                        type="text"
+                                        component={CustomeTextField}
+                                        styleTextError="text-danger"
+                                        className="form-control"
+                                        label={t(companyInformationPresenter.labelAddressNumber.keyLabelName)}
+                                        currentValue={companyInformationPresenter.labelAddressNumber.valueLabelAddress}
+                                        onChange={(event: any) => ChangeTextFieldAddressNumber(event.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-md-6 col-12">
+                                <label>
+                                    {t(companyInformationPresenter.labelVillage.keyLabelName)}
+                                </label>
+                                <div>
+                                    <Field
+                                        name={companyInformationPresenter.labelVillage.name}
+                                        type="text"
+                                        component={CustomeTextField}
+                                        styleTextError="text-danger"
+                                        className="form-control"
+                                        label={t(companyInformationPresenter.labelVillage.keyLabelName)}
+                                        currentValue={companyInformationPresenter.labelVillage.valueLabelAddress}
+                                        onChange={(event: any) => ChangeTextFieldVillage(event.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-md-6 col-12">
+                                <label>
+                                    {t(companyInformationPresenter.labelRoad.keyLabelName)}
+                                </label>
+                                <div>
+                                    <Field
+                                        name={companyInformationPresenter.labelRoad.name}
+                                        type="text"
+                                        component={CustomeTextField}
+                                        styleTextError="text-danger"
+                                        className="form-control"
+                                        label={t(companyInformationPresenter.labelRoad.keyLabelName)}
+                                        currentValue={companyInformationPresenter.labelRoad.valueLabelAddress}
+                                        onChange={(event: any) => ChangeTextFieldRoad(event.target.value)}
+                                    />
+                                </div>
+                            </div>
                             {companyInformationPresenter.labelAddressDropdown.map(
                                 (item: LabelAddressDropdown, index: number) => {
                                     return (
                                         <div className="col-md-6 col-12" key={`${item.keyLabelNameDropdown}${index}`}>
                                             {t(item.keyLabelNameDropdown)}
                                             <Field
-
                                                 disabledState={
-                                                    companyInformationPresenter.stateSelectInformation === item.keyLabelNameDropdown ||
-                                                        item.keyLabelNameDropdown === "province" ? false : true
+                                                    item.keyLabelNameDropdown === "province" ? false :
+                                                        item.keyLabelNameDropdown === "district" ? companyInformationPresenter.districtItem.length > LengthData.oneData ? false : true :
+                                                            item.keyLabelNameDropdown === "subDistrict" ? companyInformationPresenter.subDistrictItem.length > LengthData.oneData ? false : true :
+                                                                item.keyLabelNameDropdown === "zipCode" && companyInformationPresenter.zipCode.length > LengthData.oneData ? false : true
                                                 }
                                                 style="form-control"
                                                 name={item.keyLabelNameDropdown}
@@ -168,15 +239,17 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                 </div>
                 <div className="col-12">
                     <label>
-                        {t(companyInformationPresenter.labelAuditor.keyLicense)}
+                        {t(companyInformationPresenter.labelAuditorLicense.keyLicense)}
                     </label>
                     <Field
-                        name={companyInformationPresenter.labelAuditor.keyLicense}
+                        name={companyInformationPresenter.labelAuditorLicense.keyLicense}
                         type="text"
-                        component={TextField}
+                        component={CustomeTextField}
                         styleTextError="text-danger"
                         className="form-control"
-                        label={t(companyInformationPresenter.labelAuditor.valueLicense)}
+                        label={t(companyInformationPresenter.labelAuditorLicense.keyLicense)}
+                        currentValue={companyInformationPresenter.labelAuditorLicense.valueLicense}
+                        onChange={(event: any) => ChangeTextFieldAuditorLicense(event.target.value)}
                     />
                 </div>
                 <div className="col-12">
@@ -186,10 +259,12 @@ const CompanyInformation = ({ companyInformationPresenter, showAllProvinces,
                     <Field
                         name={companyInformationPresenter.labelAuditor.keyAuditorName}
                         type="text"
-                        component={TextField}
+                        component={CustomeTextField}
                         styleTextError="text-danger"
                         className="form-control"
-                        label={t(companyInformationPresenter.labelAuditor.valueAuditorName)}
+                        label={t(companyInformationPresenter.labelAuditor.keyAuditorName)}
+                        currentValue={companyInformationPresenter.labelAuditor.valueAuditorName}
+                        onChange={(event: any) => ChangeTextFieldAuditor(event.target.value)}
                     />
                 </div>
                 <div className="col-12">

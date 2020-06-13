@@ -18,7 +18,8 @@ import {
 	ProvincesItem,
 	DistrictItem,
 	SubDistrictItem,
-	ZipCode
+	ZipCode,
+	LabelAuditorLicense
 } from './CompanyInformationInterface';
 import { FormManager } from '../../manager/formManager';
 import companyInformation from './CompanyInformation';
@@ -34,18 +35,29 @@ let newDistrictAction = [];
 let newZipCodeAction = [];
 let currentIdInformation = 0;
 
-const labelCompanyName: LabelCompanyName[] = [
-	{ name: 'companyName1', keyCompanyName: 'companyName1' },
-	{ name: 'companyName2', keyCompanyName: 'companyName2' },
-	{ name: 'companyName3', keyCompanyName: 'companyName3' }
-];
+enum CompanyInformationAction {
+	handleChangeCompanyName1 = "handleChangeCompanyName1",
+	handleChangeCompanyName2 = "handleChangeCompanyName2",
+	handleChangeCompanyName3 = "handleChangeCompanyName3",
+	handChangeRegistrationNumber = "handChangeRegistrationNumber",
+	handChangeAddressNumber = "handChangeAddressNumber",
+	handChangeVillage = "handChangeVillage",
+	handChangeRoad = "handChangeRoad",
+	handleChangeAuditorLicense = "handleChangeAuditorLicense",
+	handleChangeAuditor = "handleChangeAuditor",
+}
 
-const labelAddress: LabelAddress[] = [
-	{ keyLabelName: 'registrationNumber', name: "registrationNumber" },
-	{ keyLabelName: 'addressNumber', name: "addressNumber" },
-	{ keyLabelName: 'village', name: "village" },
-	{ keyLabelName: 'road', name: "road" }
-];
+const labelCompanyName1: LabelCompanyName = { name: 'companyName1', keyCompanyName: 'companyName1', valueCompanyName: "" }
+const labelCompanyName2: LabelCompanyName = { name: 'companyName2', keyCompanyName: 'companyName2', valueCompanyName: "" }
+const labelCompanyName3: LabelCompanyName = { name: 'companyName3', keyCompanyName: 'companyName3', valueCompanyName: "" }
+
+const labelRegistrationNumber: LabelAddress = { keyLabelName: 'registrationNumber', valueLabelAddress: "", name: "registrationNumber" }
+const labelAddressNumber: LabelAddress = { keyLabelName: 'addressNumber', valueLabelAddress: "", name: "addressNumber" }
+const labelVillage: LabelAddress = { keyLabelName: 'village', valueLabelAddress: "", name: "village" }
+const labelRoad: LabelAddress = { keyLabelName: 'road', valueLabelAddress: "", name: "road" }
+
+const labelAuditorLicense: LabelAuditorLicense = { keyLicense: 'auditorLicense', valueLicense: "" }
+const labelAuditor: LabelAuditor = { keyAuditorName: 'auditorName', valueAuditorName: "" };
 
 const labelAddressDropdown: LabelAddressDropdown[] = [
 	{ keyLabelNameDropdown: 'province' },
@@ -59,13 +71,6 @@ const labelCheckbox: LabelCheckbox = {
 	keyCheckboxAuditor: 'checkboxAuditor'
 };
 
-const labelAuditor: LabelAuditor = {
-	keyLicense: 'auditorLicense',
-	keyAuditorName: 'auditorName',
-	valueLicense: 'auditorLicense',
-	valueAuditorName: 'auditorName',
-};
-
 const provincesItem: ProvincesItem[] = [{ province_id: 0, name: "selectData" }]
 
 const districtItem: DistrictItem[] = [{ district_id: 0, name: "selectData" }]
@@ -74,39 +79,92 @@ const subDistrictItem: SubDistrictItem[] = [{ sub_district_id: 0, name: "selectD
 
 const zipCode: ZipCode[] = [{ zipcode: "selectData" }]
 
-enum defineIndexInArray {
-	indexOne = 0,
-	indexTwo = 1,
-	indexThree = 2,
-}
-
 const companyInformationPresenter: CompanyInformationPresenter = {
 	keyTitleCompany: 'titleCompany',
 	keyTitleAddress: 'titleAddress',
 	keyTitleAuditor: 'titleAuditor',
 	keySubmit: 'save',
-	labelAddress: labelAddress,
+	labelRegistrationNumber: labelRegistrationNumber,
+	labelAddressNumber: labelAddressNumber,
+	labelVillage: labelVillage,
+	labelRoad: labelRoad,
 	labelAddressDropdown: labelAddressDropdown,
 	labelCheckbox: labelCheckbox,
 	labelAuditor: labelAuditor,
-	labelCompanyName: labelCompanyName,
+	labelAuditorLicense: labelAuditorLicense,
+	labelCompanyName1: labelCompanyName1,
+	labelCompanyName2: labelCompanyName2,
+	labelCompanyName3: labelCompanyName3,
 	provincesItem: provincesItem,
 	districtItem: districtItem,
 	subDistrictItem: subDistrictItem,
 	zipCode: zipCode,
 	keyGetCurrentInfomationStatus: 404,
-	stateSelectInformation: "province",
 	keyPleaseSignin: 'pleaseSignin'
 };
 
 export const companyInformationReducer = (state: CompanyInformationPresenter = companyInformationPresenter, action: any) => {
 	switch (action.type) {
+		case CompanyInformationAction.handleChangeCompanyName1:
+			return {
+				...state,
+				labelCompanyName1: { name: 'companyName1', keyCompanyName: "companyName1", valueCompanyName: action.payload }
+			}
+
+		case CompanyInformationAction.handleChangeCompanyName2:
+			return {
+				...state,
+				labelCompanyName2: { name: 'companyName2', keyCompanyName: "companyName2", valueCompanyName: action.payload }
+
+			}
+
+		case CompanyInformationAction.handleChangeCompanyName3:
+			return {
+				...state,
+				labelCompanyName3: { name: 'companyName3', keyCompanyName: "companyName3", valueCompanyName: action.payload }
+			}
+
+		case CompanyInformationAction.handChangeRegistrationNumber:
+			return {
+				...state,
+				labelRegistrationNumber: { keyLabelName: 'registrationNumber', valueLabelAddress: action.payload, name: "registrationNumber" }
+			}
+
+		case CompanyInformationAction.handChangeAddressNumber:
+			return {
+				...state,
+				labelAddressNumber: { keyLabelName: 'addressNumber', valueLabelAddress: action.payload, name: "addressNumber" }
+			}
+
+		case CompanyInformationAction.handChangeVillage:
+			return {
+				...state,
+				labelVillage: { keyLabelName: 'village', valueLabelAddress: action.payload, name: "village" }
+			}
+
+		case CompanyInformationAction.handChangeRoad:
+			return {
+				...state,
+				labelRoad: { keyLabelName: 'road', valueLabelAddress: action.payload, name: "road" }
+			}
+
+		case CompanyInformationAction.handleChangeAuditorLicense:
+			return {
+				...state,
+				labelAuditorLicense: { keyLicense: 'auditorLicense', valueLicense: action.payload }
+			}
+
+		case CompanyInformationAction.handleChangeAuditor:
+			return {
+				...state,
+				labelAuditor: { keyAuditorName: 'auditorName', valueAuditorName: action.payload }
+			}
+
 		case companyInformationAddressAction.chooseProvinces_Success:
 			let reseProvinces = [{ province_id: 0, name: "selectData" }];
 			newProvincesAction = reseProvinces.concat(action.key_provinces);
 			return {
 				...state,
-				stateSelectInformation: "province",
 				provincesItem: newProvincesAction,
 			}
 
@@ -115,7 +173,6 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 			newDistrictAction = resetDistrict.concat(action.key_district);
 			return {
 				...state,
-				stateSelectInformation: "district",
 				districtItem: newDistrictAction,
 			}
 
@@ -123,7 +180,6 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 			let chooseDistrictFailed = [{ district_id: 0, name: "selectData" }];
 			return {
 				...state,
-				stateSelectInformation: "province",
 				districtItem: chooseDistrictFailed,
 			}
 
@@ -133,15 +189,12 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 			return {
 				...state,
 				subDistrictItem: newSubDistrictAction,
-				stateSelectInformation: "subDistrict"
-
 			}
 
 		case companyInformationAddressAction.chooseSubDistrict_Failed:
 			let chooseSubDistrictFailed = [{ sub_district_id: 0, name: "selectData" }];
 			return {
 				...state,
-				stateSelectInformation: "district",
 				subDistrictItem: chooseSubDistrictFailed
 			}
 
@@ -150,7 +203,6 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 			newZipCodeAction = resetZipCode.concat(action.key_zip_code);
 			return {
 				...state,
-				stateSelectInformation: "zipCode",
 				zipCode: newZipCodeAction
 			}
 
@@ -158,7 +210,6 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 			let chooseZipCodeFailed = [{ zipcode: "selectData" }];
 			return {
 				...state,
-				stateSelectInformation: "subDistrict",
 				zipCode: chooseZipCodeFailed
 			}
 
@@ -171,39 +222,22 @@ export const companyInformationReducer = (state: CompanyInformationPresenter = c
 		case getInformationCompanyAction.getInformationCompany_Success:
 			if (action.getInformationCompany !== undefined) {
 				currentIdInformation = action.getInformationCompany.id;
-				let currentCompanyName = [
-					{ name: 'companyName1', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexOne].keyCompanyName = action.getInformationCompany.company_name_1 },
-					{ name: 'companyName2', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexTwo].keyCompanyName = action.getInformationCompany.company_name_2 },
-					{ name: 'companyName3', keyCompanyName: state.labelCompanyName[defineIndexInArray.indexThree].keyCompanyName = action.getInformationCompany.company_name_3 },
-				]
-
-				let currentAddress = [
-					{ keyLabelName: 'registrationNumber', name: action.getInformationCompany.registration_no },
-					{ keyLabelName: 'addressNumber', name: action.getInformationCompany.address_no },
-					{ keyLabelName: 'village', name: action.getInformationCompany.village },
-					{ keyLabelName: 'road', name: action.getInformationCompany.road },
-				]
-
-				let currentProvinces = [{ sub_district_id: 0, name: action.getInformationCompany.province }];
-				let currentDistrict = [{ district_id: 0, name: action.getInformationCompany.district }];
-				let currentSubDistrict = [{ sub_district_id: 0, name: action.getInformationCompany.sub_district }];
-				let currentZipCode = [{ zipcode: action.getInformationCompany.zipcode }];
-				let currentLincense = {
-					keyLicense: 'auditorLicense',
-					keyAuditorName: 'auditorName',
-					valueLicense: action.getInformationCompany.license_number,
-					valueAuditorName: action.getInformationCompany.auditor_name,
-				}
 				return {
 					...state,
 					keyGetCurrentInfomationStatus: action.keyStatus,
-					labelCompanyName: currentCompanyName,
-					labelAddress: currentAddress,
-					provincesItem: currentProvinces,
-					districtItem: currentDistrict,
-					subDistrictItem: currentSubDistrict,
-					zipCode: currentZipCode,
-					labelAuditor: currentLincense
+					labelCompanyName1: { name: 'companyName1', keyCompanyName: "companyName1", valueCompanyName: state.labelCompanyName1.valueCompanyName = action.getInformationCompany.company_name_1 },
+					labelCompanyName2: { name: 'companyName2', keyCompanyName: "companyName2", valueCompanyName: state.labelCompanyName2.valueCompanyName = action.getInformationCompany.company_name_2 },
+					labelCompanyName3: { name: 'companyName3', keyCompanyName: "companyName3", valueCompanyName: state.labelCompanyName3.valueCompanyName = action.getInformationCompany.company_name_3 },
+					labelRegistrationNumber: { keyLabelName: 'registrationNumber', valueLabelAddress: action.getInformationCompany.registration_no, name: "registrationNumber" },
+					labelAddressNumber: { keyLabelName: 'addressNumber', valueLabelAddress: action.getInformationCompany.address_no, name: "addressNumber" },
+					labelVillage: { keyLabelName: 'village', valueLabelAddress: action.getInformationCompany.village, name: "village" },
+					labelRoad: { keyLabelName: 'road', valueLabelAddress: action.getInformationCompany.road, name: "road" },
+					provincesItem: [{ sub_district_id: 0, name: action.getInformationCompany.province }],
+					districtItem: [{ district_id: 0, name: action.getInformationCompany.district }],
+					subDistrictItem: [{ sub_district_id: 0, name: action.getInformationCompany.sub_district }],
+					zipCode: [{ zipcode: action.getInformationCompany.zipcode }],
+					labelAuditorLicense: { keyLicense: 'auditorLicense', valueLicense: action.getInformationCompany.license_number },
+					labelAuditor: { keyAuditorName: 'auditorName', valueAuditorName: action.getInformationCompany.auditor_name }
 				}
 			} else {
 				return state;
@@ -223,6 +257,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 		let provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id == event.province);
 		let districtData = newDistrictAction.find(districtArray => districtArray.district_id == event.district);
 		let subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id == event.subDistrict);
+
 		if (provinceData !== undefined && provinceData !== undefined && subDistrictData !== undefined) {
 			dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
 				event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName));
@@ -267,6 +302,42 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 	formSelectSubDistrict: (event: any) => {
 		subDistrictId = event;
 		dispatch(chooseZipCode(provinceId, districtId, subDistrictId));
+	},
+
+	ChangeTextFieldCompanyName1: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handleChangeCompanyName1, payload: event });
+	},
+
+	ChangeTextFieldCompanyName2: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handleChangeCompanyName2, payload: event });
+	},
+
+	ChangeTextFieldCompanyName3: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handleChangeCompanyName3, payload: event });
+	},
+
+	ChangeTextFieldRegistrationNumber: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handChangeRegistrationNumber, payload: event });
+	},
+
+	ChangeTextFieldAddressNumber: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handChangeAddressNumber, payload: event });
+	},
+
+	ChangeTextFieldVillage: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handChangeVillage, payload: event });
+	},
+
+	ChangeTextFieldRoad: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handChangeRoad, payload: event });
+	},
+
+	ChangeTextFieldAuditorLicense: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handleChangeAuditorLicense, payload: event });
+	},
+
+	ChangeTextFieldAuditor: (event: any) => {
+		dispatch({ type: CompanyInformationAction.handleChangeAuditor, payload: event });
 	}
 });
 

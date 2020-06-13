@@ -31,7 +31,6 @@ export const getInformationCompany: any = () => async (dispatch: Dispatch) => {
             console.log(error)
             dispatch({
                 type: getInformationCompanyAction.getInformationCompany_Failed,
-                getInformationCompany: error.response.data
             })
         })
 }
