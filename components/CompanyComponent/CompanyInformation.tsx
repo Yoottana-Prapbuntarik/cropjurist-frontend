@@ -193,7 +193,7 @@ const CompanyInformation = ({
                           item.keyLabelNameDropdown === 'province'
                             ? companyInformationPresenter.provincesItem.map((listProvincesItems, index: number) => {
                               return (
-                                <option value={listProvincesItems.province_id} key={index}>
+                                <option value={listProvincesItems.provice_name} key={index}>
                                   {t(listProvincesItems.name)}
                                 </option>
                               )

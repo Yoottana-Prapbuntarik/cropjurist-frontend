@@ -20,32 +20,32 @@ export interface LabelCheckbox {
 }
 
 export interface LabelAuditorLicense {
-    keyLicense: string;
-    valueLicense: string;
+    readonly keyLicense: string;
+    readonly valueLicense: string;
 }
 
 export interface LabelAuditor{
-    keyAuditorName: string;
-    valueAuditorName: string;
+    readonly keyAuditorName: string;
+    readonly valueAuditorName: string;
 }
 
 export interface ProvincesItem {
-    provinceID: number;
-    name: string;
+    readonly provinceID: number;
+    readonly name: string;
 }
 
 export interface DistrictItem {
-    districtID: number;
-    name: string;
+    readonly districtID: number;
+    readonly name: string;
 }
 
 export interface SubDistrictItem {
-    subDistrictID: number;
-    name: string;
+    readonly subDistrictID: number;
+    readonly name: string;
 }
 
 export interface ZipCode {
-    zipcode: string;
+    readonly zipcode: string;
 }
 
 export interface CompanyInformationPresenter {
@@ -65,9 +65,21 @@ export interface CompanyInformationPresenter {
     readonly labelCompanyName2: LabelCompanyName;
     readonly labelCompanyName3: LabelCompanyName;
     readonly keyPleaseSignin: string;
-    keyGetCurrentInfomationStatus: number;
-    provincesItem: ProvincesItem[];
-    districtItem: DistrictItem[];
-    subDistrictItem: SubDistrictItem[];
-    zipCode: ZipCode[];
+    readonly keyGetCurrentInfomationStatus: number;
+    readonly provincesItem: ProvincesItem[];
+    readonly districtItem: DistrictItem[];
+    readonly subDistrictItem: SubDistrictItem[];
+    readonly zipCode: ZipCode[];
+}
+
+export enum CompanyInformationAction {
+handleChangeCompanyName1 = 'handleChangeCompanyName1',
+handleChangeCompanyName2 = 'handleChangeCompanyName2',
+handleChangeCompanyName3 = 'handleChangeCompanyName3',
+handChangeRegistrationNumber = 'handChangeRegistrationNumber',
+handChangeAddressNumber = 'handChangeAddressNumber',
+handChangeVillage = 'handChangeVillage',
+handChangeRoad = 'handChangeRoad',
+handleChangeAuditorLicense = 'handleChangeAuditorLicense',
+handleChangeAuditor = 'handleChangeAuditor',
 }
