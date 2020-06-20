@@ -24,11 +24,10 @@ async function printError (error: any) {
     throw e
   }
 
-  // handle nextjs routing
   server.get('*', (req: any, res: any) => handle(req, res))
 
   server.listen(port)
-  console.log(`🚀 Ready on http://localhost:${port}`) // eslint-disable-line no-console
+  console.log(`🚀 Ready on http://localhost:${port}`)
 })()
 
 export default undefined
