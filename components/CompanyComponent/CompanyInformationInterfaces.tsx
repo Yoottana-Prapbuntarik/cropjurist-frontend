@@ -30,22 +30,22 @@ export interface LabelAuditor{
 }
 
 export interface ProvincesItem {
-    province_id: number;
-    name: String;
+    provinceID: number;
+    name: string;
 }
 
 export interface DistrictItem {
-    district_id: number;
-    name: String;
+    districtID: number;
+    name: string;
 }
 
 export interface SubDistrictItem {
-    sub_district_id: number;
-    name: String;
+    subDistrictID: number;
+    name: string;
 }
 
 export interface ZipCode {
-    zipcode: String;
+    zipcode: string;
 }
 
 export interface CompanyInformationPresenter {

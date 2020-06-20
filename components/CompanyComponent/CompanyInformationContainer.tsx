@@ -1,33 +1,64 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+// #region Import
 import { connect } from 'react-redux'
-import { withTranslation, i18n } from '../../i18n'
-import { reduxForm, reset } from 'redux-form'
 import Router from 'next/router'
-import { companyInformationForm, SendInformationCompany, updateCompanyInformationForm } from '../../apis/companyInformationAPIClient'
-import { getInformationCompany, getInformationCompanyAction } from '../../apis/getInformationCompanyAPIClient'
-import {
-  companyInformationAddressAction, chooseProvinces,
-  chooseDistrict, chooseSubDistrict, chooseZipCode
-} from '../../apis/companyInfomationAddressAPIClient'
-import {
-  CompanyInformationPresenter,
-  LabelCompanyName,
-  LabelAddress,
-  LabelAddressDropdown,
-  LabelCheckbox,
-  LabelAuditor,
-  ProvincesItem,
-  DistrictItem,
-  SubDistrictItem,
-  ZipCode,
-  LabelAuditorLicense
-} from './CompanyInformationInterface'
 import { FormManager } from '../../manager/formManager'
 import companyInformation from './CompanyInformation'
 import { Dispatch } from 'redux'
+import {
+  withTranslation,
+  i18n
+} from '../../i18n'
+import {
+  reduxForm,
+  reset
+} from 'redux-form'
+import {
+  companyInformationForm,
+  SendInformationCompany,
+  updateCompanyInformationForm
+} from '../../apis/companyInformationAPIClient'
+import {
+  getInformationCompany,
+  getInformationCompanyAction
+} from '../../apis/getInformationCompanyAPIClient'
+import {
+  companyInformationAddressAction,
+  chooseProvinces,
+  chooseDistrict,
+  chooseSubDistrict,
+  chooseZipCode
+} from '../../apis/companyInfomationAddressAPIClient'
+import {
+  CompanyInformationPresenter
+} from './CompanyInformationInterfaces'
+import {
+  companyInformationPresenter
+} from './CompanyInformationPresenter'
+import {
+  KeyManager
+} from '../../manager/keyManager'
+import {
+  TextManager
+} from '../../manager/TextManager'
+// #endregion
 
-let provinceId: number = 0
-let districtId: number = 0
-let subDistrictId: number = 0
+// #region Global Data
+enum CompanyInformationAction {
+handleChangeCompanyName1 = 'handleChangeCompanyName1',
+handleChangeCompanyName2 = 'handleChangeCompanyName2',
+handleChangeCompanyName3 = 'handleChangeCompanyName3',
+handChangeRegistrationNumber = 'handChangeRegistrationNumber',
+handChangeAddressNumber = 'handChangeAddressNumber',
+handChangeVillage = 'handChangeVillage',
+handChangeRoad = 'handChangeRoad',
+handleChangeAuditorLicense = 'handleChangeAuditorLicense',
+handleChangeAuditor = 'handleChangeAuditor',
+}
+
+let provinceId = 0
+let districtId = 0
+let subDistrictId = 0
 
 let newProvincesAction = []
 let newSubDistrictAction = []
@@ -35,218 +66,254 @@ let newDistrictAction = []
 let newZipCodeAction = []
 let currentIdInformation = 0
 
-enum CompanyInformationAction {
-	handleChangeCompanyName1 = 'handleChangeCompanyName1',
-	handleChangeCompanyName2 = 'handleChangeCompanyName2',
-	handleChangeCompanyName3 = 'handleChangeCompanyName3',
-	handChangeRegistrationNumber = 'handChangeRegistrationNumber',
-	handChangeAddressNumber = 'handChangeAddressNumber',
-	handChangeVillage = 'handChangeVillage',
-	handChangeRoad = 'handChangeRoad',
-	handleChangeAuditorLicense = 'handleChangeAuditorLicense',
-	handleChangeAuditor = 'handleChangeAuditor',
-}
+// #endregion
 
-const labelCompanyName1: LabelCompanyName = { name: 'companyName1', keyCompanyName: 'companyName1', valueCompanyName: '' }
-const labelCompanyName2: LabelCompanyName = { name: 'companyName2', keyCompanyName: 'companyName2', valueCompanyName: '' }
-const labelCompanyName3: LabelCompanyName = { name: 'companyName3', keyCompanyName: 'companyName3', valueCompanyName: '' }
-
-const labelRegistrationNumber: LabelAddress = { keyLabelName: 'registrationNumber', valueLabelAddress: '', name: 'registrationNumber' }
-const labelAddressNumber: LabelAddress = { keyLabelName: 'addressNumber', valueLabelAddress: '', name: 'addressNumber' }
-const labelVillage: LabelAddress = { keyLabelName: 'village', valueLabelAddress: '', name: 'village' }
-const labelRoad: LabelAddress = { keyLabelName: 'road', valueLabelAddress: '', name: 'road' }
-
-const labelAuditorLicense: LabelAuditorLicense = { keyLicense: 'auditorLicense', valueLicense: '' }
-const labelAuditor: LabelAuditor = { keyAuditorName: 'auditorName', valueAuditorName: '' }
-
-const labelAddressDropdown: LabelAddressDropdown[] = [
-  { keyLabelNameDropdown: 'province' },
-  { keyLabelNameDropdown: 'district' },
-  { keyLabelNameDropdown: 'subDistrict' },
-  { keyLabelNameDropdown: 'zipCode' }
-]
-
-const labelCheckbox: LabelCheckbox = {
-  keyCheckboxAddress: 'checkboxAddress',
-  keyCheckboxAuditor: 'checkboxAuditor'
-}
-
-const provincesItem: ProvincesItem[] = [{ province_id: 0, name: 'selectData' }]
-
-const districtItem: DistrictItem[] = [{ district_id: 0, name: 'selectData' }]
-
-const subDistrictItem: SubDistrictItem[] = [{ sub_district_id: 0, name: 'selectData' }]
-
-const zipCode: ZipCode[] = [{ zipcode: 'selectData' }]
-
-const companyInformationPresenter: CompanyInformationPresenter = {
-  keyTitleCompany: 'titleCompany',
-  keyTitleAddress: 'titleAddress',
-  keyTitleAuditor: 'titleAuditor',
-  keySubmit: 'save',
-  labelRegistrationNumber: labelRegistrationNumber,
-  labelAddressNumber: labelAddressNumber,
-  labelVillage: labelVillage,
-  labelRoad: labelRoad,
-  labelAddressDropdown: labelAddressDropdown,
-  labelCheckbox: labelCheckbox,
-  labelAuditor: labelAuditor,
-  labelAuditorLicense: labelAuditorLicense,
-  labelCompanyName1: labelCompanyName1,
-  labelCompanyName2: labelCompanyName2,
-  labelCompanyName3: labelCompanyName3,
-  provincesItem: provincesItem,
-  districtItem: districtItem,
-  subDistrictItem: subDistrictItem,
-  zipCode: zipCode,
-  keyGetCurrentInfomationStatus: 404,
-  keyPleaseSignin: 'pleaseSignin'
-}
-
-export const companyInformationReducer = (state: CompanyInformationPresenter = companyInformationPresenter, action: any) => {
+// #region Reducer
+export const companyInformationReducer = (state: CompanyInformationPresenter = companyInformationPresenter,
+  action: any): any => {
   switch (action.type) {
     case CompanyInformationAction.handleChangeCompanyName1:
       return {
         ...state,
-        labelCompanyName1: { name: 'companyName1', keyCompanyName: 'companyName1', valueCompanyName: action.payload }
+        labelCompanyName1: {
+          name: KeyManager.CompanyName1,
+          keyCompanyName: KeyManager.CompanyName1,
+          valueCompanyName: action.payload
+        }
       }
 
     case CompanyInformationAction.handleChangeCompanyName2:
       return {
         ...state,
-        labelCompanyName2: { name: 'companyName2', keyCompanyName: 'companyName2', valueCompanyName: action.payload }
-
+        labelCompanyName2: {
+          name: KeyManager.CompanyName2,
+          keyCompanyName: KeyManager.CompanyName2,
+          valueCompanyName: action.payload
+        }
       }
 
     case CompanyInformationAction.handleChangeCompanyName3:
       return {
         ...state,
-        labelCompanyName3: { name: 'companyName3', keyCompanyName: 'companyName3', valueCompanyName: action.payload }
+        labelCompanyName3: {
+          name: KeyManager.CompanyName3,
+          keyCompanyName: KeyManager.CompanyName3,
+          valueCompanyName: action.payload
+        }
       }
 
     case CompanyInformationAction.handChangeRegistrationNumber:
       return {
         ...state,
-        labelRegistrationNumber: { keyLabelName: 'registrationNumber', valueLabelAddress: action.payload, name: 'registrationNumber' }
+        labelRegistrationNumber: {
+          keyLabelName: KeyManager.RegistrationNumber,
+          valueLabelAddress: action.payload,
+          name: KeyManager.RegistrationNumber
+        }
       }
 
     case CompanyInformationAction.handChangeAddressNumber:
       return {
         ...state,
-        labelAddressNumber: { keyLabelName: 'addressNumber', valueLabelAddress: action.payload, name: 'addressNumber' }
+        labelAddressNumber: {
+          keyLabelName: KeyManager.AddressNumber,
+          valueLabelAddress: action.payload,
+          name: KeyManager.AddressNumber
+        }
       }
 
     case CompanyInformationAction.handChangeVillage:
       return {
         ...state,
-        labelVillage: { keyLabelName: 'village', valueLabelAddress: action.payload, name: 'village' }
+        labelVillage: {
+          keyLabelName: KeyManager.Village,
+          valueLabelAddress: action.payload,
+          name: KeyManager.Village
+        }
       }
 
     case CompanyInformationAction.handChangeRoad:
       return {
         ...state,
-        labelRoad: { keyLabelName: 'road', valueLabelAddress: action.payload, name: 'road' }
+        labelRoad: {
+          keyLabelName: KeyManager.Road,
+          valueLabelAddress: action.payload,
+          name: KeyManager.Road
+        }
       }
 
     case CompanyInformationAction.handleChangeAuditorLicense:
       return {
         ...state,
-        labelAuditorLicense: { keyLicense: 'auditorLicense', valueLicense: action.payload }
+        labelAuditorLicense: {
+          keyLicense: KeyManager.AuditorLicense,
+          valueLicense: action.payload
+        }
       }
 
     case CompanyInformationAction.handleChangeAuditor:
       return {
         ...state,
-        labelAuditor: { keyAuditorName: 'auditorName', valueAuditorName: action.payload }
+        labelAuditor: {
+          keyAuditorName: KeyManager.AuditorName,
+          valueAuditorName: action.payload
+        }
       }
 
-    case companyInformationAddressAction.chooseProvinces_Success:
-      const reseProvinces = [{ province_id: 0, name: 'selectData' }]
+    case companyInformationAddressAction.chooseProvinces_Success: {
+      const reseProvinces = [{
+        provinceID: 0,
+        name: TextManager.SelectData
+      }]
       newProvincesAction = reseProvinces.concat(action.key_provinces)
       return {
         ...state,
         provincesItem: newProvincesAction
       }
-
-    case companyInformationAddressAction.chooseDistrict_Success:
-      const resetDistrict = [{ district_id: 0, name: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseDistrict_Success: {
+      const resetDistrict = [{
+        districtID: 0,
+        name: TextManager.SelectData
+      }]
       newDistrictAction = resetDistrict.concat(action.key_district)
       return {
         ...state,
         districtItem: newDistrictAction
       }
-
-    case companyInformationAddressAction.chooseDistrict_Failed:
-      const chooseDistrictFailed = [{ district_id: 0, name: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseDistrict_Failed: {
+      const chooseDistrictFailed = [{
+        districtID: 0,
+        name: TextManager.SelectData
+      }]
       return {
         ...state,
         districtItem: chooseDistrictFailed
       }
-
-    case companyInformationAddressAction.chooseSubDistrict_Success:
-      const resetSubDistrict = [{ sub_district_id: 0, name: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseSubDistrict_Success: {
+      const resetSubDistrict = [{
+        subDistrictID: 0,
+        name: TextManager.SelectData
+      }]
       newSubDistrictAction = resetSubDistrict.concat(action.key_sub_district)
       return {
         ...state,
         subDistrictItem: newSubDistrictAction
       }
-
-    case companyInformationAddressAction.chooseSubDistrict_Failed:
-      const chooseSubDistrictFailed = [{ sub_district_id: 0, name: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseSubDistrict_Failed: {
+      const chooseSubDistrictFailed = [{
+        subDistrictID: 0,
+        name: TextManager.SelectData
+      }]
       return {
         ...state,
         subDistrictItem: chooseSubDistrictFailed
       }
-
-    case companyInformationAddressAction.chooseZipCode_Success:
-      const resetZipCode = [{ zipcode: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseZipCode_Success: {
+      const resetZipCode = [{ zipcode: TextManager.SelectData }]
       newZipCodeAction = resetZipCode.concat(action.key_zip_code)
       return {
         ...state,
         zipCode: newZipCodeAction
       }
-
-    case companyInformationAddressAction.chooseZipCode_Failed:
-      const chooseZipCodeFailed = [{ zipcode: 'selectData' }]
+    }
+    case companyInformationAddressAction.chooseZipCode_Failed: {
+      const chooseZipCodeFailed = [{ zipcode: TextManager.SelectData }]
       return {
         ...state,
         zipCode: chooseZipCodeFailed
       }
-
+    }
     case SendInformationCompany.SendInformationCompany_Success:
       Router.push('/')
 
+      break
     case SendInformationCompany.SendInformationCompany_Failed:
       alert(i18n.t(action.keyMessage))
 
-    case getInformationCompanyAction.getInformationCompany_Success:
+      break
+    case getInformationCompanyAction.getInformationCompany_Success: {
       if (action.getInformationCompany !== undefined) {
         currentIdInformation = action.getInformationCompany.id
+        const companyInformationPresenter = {
+          keyGetCurrentInfomationStatus: action.keyStatus,
+          labelCompanyName1: {
+            name: KeyManager.CompanyName1,
+            keyCompanyName: KeyManager.CompanyName1,
+            valueCompanyName: state.labelCompanyName1.valueCompanyName = action.getInformationCompany.company_name_1
+          },
+          labelCompanyName2: {
+            name: KeyManager.CompanyName2,
+            keyCompanyName: KeyManager.CompanyName2,
+            valueCompanyName: state.labelCompanyName2.valueCompanyName = action.getInformationCompany.company_name_2
+          },
+          labelCompanyName3: {
+            name: KeyManager.CompanyName3,
+            keyCompanyName: KeyManager.CompanyName3,
+            valueCompanyName: state.labelCompanyName3.valueCompanyName = action.getInformationCompany.company_name_3
+          },
+          labelRegistrationNumber: {
+            keyLabelName: KeyManager.RegistrationNumber,
+            valueLabelAddress: action.getInformationCompany.registration_no,
+            name: KeyManager.RegistrationNumber
+          },
+          labelAddressNumber: {
+            keyLabelName: KeyManager.AddressNumber,
+            valueLabelAddress: action.getInformationCompany.address_no,
+            name: KeyManager.AddressNumber
+          },
+          labelVillage: {
+            keyLabelName: KeyManager.Village,
+            valueLabelAddress: action.getInformationCompany.village,
+            name: KeyManager.Village
+          },
+          labelRoad: {
+            keyLabelName: KeyManager.Road,
+            valueLabelAddress: action.getInformationCompany.road,
+            name: KeyManager.Road
+          },
+          provincesItem: [{
+            subDistrictID: 0,
+            name: action.getInformationCompany.province
+          }],
+          districtItem: [{
+            districtID: 0,
+            name: action.getInformationCompany.district
+          }],
+          subDistrictItem: [{
+            subDistrictID: 0,
+            name: action.getInformationCompany.sub_district
+          }],
+          zipCode: [{ zipcode: action.getInformationCompany.zipcode }],
+          labelAuditorLicense: {
+            keyLicense: KeyManager.AuditorLicense,
+            valueLicense: action.getInformationCompany.license_number
+          },
+          labelAuditor: {
+            keyAuditorName: KeyManager.AuditorName,
+            valueAuditorName: action.getInformationCompany.auditor_name
+          }
+        }
         return {
           ...state,
-          keyGetCurrentInfomationStatus: action.keyStatus,
-          labelCompanyName1: { name: 'companyName1', keyCompanyName: 'companyName1', valueCompanyName: state.labelCompanyName1.valueCompanyName = action.getInformationCompany.company_name_1 },
-          labelCompanyName2: { name: 'companyName2', keyCompanyName: 'companyName2', valueCompanyName: state.labelCompanyName2.valueCompanyName = action.getInformationCompany.company_name_2 },
-          labelCompanyName3: { name: 'companyName3', keyCompanyName: 'companyName3', valueCompanyName: state.labelCompanyName3.valueCompanyName = action.getInformationCompany.company_name_3 },
-          labelRegistrationNumber: { keyLabelName: 'registrationNumber', valueLabelAddress: action.getInformationCompany.registration_no, name: 'registrationNumber' },
-          labelAddressNumber: { keyLabelName: 'addressNumber', valueLabelAddress: action.getInformationCompany.address_no, name: 'addressNumber' },
-          labelVillage: { keyLabelName: 'village', valueLabelAddress: action.getInformationCompany.village, name: 'village' },
-          labelRoad: { keyLabelName: 'road', valueLabelAddress: action.getInformationCompany.road, name: 'road' },
-          provincesItem: [{ sub_district_id: 0, name: action.getInformationCompany.province }],
-          districtItem: [{ district_id: 0, name: action.getInformationCompany.district }],
-          subDistrictItem: [{ sub_district_id: 0, name: action.getInformationCompany.sub_district }],
-          zipCode: [{ zipcode: action.getInformationCompany.zipcode }],
-          labelAuditorLicense: { keyLicense: 'auditorLicense', valueLicense: action.getInformationCompany.license_number },
-          labelAuditor: { keyAuditorName: 'auditorName', valueAuditorName: action.getInformationCompany.auditor_name }
+          companyInformationPresenter
         }
       } else {
         return state
       }
-
+    }
     default:
       return state
   }
 }
+
+// #endregion
+
+// #region Action and State
 
 const mapStateToProps = (state: any) => ({
   companyInformationPresenter: state.companyInformationReducer
@@ -254,9 +321,9 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   submitCompanyInformation: (event: any) => {
-    const provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id == event.province)
-    const districtData = newDistrictAction.find(districtArray => districtArray.district_id == event.district)
-    const subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id == event.subDistrict)
+    const provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id === event.province)
+    const districtData = newDistrictAction.find(districtArray => districtArray.district_id === event.district)
+    const subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id === event.subDistrict)
 
     if (provinceData !== undefined && provinceData !== undefined && subDistrictData !== undefined) {
       dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
@@ -271,13 +338,28 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 
   updateCompanyInformation: (event: any) => {
-    const provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id == event.province)
-    const districtData = newDistrictAction.find(districtArray => districtArray.district_id == event.district)
-    const subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id == event.subDistrict)
-    if (provinceData !== undefined && provinceData !== undefined && subDistrictData !== undefined) {
-      dispatch(updateCompanyInformationForm(currentIdInformation, event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
-        event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName))
+    const provinceData = newProvincesAction.find(provinceArray => provinceArray.province_id === event.province)
+    const districtData = newDistrictAction.find(districtArray => districtArray.district_id === event.district)
+    const subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id === event.subDistrict)
+
+    if (provinceData !== undefined &&
+      provinceData !== undefined &&
+      subDistrictData !== undefined) {
+      dispatch(updateCompanyInformationForm(currentIdInformation,
+        event.companyName1,
+        event.companyName2,
+        event.companyName3,
+        event.registrationNumber,
+        event.addressNumber,
+        event.village,
+        event.road,
+        provinceData.name,
+        districtData.name,
+        subDistrictData.name,
+        event.zipCode, event.auditorLicense,
+        event.auditorName))
     }
+
     dispatch(reset(FormManager.InformationForm))
     newDistrictAction = []
     newProvincesAction = []
@@ -296,51 +378,83 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
   formSelectDistrict: (event: any) => {
     districtId = event
-    dispatch(chooseSubDistrict(provinceId, districtId))
+    dispatch(chooseSubDistrict(provinceId,
+      districtId))
   },
 
   formSelectSubDistrict: (event: any) => {
     subDistrictId = event
-    dispatch(chooseZipCode(provinceId, districtId, subDistrictId))
+    dispatch(chooseZipCode(provinceId,
+      districtId,
+      subDistrictId))
   },
 
-  ChangeTextFieldCompanyName1: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handleChangeCompanyName1, payload: event })
+  changeTextFieldCompanyName1: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handleChangeCompanyName1,
+      payload: event
+    })
   },
 
-  ChangeTextFieldCompanyName2: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handleChangeCompanyName2, payload: event })
+  changeTextFieldCompanyName2: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handleChangeCompanyName2,
+      payload: event
+    })
   },
 
-  ChangeTextFieldCompanyName3: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handleChangeCompanyName3, payload: event })
+  changeTextFieldCompanyName3: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handleChangeCompanyName3,
+      payload: event
+    })
   },
 
-  ChangeTextFieldRegistrationNumber: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handChangeRegistrationNumber, payload: event })
+  changeTextFieldRegistrationNumber: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handChangeRegistrationNumber,
+      payload: event
+    })
   },
 
-  ChangeTextFieldAddressNumber: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handChangeAddressNumber, payload: event })
+  changeTextFieldAddressNumber: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handChangeAddressNumber,
+      payload: event
+    })
   },
 
-  ChangeTextFieldVillage: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handChangeVillage, payload: event })
+  changeTextFieldVillage: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handChangeVillage,
+      payload: event
+    })
   },
 
-  ChangeTextFieldRoad: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handChangeRoad, payload: event })
+  changeTextFieldRoad: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handChangeRoad,
+      payload: event
+    })
   },
 
-  ChangeTextFieldAuditorLicense: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handleChangeAuditorLicense, payload: event })
+  changeTextFieldAuditorLicense: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handleChangeAuditorLicense,
+      payload: event
+    })
   },
 
-  ChangeTextFieldAuditor: (event: any) => {
-    dispatch({ type: CompanyInformationAction.handleChangeAuditor, payload: event })
+  changeTextFieldAuditor: (event: any) => {
+    dispatch({
+      type: CompanyInformationAction.handleChangeAuditor,
+      payload: event
+    })
   }
 })
 
-const form = reduxForm({ form: FormManager.InformationForm })(companyInformation)
+// #endregion
 
+const form =
+reduxForm({ form: FormManager.InformationForm })(companyInformation)
 export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProps)(form))

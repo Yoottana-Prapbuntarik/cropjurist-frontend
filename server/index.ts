@@ -1,15 +1,14 @@
 import express from 'express'
 import next from 'next'
-
-const nextI18NextMiddleware = require('next-i18next/middleware').default
-
-const nextI18next = require('../i18n')
+import nextI18next from '../i18n'
+import nextI18NextMiddleware from 'next-i18next/middleware'
+import { IncomingMessage, ServerResponse } from 'http'
 
 const port = process.env.PORT || 3000
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
-async function printError (error: any) {
+async function printError (error: string) {
   console.log(error)
 }
 
@@ -24,7 +23,7 @@ async function printError (error: any) {
     throw e
   }
 
-  server.get('*', (req: any, res: any) => handle(req, res))
+  server.get('*', (req: IncomingMessage, res: ServerResponse) => handle(req, res))
 
   server.listen(port)
   console.log(`🚀 Ready on http://localhost:${port}`)
