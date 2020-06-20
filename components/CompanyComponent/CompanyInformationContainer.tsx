@@ -326,8 +326,19 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     const subDistrictData = newSubDistrictAction.find(subDistrictArray => subDistrictArray.sub_district_id === event.subDistrict)
 
     if (provinceData !== undefined && provinceData !== undefined && subDistrictData !== undefined) {
-      dispatch(companyInformationForm(event.companyName1, event.companyName2, event.companyName3, event.registrationNumber, event.addressNumber, event.village,
-        event.road, provinceData.name, districtData.name, subDistrictData.name, event.zipCode, event.auditorLicense, event.auditorName))
+      dispatch(companyInformationForm(event.companyName1,
+        event.companyName2,
+        event.companyName3,
+        event.registrationNumber,
+        event.addressNumber,
+        event.village,
+        event.road,
+        provinceData.name,
+        districtData.name,
+        subDistrictData.name,
+        event.zipCode,
+        event.auditorLicense,
+        event.auditorName))
     }
 
     dispatch(reset(FormManager.InformationForm))
