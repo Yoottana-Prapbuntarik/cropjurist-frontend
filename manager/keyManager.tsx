@@ -38,5 +38,8 @@ PleaseSignin = 'pleaseSignin',
 Save = 'save',
 TitleCompany = 'titleCompany',
 TitleAddress = 'titleAddress',
-TitleAuditor = 'titleAuditor'
+TitleAuditor = 'titleAuditor',
+HeaderHolders = 'headerHolders',
+HeaderShareInformation = 'headerShareInformation',
+HeaderDashBoard = 'headerDashBoard'
 }
