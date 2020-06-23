@@ -107,5 +107,9 @@
 	"changePassword": "Change password",
 	"changePasswordFaled": "Change password failed",
 	"pleaseSignin": "You are not sign in.",
-	"sendInformationCompanySuccess": "Saved data Successfully"
+	"sendInformationCompanySuccess": "Saved data Successfully",
+	"shareMyCompany": "Share in My company",
+	"headerHolders": "ShareHolders",
+	"headerShareInformation": "Share Information",
+	"headerDashBoard": "Dashboard"
 }

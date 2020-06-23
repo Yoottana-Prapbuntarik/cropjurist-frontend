@@ -107,5 +107,9 @@
 	"changePassword": "เปลี่ยนรหัสผ่าน",
 	"changePasswordFaled": "เกิดความผิดพลาดในการเปลี่ยนรหัสผ่าน",
 	"pleaseSignin": "คุณไม่ได้ลงชื่อเข้าใช้งาน",
-	"sendInformationCompanySuccess": "บันทึกข้อมูลสำเร็จ"
+	"sendInformationCompanySuccess": "บันทึกข้อมูลสำเร็จ",
+	"shareMyCompany": "แบ่งปันข้อมูลบริษัทของฉัน",
+	"headerHolders": "ผู้ถือหุ้น",
+	"headerShareInformation": "แบ่งปันข้อมูล",
+	"headerDashBoard": "แผงควบคุม"
 }
