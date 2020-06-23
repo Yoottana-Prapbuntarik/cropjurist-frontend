@@ -227,7 +227,6 @@ export const companyInformationReducer =
             zipcode: action.getInformationCompany.zipcode
           }
 
-          console.log(action.getInformationCompany)
           const companyInformationPresenter = {
             keyGetCurrentInfomationStatus: action.keyStatus,
             labelCompanyName1: {
@@ -271,7 +270,7 @@ export const companyInformationReducer =
             zipCode: DataFormApi.zipCodeAPI,
             labelAuditorLicense: {
               keyLicense: KeyManager.AuditorLicense,
-              valueLicense: action.getInformationCompany.license_number
+              valueLicense: action.getInformationCompany.auditor_number
             },
             labelAuditor: {
               keyAuditorName: KeyManager.AuditorName,

@@ -55,10 +55,10 @@ export const updateCompanyInformationForm: any = (currentIdInformation: number, 
     })
 
     .catch((error) => {
-      if (error) {
+      if (error.response) {
         dispatch({
           type: SendInformationCompany.SendInformationCompany_Failed,
-          keyMessage: error.response.data[0]
+          keyMessage: error.response.data.detail
         })
       }
     })
