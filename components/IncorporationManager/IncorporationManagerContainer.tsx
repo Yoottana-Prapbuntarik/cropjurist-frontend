@@ -4,7 +4,8 @@ import {
   MemberPresenter,
   MemberItems,
   LinkItems,
-  MemberDialog
+  MemberDialog,
+  KeyDialogDetail
 } from './IncorporationManagerInterface'
 import IncorporationManager from './IncorporationManager'
 
@@ -13,12 +14,44 @@ const linkItems: LinkItems[] = [
   { keyTitlePath: 'shareMyCompany', routePath: '/shareMyCompany' }
 ]
 
-const memberDialog: MemberDialog = {
-  keyDialogTitle: 'dialogTitle',
-  keyDialogSubTitle: 'dialogSubTitle',
-  keyDialogDetail: 'dialogDetai',
-  keyCloseTab: 'close'
-}
+const dialogCompanyInformationDetail: KeyDialogDetail [] = [
+  {
+    dialogDetail: 'dialogDetailInformationI'
+  },
+  {
+    dialogDetail: 'dialogDetailInformationII'
+  }
+]
+
+const shareMyCompanyDetail: KeyDialogDetail [] = [
+  {
+    dialogDetail: 'shareMyCompanyI'
+  },
+  {
+    dialogDetail: 'shareMyCompanyII'
+  },
+  {
+    dialogDetail: 'shareMyCompanyIII'
+  },
+  {
+    dialogDetail: 'shareMyCompanyIV'
+  }
+]
+
+const memberDialog: MemberDialog [] = [
+  {
+    keyPathUsedDailog: 'companyInformation',
+    keyDialogTitle: 'companyInformationTitle',
+    keyDialogDetail: dialogCompanyInformationDetail,
+    keyCloseTab: 'close'
+  },
+  {
+    keyPathUsedDailog: 'shareMyCompany',
+    keyDialogTitle: 'shareMyCompany',
+    keyDialogDetail: shareMyCompanyDetail,
+    keyCloseTab: 'close'
+  }
+]
 
 const memberItems: MemberItems = {
   linkItems: linkItems
