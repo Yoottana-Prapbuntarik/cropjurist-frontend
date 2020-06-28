@@ -11,5 +11,5 @@ const mapStateToProps = (state: any) => ({
   shareMyCompanyPresenter: state.shareMyCompanyReducer
 })
 
-const form = reduxForm({ form: FormManager.InformationForm })(ShareMyCompany)
+const form = reduxForm({ form: FormManager.ShareInformationForm })(ShareMyCompany)
 export default withTranslation('common')(connect(mapStateToProps)(form))
