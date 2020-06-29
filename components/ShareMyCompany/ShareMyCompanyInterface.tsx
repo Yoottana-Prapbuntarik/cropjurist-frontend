@@ -5,7 +5,6 @@ export interface ShareHolderItems {
 }
 
 export interface ShareInformationItems {
-    readonly keyRegisterCapital: string;
     readonly keyCapitalCall: string;
 }
 

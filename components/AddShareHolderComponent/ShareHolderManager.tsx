@@ -263,6 +263,27 @@ const ShareHolderManager = ({
                               </option>
                             </Field>
                           </div>
+
+                          <div className="col-lg-6 col-12">
+                            <label >
+                              {t(shareHolderManagerPresenter.labelTotalShareHolder.name)}
+                            </label>
+                            <Field
+                              disabledState={
+                                false
+                              }
+                              style="form-control"
+                              name={shareHolderManagerPresenter.labelTotalShareHolder.name}
+                              component={SelectField}
+                              styleTextError="text-danger"
+                              onChangeValue={() => { console.log('tesst') }
+                              }
+                            >
+                              <option value={shareHolderManagerPresenter.labelTotalShareHolder.valueTotalShareHolder}>
+                                {t(shareHolderManagerPresenter.labelTotalShareHolder.name)}
+                              </option>
+                            </Field>
+                          </div>
                         </div>
                         <div className="row">
                           <div className="col-12 pt-4 pr-5">

@@ -14,6 +14,7 @@ import {
   LabelDistrict,
   LabelSubDistrict,
   LabelZipCode,
+  LabelTotalShareHolder,
   ButtonSubmitProperty
 } from './ShareHolderManagerInterface'
 
@@ -89,6 +90,11 @@ const labelZipCode: LabelZipCode = {
   valueZipCode: ''
 }
 
+const labelTotalShareHolder: LabelTotalShareHolder = {
+  name: KeyManager.TotalShareHolder,
+  valueTotalShareHolder: KeyManager.TotalShare
+}
+
 const buttonOtherShareHolder: ButtonSubmitProperty = {
   name: KeyManager.ButtonSendOtherShareHolders
 }
@@ -113,6 +119,7 @@ export const shareHolderManagerPresenter: ShareHolderManagerPresenter = {
   labelDistrict: labelDistrict,
   labelSubDistrict: labelSubDistrict,
   labelZipCode: labelZipCode,
+  labelTotalShareHolder: labelTotalShareHolder,
   buttonOtherShareHolder: buttonOtherShareHolder,
   buttonFinish: buttonFinish,
   keyPopoverShareHolderI: KeyManager.PopoverShareHolderI,

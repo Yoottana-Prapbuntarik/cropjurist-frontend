@@ -15,7 +15,6 @@ const shareHolderItems: ShareHolderItems = {
 }
 
 const shareInformationItems: ShareInformationItems = {
-  keyRegisterCapital: KeyManager.RegisterCapital,
   keyCapitalCall: KeyManager.CapitalCall
 }
 
