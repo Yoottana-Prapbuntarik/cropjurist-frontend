@@ -6,6 +6,7 @@ import SelectField from '../FieldComponents/SelectField'
 import CustomeTextField from '../FieldComponents/CustomeTextField'
 import PreferenceShareManagerContainer from '../PreferenceShareComponent/PreferenceShareManagerContainer'
 import ShareHolderManagerContainer from '../AddShareHolderComponent/ShareHolderManagerContainer'
+
 const ShareMyCompany = ({ shareMyCompanyPresenter, t }: any) => {
   useEffect(() => {
     if (!localStorage.getItem('access-token')) {
@@ -92,20 +93,6 @@ const ShareMyCompany = ({ shareMyCompanyPresenter, t }: any) => {
           {t(shareMyCompanyPresenter.keyHeaderShareInformation)}
         </h5>
         <div className="row">
-          <div className="col-12">
-            <label >{t(shareMyCompanyPresenter.shareInformationItems.keyRegisterCapital)}</label>
-            <br />
-            <Field
-              name={shareMyCompanyPresenter.shareInformationItems.keyRegisterCapital}
-              type="text"
-              component={CustomeTextField}
-              styleTextError="text-danger"
-              className="form-control"
-              label={t(shareMyCompanyPresenter.shareInformationItems.keyRegisterCapital)}
-              currentValue={''}
-            // onChange={(event: any) => changeTextFieldCompanyName3(event.target.value)}
-            />
-          </div>
           <div className="col-12 py-3">
             <label >{t(shareMyCompanyPresenter.shareInformationItems.keyCapitalCall)}</label>
             <br />
