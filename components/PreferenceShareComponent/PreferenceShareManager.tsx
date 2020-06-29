@@ -57,10 +57,9 @@ const PreferenceShareManager = ({ idModal, preferenceShareManagerPresenter, t }:
                 keyButtonEdit={preferenceShareManagerPresenter.buttonEditShareBuilder}
                 keyButtonDelete={preferenceShareManagerPresenter.buttonDeleteShareBuilder}/>
             </div>
-          </div>
-          <div className="d-flex flex-warp">
-            <button type="button" className="btn btn-primary w-75  my-5 mx-1" data-dismiss="modal">{t(preferenceShareManagerPresenter.buttonAddNewClass)}</button>
-            <button type="button" className="btn btn-primary w-50  my-5 mx-1" data-dismiss="modal">{t(preferenceShareManagerPresenter.buttonCloseShareBuilder)}</button>
+            <div className="d-block text-center">
+              <button type="button" className="btn btn-primary w-75  my-5 mx-1" data-dismiss="modal">{t(preferenceShareManagerPresenter.buttonAddNewClass)}</button>
+            </div>
           </div>
         </div>
       </div>
