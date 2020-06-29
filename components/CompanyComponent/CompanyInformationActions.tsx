@@ -64,7 +64,10 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
 
   showAllProvinces: () => { dispatch(chooseProvinces()) },
 
-  getCurrentCompanyInformation: () => { dispatch(getInformationCompany()) },
+  getCurrentCompanyInformation: async () => {
+    await dispatch(chooseProvinces())
+    await dispatch(getInformationCompany())
+  },
 
   formSelectProvinces: (event: any) => {
     dispatch(chooseDistrict(event))
@@ -82,6 +85,10 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(chooseZipCode(provinceId,
       districtId,
       subDistrictId))
+  },
+
+  formSelectZipcode: () => {
+    return null
   },
 
   changeTextFieldCompanyName1: (event: any) => {

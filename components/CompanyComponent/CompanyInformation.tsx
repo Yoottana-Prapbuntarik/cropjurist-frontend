@@ -11,7 +11,7 @@ import Router from 'next/router'
 import './styles.scss'
 
 enum StatusCode {
-    success = 200
+  success = 200
 }
 
 const CompanyInformation = ({
@@ -29,6 +29,7 @@ const CompanyInformation = ({
   changeTextFieldRegistrationNumber,
   changeTextFieldAddressNumber,
   changeTextFieldVillage,
+  formSelectZipcode,
   changeTextFieldRoad,
   changeTextFieldAuditorLicense,
   changeTextFieldAuditor, t
@@ -37,7 +38,11 @@ const CompanyInformation = ({
 
   useEffect(() => {
     if (localStorage.getItem('access-token')) {
-      Dispatch(getCurrentCompanyInformation)
+      if (StatusCode.success) {
+        Dispatch(getCurrentCompanyInformation)
+      } else {
+        Dispatch(showAllProvinces)
+      }
     } else {
       alert(t(companyInformationPresenter.keyPleaseSignin))
       Router.push('/signin')
@@ -50,7 +55,8 @@ const CompanyInformation = ({
         {t(companyInformationPresenter.keyTitleCompany)}
         <div className="underline"></div>
       </div>
-      <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success ? updateCompanyInformation : submitCompanyInformation)}>
+      <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success
+        ? updateCompanyInformation : submitCompanyInformation)}>
         <div className="col-12" >
           <div className="form-group">
             <div className="row">
@@ -185,15 +191,15 @@ const CompanyInformation = ({
                         onChangeValue={
                           item.keyLabelNameDropdown === 'province' ? formSelectProvinces
                             : item.keyLabelNameDropdown === 'district' ? formSelectDistrict
-                              : item.keyLabelNameDropdown === 'subDistrict' ? formSelectSubDistrict : () => { }
+                              : item.keyLabelNameDropdown === 'subDistrict' ? formSelectSubDistrict
+                                : formSelectZipcode
                         }
-                        onFocus={() => item.keyLabelNameDropdown === 'province' && Dispatch(showAllProvinces)}
                       >
                         {
                           item.keyLabelNameDropdown === 'province'
                             ? companyInformationPresenter.provincesItem.map((listProvincesItems, index: number) => {
                               return (
-                                <option value={listProvincesItems.provice_name} key={index}>
+                                <option value={listProvincesItems.province_id} key={index}>
                                   {t(listProvincesItems.name)}
                                 </option>
                               )
