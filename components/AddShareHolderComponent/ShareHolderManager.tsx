@@ -263,48 +263,52 @@ const ShareHolderManager = ({
                               </option>
                             </Field>
                           </div>
-
                           <div className="col-lg-6 col-12">
                             <label >
-                              {t(shareHolderManagerPresenter.labelTotalShareHolder.name)}
+                              {t(shareHolderManagerPresenter.labelTotalShare.name)}
                             </label>
                             <Field
                               disabledState={
                                 false
                               }
                               style="form-control"
-                              name={shareHolderManagerPresenter.labelTotalShareHolder.name}
+                              name={shareHolderManagerPresenter.labelTotalShare.name}
                               component={SelectField}
                               styleTextError="text-danger"
                               onChangeValue={() => { console.log('tesst') }
                               }
                             >
-                              <option value={shareHolderManagerPresenter.labelTotalShareHolder.valueTotalShareHolder}>
-                                {t(shareHolderManagerPresenter.labelTotalShareHolder.name)}
+                              <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
+                                {t(shareHolderManagerPresenter.labelTotalShare.name)}
+                              </option>
+                              <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
+                                10 %
                               </option>
                             </Field>
                           </div>
                         </div>
-                        <div className="row">
-                          <div className="col-12 pt-4 pr-5">
-                            <Field
-                              name="submit"
-                              type="submit"
-                              style="btn btn-primary w-75"
-                              styleTextError="text-danger"
-                              component={ButtonSubmit}
-                              label={t(shareHolderManagerPresenter.buttonOtherShareHolder.name)}
-                            />
-                          </div>
-                          <div className="col-12 pt-4 pr-5">
-                            <Field
-                              name="submit"
-                              type="submit"
-                              style="btn btn-primary w-75"
-                              styleTextError="text-danger"
-                              component={ButtonSubmit}
-                              label={t(shareHolderManagerPresenter.buttonFinish.name)}
-                            />
+                        <div className="container">
+                          <div className="row text-center">
+                            <div className="col-12 pt-4 pr-5 w-100">
+                              <Field
+                                name="submit"
+                                type="submit"
+                                style="btn btn-primary"
+                                styleTextError="text-danger"
+                                component={ButtonSubmit}
+                                label={t(shareHolderManagerPresenter.buttonOtherShareHolder.name)}
+                              />
+                            </div>
+                            <div className="col-12 pt-4 pr-5 w-100">
+                              <Field
+                                name="submit"
+                                type="submit"
+                                style="btn btn-primary"
+                                styleTextError="text-danger"
+                                component={ButtonSubmit}
+                                label={t(shareHolderManagerPresenter.buttonFinish.name)}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>

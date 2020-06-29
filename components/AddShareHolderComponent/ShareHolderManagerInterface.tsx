@@ -66,9 +66,9 @@ export interface LabelZipCode {
     valueZipCode: string;
 }
 
-export interface LabelTotalShareHolder {
+export interface LabelTotalShare {
     name: string;
-    valueTotalShareHolder: string;
+    valueTotalShare: string;
 }
 
 export interface ButtonSubmitProperty {
@@ -91,7 +91,7 @@ export interface ShareHolderManagerPresenter {
     readonly labelDistrict: LabelDistrict;
     readonly labelSubDistrict: LabelSubDistrict;
     readonly labelZipCode: LabelZipCode;
-    readonly labelTotalShareHolder: LabelTotalShareHolder;
+    readonly labelTotalShare: LabelTotalShare;
     readonly buttonOtherShareHolder: ButtonSubmitProperty;
     readonly buttonFinish: ButtonSubmitProperty;
     readonly keyPopoverShareHolderI: string;
