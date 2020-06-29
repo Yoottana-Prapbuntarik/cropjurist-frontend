@@ -334,7 +334,7 @@ Button
   padding: 0.75rem 1rem;
 }
 
-.btn-primary {
+.btn-primary, .btn-success {
   color: $white;
   background-color: $primary;
   border-color: $primary;
@@ -378,6 +378,19 @@ Button
   &:hover {
     background-color: $orange;
     border-color: $orange;
+  }
+}
+
+.btn-warning {&:hover{
+  background-color: #28a745;
+  border: #28a745;
+}
+}
+
+.btn-danger{
+  &:hover{
+    background-color: $orange;
+    border: $orange;
   }
 }
 

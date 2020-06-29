@@ -1,10 +1,10 @@
 import React from 'react'
 import IncorporationManagerContainer from '../components/IncorporationManager/IncorporationManagerContainer'
 import MainLayoutMember from '../components/MainLayoutMember/MainLayoutMember'
-import CompanyInformationContainer from '../components/CompanyComponent/CompanyInformationContainer'
 import { themeManager } from '../manager/themeManager'
+import ShareMyCompanyContainer from '../components/ShareMyCompany/ShareMyCompanyContainer'
 
-const companyInformation = ():any => {
+const shareMyCompany = ():any => {
   return (
     <MainLayoutMember
       styleTheme={themeManager.StylesMainFolder}
@@ -12,10 +12,10 @@ const companyInformation = ():any => {
       themeScript={themeManager.ThemeScriptMainFolder}
     >
       <IncorporationManagerContainer>
-        <CompanyInformationContainer />
+        <ShareMyCompanyContainer/>
       </IncorporationManagerContainer>
     </MainLayoutMember>
   )
 }
 
-export default companyInformation
+export default shareMyCompany

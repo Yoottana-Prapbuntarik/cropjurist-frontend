@@ -1,40 +1,74 @@
-import { connect } from 'react-redux';
-import { withTranslation } from '../../i18n';
+import { connect } from 'react-redux'
+import { withTranslation } from '../../i18n'
 import {
-    MemberPresenter,
-    MemberItems,
-    LinkItems,
-    MemberDialog
-} from './IncorporationManagerInterface';
-import IncorporationManager from './IncorporationManager';
+  MemberPresenter,
+  MemberItems,
+  LinkItems,
+  MemberDialog,
+  KeyDialogDetail
+} from './IncorporationManagerInterface'
+import IncorporationManager from './IncorporationManager'
 
 const linkItems: LinkItems[] = [
-    { keyTitlePath: "companyInformation", routePath: "/companyInformation" },
+  { keyTitlePath: 'companyInformation', routePath: '/companyInformation' },
+  { keyTitlePath: 'shareMyCompany', routePath: '/shareMyCompany' }
 ]
 
-const memberDialog: MemberDialog = {
-    keyDialogTitle: "dialogTitle",
-    keyDialogSubTitle: "dialogSubTitle",
-    keyDialogDetail: "dialogDetai",
-    keyCloseTab: "close"
-}
+const dialogCompanyInformationDetail: KeyDialogDetail [] = [
+  {
+    dialogDetail: 'dialogDetailInformationI'
+  },
+  {
+    dialogDetail: 'dialogDetailInformationII'
+  }
+]
+
+const shareMyCompanyDetail: KeyDialogDetail [] = [
+  {
+    dialogDetail: 'shareMyCompanyI'
+  },
+  {
+    dialogDetail: 'shareMyCompanyII'
+  },
+  {
+    dialogDetail: 'shareMyCompanyIII'
+  },
+  {
+    dialogDetail: 'shareMyCompanyIV'
+  }
+]
+
+const memberDialog: MemberDialog [] = [
+  {
+    keyPathUsedDailog: 'companyInformation',
+    keyDialogTitle: 'companyInformationTitle',
+    keyDialogDetail: dialogCompanyInformationDetail,
+    keyCloseTab: 'close'
+  },
+  {
+    keyPathUsedDailog: 'shareMyCompany',
+    keyDialogTitle: 'shareMyCompany',
+    keyDialogDetail: shareMyCompanyDetail,
+    keyCloseTab: 'close'
+  }
+]
 
 const memberItems: MemberItems = {
-    linkItems: linkItems
-};
+  linkItems: linkItems
+}
 
 const memberPresenter: MemberPresenter = {
-    keyIncorporationTitle: "incorporation",
-    memberItems: memberItems,
-    memberDialog: memberDialog
-};
+  keyIncorporationTitle: 'incorporation',
+  memberItems: memberItems,
+  memberDialog: memberDialog
+}
 
 export const inCorporationManagerReducer = (state: MemberPresenter = memberPresenter) => {
-    return state;
-};
+  return state
+}
 
 const mapStateToProps = (state: any) => ({
-    memberPresenter: state.inCorporationManagerReducer
-});
+  memberPresenter: state.inCorporationManagerReducer
+})
 
-export default withTranslation('common')(connect(mapStateToProps)(IncorporationManager));
+export default withTranslation('common')(connect(mapStateToProps)(IncorporationManager))
