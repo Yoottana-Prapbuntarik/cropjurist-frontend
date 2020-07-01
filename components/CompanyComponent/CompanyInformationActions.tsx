@@ -7,7 +7,7 @@ import {
   chooseDistrict,
   chooseSubDistrict,
   chooseZipCode
-} from '../../apis/companyInfomationAddressAPIClient'
+} from '../../apis/AddressAPIClient'
 import {
   companyInformationForm,
   updateCompanyInformationForm

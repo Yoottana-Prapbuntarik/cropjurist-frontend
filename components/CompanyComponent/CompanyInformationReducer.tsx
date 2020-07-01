@@ -14,8 +14,8 @@ import {
   TextManager
 } from '../../manager/TextManager'
 import {
-  companyInformationAddressAction
-} from '../../apis/companyInfomationAddressAPIClient'
+  AddressAction
+} from '../../apis/AddressAPIClient'
 import {
   SendInformationCompany
 } from '../../apis/companyInformationAPIClient'
@@ -126,29 +126,29 @@ export const companyInformationReducer =
           }
         }
 
-      case companyInformationAddressAction.chooseProvinces_Success: {
+      case AddressAction.chooseProvincesSuccess: {
         const reseProvinces = [{
           provinceID: 0,
           name: TextManager.SelectData
         }]
-        const newProvincesAction = reseProvinces.concat(action.key_provinces)
+        const newProvincesAction = reseProvinces.concat(action.provinces)
         return {
           ...state,
           provincesItem: newProvincesAction
         }
       }
-      case companyInformationAddressAction.chooseDistrict_Success: {
+      case AddressAction.chooseDistrictSuccess: {
         const resetDistrict = [{
           districtID: 0,
           name: TextManager.SelectData
         }]
-        const newDistrictAction = resetDistrict.concat(action.key_district)
+        const newDistrictAction = resetDistrict.concat(action.district)
         return {
           ...state,
           districtItem: newDistrictAction
         }
       }
-      case companyInformationAddressAction.chooseDistrict_Failed: {
+      case AddressAction.chooseDistrictFailed: {
         const chooseDistrictFailed = [{
           districtID: 0,
           name: TextManager.SelectData
@@ -158,18 +158,18 @@ export const companyInformationReducer =
           districtItem: chooseDistrictFailed
         }
       }
-      case companyInformationAddressAction.chooseSubDistrict_Success: {
+      case AddressAction.chooseSubDistrictSuccess: {
         const resetSubDistrict = [{
           subDistrictID: 0,
           name: TextManager.SelectData
         }]
-        const newSubDistrictAction = resetSubDistrict.concat(action.key_sub_district)
+        const newSubDistrictAction = resetSubDistrict.concat(action.subDistrict)
         return {
           ...state,
           subDistrictItem: newSubDistrictAction
         }
       }
-      case companyInformationAddressAction.chooseSubDistrict_Failed: {
+      case AddressAction.chooseSubDistrictFailed: {
         const chooseSubDistrictFailed = [{
           subDistrictID: 0,
           name: TextManager.SelectData
@@ -179,15 +179,15 @@ export const companyInformationReducer =
           subDistrictItem: chooseSubDistrictFailed
         }
       }
-      case companyInformationAddressAction.chooseZipCode_Success: {
+      case AddressAction.chooseZipCodeSuccess: {
         const resetZipCode = [{ zipcode: TextManager.SelectData }]
-        const newZipCodeAction = resetZipCode.concat(action.key_zip_code)
+        const newZipCodeAction = resetZipCode.concat(action.zipCode)
         return {
           ...state,
           zipCode: newZipCodeAction
         }
       }
-      case companyInformationAddressAction.chooseZipCode_Failed: {
+      case AddressAction.chooseZipCodeFailed: {
         const chooseZipCodeFailed = [{ zipcode: TextManager.SelectData }]
         return {
           ...state,
