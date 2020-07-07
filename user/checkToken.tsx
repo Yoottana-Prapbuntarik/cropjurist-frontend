@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { routeToMemberPage } from '../manager/routerManager'
 
-const useAuthentication = (defaultValue) => {
+const useAuthentication = (defaultValue):any => {
   const [isAuthenticated, setAuthenticated] = useState(defaultValue)
 
   useEffect(() => {

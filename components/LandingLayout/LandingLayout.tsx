@@ -1,16 +1,24 @@
+
 import Head from 'next/head'
 import Navigation from '../Navigation/NavigationContainer'
 import Footer from '../Footer/FooterViewContainer'
 import { withTranslation } from '../../i18n'
-import checkToken from '../../user/checkToken'
+import useAuthenticated from '../../user/checkToken'
+import Router from 'next/router'
+import { routeToMemberPage } from '../../manager/routerManager'
 
 const LandingLayout = (props: any) => {
-  checkToken()
+  const [isAuthenticated] = useAuthenticated(false)
+
+  if (isAuthenticated) {
+    Router.replace(routeToMemberPage)
+    return null
+  }
 
   return (
     <div className="page-wrapper">
       <Head>
-        <title>{props.t('landingTitle')}</title>
+        <title>{props.t('landinwgTitle')}</title>
 
         <link href={props.styleTheme} rel="stylesheet" />
         <script src={props.themePlugin} />
