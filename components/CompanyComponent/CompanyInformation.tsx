@@ -104,6 +104,14 @@ const CompanyInformation = ({
           <div className="underline"></div>
         </div>
         <div className="col-12">
+          <div className="checkbox pb-2">
+            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAddress} component={CheckBox} />
+            <label className="pl-1">
+              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAddress)}
+            </label>
+          </div>
+        </div>
+        <div className="col-12">
           <div className="form-group">
             <div className="row">
               <div className="col-md-6 col-12">
@@ -236,20 +244,20 @@ const CompanyInformation = ({
                   )
                 }
               )}
-              <div className="col-12">
-                <div className="checkbox">
-                  <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAddress} component={CheckBox} />
-                  <label className="pl-1">
-                    {t(companyInformationPresenter.labelCheckbox.keyCheckboxAddress)}
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
         </div>
         <div className="col-12">
           {t(companyInformationPresenter.keyTitleAuditor)}
           <div className="underline"></div>
+        </div>
+        <div className="col-12">
+          <div className="checkbox pb-2">
+            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAuditor} component={CheckBox} />
+            <label className="pl-1">
+              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAuditor)}
+            </label>
+          </div>
         </div>
         <div className="col-12">
           <label>
@@ -280,14 +288,6 @@ const CompanyInformation = ({
             currentValue={companyInformationPresenter.labelAuditor.valueAuditorName}
             onChange={(event: any) => changeTextFieldAuditor(event.target.value)}
           />
-        </div>
-        <div className="col-12">
-          <div className="checkbox">
-            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAuditor} component={CheckBox} />
-            <label className="pl-1">
-              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAuditor)}
-            </label>
-          </div>
         </div>
         <div className="row">
           <div className="col-md-6 col-12"></div>
