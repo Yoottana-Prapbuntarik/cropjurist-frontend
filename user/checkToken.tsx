@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
-import Router from 'next/router';
-import { routeToMemberPage } from '../manager/routerManager';
+import { useEffect, useState } from 'react'
+import { routeToMemberPage } from '../manager/routerManager'
 
-const checkToken = () => {
-    
-   useEffect(() => {
-        if (localStorage.getItem('access-token') && window.location.pathname !== routeToMemberPage) {
-            Router.push(routeToMemberPage);
-        }
-    }, []);
+const useAuthentication = (defaultValue) => {
+  const [isAuthenticated, setAuthenticated] = useState(defaultValue)
+
+  useEffect(() => {
+    if (localStorage.getItem('access-token') && window.location.pathname !== routeToMemberPage) {
+      setAuthenticated(true)
+    }
+  }, [])
+  return [isAuthenticated, setAuthenticated]
 }
 
-export default checkToken;
+export default useAuthentication

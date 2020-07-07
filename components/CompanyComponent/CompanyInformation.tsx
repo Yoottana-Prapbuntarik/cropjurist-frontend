@@ -49,6 +49,8 @@ const CompanyInformation = ({
     }
   }, [])
 
+  console.log('this is page company')
+
   return (
     <div className="row justify-content-center">
       <div className="col-12 mb-2">
