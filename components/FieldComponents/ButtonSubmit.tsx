@@ -1,4 +1,4 @@
-const ButtonSubmit = ({ input,  label, type, style }: any) => {
+const ButtonSubmit = ({ input, label, type, style }: any) => {
   return (
     <input
       {...input}
@@ -7,7 +7,7 @@ const ButtonSubmit = ({ input,  label, type, style }: any) => {
       name={label}
       value={label}
     />
-  );
-};
+  )
+}
 
-export default ButtonSubmit;
+export default ButtonSubmit
