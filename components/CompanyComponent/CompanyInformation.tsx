@@ -53,12 +53,12 @@ const CompanyInformation = ({
 
   return (
     <div className="row justify-content-center">
-      <div className="col-12 mb-2">
-        {t(companyInformationPresenter.keyTitleCompany)}
-        <div className="underline"></div>
-      </div>
       <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success
         ? updateCompanyInformation : submitCompanyInformation)}>
+        <div className="col-12 mb-2">
+          {t(companyInformationPresenter.keyTitleCompany)}
+          <div className="underline"></div>
+        </div>
         <div className="col-12" >
           <div className="form-group">
             <div className="row">
