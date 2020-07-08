@@ -13,22 +13,22 @@ const LandingLayout = (props: any) => {
   if (isAuthenticated) {
     Router.replace(routeToMemberPage)
     return null
+  } else {
+    return (
+      <div className="page-wrapper">
+        <Head>
+          <title>{props.t('landingTitle')}</title>
+
+          <link href={props.styleTheme} rel="stylesheet" />
+          <script src={props.themePlugin} />
+          <script src={props.themeScript} />
+        </Head>
+        <Navigation />
+        {props.children}
+        <Footer />
+      </div>
+    )
   }
-
-  return (
-    <div className="page-wrapper">
-      <Head>
-        <title>{props.t('landinwgTitle')}</title>
-
-        <link href={props.styleTheme} rel="stylesheet" />
-        <script src={props.themePlugin} />
-        <script src={props.themeScript} />
-      </Head>
-      <Navigation />
-      {props.children}
-      <Footer />
-    </div>
-  )
 }
 
 export default withTranslation('common')(LandingLayout)
