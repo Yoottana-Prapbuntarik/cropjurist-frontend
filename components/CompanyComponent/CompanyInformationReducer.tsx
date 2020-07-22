@@ -127,11 +127,11 @@ export const companyInformationReducer =
         }
 
       case AddressAction.chooseProvincesSuccess: {
-        const reseProvinces = [{
-          provinceID: 0,
-          name: TextManager.SelectData
+        const resetProvinces = [{
+          provinceID: 1,
+          name: TextManager.DefaultProvince
         }]
-        const newProvincesAction = reseProvinces.concat(action.provinces)
+        const newProvincesAction = resetProvinces.concat(action.provinces)
         return {
           ...state,
           provincesItem: newProvincesAction
@@ -207,20 +207,20 @@ export const companyInformationReducer =
           currentIDIformation = action.getInformationCompany.id
           DataFormApi.ProvinceAPI = state.provincesItem
           DataFormApi.ProvinceAPI[DefineIndexArray.FirstIndex] = {
-            prvinceID: 0,
-            name: action.getInformationCompany.province
+            province_id: action.getInformationCompanyProvince.province_id,
+            name: action.getInformationCompanyProvince.name
           }
 
           DataFormApi.DistrictAPI = state.districtItem
           DataFormApi.DistrictAPI[DefineIndexArray.FirstIndex] = {
-            districtId: 0,
-            name: action.getInformationCompany.district
+            district_id: action.getInformationCompanyDistrict.district_id,
+            name: action.getInformationCompanyDistrict.name
           }
 
           DataFormApi.SubDistrictAPI = state.subDistrictItem
           DataFormApi.SubDistrictAPI[DefineIndexArray.FirstIndex] = {
-            districtId: 0,
-            name: action.getInformationCompany.sub_district
+            sub_district_id: action.getInformationCompanySubDistrict.sub_district_id,
+            name: action.getInformationCompanySubDistrict.name
           }
           DataFormApi.zipCodeAPI = state.zipCode
           DataFormApi.zipCodeAPI[DefineIndexArray.FirstIndex] = {
@@ -246,22 +246,22 @@ export const companyInformationReducer =
             },
             labelRegistrationNumber: {
               keyLabelName: KeyManager.RegistrationNumber,
-              valueLabelAddress: action.getInformationCompany.registration_no,
+              valueLabelAddress: state.labelRegistrationNumber.valueLabelAddress = action.getInformationCompany.registration_no,
               name: KeyManager.RegistrationNumber
             },
             labelAddressNumber: {
               keyLabelName: KeyManager.AddressNumber,
-              valueLabelAddress: action.getInformationCompany.address_no,
+              valueLabelAddress: state.labelAddressNumber.valueLabelAddress = action.getInformationCompany.address_no,
               name: KeyManager.AddressNumber
             },
             labelVillage: {
               keyLabelName: KeyManager.Village,
-              valueLabelAddress: action.getInformationCompany.village,
+              valueLabelAddress: state.labelVillage.valueLabelAddress = action.getInformationCompany.village,
               name: KeyManager.Village
             },
             labelRoad: {
               keyLabelName: KeyManager.Road,
-              valueLabelAddress: action.getInformationCompany.road,
+              valueLabelAddress: state.labelRoad.valueLabelAddress = action.getInformationCompany.road,
               name: KeyManager.Road
             },
             provincesItem: DataFormApi.ProvinceAPI,
@@ -270,11 +270,11 @@ export const companyInformationReducer =
             zipCode: DataFormApi.zipCodeAPI,
             labelAuditorLicense: {
               keyLicense: KeyManager.AuditorLicense,
-              valueLicense: action.getInformationCompany.auditor_number
+              valueLicense: state.labelAuditorLicense.valueLicense = action.getInformationCompany.license_number
             },
             labelAuditor: {
               keyAuditorName: KeyManager.AuditorName,
-              valueAuditorName: action.getInformationCompany.auditor_name
+              valueAuditorName: state.labelAuditor.valueAuditorName = action.getInformationCompany.auditor_name
             }
           }
           return {
@@ -286,6 +286,7 @@ export const companyInformationReducer =
           return state
         }
       }
+
       default:
         return state
     }

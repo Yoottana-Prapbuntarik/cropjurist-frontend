@@ -21,74 +21,50 @@ import {
 import { FormManager } from '../../manager/formManager'
 import { currentIDIformation } from './CompanyInformationReducer'
 
-let provinceId = 0
-let districtId = 0
-let subDistrictId = 0
+let provinceItems: any
+let districtItems: any
+let subDistrictItems: any
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  submitCompanyInformation: (event: any) => {
-    dispatch(companyInformationForm(event.companyName1,
-      event.companyName2,
-      event.companyName3,
-      event.registrationNumber,
-      event.addressNumber,
-      event.village,
-      event.road,
-      event.province,
-      event.district,
-      event.subDistrict,
-      event.zipCode,
-      event.auditorLicense,
-      event.auditorName))
-
-    dispatch(reset(FormManager.InformationForm))
-  },
-
-  updateCompanyInformation: (event: any) => {
-    dispatch(updateCompanyInformationForm(currentIDIformation,
-      event.companyName1,
-      event.companyName2,
-      event.companyName3,
-      event.registrationNumber,
-      event.addressNumber,
-      event.village,
-      event.road,
-      event.province,
-      event.district,
-      event.subDistrict,
-      event.zipCode, event.auditorLicense,
-      event.auditorName))
-
-    dispatch(reset(FormManager.InformationForm))
-  },
 
   showAllProvinces: () => { dispatch(chooseProvinces()) },
 
   getCurrentCompanyInformation: async () => {
-    await dispatch(chooseProvinces())
     await dispatch(getInformationCompany())
+    await dispatch(chooseProvinces())
   },
 
-  formSelectProvinces: (event: any) => {
-    dispatch(chooseDistrict(event))
-    provinceId = event
+  formSelectProvinces: (provinceData: any, event: any) => {
+    provinceData.map(item => {
+      if (item.province_id === parseInt(event)) {
+        provinceItems = { province_id: item.province_id, name: item.name }
+      }
+    })
+
+    dispatch(chooseDistrict(provinceItems.province_id))
   },
 
-  formSelectDistrict: (event: any) => {
-    districtId = event
-    dispatch(chooseSubDistrict(provinceId,
-      districtId))
+  formSelectDistrict: (districtData, event: any) => {
+    districtData.map(item => {
+      if (item.district_id === parseInt(event)) {
+        districtItems = { district_id: item.district_id, name: item.name }
+      }
+    })
+
+    dispatch(chooseSubDistrict(provinceItems.province_id,
+      districtItems.district_id))
   },
 
-  formSelectSubDistrict: (event: any) => {
-    subDistrictId = event
-    dispatch(chooseZipCode(provinceId,
-      districtId,
-      subDistrictId))
-  },
+  formSelectSubDistrict: (subDistrictData, event: any) => {
+    subDistrictData.map(item => {
+      if (item.sub_district_id === parseInt(event)) {
+        subDistrictItems = { sub_district_id: item.sub_district_id, name: item.name }
+      }
+    })
 
-  formSelectZipcode: () => {
-    return null
+    dispatch(chooseZipCode(provinceItems.province_id,
+      districtItems.district_id,
+      subDistrictItems.sub_district_id))
   },
 
   changeTextFieldCompanyName1: (event: any) => {
@@ -152,6 +128,43 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
       type: CompanyInformationAction.handleChangeAuditor,
       payload: event
     })
+  },
+
+  submitCompanyInformation: (event: any) => {
+    dispatch(companyInformationForm(event.companyName1,
+      event.companyName2,
+      event.companyName3,
+      event.registrationNumber,
+      event.addressNumber,
+      event.village,
+      event.road,
+      provinceItems.name,
+      districtItems.name,
+      subDistrictItems.name,
+      event.zipCode,
+      event.auditorLicense,
+      event.auditorName))
+
+    dispatch(reset(FormManager.InformationForm))
+  },
+
+  updateCompanyInformation: (event: any) => {
+    dispatch(updateCompanyInformationForm(currentIDIformation,
+      event.companyName1,
+      event.companyName2,
+      event.companyName3,
+      event.registrationNumber,
+      event.addressNumber,
+      event.village,
+      event.road,
+      provinceItems.name,
+      districtItems.name,
+      subDistrictItems.name,
+      event.zipCode,
+      event.auditorLicense,
+      event.auditorName))
+
+    dispatch(reset(FormManager.InformationForm))
   }
 
 })
