@@ -1,9 +1,12 @@
 import { withTranslation } from '../../i18n'
 import CustomeTextField from '../FieldComponents/CustomeTextField'
 import { Field } from 'redux-form'
+import { useDispatch } from 'react-redux'
 import BoxShareHolderComponent from '../BoxShareHolderComponent/BoxShareHolderComponent'
+import './styles.scss'
 
-const PreferenceShareManager = ({ idModal, preferenceShareManagerPresenter, t }: any) => {
+const PreferenceShareManager = ({ idModal, preferenceShareManagerPresenter, handleClickEnableNewClass, t }: any) => {
+  const Dispatch = useDispatch()
   return (
     <div className="modal fade" id={idModal} role="dialog">
       <div className="modal-dialog w-100 modal-dialog-centered modal-lg">
@@ -23,47 +26,47 @@ const PreferenceShareManager = ({ idModal, preferenceShareManagerPresenter, t }:
               </button>
             </div>
           </div>
-          <div className="modal-body px-auto">
-            <div className="col-12">
-              <label>{t(preferenceShareManagerPresenter.votePerShare.name)}</label>
-              <Field
-                name={preferenceShareManagerPresenter.votePerShare.name}
-                type="text"
-                component={CustomeTextField}
-                styleTextError="text-danger"
-                className="form-control"
-                label={t(preferenceShareManagerPresenter.votePerShare.name)}
-                currentValue={preferenceShareManagerPresenter.votePerShare.valueVotePerShare}
-              />
-            </div>
-            <div className="col-12">
-              <label>{t(preferenceShareManagerPresenter.classNameBuilder.name)}</label>
-              <Field
-                name={preferenceShareManagerPresenter.classNameBuilder.name}
-                type="text"
-                component={CustomeTextField}
-                styleTextError="text-danger"
-                className="form-control"
-                label={t(preferenceShareManagerPresenter.classNameBuilder.name)}
-                currentValue={preferenceShareManagerPresenter.classNameBuilder.valueClassName}
-              />
-            </div>
-          </div>
           <div className="container">
             <div className="row">
               <BoxShareHolderComponent
-                className= {preferenceShareManagerPresenter.classNameBuilder.name}
-                preferenceDataAPI = {preferenceShareManagerPresenter.fetchDataShareHolder}
+                className={preferenceShareManagerPresenter.classNameBuilder.name}
+                preferenceDataAPI={preferenceShareManagerPresenter.fetchDataShareHolder}
                 keyButtonEdit={preferenceShareManagerPresenter.buttonEditShareBuilder}
-                keyButtonDelete={preferenceShareManagerPresenter.buttonDeleteShareBuilder}/>
+                keyButtonDelete={preferenceShareManagerPresenter.buttonDeleteShareBuilder} />
+              <div className={`modal-body px-auto ${preferenceShareManagerPresenter.enableNewClass ? 'animation-fade-box ' : 'd-none'}`}>
+                <div className="col-12">
+                  <label>{t(preferenceShareManagerPresenter.votePerShare.name)}</label>
+                  <Field
+                    name={preferenceShareManagerPresenter.votePerShare.name}
+                    type="text"
+                    component={CustomeTextField}
+                    styleTextError="text-danger"
+                    className="form-control"
+                    label={t(preferenceShareManagerPresenter.votePerShare.name)}
+                    currentValue={preferenceShareManagerPresenter.votePerShare.valueVotePerShare}
+                  />
+                </div>
+                <div className="col-12">
+                  <label>{t(preferenceShareManagerPresenter.classNameBuilder.name)}</label>
+                  <Field
+                    name={preferenceShareManagerPresenter.classNameBuilder.name}
+                    type="text"
+                    component={CustomeTextField}
+                    styleTextError="text-danger"
+                    className="form-control"
+                    label={t(preferenceShareManagerPresenter.classNameBuilder.name)}
+                    currentValue={preferenceShareManagerPresenter.classNameBuilder.valueClassName}
+                  />
+                </div>
+              </div>
             </div>
             <div className="d-block text-center">
-              <button type="button" className="btn btn-primary w-75  my-5 mx-1" data-dismiss="modal">{t(preferenceShareManagerPresenter.buttonAddNewClass)}</button>
+              <button className="btn btn-primary w-75  my-5 mx-1" onClick={() => Dispatch(handleClickEnableNewClass)}>{t(preferenceShareManagerPresenter.buttonAddNewClass)}</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

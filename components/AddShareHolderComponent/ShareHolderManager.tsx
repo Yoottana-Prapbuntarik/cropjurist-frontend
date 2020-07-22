@@ -57,265 +57,250 @@ const ShareHolderManager = ({
               </button>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className="modal-body px-auto">
-              <form onSubmit={handleSubmit}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-12">
-                      <div className="form-group">
-                        <div className="row">
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelFirstName.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelFirstName.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelFirstName.name)}
-                              currentValue={shareHolderManagerPresenter.labelFirstName.valueName}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelMiddleName.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelMiddleName.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelMiddleName.name)}
-                              currentValue={shareHolderManagerPresenter.labelMiddleName.valueMiddleName}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelFamilyName.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelFamilyName.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelFamilyName.name)}
-                              currentValue={shareHolderManagerPresenter.labelFamilyName.valueFamilyName}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelPassportId.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelPassportId.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelPassportId.name)}
-                              currentValue={shareHolderManagerPresenter.labelPassportId.valuePassportId}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelEmail.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelEmail.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelEmail.name)}
-                              currentValue={shareHolderManagerPresenter.labelEmail.valueEmail}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelTelephone.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelTelephone.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelTelephone.name)}
-                              currentValue={shareHolderManagerPresenter.labelTelephone.valueTelephone}
-                            />
-                          </div>
-                          <div className="col-12">
-                            <div className="checkbox">
-                              <Field type="checkbox"
-                                name={shareHolderManagerPresenter.labelAddressCheckbox.name}
-                                component={CheckBox} />
-                              <label className="pl-1">
-                                {shareHolderManagerPresenter.labelAddressCheckbox.name}
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelAddressNumber.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelAddressNumber.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelAddressNumber.name)}
-                              currentValue={shareHolderManagerPresenter.labelAddressNumber.valueAddressNumber}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelVillage.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelVillage.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelVillage.name)}
-                              currentValue={shareHolderManagerPresenter.labelVillage.valueVillage}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>{t(shareHolderManagerPresenter.labelRoad.name)}</label>
-                            <Field
-                              name={shareHolderManagerPresenter.labelRoad.name}
-                              type="text"
-                              component={CustomeTextField}
-                              styleTextError="text-danger"
-                              className="form-control"
-                              label={t(shareHolderManagerPresenter.labelRoad.name)}
-                              currentValue={shareHolderManagerPresenter.labelRoad.valueRoad}
-                            />
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label>
-                              {t(shareHolderManagerPresenter.labelProvicne.name)}
-                            </label>
-                            <Field
-                              disabledState={
-                                false
-                              }
-                              style="form-control"
-                              name={shareHolderManagerPresenter.labelProvicne.name}
-                              component={SelectField}
-                              styleTextError="text-danger"
-                              onChangeValue={() => { console.log('tesst') }
-                              }
-                            >
-                              <option value={shareHolderManagerPresenter.labelProvicne.valueProvince}>
-                                {t(shareHolderManagerPresenter.labelProvicne.name)}
-                              </option>
-                            </Field>
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label >
-                              {t(shareHolderManagerPresenter.labelDistrict.name)}
-                            </label>
-                            <Field
-                              disabledState={
-                                false
-                              }
-                              style="form-control"
-                              name={''}
-                              component={SelectField}
-                              styleTextError="text-danger"
-                              onChangeValue={() => { console.log('tesst') }
-                              }
-                            >
-                              <option value={shareHolderManagerPresenter.labelDistrict.valueDistrict}>
-                                {t(shareHolderManagerPresenter.labelDistrict.name)}
-                              </option>
-                            </Field>
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label >
-                              {t(shareHolderManagerPresenter.labelSubDistrict.name)}
-                            </label>
-                            <Field
-                              disabledState={
-                                false
-                              }
-                              style="form-control"
-                              name={shareHolderManagerPresenter.labelSubDistrict.name}
-                              component={SelectField}
-                              styleTextError="text-danger"
-                              onChangeValue={() => { console.log('tesst') }
-                              }
-                            >
-                              <option value={shareHolderManagerPresenter.labelSubDistrict.valueSubDistrict}>
-                                {t(shareHolderManagerPresenter.labelSubDistrict.name)}
-                              </option>
-                            </Field>
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label >
-                              {t(shareHolderManagerPresenter.labelZipCode.name)}
-                            </label>
-                            <Field
-                              disabledState={
-                                false
-                              }
-                              style="form-control"
-                              name={shareHolderManagerPresenter.labelZipCode.name}
-                              component={SelectField}
-                              styleTextError="text-danger"
-                              onChangeValue={() => { console.log('tesst') }
-                              }
-                            >
-                              <option value={shareHolderManagerPresenter.labelZipCode.valueZipCode}>
-                                {t(shareHolderManagerPresenter.labelZipCode.name)}
-                              </option>
-                            </Field>
-                          </div>
-                          <div className="col-lg-6 col-12">
-                            <label >
-                              {t(shareHolderManagerPresenter.labelTotalShare.name)}
-                            </label>
-                            <Field
-                              disabledState={
-                                false
-                              }
-                              style="form-control"
-                              name={shareHolderManagerPresenter.labelTotalShare.name}
-                              component={SelectField}
-                              styleTextError="text-danger"
-                              onChangeValue={() => { console.log('tesst') }
-                              }
-                            >
-                              <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
-                                {t(shareHolderManagerPresenter.labelTotalShare.name)}
-                              </option>
-                              <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
-                                10 %
-                              </option>
-                            </Field>
-                          </div>
+          <div className="container">
+            <div className="row">
+              <div className="modal-body col-12 px-auto">
+                <form onSubmit={handleSubmit}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelFirstName.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelFirstName.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelFirstName.name)}
+                          currentValue={shareHolderManagerPresenter.labelFirstName.valueName}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelMiddleName.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelMiddleName.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelMiddleName.name)}
+                          currentValue={shareHolderManagerPresenter.labelMiddleName.valueMiddleName}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelFamilyName.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelFamilyName.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelFamilyName.name)}
+                          currentValue={shareHolderManagerPresenter.labelFamilyName.valueFamilyName}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelPassportId.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelPassportId.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelPassportId.name)}
+                          currentValue={shareHolderManagerPresenter.labelPassportId.valuePassportId}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelEmail.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelEmail.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelEmail.name)}
+                          currentValue={shareHolderManagerPresenter.labelEmail.valueEmail}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelTelephone.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelTelephone.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelTelephone.name)}
+                          currentValue={shareHolderManagerPresenter.labelTelephone.valueTelephone}
+                        />
+                      </div>
+                      <div className="col-12">
+                        <div className="checkbox">
+                          <Field type="checkbox"
+                            name={shareHolderManagerPresenter.labelAddressCheckbox.name}
+                            component={CheckBox} />
+                          <label className="pl-1">
+                            {shareHolderManagerPresenter.labelAddressCheckbox.name}
+                          </label>
                         </div>
-                        <div className="container">
-                          <div className="row text-center">
-                            <div className="col-12 pt-4 pr-5 w-100">
-                              <Field
-                                name="submit"
-                                type="submit"
-                                style="btn btn-primary"
-                                styleTextError="text-danger"
-                                component={ButtonSubmit}
-                                label={t(shareHolderManagerPresenter.buttonOtherShareHolder.name)}
-                              />
-                            </div>
-                            <div className="col-12 pt-4 pr-5 w-100">
-                              <Field
-                                name="submit"
-                                type="submit"
-                                style="btn btn-primary"
-                                styleTextError="text-danger"
-                                component={ButtonSubmit}
-                                label={t(shareHolderManagerPresenter.buttonFinish.name)}
-                              />
-                            </div>
-                          </div>
-                        </div>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelAddressNumber.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelAddressNumber.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelAddressNumber.name)}
+                          currentValue={shareHolderManagerPresenter.labelAddressNumber.valueAddressNumber}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelVillage.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelVillage.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelVillage.name)}
+                          currentValue={shareHolderManagerPresenter.labelVillage.valueVillage}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>{t(shareHolderManagerPresenter.labelRoad.name)}</label>
+                        <Field
+                          name={shareHolderManagerPresenter.labelRoad.name}
+                          type="text"
+                          component={CustomeTextField}
+                          styleTextError="text-danger"
+                          className="form-control"
+                          label={t(shareHolderManagerPresenter.labelRoad.name)}
+                          currentValue={shareHolderManagerPresenter.labelRoad.valueRoad}
+                        />
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label>
+                          {t(shareHolderManagerPresenter.labelProvicne.name)}
+                        </label>
+                        <Field
+                          disabledState={
+                            false
+                          }
+                          style="form-control"
+                          name={shareHolderManagerPresenter.labelProvicne.name}
+                          component={SelectField}
+                          styleTextError="text-danger"
+                          onChangeValue={() => { console.log('tesst') }
+                          }
+                        >
+                          <option value={shareHolderManagerPresenter.labelProvicne.valueProvince}>
+                            {t(shareHolderManagerPresenter.labelProvicne.name)}
+                          </option>
+                        </Field>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label >
+                          {t(shareHolderManagerPresenter.labelDistrict.name)}
+                        </label>
+                        <Field
+                          disabledState={
+                            false
+                          }
+                          style="form-control"
+                          name={''}
+                          component={SelectField}
+                          styleTextError="text-danger"
+                          onChangeValue={() => { console.log('tesst') }
+                          }
+                        >
+                          <option value={shareHolderManagerPresenter.labelDistrict.valueDistrict}>
+                            {t(shareHolderManagerPresenter.labelDistrict.name)}
+                          </option>
+                        </Field>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label >
+                          {t(shareHolderManagerPresenter.labelSubDistrict.name)}
+                        </label>
+                        <Field
+                          disabledState={
+                            false
+                          }
+                          style="form-control"
+                          name={shareHolderManagerPresenter.labelSubDistrict.name}
+                          component={SelectField}
+                          styleTextError="text-danger"
+                          onChangeValue={() => { console.log('tesst') }
+                          }
+                        >
+                          <option value={shareHolderManagerPresenter.labelSubDistrict.valueSubDistrict}>
+                            {t(shareHolderManagerPresenter.labelSubDistrict.name)}
+                          </option>
+                        </Field>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label >
+                          {t(shareHolderManagerPresenter.labelZipCode.name)}
+                        </label>
+                        <Field
+                          disabledState={
+                            false
+                          }
+                          style="form-control"
+                          name={shareHolderManagerPresenter.labelZipCode.name}
+                          component={SelectField}
+                          styleTextError="text-danger"
+                          onChangeValue={() => { console.log('tesst') }
+                          }
+                        >
+                          <option value={shareHolderManagerPresenter.labelZipCode.valueZipCode}>
+                            {t(shareHolderManagerPresenter.labelZipCode.name)}
+                          </option>
+                        </Field>
+                      </div>
+                      <div className="col-lg-6 col-12">
+                        <label >
+                          {t(shareHolderManagerPresenter.labelTotalShare.name)}
+                        </label>
+                        <Field
+                          disabledState={
+                            false
+                          }
+                          style="form-control"
+                          name={shareHolderManagerPresenter.labelTotalShare.name}
+                          component={SelectField}
+                          styleTextError="text-danger"
+                          onChangeValue={() => { console.log('tesst') }
+                          }
+                        >
+                          <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
+                            {t(shareHolderManagerPresenter.labelTotalShare.name)}
+                          </option>
+                          <option value={shareHolderManagerPresenter.labelTotalShare.valueTotalShare}>
+                            10 %
+                          </option>
+                        </Field>
+                      </div>
+                      <div className="col-12 pt-4 text-center">
+                        <Field
+                          name="submit"
+                          type="submit"
+                          style="btn btn-primary w-100"
+                          styleTextError="text-danger"
+                          component={ButtonSubmit}
+                          label={t(shareHolderManagerPresenter.buttonOtherShareHolder.name)}
+                        />
+                      </div>
+                      <div className="col-12 pt-4 text-center">
+                        <button className="btn btn-primary w-50" data-dismiss="modal">{t(shareHolderManagerPresenter.buttonFinish.name)}</button>
                       </div>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>

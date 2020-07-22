@@ -7,18 +7,18 @@ export enum SendInformationCompany {
     SendInformationCompany_Failed = 'SendInformationCompany_Failed'
 }
 
-export const companyInformationForm: any = (company_name_1: string, company_name_2: string, company_name_3: string,
-  registration_no: string, address_no: string, village: string, road: string,
-  province: string, district: string, sub_district: string, zipcode: string,
-  license_number: string, auditor_name: string) => async (dispatch: Dispatch
+export const companyInformationForm: any = (companyName1: string, companyName2: string, companyName3: string,
+  registrationNumber: string, addressNumber: string, village: string, road: string,
+  province: string, district: string, subDistrict: string, zipcode: string,
+  licenseNumber: string, auditorName: string) => async (dispatch: Dispatch
 ) => {
   serviceSetToken({
     method: 'post',
     url: 'company_information/',
-    data: params(company_name_1, company_name_2, company_name_3,
-      registration_no, address_no, village, road,
-      province, district, sub_district, zipcode,
-      license_number, auditor_name)
+    data: params(companyName1, companyName2, companyName3,
+      registrationNumber, addressNumber, village, road,
+      province, district, subDistrict, zipcode,
+      licenseNumber, auditorName)
   })
 
     .then((response) => {
@@ -31,18 +31,18 @@ export const companyInformationForm: any = (company_name_1: string, company_name
     })
 }
 
-export const updateCompanyInformationForm: any = (currentIdInformation: number, company_name_1: string, company_name_2: string, company_name_3: string,
-  registration_no: string, address_no: string, village: string, road: string,
-  province: string, district: string, sub_district: string, zipcode: string,
-  license_number: string, auditor_name: string) => async (dispatch: Dispatch
+export const updateCompanyInformationForm: any = (currentIdInformation: number, companyName1: string, companyName2: string, companyName3: string,
+  registrationNumber: string, addressNumber: string, village: string, road: string,
+  province: string, district: string, subDistrict: string, zipcode: string,
+  licenseNumber: string, auditorName: string) => async (dispatch: Dispatch
 ) => {
   serviceSetToken({
     method: 'put',
     url: `company_information/${currentIdInformation}/edit/`,
-    data: params(company_name_1, company_name_2, company_name_3,
-      registration_no, address_no, village, road,
-      province, district, sub_district, zipcode,
-      license_number, auditor_name)
+    data: params(companyName1, companyName2, companyName3,
+      registrationNumber, addressNumber, village, road,
+      province, district, subDistrict, zipcode,
+      licenseNumber, auditorName)
   })
 
     .then((response) => {
@@ -64,23 +64,23 @@ export const updateCompanyInformationForm: any = (currentIdInformation: number, 
     })
 }
 
-const params = (company_name_1: string, company_name_2: string, company_name_3: string,
-  registration_no: string, address_no: string, village: string, road: string,
-  province: string, district: string, sub_district: string, zipcode: string,
-  license_number: string, auditor_name: string) => {
+const params = (companyName1: string, companyName2: string, companyName3: string,
+  registrationNumber: string, addressNumber: string, village: string, road: string,
+  province: string, district: string, subDistrict: string, zipcode: string,
+  licenseNumber: string, auditorName: string) => {
   return {
-    company_name_1: company_name_1,
-    company_name_2: company_name_2,
-    company_name_3: company_name_3,
-    registration_no: registration_no,
-    address_no: address_no,
+    company_name_1: companyName1,
+    company_name_2: companyName2,
+    company_name_3: companyName3,
+    registration_no: registrationNumber,
+    address_no: addressNumber,
     village: village,
     road: road,
     province: province,
     district: district,
-    sub_district: sub_district,
+    sub_district: subDistrict,
     zipcode: zipcode,
-    license_number: license_number,
-    auditor_name: auditor_name
+    license_number: licenseNumber,
+    auditor_name: auditorName
   }
 }

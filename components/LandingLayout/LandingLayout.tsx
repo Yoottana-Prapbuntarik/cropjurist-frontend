@@ -1,26 +1,34 @@
-import Head from 'next/head';
-import Navigation from '../Navigation/NavigationContainer';
-import Footer from '../Footer/FooterViewContainer';
-import { withTranslation } from '../../i18n';
-import checkToken from '../../user/checkToken';
+
+import Head from 'next/head'
+import Navigation from '../Navigation/NavigationContainer'
+import Footer from '../Footer/FooterViewContainer'
+import { withTranslation } from '../../i18n'
+import useAuthenticated from '../../user/checkToken'
+import Router from 'next/router'
+import { routeToMemberPage } from '../../manager/routerManager'
 
 const LandingLayout = (props: any) => {
-	checkToken();
-	
-	return (
-		<div className="page-wrapper">
-			<Head>
-				<title>{props.t('landingTitle')}</title>
+  const [isAuthenticated] = useAuthenticated(false)
 
-				<link href={props.styleTheme} rel="stylesheet" />
-				<script src={props.themePlugin} />
-				<script src={props.themeScript} />
-			</Head>
-			<Navigation />
-			{props.children}
-			<Footer />
-		</div>
-	)
-};
+  if (isAuthenticated) {
+    Router.replace(routeToMemberPage)
+    return null
+  } else {
+    return (
+      <div className="page-wrapper">
+        <Head>
+          <title>{props.t('landingTitle')}</title>
 
-export default withTranslation('common')(LandingLayout);
+          <link href={props.styleTheme} rel="stylesheet" />
+          <script src={props.themePlugin} />
+          <script src={props.themeScript} />
+        </Head>
+        <Navigation />
+        {props.children}
+        <Footer />
+      </div>
+    )
+  }
+}
+
+export default withTranslation('common')(LandingLayout)

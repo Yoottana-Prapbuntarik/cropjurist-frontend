@@ -1,7 +1,6 @@
 const SelectField = ({
   input,
   disabledState,
-  onChangeValue,
   name,
   label,
   style,
@@ -16,13 +15,8 @@ const SelectField = ({
         <select
           className={style}
           {...input}
-          disabled={disabledState}
           name={name}
-          onChange={(e) => {
-            const val = e.target.value
-            input.onChange(val)
-            onChangeValue(val)
-          }}
+          disabled={disabledState}
         >
           {children}
         </select>

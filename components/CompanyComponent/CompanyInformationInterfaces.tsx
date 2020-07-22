@@ -1,13 +1,13 @@
 export interface LabelCompanyName {
-    name: string
-    keyCompanyName: string;
+    readonly name: string
+    readonly keyCompanyName: string;
     valueCompanyName: string;
 }
 
 export interface LabelAddress {
-     keyLabelName: string;
-     name: string;
-     valueLabelAddress:string
+    readonly keyLabelName: string;
+    readonly name: string;
+    valueLabelAddress:string
 }
 
 export interface LabelAddressDropdown {
@@ -21,12 +21,12 @@ export interface LabelCheckbox {
 
 export interface LabelAuditorLicense {
     readonly keyLicense: string;
-    readonly valueLicense: string;
+    valueLicense: string;
 }
 
 export interface LabelAuditor{
     readonly keyAuditorName: string;
-    readonly valueAuditorName: string;
+    valueAuditorName: string;
 }
 
 export interface ProvincesItem {

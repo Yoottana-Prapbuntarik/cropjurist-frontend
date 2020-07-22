@@ -13,15 +13,18 @@ import './styles.scss'
 enum StatusCode {
   success = 200
 }
+enum CheckLengthItems {
+  haveOneItem = 1
+}
 
 const CompanyInformation = ({
   companyInformationPresenter,
   showAllProvinces,
-  formSelectProvinces,
   submitCompanyInformation,
   updateCompanyInformation, handleSubmit,
   getCurrentCompanyInformation,
   formSelectDistrict,
+  formSelectProvinces,
   formSelectSubDistrict,
   changeTextFieldCompanyName1,
   changeTextFieldCompanyName2,
@@ -29,7 +32,6 @@ const CompanyInformation = ({
   changeTextFieldRegistrationNumber,
   changeTextFieldAddressNumber,
   changeTextFieldVillage,
-  formSelectZipcode,
   changeTextFieldRoad,
   changeTextFieldAuditorLicense,
   changeTextFieldAuditor, t
@@ -50,13 +52,13 @@ const CompanyInformation = ({
   }, [])
 
   return (
-    <div className="row justify-content-center">
-      <div className="col-12 mb-2">
-        {t(companyInformationPresenter.keyTitleCompany)}
-        <div className="underline"></div>
-      </div>
-      <form onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success
+    <div className="row">
+      <form className="w-100" onSubmit={handleSubmit(companyInformationPresenter.keyGetCurrentInfomationStatus === StatusCode.success
         ? updateCompanyInformation : submitCompanyInformation)}>
+        <div className="col-12 mb-2">
+          {t(companyInformationPresenter.keyTitleCompany)}
+          <div className="underline"></div>
+        </div>
         <div className="col-12" >
           <div className="form-group">
             <div className="row">
@@ -100,6 +102,14 @@ const CompanyInformation = ({
         <div className="col-12">
           {t(companyInformationPresenter.keyTitleAddress)}
           <div className="underline"></div>
+        </div>
+        <div className="col-12">
+          <div className="checkbox pb-2">
+            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAddress} component={CheckBox} />
+            <label className="pl-1">
+              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAddress)}
+            </label>
+          </div>
         </div>
         <div className="col-12">
           <div className="form-group">
@@ -180,20 +190,19 @@ const CompanyInformation = ({
                       <Field
                         disabledState={
                           item.keyLabelNameDropdown === 'province' ? false
-                            : item.keyLabelNameDropdown === 'district' ? !(companyInformationPresenter.districtItem.length > 1)
-                              : item.keyLabelNameDropdown === 'subDistrict' ? !(companyInformationPresenter.subDistrictItem.length > 1)
-                                : !(item.keyLabelNameDropdown === 'zipCode' && companyInformationPresenter.zipCode.length > 1)
+                            : item.keyLabelNameDropdown === 'district' ? !(companyInformationPresenter.districtItem.length > CheckLengthItems.haveOneItem)
+                              : item.keyLabelNameDropdown === 'subDistrict' ? !(companyInformationPresenter.subDistrictItem.length > CheckLengthItems.haveOneItem)
+                                : !(item.keyLabelNameDropdown === 'zipCode' && companyInformationPresenter.zipCode.length > CheckLengthItems.haveOneItem)
                         }
                         style="form-control"
                         name={item.keyLabelNameDropdown}
                         key={index} component={SelectField}
                         styleTextError="text-danger"
-                        onChangeValue={
-                          item.keyLabelNameDropdown === 'province' ? formSelectProvinces
-                            : item.keyLabelNameDropdown === 'district' ? formSelectDistrict
-                              : item.keyLabelNameDropdown === 'subDistrict' ? formSelectSubDistrict
-                                : formSelectZipcode
-                        }
+                        onChange={(event: any) => {
+                          item.keyLabelNameDropdown === 'province' ? formSelectProvinces(companyInformationPresenter.provincesItem, event.target.value)
+                            : item.keyLabelNameDropdown === 'district' ? formSelectDistrict(companyInformationPresenter.districtItem, event.target.value)
+                              : item.keyLabelNameDropdown === 'subDistrict' && formSelectSubDistrict(companyInformationPresenter.subDistrictItem, event.target.value)
+                        }}
                       >
                         {
                           item.keyLabelNameDropdown === 'province'
@@ -234,20 +243,20 @@ const CompanyInformation = ({
                   )
                 }
               )}
-              <div className="col-12">
-                <div className="checkbox">
-                  <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAddress} component={CheckBox} />
-                  <label className="pl-1">
-                    {t(companyInformationPresenter.labelCheckbox.keyCheckboxAddress)}
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
         </div>
         <div className="col-12">
           {t(companyInformationPresenter.keyTitleAuditor)}
           <div className="underline"></div>
+        </div>
+        <div className="col-12">
+          <div className="checkbox pb-2">
+            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAuditor} component={CheckBox} />
+            <label className="pl-1">
+              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAuditor)}
+            </label>
+          </div>
         </div>
         <div className="col-12">
           <label>
@@ -278,14 +287,6 @@ const CompanyInformation = ({
             currentValue={companyInformationPresenter.labelAuditor.valueAuditorName}
             onChange={(event: any) => changeTextFieldAuditor(event.target.value)}
           />
-        </div>
-        <div className="col-12">
-          <div className="checkbox">
-            <Field type="checkbox" name={companyInformationPresenter.labelCheckbox.keyCheckboxAuditor} component={CheckBox} />
-            <label className="pl-1">
-              {t(companyInformationPresenter.labelCheckbox.keyCheckboxAuditor)}
-            </label>
-          </div>
         </div>
         <div className="row">
           <div className="col-md-6 col-12"></div>

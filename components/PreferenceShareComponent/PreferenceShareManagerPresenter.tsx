@@ -33,6 +33,7 @@ const fetchDataShareHolder: FetchDataShareHolder[] = [
 ]
 
 export const preferenceShareManagerPresenter: PreferenceShareManagerPresenter = {
+  enableNewClass: false,
   keyHeaderPreferenceBuilder: KeyManager.HeaderPreferenceBuilder,
   votePerShare: votePerShare,
   classNameBuilder: classNameBuilder,
