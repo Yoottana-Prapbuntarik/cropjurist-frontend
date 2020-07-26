@@ -148,8 +148,8 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(reset(FormManager.InformationForm))
   },
 
-  updateCompanyInformation: (event: any) => {
-    dispatch(updateCompanyInformationForm(currentIDIformation,
+  updateCompanyInformation: async (event: any) => {
+    await dispatch(updateCompanyInformationForm(currentIDIformation,
       event.companyName1,
       event.companyName2,
       event.companyName3,
