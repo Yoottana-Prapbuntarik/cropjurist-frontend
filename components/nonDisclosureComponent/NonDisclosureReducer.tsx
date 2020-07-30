@@ -72,7 +72,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
     case AddressAction.chooseProvincesSuccess: {
       const resetProvinces = [{
         province_id: 1,
-        name: TextManager.DefaultProvince
+        name: TextManager.SelectData
       }]
       const newProvincesAction = resetProvinces.concat(action.provinces)
       return {
@@ -88,7 +88,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
     case AddressActionII.chooseProvincesSuccessII: {
       const resetProvincesII = [{
         province_id: 1,
-        name: TextManager.DefaultProvince
+        name: TextManager.SelectData
       }]
       const newProvincesActionII = resetProvincesII.concat(action.provincesII)
       return {
