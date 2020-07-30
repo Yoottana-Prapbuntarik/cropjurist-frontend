@@ -333,7 +333,6 @@ const NonDisclosure = ({
                     formSelectDistrictII(nonDisclosurePresenter.districtItemsII, event.target.value)
                   }}
                 >
-                  {console.log('nonDisclosurePresenter.districtItemsII', nonDisclosurePresenter.districtItemsII)}
                   {nonDisclosurePresenter.districtItemsII.map((districtII, index: number) => {
                     return (
                       <option key={index} value={districtII.district_id}>
