@@ -2,7 +2,6 @@ import { withTranslation } from '../../i18n'
 
 const Modal = ({ idModal, keyDialogTitle, keyDialogDetail, keyCloseTab, t }: any) => {
   return (
-
     <div className="modal fade" id={idModal} role="dialog">
       <div className="modal-dialog w-100 modal-dialog-centered">
         <div className="modal-content">

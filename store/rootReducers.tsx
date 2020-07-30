@@ -16,6 +16,8 @@ import { changePasswordReducer } from '../components/ChangePassword/ChangePasswo
 import { shareMyCompanyReducer } from '../components/ShareMyCompany/ShareMyCompanyReducer'
 import { shareHolderManagerReducer } from '../components/AddShareHolderComponent/ShareHolderManagerReducer'
 import { preferenceShareManagerReducer } from '../components/PreferenceShareComponent/PreferenceShareManagerReducer'
+import { nonDisclosureManagerReducer } from '../components/nonDisclosureManager/nonDisclosureManagerContainer'
+import { nonDisclosureReducer } from '../components/nonDisclosureComponent/NonDisclosureReducer'
 import { reducer as reduxFormReducer } from 'redux-form'
 
 const rootReducers = combineReducers({
@@ -36,6 +38,8 @@ const rootReducers = combineReducers({
   shareMyCompanyReducer: shareMyCompanyReducer,
   shareHolderManagerReducer: shareHolderManagerReducer,
   preferenceShareManagerReducer: preferenceShareManagerReducer,
+  nonDisclosureManagerReducer: nonDisclosureManagerReducer,
+  nonDisclosureReducer: nonDisclosureReducer,
   form: reduxFormReducer
 })
 

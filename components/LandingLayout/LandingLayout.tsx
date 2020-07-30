@@ -5,13 +5,13 @@ import Footer from '../Footer/FooterViewContainer'
 import { withTranslation } from '../../i18n'
 import useAuthenticated from '../../user/checkToken'
 import Router from 'next/router'
-import { routeToMemberPage } from '../../manager/routerManager'
+import { routeToPageNonDisclosure } from '../../manager/routerManager'
 
 const LandingLayout = (props: any) => {
   const [isAuthenticated] = useAuthenticated(false)
 
   if (isAuthenticated) {
-    Router.replace(routeToMemberPage)
+    Router.replace(routeToPageNonDisclosure)
     return null
   } else {
     return (

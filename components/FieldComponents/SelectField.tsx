@@ -3,6 +3,7 @@ const SelectField = ({
   disabledState,
   name,
   label,
+  value,
   style,
   children,
   styleTextError,
@@ -15,6 +16,7 @@ const SelectField = ({
         <select
           className={style}
           {...input}
+          value={value}
           name={name}
           disabled={disabledState}
         >

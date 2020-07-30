@@ -5,7 +5,7 @@ import { SiginPresenter, SigninItem } from './SigninInterfaces'
 import { signin, SigninAction } from '../../apis/signinAPIClient'
 import { Dispatch } from 'redux'
 import { FormManager } from '../../manager/formManager'
-import { routeToMemberPage } from '../../manager/routerManager'
+import { routeToPageNonDisclosure } from '../../manager/routerManager'
 import validate from '../../validate/signinValidator/signinValidator'
 import Signin from './Signin'
 import Router from 'next/router'
@@ -31,7 +31,7 @@ const signinPresenter: SiginPresenter = {
 export const signinReducer = (state: SiginPresenter = signinPresenter, action: any) => {
   switch (action.type) {
     case SigninAction.Signin_Success:
-      Router.push(routeToMemberPage)
+      Router.push(routeToPageNonDisclosure)
 
       return state
     case SigninAction.Signin_Failed:
