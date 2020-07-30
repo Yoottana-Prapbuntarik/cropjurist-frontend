@@ -103,3 +103,106 @@ export const chooseZipCode: any = (provinceID: number,
       }
     })
 }
+
+export enum AddressActionII {
+  chooseProvincesSuccessII = 'chooseProvinces_SuccessII',
+  chooseDistrictSuccessII = 'chooseDistrict_SuccessII',
+  chooseDistrictFailedII = 'chooseDistrict_FailedII',
+  chooseSubDistrictSuccessII = 'chooseSubDistrict_SuccessII',
+  chooseSubDistrictFailedII = 'chooseSubDistrict_FailedII',
+  chooseZipCodeSuccessII = 'chooseZipCode_SuccessII',
+  chooseZipCodeFailedII = 'chooseZipCode_FailedII'
+  }
+
+export const chooseProvincesII: any = () => async (dispatch: Dispatch
+) => {
+  service({
+    method: 'get',
+    url: 'provinces/'
+  })
+    .then((response) => {
+      if (response) {
+        dispatch({
+          type: AddressActionII.chooseProvincesSuccessII,
+          provincesII: response.data.data
+        })
+      }
+    })
+}
+
+export const chooseDistrictII: any = (provinceID: number) => async (dispatch: Dispatch
+) => {
+  service({
+    method: 'get',
+    url: `${provinceID}/districts`
+  })
+
+    .then((response) => {
+      if (response) {
+        dispatch({
+          type: AddressActionII.chooseDistrictSuccessII,
+          districtII: response.data.data
+        })
+      }
+    })
+
+    .catch(error => {
+      if (error) {
+        dispatch({
+          type: AddressActionII.chooseDistrictFailedII
+        })
+      }
+    })
+}
+
+export const chooseSubDistrictII: any = (provinceID: number,
+  districtID: number) => async (dispatch: Dispatch
+) => {
+  service({
+    method: 'get',
+    url: `${provinceID}/${districtID}/sub_districts`
+  })
+
+    .then((response) => {
+      if (response) {
+        dispatch({
+          type: AddressActionII.chooseSubDistrictSuccessII,
+          subDistrictII: response.data.data
+        })
+      }
+    })
+
+    .catch(error => {
+      if (error) {
+        dispatch({
+          type: AddressActionII.chooseSubDistrictFailedII
+        })
+      }
+    })
+}
+
+export const chooseZipCodeII: any = (provinceID: number,
+  districtID: number,
+  subDistrictID: number) => async (dispatch: Dispatch
+) => {
+  service({
+    method: 'get',
+    url: `${provinceID}/${districtID}/${subDistrictID}/zipcode`
+  })
+    .then((response) => {
+      if (response) {
+        dispatch({
+          type: AddressActionII.chooseZipCodeSuccessII,
+          zipCodeII: response.data
+        })
+      }
+    })
+
+    .catch(error => {
+      if (error) {
+        dispatch({
+          type: AddressActionII.chooseZipCodeFailedII
+        })
+      }
+    })
+}

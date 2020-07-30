@@ -1,4 +1,3 @@
-
 import Router from 'next/router'
 import {
   CompanyInformationPresenter,
@@ -128,7 +127,7 @@ export const companyInformationReducer =
 
       case AddressAction.chooseProvincesSuccess: {
         const resetProvinces = [{
-          provinceID: 1,
+          province_id: 1,
           name: TextManager.DefaultProvince
         }]
         const newProvincesAction = resetProvinces.concat(action.provinces)
@@ -139,7 +138,7 @@ export const companyInformationReducer =
       }
       case AddressAction.chooseDistrictSuccess: {
         const resetDistrict = [{
-          districtID: 0,
+          district_id: 0,
           name: TextManager.SelectData
         }]
         const newDistrictAction = resetDistrict.concat(action.district)
@@ -150,7 +149,7 @@ export const companyInformationReducer =
       }
       case AddressAction.chooseDistrictFailed: {
         const chooseDistrictFailed = [{
-          districtID: 0,
+          district_id: 0,
           name: TextManager.SelectData
         }]
         return {
@@ -160,7 +159,7 @@ export const companyInformationReducer =
       }
       case AddressAction.chooseSubDistrictSuccess: {
         const resetSubDistrict = [{
-          subDistrictID: 0,
+          sub_district_id: 0,
           name: TextManager.SelectData
         }]
         const newSubDistrictAction = resetSubDistrict.concat(action.subDistrict)
@@ -171,7 +170,7 @@ export const companyInformationReducer =
       }
       case AddressAction.chooseSubDistrictFailed: {
         const chooseSubDistrictFailed = [{
-          subDistrictID: 0,
+          sub_district_id: 0,
           name: TextManager.SelectData
         }]
         return {
@@ -195,13 +194,14 @@ export const companyInformationReducer =
         }
       }
       case SendInformationCompany.SendInformationCompany_Success:
+        alert(i18n.t(action.keyMessage))
         Router.push('/')
+        return state
 
-        break
       case SendInformationCompany.SendInformationCompany_Failed:
         alert(i18n.t(action.keyMessage))
+        return state
 
-        break
       case getInformationCompanyAction.getInformationCompany_Success: {
         if (action.getInformationCompany !== undefined) {
           currentIDIformation = action.getInformationCompany.id

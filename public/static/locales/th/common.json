@@ -144,5 +144,19 @@
 	"headerPreferenceBuilder": "ตัวสร้างการตั้งค่าส่วนแบ่ง",
 	"classNameBuilder": "ชื่อคลาส",
 	"votePerShare" : "การโหวตต่อหุ้น",
-	"buttonAddNewClass": "เพิ่มคลาสใหม่ของการตั้งค่าแชร์"
+	"buttonAddNewClass": "เพิ่มคลาสใหม่ของการตั้งค่าแชร์",
+	"disclosureLink":"Non Disclosure",
+	"referenceI":"Reference 1",
+	"referenceII":"Reference 2",
+	"disclosureName":"Your Name Disclosure",
+	"discloreTitlePage":"Non Discloresure Informations",
+	"dialogDetailDisclosure":"This is Detail Non Disclosure warning !",
+	"date": "Date",
+	"scopeOfDiscussion": "Scope of discussion",
+	"endDate": "End Date",
+	"periodOfSecret": "Period Of Secret",
+	"arbitrationJurisdiction": "Arbitration Jurisdiction",
+	"choiceOfLaw": "Choice of Law",
+	"nameOfSigning1": "Name of Signing 1",
+	"titleAndCapacityOfSigning1": "Title and Capacity of signing 1"
 }
