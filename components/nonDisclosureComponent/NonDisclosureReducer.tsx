@@ -8,10 +8,10 @@ import {
 import {
   KeyManager
 } from '../../manager/keyManager'
-import { TextManager } from '../../manager/TextManager'
 import { NonDisclosureAPIClient } from '../../apis/nonDisclosureAPIClient'
-import { AddressAction, AddressActionII } from '../../apis/AddressAPIClient'
 import { i18n } from '../../i18n'
+import Router from 'next/router'
+import { routeToPageMyNonDisclosureAgreement } from '../../manager/routerManager'
 
 export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosurePresenter, action: any): any => {
   switch (action.type) {
@@ -21,9 +21,9 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
         disclosureNameI: {
           name: KeyManager.DisclosureNameI,
           valueName: action.payload
-
         }
       }
+
     case NonDisclosureAction.handleChangeDisclosureNameII:
       return {
         ...state,
@@ -33,179 +33,21 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
         }
       }
 
-    case NonDisclosureAction.handleChangeDisclosureAddressNumberI:
+    case NonDisclosureAction.handleChangeDisclosureAddressI:
       return {
         ...state,
-        addressNumberI: {
-          name: KeyManager.AddressNumber,
-          valueAddressNumber: action.payload
+        addressI: {
+          name: KeyManager.AddressI,
+          valueAddress: action.payload
         }
       }
 
-    case NonDisclosureAction.handleChangeDisclosureAddressNumberII:
+    case NonDisclosureAction.handleChangeDisclosureAddressII:
       return {
         ...state,
-        addressNumberII: {
-          name: KeyManager.AddressNumberII,
-          valueAddressNumber: action.payload
-        }
-      }
-
-    case NonDisclosureAction.handleChangeDisclosureRoadI:
-      return {
-        ...state,
-        roadI: {
-          name: KeyManager.Road,
-          valueRoad: action.payload
-        }
-      }
-
-    case NonDisclosureAction.handleChangeDisclosureRoadII:
-      return {
-        ...state,
-        roadII: {
-          name: KeyManager.Road,
-          valueRoad: action.payload
-        }
-      }
-
-    case AddressAction.chooseProvincesSuccess: {
-      const resetProvinces = [{
-        province_id: 1,
-        name: TextManager.SelectData
-      }]
-      const newProvincesAction = resetProvinces.concat(action.provinces)
-      return {
-        ...state,
-        provinceItems: newProvincesAction,
-        provinceI: {
-          name: KeyManager.Province,
-          valueProvince: action.payload
-        }
-      }
-    }
-
-    case AddressActionII.chooseProvincesSuccessII: {
-      const resetProvincesII = [{
-        province_id: 1,
-        name: TextManager.SelectData
-      }]
-      const newProvincesActionII = resetProvincesII.concat(action.provincesII)
-      return {
-        ...state,
-        provinceItemsII: newProvincesActionII,
-        provinceII: {
-          name: KeyManager.ProvinceII,
-          valueProvince: action.payload
-        }
-      }
-    }
-
-    case AddressAction.chooseDistrictSuccess: {
-      const resetDistrict = [{
-        district_id: 0,
-        name: TextManager.SelectData
-      }]
-      const newDistrictAction = resetDistrict.concat(action.district)
-      return {
-        ...state,
-        districtItems: newDistrictAction,
-        districtI: {
-          name: KeyManager.District,
-          valueDistrict: action.payload
-        }
-      }
-    }
-
-    case AddressActionII.chooseDistrictSuccessII: {
-      const resetDistrictII = [{
-        district_id: 0,
-        name: TextManager.SelectData
-      }]
-      const newDistrictActionII = resetDistrictII.concat(action.districtII)
-      return {
-        ...state,
-        districtItemsII: newDistrictActionII,
-        districtII: {
-          name: KeyManager.DistrictII,
-          valueDistrict: action.payload
-        }
-      }
-    }
-
-    case AddressAction.chooseSubDistrictSuccess: {
-      const resetSubDistrict = [{
-        sub_district_id: 0,
-        name: TextManager.SelectData
-      }]
-      const newSubDistrictAction = resetSubDistrict.concat(action.subDistrict)
-      return {
-        ...state,
-        subDistrictItems: newSubDistrictAction,
-        subDistrictI: {
-          name: KeyManager.SubDistrict,
-          valueSubDistrict: action.payload
-        }
-      }
-    }
-
-    case AddressActionII.chooseSubDistrictSuccessII: {
-      const resetSubDistrictII = [{
-        sub_district_id: 0,
-        name: TextManager.SelectData
-      }]
-      const newSubDistrictActionII = resetSubDistrictII.concat(action.subDistrictII)
-
-      return {
-        ...state,
-        subDistrictItemsII: newSubDistrictActionII,
-        subDistrictII: {
-          name: KeyManager.SubDistrictII,
-          valueSubDistrict: action.payload
-        }
-      }
-    }
-
-    case AddressAction.chooseZipCodeSuccess: {
-      const resetZipCode = [{ zipcode: TextManager.SelectData }]
-      const newZipCodeAction = resetZipCode.concat(action.zipCode)
-      return {
-        ...state,
-        zipCodeItems: newZipCodeAction,
-        zipCodeI: {
-          name: KeyManager.ZipCode,
-          valueZipcode: action.payload
-        }
-      }
-    }
-
-    case AddressActionII.chooseZipCodeSuccessII: {
-      const resetZipCodeII = [{ zipcode: TextManager.SelectData }]
-      const newZipCodeActionII = resetZipCodeII.concat(action.zipCodeII)
-      return {
-        ...state,
-        zipCodeItemsII: newZipCodeActionII,
-        zipCodeII: {
-          name: KeyManager.ZipCodeII,
-          valueZipcode: action.payload
-        }
-      }
-    }
-
-    case NonDisclosureAction.handleChangeDisclosureReferenceI:
-      return {
-        ...state,
-        referenceI: {
-          name: KeyManager.ReferenceI,
-          valueReference: action.payload
-        }
-      }
-    case NonDisclosureAction.handleChangeDisclosureReferenceII:
-      return {
-        ...state,
-        referenceII: {
-          name: KeyManager.ReferenceII,
-          valueReference: action.payload
+        addressII: {
+          name: KeyManager.AddressII,
+          valueAddress: action.payload
         }
       }
 
@@ -217,6 +59,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueDate: action.payload
         }
       }
+
     case NonDisclosureAction.handleChangeScopeOfDiscussion:
       return {
         ...state,
@@ -261,25 +104,6 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueChoiceOfLaw: action.payload
         }
       }
-
-    case NonDisclosureAction.handleChangeCompanyName1:
-      return {
-        ...state,
-        companyName1: {
-          name: KeyManager.CompanyName1,
-          valueCompanyName1: action.payload
-        }
-      }
-
-    case NonDisclosureAction.handleChangeCompanyName2:
-      return {
-        ...state,
-        companyName2: {
-          name: KeyManager.CompanyName2,
-          valueCompanyName2: action.payload
-        }
-      }
-
     case NonDisclosureAction.handleChangeNameOfSigningCompanyI:
       return {
         ...state,
@@ -297,6 +121,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueNameOfSigning1: action.payload
         }
       }
+
     case NonDisclosureAction.handleChangetitleAndCapacityOfSigningCompanyI:
       return {
         ...state,
@@ -305,6 +130,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueTitleAndCapacityOfSigning1: action.payload
         }
       }
+
     case NonDisclosureAction.handleChangetitleAndCapacityOfSigningCompanyII:
       return {
         ...state,
@@ -313,8 +139,10 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueTitleAndCapacityOfSigning1: action.payload
         }
       }
+
     case NonDisclosureAPIClient.nonDisclosureAPIClientSuccess:
       alert(i18n.t(action.keyMessage))
+      Router.replace(routeToPageMyNonDisclosureAgreement)
       return state
 
     case NonDisclosureAPIClient.nonDisclosureAPIClientFailed:

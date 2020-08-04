@@ -1,109 +1,8 @@
 import { Dispatch } from 'redux'
 import { NonDisclosureAction } from './nonDisclosureInterface'
-import {
-  chooseProvinces,
-  chooseDistrict,
-  chooseSubDistrict,
-  chooseZipCode,
-  chooseProvincesII,
-  chooseDistrictII,
-  chooseSubDistrictII,
-  chooseZipCodeII
-} from '../../apis/AddressAPIClient'
 import { nonDisclosureAPIClient } from '../../apis/nonDisclosureAPIClient'
-let provinceItems: any
-let districtItems: any
-let subDistrictItems: any
-
-let provinceItemsII: any
-let districtItemsII: any
-let subDistrictItemsII: any
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  showAllProvinces: () => { dispatch(chooseProvinces()) },
-  showAllProvincesII: () => { dispatch(chooseProvincesII()) },
-
-  formSelectProvinces: (provinceData: any, event: any) => {
-    provinceData.map(item => {
-      if (item.province_id === parseInt(event)) {
-        provinceItems = { province_id: item.province_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseDistrict(provinceItems.province_id))
-  },
-
-  formSelectDistrict: (districtData, event: any) => {
-    districtData.map(item => {
-      if (item.district_id === parseInt(event)) {
-        districtItems = { district_id: item.district_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseSubDistrict(provinceItems.province_id,
-      districtItems.district_id))
-  },
-
-  formSelectSubDistrict: (subDistrictData, event: any) => {
-    subDistrictData.map(item => {
-      if (item.sub_district_id === parseInt(event)) {
-        subDistrictItems = { sub_district_id: item.sub_district_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseZipCode(provinceItems.province_id,
-      districtItems.district_id,
-      subDistrictItems.sub_district_id))
-  },
-
-  formSelectProvincesII: (provinceData: any, event: any) => {
-    provinceData.map(item => {
-      if (item.province_id === parseInt(event)) {
-        provinceItemsII = { province_id: item.province_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseDistrictII(provinceItemsII.province_id))
-  },
-
-  formSelectDistrictII: (districtData, event: any) => {
-    districtData.map(item => {
-      if (item.district_id === parseInt(event)) {
-        districtItemsII = { district_id: item.district_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseSubDistrictII(provinceItemsII.province_id,
-      districtItemsII.district_id))
-  },
-
-  formSelectSubDistrictII: (subDistrictData, event: any) => {
-    subDistrictData.map(item => {
-      if (item.sub_district_id === parseInt(event)) {
-        subDistrictItemsII = { sub_district_id: item.sub_district_id, name: item.name }
-      }
-    })
-
-    dispatch(chooseZipCodeII(provinceItemsII.province_id,
-      districtItemsII.district_id,
-      subDistrictItemsII.sub_district_id))
-  },
-
-  formSelectZipcode: (zipCodeItems, event: any) => {
-    zipCodeItems.map(item => {
-      if (item.sub_district_id === parseInt(event)) {
-        zipCodeItems = { zipcode: item.zipcode, name: item.name }
-      }
-    })
-  },
-
-  formSelectZipcodeII: (zipCodeItemsII, event: any) => {
-    zipCodeItemsII.map(item => {
-      if (item.sub_district_id === parseInt(event)) {
-        zipCodeItemsII = { zipcode: item.zipcode, name: item.name }
-      }
-    })
-  },
 
   handleChangeDisclosureNameI: (event: any) => {
     dispatch({
@@ -117,40 +16,15 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
       payload: event
     })
   },
-  handleChangeDisclosureAddressNumberI: (event: any) => {
+  handleChangeDisclosureAddressI: (event: any) => {
     dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureAddressNumberI,
+      type: NonDisclosureAction.handleChangeDisclosureAddressI,
       payload: event
     })
   },
-  handleChangeDisclosureAddressNumberII: (event: any) => {
+  handleChangeDisclosureAddressII: (event: any) => {
     dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureAddressNumberII,
-      payload: event
-    })
-  },
-  handleChangeDisclosureRoadI: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureRoadI,
-      payload: event
-    })
-  },
-  handleChangeDisclosureRoadII: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureRoadII,
-      payload: event
-    })
-  },
-  handleChangeDisclosureReferenceI: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureReferenceI,
-      payload: event
-    })
-  },
-
-  handleChangeDisclosureReferenceII: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeDisclosureReferenceII,
+      type: NonDisclosureAction.handleChangeDisclosureAddressII,
       payload: event
     })
   },
@@ -197,20 +71,6 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
     })
   },
 
-  handleChangeCompanyName1: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeCompanyName1,
-      payload: event
-    })
-  },
-
-  handleChangeCompanyName2: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangeCompanyName2,
-      payload: event
-    })
-  },
-
   handleChangeNameOfSigningCompanyI: (event: any) => {
     dispatch({
       type: NonDisclosureAction.handleChangeNameOfSigningCompanyI,
@@ -240,37 +100,24 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 
   handldSubmitForm: (event: any) => {
-    console.log(event)
+    console.log('event', event)
     dispatch(nonDisclosureAPIClient(
       event.date,
       event.disclosureName,
       event.disclosureNameII,
-      event.addressNumber,
-      event.road,
-      provinceItems.name,
-      districtItems.name,
-      subDistrictItems.name,
-      event.zipCode,
-      event.addressNumberII,
-      event.roadII,
-      provinceItemsII.name,
-      districtItemsII.name,
-      subDistrictItemsII.name,
-      event.zipCodeII,
-      event.arbitrationJurisdiction,
-      event.choiceOfLaw,
-      event.companyName1,
-      event.companyName2,
-      event.endDate,
-      event.nameOfSigning1,
-      event.nameOfSigning2,
-      event.periodOfSecret,
+      event.address,
+      event.addressII,
       event.referenceI,
       event.referenceII,
+      event.endDate,
+      event.periodOfSecret,
+      event.arbitrationJurisdiction,
+      event.choiceOfLaw,
+      event.nameOfSigning1,
+      event.nameOfSigning2,
       event.scopeOfDiscussion,
       event.titleAndCapacityOfSigning1,
       event.titleAndCapacityOfSigning2
     ))
   }
-
 })
