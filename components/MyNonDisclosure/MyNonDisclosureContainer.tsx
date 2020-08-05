@@ -9,6 +9,6 @@ const mapStateToProps = (state: any) => ({
   myNonDisclosurePresenter: state.myNonDisclosureReducer
 })
 
-const form = reduxForm({ form: FormManager.MyNonDisclosure })(MyNonDisclosure)
+const form = reduxForm({ form: FormManager.NonDisclosureForm })(MyNonDisclosure)
 
 export default withTranslation('common')(connect(mapStateToProps, mapDispatchToProp)(form))

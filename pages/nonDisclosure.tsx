@@ -2,7 +2,7 @@ import React from 'react'
 import MainLayoutMember from '../components/MainLayoutMember/MainLayoutMember'
 import { themeManager } from '../manager/themeManager'
 import NonDisclosureManagerContainer from '../components/nonDisclosureManager/nonDisclosureManagerContainer'
-import NonDisclosureContainer from '../components/nonDisclosureComponent/nonDisclosureContainer'
+import NonDisclosureContainer from '../components/nonDisclosureComponent/NonDisclosureContainer'
 const nonDisclosure = ():any => {
   return (
     <MainLayoutMember
