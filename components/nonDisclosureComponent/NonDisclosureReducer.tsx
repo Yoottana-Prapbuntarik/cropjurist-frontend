@@ -1,7 +1,7 @@
 import {
   NonDisclosurePresenter,
   NonDisclosureAction
-} from './nonDisclosureInterface'
+} from './NonDisclosureInterface'
 import {
   nonDisclosurePresenter
 } from './NonDisclosurePresenter'

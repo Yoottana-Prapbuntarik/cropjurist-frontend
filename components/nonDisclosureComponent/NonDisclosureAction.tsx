@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { NonDisclosureAction } from './nonDisclosureInterface'
+import { NonDisclosureAction } from './NonDisclosureInterface'
 import { nonDisclosureAPIClient } from '../../apis/nonDisclosureAPIClient'
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
