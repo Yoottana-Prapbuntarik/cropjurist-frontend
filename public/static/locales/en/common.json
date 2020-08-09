@@ -160,5 +160,6 @@
 	"nameOfSigning1": "Name of Signing",
 	"titleAndCapacityOfSigning1": "Title and Capacity of signing",
 	"addressI": "Address",
-	"generateAgreement": "Generate my agreement"
+	"generateAgreement": "Generate my agreement",
+	"party": "Party"
 }

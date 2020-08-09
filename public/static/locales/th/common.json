@@ -160,5 +160,6 @@
 	"nameOfSigning1": "ชื่อของการลงนาม",
 	"titleAndCapacityOfSigning1": "ชื่อและความสามารถในการเซ็นชื่อ",
 	"addressI": "ที่อยู่",
-	"generateAgreement": "สร้างข้อตกลงของฉัน"
+	"generateAgreement": "สร้างข้อตกลงของฉัน",
+	"party": "ปาร์ตี้"
 }
