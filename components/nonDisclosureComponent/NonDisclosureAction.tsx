@@ -98,17 +98,29 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
       payload: event
     })
   },
+  handleChangePartyI: (event: any) => {
+    dispatch({
+      type: NonDisclosureAction.handleChangePartyI,
+      payload: event
+    })
+  },
+
+  handleChangePartyII: (event: any) => {
+    dispatch({
+      type: NonDisclosureAction.handleChangePartyII,
+      payload: event
+    })
+  },
 
   handldSubmitForm: (event: any) => {
-    console.log('event', event)
     dispatch(nonDisclosureAPIClient(
       event.date,
       event.disclosureName,
       event.disclosureNameII,
-      event.address,
+      event.addressI,
       event.addressII,
-      event.referenceI,
-      event.referenceII,
+      event.party,
+      event.partyII,
       event.endDate,
       event.periodOfSecret,
       event.arbitrationJurisdiction,

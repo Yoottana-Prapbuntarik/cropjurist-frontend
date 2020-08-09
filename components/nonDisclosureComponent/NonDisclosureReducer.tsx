@@ -140,6 +140,26 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
         }
       }
 
+    case NonDisclosureAction.handleChangePartyI:
+      return {
+        ...state,
+        partyI: {
+          name: KeyManager.PartyI,
+          valueParty: action.payload
+        }
+
+      }
+
+    case NonDisclosureAction.handleChangePartyII:
+      return {
+        ...state,
+        partyII: {
+          name: KeyManager.PartyII,
+          valueParty: action.payload
+        }
+
+      }
+
     case NonDisclosureAPIClient.nonDisclosureAPIClientSuccess:
       alert(i18n.t(action.keyMessage))
       Router.replace(routeToPageMyNonDisclosureAgreement)

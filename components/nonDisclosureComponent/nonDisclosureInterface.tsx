@@ -42,6 +42,11 @@ export interface NameOfSigning {
     valueNameOfSigning: string;
 }
 
+export interface Party {
+    readonly name: string;
+    valueParty: string;
+}
+
 export interface TitleAndCapacityOfSigning {
     readonly name: string;
     valueTitleAndCapacityOfSigning: string;
@@ -58,6 +63,8 @@ export interface NonDisclosurePresenter {
     addressII: Address;
     date: Date;
     scopeOfDiscussion: ScopeOfDiscussion;
+    partyI: Party;
+    partyII: Party;
     endDate: EndDate;
     periodOfSecret: PeriodOfSecret;
     arbitrationJurisdiction: ArbitrationJurisdiction;
@@ -68,6 +75,7 @@ export interface NonDisclosurePresenter {
     titleAndCapacityOfSigningCompanyII: TitleAndCapacityOfSigning;
     keyPleaseSignin: string;
     buttonSubmit: string;
+
 }
 
 export enum NonDisclosureAction {
@@ -75,8 +83,8 @@ export enum NonDisclosureAction {
     handleChangeDisclosureNameII = 'handleChangeDisclosureNameII',
     handleChangeDisclosureAddressI = 'handleChangeDisclosureAddressI',
     handleChangeDisclosureAddressII = 'handleChangeDisclosureAddressII',
-    handleChangeDisclosureReferenceI = 'handleChangeDisclosureReferenceI',
-    handleChangeDisclosureReferenceII = 'handleChangeDisclosureReferenceII',
+    handleChangePartyI = 'handleChangePartyI',
+    handleChangePartyII = 'handleChangePartyII',
     handleChangeDate = 'handleChangeDate',
     handleChangeScopeOfDiscussion = 'handleChangeScopeOfDiscussion',
     handleChangeEndDate = 'handleChangeEndDate',

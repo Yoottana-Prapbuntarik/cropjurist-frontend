@@ -5,7 +5,7 @@ import SelectField from '../FieldComponents/SelectField'
 import ButtonSubmit from '../FieldComponents/ButtonSubmit'
 import { useEffect } from 'react'
 import './styles.scss'
-// import Router from 'next/router'
+import Router from 'next/router'
 
 const NonDisclosure = ({
   nonDisclosurePresenter,
@@ -25,13 +25,15 @@ const NonDisclosure = ({
   handleChangeNameOfSigningCompanyII,
   handleChangetitleAndCapacityOfSigningCompanyI,
   handleChangetitleAndCapacityOfSigningCompanyII,
+  handleChangePartyI,
+  handleChangePartyII,
   t
 }: any) => {
   useEffect(() => {
-    // if (!localStorage.getItem('access-token')) {
-    //   alert(t(nonDisclosurePresenter.keyPleaseSignin))
-    //   Router.push('/signin')
-    // }
+    if (!localStorage.getItem('access-token')) {
+      alert(t(nonDisclosurePresenter.keyPleaseSignin))
+      Router.push('/signin')
+    }
   }, [])
 
   return (
@@ -104,6 +106,21 @@ const NonDisclosure = ({
                   onChange={(event: any) => handleChangetitleAndCapacityOfSigningCompanyI(event.target.value)}
                 />
               </div>
+              <div className="col-lg-6 col-12">
+                <label>
+                  {t(nonDisclosurePresenter.partyI.name)}
+                </label>
+                <Field
+                  name={nonDisclosurePresenter.partyI.name}
+                  type="text"
+                  component={CustomeTextField}
+                  styleTextError="text-danger"
+                  className="form-control"
+                  label={t(nonDisclosurePresenter.partyI.name)}
+                  currentValue={nonDisclosurePresenter.partyI.valueParty}
+                  onChange={(event: any) => handleChangePartyI(event.target.value)}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -172,6 +189,21 @@ const NonDisclosure = ({
                   label={t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.name)}
                   currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.valueTitleAndCapacityOfSigning1}
                   onChange={(event: any) => handleChangetitleAndCapacityOfSigningCompanyII(event.target.value)}
+                />
+              </div>
+              <div className="col-lg-6 col-12">
+                <label>
+                  {t(nonDisclosurePresenter.partyI.name)}
+                </label>
+                <Field
+                  name={nonDisclosurePresenter.partyII.name}
+                  type="text"
+                  component={CustomeTextField}
+                  styleTextError="text-danger"
+                  className="form-control"
+                  label={t(nonDisclosurePresenter.partyI.name)}
+                  currentValue={nonDisclosurePresenter.partyII.valueParty}
+                  onChange={(event: any) => handleChangePartyII(event.target.value)}
                 />
               </div>
             </div>
