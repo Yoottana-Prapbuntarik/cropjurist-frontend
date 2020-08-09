@@ -2,10 +2,12 @@ import axios from 'axios'
 import join from 'url-join'
 
 // const productionURL = 'https://corpjurist.com/api/v1/';
-const devURL = 'https://dev.corpjurist.com/api/v1/'
-const devURLManageUser = 'https://dev.corpjurist.com/api/'
+// const devURL = 'https://dev.corpjurist.com/api/v1/'
+// const devURLManageUser = 'https://dev.corpjurist.com/api/'
+const devURLManageUser = 'https://apidocsbackend.herokuapp.com/api/'
+const devHeroku = 'https://apidocsbackend.herokuapp.com/api/v1/'
 const service = axios.create({
-  baseURL: devURL,
+  baseURL: devHeroku,
   headers: { 'content-type': 'application/json' }
 })
 
@@ -29,7 +31,7 @@ axios.interceptors.request.use(async (config) => {
       Authorization: 'Token ' + token
     }
   }
-  config.url = join(devURL, config.url)
+  config.url = join(devHeroku, config.url)
   return config
 })
 

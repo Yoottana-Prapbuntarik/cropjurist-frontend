@@ -12,8 +12,8 @@ export const nonDisclosureAPIClient: any = (date: string,
   disclosureNameII: string,
   address: string,
   addressII: string,
-  referenceI: string,
-  referenceII: string,
+  partyI: string,
+  partyII: string,
   endDate: string,
   periodOfSecret: string,
   arbitrationJurisdiction: string,
@@ -33,8 +33,8 @@ export const nonDisclosureAPIClient: any = (date: string,
       disclosureNameII,
       address,
       addressII,
-      referenceI,
-      referenceII,
+      partyI,
+      partyII,
       endDate,
       periodOfSecret,
       arbitrationJurisdiction,
@@ -52,6 +52,9 @@ export const nonDisclosureAPIClient: any = (date: string,
           type: NonDisclosureAPIClient.nonDisclosureAPIClientSuccess,
           keyMessage: KeyManager.SendInformationCompanySuccess
         })
+
+        localStorage.setItem('pdf_view_link', response.data.pdf_view_link)
+        localStorage.setItem('pdf_id', response.data.id)
       }
     })
 }
@@ -62,8 +65,8 @@ const params = (
   disclosureNameII: string,
   address: string,
   addressII: string,
-  referenceI: string,
-  referenceII: string,
+  partyI: string,
+  partyII: string,
   endDate: string,
   periodOfSecret: string,
   arbitrationJurisdiction: string,
@@ -75,21 +78,21 @@ const params = (
   titleAndCapacityOfSigning2: string
 ) => {
   return {
-    date: date,
+    date_of_agreement: date,
     name_1: disclosureName,
     name_2: disclosureNameII,
     address_1: address,
     address_2: addressII,
-    references_1: referenceI,
-    references_2: referenceII,
+    party_1: partyI,
+    party_2: partyII,
     scope_of_discussion: scopeOfDiscussion,
     end_date: endDate,
-    period_of_secret: periodOfSecret,
-    arbitration_jurisdiction: arbitrationJurisdiction,
+    survive_period: periodOfSecret,
+    jurisdiction: arbitrationJurisdiction,
     choice_of_law: choiceOfLaw,
-    name_of_signing_1: nameOfSigning1,
-    name_of_signing_2: nameOfSigning2,
-    title_and_capacity_of_signing_1: titleAndCapacityOfSigning1,
-    title_and_capacity_of_signing_2: titleAndCapacityOfSigning2
+    name_of_signatory_party_1: nameOfSigning1,
+    name_of_signatory_party_2: nameOfSigning2,
+    title_and_capacity_of_signatory_party_1: titleAndCapacityOfSigning1,
+    title_and_capacity_of_signatory_party_2: titleAndCapacityOfSigning2
   }
 }
