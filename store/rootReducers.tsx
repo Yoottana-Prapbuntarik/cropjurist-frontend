@@ -19,6 +19,7 @@ import { preferenceShareManagerReducer } from '../components/PreferenceShareComp
 import { nonDisclosureManagerReducer } from '../components/nonDisclosureManager/nonDisclosureManagerContainer'
 import { nonDisclosureReducer } from '../components/nonDisclosureComponent/NonDisclosureReducer'
 import { myNonDisclosureReducer } from '../components/MyNonDisclosure/MyNonDisclosureReducer'
+import { confirmMyNonDisclosureReducer } from '../components/ConfirmMyNonDisclosure/ConfirmMyNonDisclosureReducer'
 import { reducer as reduxFormReducer } from 'redux-form'
 
 const rootReducers = combineReducers({
@@ -42,6 +43,7 @@ const rootReducers = combineReducers({
   nonDisclosureManagerReducer: nonDisclosureManagerReducer,
   nonDisclosureReducer: nonDisclosureReducer,
   myNonDisclosureReducer: myNonDisclosureReducer,
+  confirmMyNonDisclosureReducer: confirmMyNonDisclosureReducer,
   form: reduxFormReducer
 })
 
