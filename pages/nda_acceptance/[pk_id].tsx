@@ -14,7 +14,6 @@ const disclosure = () => {
     >
       <div className="mx-auto text-center">
         <ConfirmMyNonDisclosure pkId = {router.query.pk_id} />
-        <h3>pk_id : {router.query.pk_id}</h3>
       </div>
     </MainLayoutMember>
   )
