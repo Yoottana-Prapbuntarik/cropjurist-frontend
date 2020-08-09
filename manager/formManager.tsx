@@ -8,5 +8,7 @@ ChangePasswordForm = 'ChangePasswordForm',
 ShareInformationForm = 'ShareMyInformationForm',
 ShareHolderManagerForm = 'ShareHolderManagerForm',
 PreferenceShareManagerForm = 'PreferenceShareManagerForm',
-NonDisclosureForm = 'NonDisclosureForm '
+NonDisclosureForm = 'NonDisclosureForm ',
+MyNonDisclosureForm = 'MyNonDisclosureForm ',
+ConfirmNonDisclosureForm = 'ConfirmNonDisclosureForm '
 }

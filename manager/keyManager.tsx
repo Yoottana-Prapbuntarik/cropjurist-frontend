@@ -92,5 +92,7 @@ NameOfSigningCompany1 = 'nameOfSigning1',
 TitleAndCapacityOfSigningCompany1 = 'titleAndCapacityOfSigning1',
 NameOfSigningCompany2 = 'nameOfSigning2',
 TitleAndCapacityOfSigningCompany2 = 'titleAndCapacityOfSigning2',
-GenerateAgreement = 'generateAgreement'
+GenerateAgreement = 'generateAgreement',
+PartyI = 'party',
+PartyII = 'partyII'
 }
