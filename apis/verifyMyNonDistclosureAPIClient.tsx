@@ -17,7 +17,8 @@ export const verificationMyNonDistclosure: any = (pkId: string) => async (dispat
           type: VerifyMyNonDistclosureAction.verifyMyNonDistclosureSuccess,
           verifyData: response
         })
-        console.log(response)
+        localStorage.setItem('pdf_id', response.data.id)
+        localStorage.setItem('pdf_view_link', response.data.pdf_view_link)
       }
     })
 }
