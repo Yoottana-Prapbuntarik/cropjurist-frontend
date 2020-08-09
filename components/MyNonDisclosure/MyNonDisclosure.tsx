@@ -2,6 +2,7 @@ import { withTranslation } from '../../i18n'
 import CustomeTextField from '../FieldComponents/CustomeTextField'
 import { Field } from 'redux-form'
 import ButtonSubmit from '../FieldComponents/ButtonSubmit'
+import { useEffect, useState } from 'react'
 import './styles.scss'
 const NonDisclosure = ({
   handleSubmit,
@@ -11,6 +12,14 @@ const NonDisclosure = ({
   handldSubmitForm,
   t
 }: any) => {
+  const [pdf, setPdf] = useState('')
+  useEffect(() => {
+    if (localStorage.getItem('pdf_view_link')) {
+      const pdfLink = localStorage.getItem('pdf_view_link')
+      setPdf(pdfLink)
+    }
+  }, [])
+
   return (
     <div className="container">
       <h3 className="padding-between-section font-weight-bold">
@@ -18,7 +27,10 @@ const NonDisclosure = ({
       </h3>
       <div className="row">
         <div className="col-lg-6 col-12 padding-between-section">
-          <object data="http://africau.edu/images/default/sample.pdf" type="application/pdf" width="100%" height="100%"></object>
+          <div className="embed-responsive embed-responsive-4by3">
+            <iframe className="embed-responsive-item" src={pdf}></iframe>
+          </div>
+
         </div>
         <div className="col-lg-6 col-12 padding-between-section">
           <form className="w-100" onSubmit={handleSubmit(handldSubmitForm)}>
@@ -37,6 +49,7 @@ const NonDisclosure = ({
                     label={t(myNonDisclosurePresenter.partyI.placeholder)}
                     currentValue={myNonDisclosurePresenter.partyI.valueParty}
                     onChange={(event: any) => handleChangePartyI(event.target.value)}
+                    onSubmit={(event: any) => handleChangePartyI(event.target.value)}
                   />
                 </div>
                 <div className="col-12 py-2">
@@ -52,6 +65,7 @@ const NonDisclosure = ({
                     label={t(myNonDisclosurePresenter.partyII.placeholder)}
                     currentValue={myNonDisclosurePresenter.partyII.valueParty}
                     onChange={(event: any) => handleChangePartyII(event.target.value)}
+                    onSubmit={(event: any) => handleChangePartyII(event.target.value)}
                   />
                 </div>
               </div>

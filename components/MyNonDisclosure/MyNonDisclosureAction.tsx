@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import { MyNonDisclosureAction } from './MyNonDisclosureInterface'
-// wait for api call send data
+import { myNonDisclosureAPIClient } from '../../apis/myNonDisclosureAPIClient'
 export const mapDispatchToProp = (dispatch: Dispatch) => ({
 
   handleChangePartyI: (event: any) => {
@@ -18,6 +18,15 @@ export const mapDispatchToProp = (dispatch: Dispatch) => ({
   },
 
   handldSubmitForm: (event: any) => {
-    console.log(event)
+    let id = ''
+    if (localStorage.getItem('pdf_id')) {
+      id = localStorage.getItem('pdf_id')
+    }
+
+    dispatch(myNonDisclosureAPIClient(
+      event.Party,
+      event.PartyII,
+      id
+    ))
   }
 })

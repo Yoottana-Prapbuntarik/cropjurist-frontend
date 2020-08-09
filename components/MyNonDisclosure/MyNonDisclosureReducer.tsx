@@ -1,8 +1,7 @@
 import { MyNonDisclosureAction, MyNonDisclosurePresenter } from './MyNonDisclosureInterface'
 import { myNonDisclosurePresenter } from './MyNonDisclosurePresenter'
-// case in api define type
-// import { i18n } from '../../i18n'
-
+import { MyNonDisclosureAPIClient } from '../../apis/myNonDisclosureAPIClient'
+import { i18n } from '../../i18n'
 export const myNonDisclosureReducer = (state: MyNonDisclosurePresenter = myNonDisclosurePresenter, action: any): any => {
   switch (action.type) {
     case MyNonDisclosureAction.handleChangePartyI:
@@ -24,7 +23,11 @@ export const myNonDisclosureReducer = (state: MyNonDisclosurePresenter = myNonDi
           placeholder: 'Input email'
         }
       }
-    //   Wait for api call this
+
+    case MyNonDisclosureAPIClient.MyNonDisclosureAPIClientSuccess:
+      alert(i18n.t(action.keyMessage))
+      return state
+
     default:
       return state
   }
