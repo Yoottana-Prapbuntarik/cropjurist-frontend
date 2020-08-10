@@ -3,58 +3,9 @@ export interface DisclosureName {
     valueName: string;
 }
 
-export interface AddressNumber {
+export interface Address {
     readonly name: string;
-    valueAddressNumber: string
-}
-
-export interface ProvincesItem {
-    readonly province_id: number;
-    readonly name: string;
-}
-
-export interface DistrictItem {
-    readonly district_id: number;
-    readonly name: string;
-}
-
-export interface SubDistrictItem {
-    readonly sub_district_id: number;
-    readonly name: string;
-}
-
-export interface ZipCodeItems {
-    readonly zipcode: string;
-}
-
-export interface Road {
-    readonly name: string;
-    valueRoad: string;
-}
-
-export interface Province {
-    readonly name: string;
-    valueProvince: string;
-}
-
-export interface District {
-    readonly name: string;
-    valueDistrict: string;
-}
-
-export interface SubDistrict {
-    readonly name: string;
-    valueSubDistrict: string;
-}
-
-export interface Zipcode {
-    readonly name: string;
-    valueZipcode: string;
-}
-
-export interface Reference {
-    readonly name: string
-    valueReference: string;
+    valueAddress: string
 }
 
 export interface Date {
@@ -86,24 +37,19 @@ export interface ChoiceOfLaw {
     valueChoiceOfLaw: string;
 }
 
-export interface CompanyName1 {
+export interface NameOfSigning {
     readonly name: string;
-    valueCompanyName1: string;
+    valueNameOfSigning: string;
 }
 
-export interface NameOfSigning1 {
+export interface Party {
     readonly name: string;
-    valueNameOfSigning1: string;
+    valueParty: string;
 }
 
-export interface TitleAndCapacityOfSigning1 {
+export interface TitleAndCapacityOfSigning {
     readonly name: string;
-    valueTitleAndCapacityOfSigning1: string;
-}
-
-export interface CompanyName2 {
-    readonly name: string;
-    valueCompanyName2: string;
+    valueTitleAndCapacityOfSigning: string;
 }
 
 export interface NonDisclosurePresenter {
@@ -113,59 +59,38 @@ export interface NonDisclosurePresenter {
     addressNonDisclosureII: string;
     disclosureNameI: DisclosureName;
     disclosureNameII: DisclosureName;
-    addressNumberI: AddressNumber;
-    addressNumberII: AddressNumber;
-    roadI: Road;
-    roadII: Road;
-    provinceI: Province;
-    provinceII: Province;
-    districtI: District;
-    districtII: District;
-    subDistrictI: SubDistrict;
-    subDistrictII: SubDistrict;
-    zipCodeI: Zipcode;
-    zipCodeII: Zipcode;
-    referenceI: Reference;
-    referenceII: Reference;
-    provinceItems: ProvincesItem[];
-    districtItems: DistrictItem[];
-    subDistrictItems: SubDistrictItem[];
-    zipCodeItems: ZipCodeItems[];
-    provinceItemsII: ProvincesItem[];
-    districtItemsII: DistrictItem[];
-    subDistrictItemsII: SubDistrictItem[];
-    zipCodeItemsII: ZipCodeItems[];
+    addressI: Address;
+    addressII: Address;
     date: Date;
     scopeOfDiscussion: ScopeOfDiscussion;
+    partyI: Party;
+    partyII: Party;
     endDate: EndDate;
     periodOfSecret: PeriodOfSecret;
     arbitrationJurisdiction: ArbitrationJurisdiction;
     choiceOfLaw: ChoiceOfLaw;
-    companyName1: CompanyName1;
-    nameOfSigningCompanyI: NameOfSigning1;
-    nameOfSigningCompanyII: NameOfSigning1;
-    titleAndCapacityOfSigningCompanyI: TitleAndCapacityOfSigning1;
-    titleAndCapacityOfSigningCompanyII: TitleAndCapacityOfSigning1;
-    companyName2: CompanyName2;
+    nameOfSigningCompanyI: NameOfSigning;
+    nameOfSigningCompanyII: NameOfSigning;
+    titleAndCapacityOfSigningCompanyI: TitleAndCapacityOfSigning;
+    titleAndCapacityOfSigningCompanyII: TitleAndCapacityOfSigning;
+    keyPleaseSignin: string;
+    buttonSubmit: string;
+
 }
 
 export enum NonDisclosureAction {
     handleChangeDisclosureNameI = 'handleChangeDisclosureNameI',
     handleChangeDisclosureNameII = 'handleChangeDisclosureNameII',
-    handleChangeDisclosureAddressNumberI = 'handleChangeDisclosureAddressNumberI',
-    handleChangeDisclosureAddressNumberII = 'handleChangeDisclosureAddressNumberII',
-    handleChangeDisclosureRoadI = 'handleChangeDisclosureRoadI',
-    handleChangeDisclosureRoadII = 'handleChangeDisclosureRoadII',
-    handleChangeDisclosureReferenceI = 'handleChangeDisclosureReferenceI',
-    handleChangeDisclosureReferenceII = 'handleChangeDisclosureReferenceII',
+    handleChangeDisclosureAddressI = 'handleChangeDisclosureAddressI',
+    handleChangeDisclosureAddressII = 'handleChangeDisclosureAddressII',
+    handleChangePartyI = 'handleChangePartyI',
+    handleChangePartyII = 'handleChangePartyII',
     handleChangeDate = 'handleChangeDate',
     handleChangeScopeOfDiscussion = 'handleChangeScopeOfDiscussion',
     handleChangeEndDate = 'handleChangeEndDate',
     handleChangePeriodOfSecret = 'handleChangePeriodOfSecret',
     handleChangeArbitrationJurisdiction = 'handleChangeArbitrationJurisdiction',
     handleChangeChoiceOfLaw = 'handleChangeChoiceOfLaw',
-    handleChangeCompanyName1 = 'handleChangeCompanyName1',
-    handleChangeCompanyName2 = 'handleChangeCompanyName2',
     handleChangeNameOfSigningCompanyI = 'handleChangeNameOfSigningCompanyI',
     handleChangeNameOfSigningCompanyII = 'handleChangeNameOfSigningCompanyII',
     handleChangetitleAndCapacityOfSigningCompanyI = 'handleChangetitleAndCapacityOfSigningCompanyI',
