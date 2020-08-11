@@ -3,6 +3,7 @@ import { confirmMyNonDisclosurePresenter } from './ConfirmMyNonDisclosureMyNonDi
 import { VerifyMyNonDistclosureAction } from '../../apis/verifyMyNonDistclosureAPIClient'
 import { ConfirmMyNonDisclosure } from '../../apis/confirmMyNonDisclosureAPIClient'
 import { i18n } from '../../i18n'
+import Router from 'next/router'
 
 export const confirmMyNonDisclosureReducer = (state: ConfirmMyNonDisclosurePresenter = confirmMyNonDisclosurePresenter, action: any): any => {
   switch (action.type) {
@@ -28,6 +29,7 @@ export const confirmMyNonDisclosureReducer = (state: ConfirmMyNonDisclosurePrese
 
     case ConfirmMyNonDisclosure.ConfirmMyNonDisclosureSuccess:
       alert(i18n.t(action.keyMessage))
+      Router.replace('/')
       return state
 
     default:

@@ -1,19 +1,20 @@
 import { MyNonDisclosurePresenter, PartyI, PartyII } from './MyNonDisclosureInterface'
+import { KeyManager } from '../../manager/keyManager'
 
 const partyI: PartyI = {
-  name: 'Party',
-  valueParty: '',
-  placeholder: 'Input email'
+  name: KeyManager.EmailPartyI,
+  valueEmailParty: '',
+  placeholder: KeyManager.Email
 }
 const partyII: PartyII = {
-  name: 'PartyII',
-  valueParty: '',
-  placeholder: 'Input email'
+  name: KeyManager.EmailPartyII,
+  valueEmailParty: '',
+  placeholder: KeyManager.Email
 }
 
 export const myNonDisclosurePresenter: MyNonDisclosurePresenter = {
-  headerMyNonDisclosure: 'My Information Non Disclosure Agreement',
+  headerMyNonDisclosure: 'disclosureAgreement',
   partyI: partyI,
   partyII: partyII,
-  buttonSendData: 'Send'
+  buttonSendData: KeyManager.Send
 }

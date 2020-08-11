@@ -2,7 +2,7 @@ import { withTranslation } from '../../i18n'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Modal from '../ModalComponents/Modal'
-import { LinkItems, DisclosureDialog } from './nonDisclosureManagerInterface'
+import { LinkItems, DisclosureDialog } from './NonDisclosureManagerInterface'
 import './styles.scss'
 
 const nonDisclosureManager = ({ nonDisclosurePresenter, t, children }: any) => {

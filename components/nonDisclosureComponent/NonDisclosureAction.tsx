@@ -1,7 +1,8 @@
 import { Dispatch } from 'redux'
 import { NonDisclosureAction } from './NonDisclosureInterface'
 import { nonDisclosureAPIClient } from '../../apis/nonDisclosureAPIClient'
-
+import { reset } from 'redux-form'
+import { FormManager } from '../../manager/formManager'
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
 
   handleChangeDisclosureNameI: (event: any) => {
@@ -113,23 +114,26 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 
   handldSubmitForm: (event: any) => {
+    const currentChoiceOfLaw = event.choiceOfLaw === undefined ? 'ภาษีรายเดือน' : event.choiceOfLaw
+    const currentArbitrationJurisdiction = event.arbitrationJurisdiction === undefined ? 'ภาษีรายเดือน' : event.arbitrationJurisdiction
     dispatch(nonDisclosureAPIClient(
       event.date,
       event.disclosureName,
       event.disclosureNameII,
       event.addressI,
       event.addressII,
-      event.party,
+      event.partyI,
       event.partyII,
       event.endDate,
       event.periodOfSecret,
-      event.arbitrationJurisdiction,
-      event.choiceOfLaw,
-      event.nameOfSigning1,
-      event.nameOfSigning2,
+      currentChoiceOfLaw,
+      currentArbitrationJurisdiction,
+      event.nameOfSigningI,
+      event.nameOfSigningII,
       event.scopeOfDiscussion,
-      event.titleAndCapacityOfSigning1,
-      event.titleAndCapacityOfSigning2
+      event.titleAndCapacityOfSigningI,
+      event.titleAndCapacityOfSigningII
     ))
+    dispatch(reset(FormManager.NonDisclosureForm))
   }
 })

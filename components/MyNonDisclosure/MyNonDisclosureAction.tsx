@@ -1,7 +1,10 @@
 import { Dispatch } from 'redux'
 import { MyNonDisclosureAction } from './MyNonDisclosureInterface'
 import { myNonDisclosureAPIClient } from '../../apis/myNonDisclosureAPIClient'
-export const mapDispatchToProp = (dispatch: Dispatch) => ({
+import { reset } from 'redux-form'
+import { FormManager } from '../../manager/formManager'
+
+export const mapDispatchToProps = (dispatch: Dispatch) => ({
 
   handleChangePartyI: (event: any) => {
     dispatch({
@@ -24,9 +27,11 @@ export const mapDispatchToProp = (dispatch: Dispatch) => ({
     }
 
     dispatch(myNonDisclosureAPIClient(
-      event.Party,
-      event.PartyII,
+      event.emailPartyI,
+      event.emailPartyII,
       id
     ))
+
+    dispatch(reset(FormManager.MyNonDisclosureForm))
   }
 })

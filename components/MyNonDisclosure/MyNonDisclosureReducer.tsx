@@ -2,14 +2,15 @@ import { MyNonDisclosureAction, MyNonDisclosurePresenter } from './MyNonDisclosu
 import { myNonDisclosurePresenter } from './MyNonDisclosurePresenter'
 import { MyNonDisclosureAPIClient } from '../../apis/myNonDisclosureAPIClient'
 import { i18n } from '../../i18n'
+import { KeyManager } from '../../manager/keyManager'
 export const myNonDisclosureReducer = (state: MyNonDisclosurePresenter = myNonDisclosurePresenter, action: any): any => {
   switch (action.type) {
     case MyNonDisclosureAction.handleChangePartyI:
       return {
         ...state,
         partyI: {
-          name: 'Party',
-          valueParty: action.payload,
+          name: KeyManager.EmailPartyI,
+          valueEmailParty: action.payload,
           placeholder: 'Input email'
         }
       }
@@ -18,8 +19,8 @@ export const myNonDisclosureReducer = (state: MyNonDisclosurePresenter = myNonDi
       return {
         ...state,
         partyII: {
-          name: 'PartyII',
-          valueParty: action.payload,
+          name: KeyManager.EmailPartyII,
+          valueEmailParty: action.payload,
           placeholder: 'Input email'
         }
       }

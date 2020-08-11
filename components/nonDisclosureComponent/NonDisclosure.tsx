@@ -163,7 +163,7 @@ const NonDisclosure = ({
               </div>
               <div className="col-lg-6 col-12">
                 <label>
-                  {t(nonDisclosurePresenter.nameOfSigningCompanyI.name)}
+                  {t(nonDisclosurePresenter.nameOfSigningCompanyII.name)}
                 </label>
                 <Field
                   name={nonDisclosurePresenter.nameOfSigningCompanyII.name}
@@ -171,14 +171,14 @@ const NonDisclosure = ({
                   component={CustomeTextField}
                   styleTextError="text-danger"
                   className="form-control"
-                  label={t(nonDisclosurePresenter.nameOfSigningCompanyI.name)}
+                  label={t(nonDisclosurePresenter.nameOfSigningCompanyII.name)}
                   currentValue={nonDisclosurePresenter.nameOfSigningCompanyII.valueNameOfSigning1}
                   onChange={(event: any) => handleChangeNameOfSigningCompanyII(event.target.value)}
                 />
               </div>
               <div className="col-lg-6 col-12">
                 <label>
-                  {t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.name)}
+                  {t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.name)}
                 </label>
                 <Field
                   name={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.name}
@@ -186,14 +186,14 @@ const NonDisclosure = ({
                   component={CustomeTextField}
                   styleTextError="text-danger"
                   className="form-control"
-                  label={t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.name)}
+                  label={t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.name)}
                   currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.valueTitleAndCapacityOfSigning1}
                   onChange={(event: any) => handleChangetitleAndCapacityOfSigningCompanyII(event.target.value)}
                 />
               </div>
               <div className="col-lg-6 col-12">
                 <label>
-                  {t(nonDisclosurePresenter.partyI.name)}
+                  {t(nonDisclosurePresenter.partyII.name)}
                 </label>
                 <Field
                   name={nonDisclosurePresenter.partyII.name}
@@ -201,7 +201,7 @@ const NonDisclosure = ({
                   component={CustomeTextField}
                   styleTextError="text-danger"
                   className="form-control"
-                  label={t(nonDisclosurePresenter.partyI.name)}
+                  label={t(nonDisclosurePresenter.partyII.name)}
                   currentValue={nonDisclosurePresenter.partyII.valueParty}
                   onChange={(event: any) => handleChangePartyII(event.target.value)}
                 />
@@ -257,11 +257,9 @@ const NonDisclosure = ({
                 />
               </div>
               <div className="col-lg-6 col-12">
-                <label>
-                  {t(nonDisclosurePresenter.arbitrationJurisdiction.name)}
-                </label>
                 <Field
                   disabledState={false}
+                  label = {t(nonDisclosurePresenter.arbitrationJurisdiction.name)}
                   name={nonDisclosurePresenter.arbitrationJurisdiction.name}
                   style="form-control"
                   value={nonDisclosurePresenter.arbitrationJurisdiction.valueArbitrationJurisdiction}
@@ -278,10 +276,8 @@ const NonDisclosure = ({
                 </Field>
               </div>
               <div className="col-lg-6 col-12">
-                <label>
-                  {t(nonDisclosurePresenter.choiceOfLaw.name)}
-                </label>
                 <Field
+                  label={t(nonDisclosurePresenter.choiceOfLaw.name)}
                   disabledState={false}
                   style="form-control"
                   name={nonDisclosurePresenter.choiceOfLaw.name}

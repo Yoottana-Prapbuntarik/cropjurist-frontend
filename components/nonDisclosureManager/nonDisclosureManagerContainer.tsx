@@ -6,10 +6,10 @@ import {
   KeyDialogDetail,
   LinkItems,
   DisclosureItems
-} from './nonDisclosureManagerInterface'
+} from './NonDisclosureManagerInterface'
 import { KeyManager } from '../../manager/keyManager'
 import { routeToPageNonDisclosure } from '../../manager/routerManager'
-import nonDisclosureManager from './nonDisclosureManager'
+import nonDisclosureManager from './NonDisclosureManager'
 
 const linkItems: LinkItems[] = [
   { keyTitlePath: KeyManager.DisclosureLink, routePath: routeToPageNonDisclosure }
