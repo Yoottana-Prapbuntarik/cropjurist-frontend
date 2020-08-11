@@ -19,6 +19,7 @@ const ConfirmMyNonDisclosure = ({
 }: any) => {
   const dispatch = useDispatch()
   const [pdf, setPdf] = useState('')
+
   useEffect(() => {
     dispatch(verificationMyNonDistclosure)
     if (localStorage.getItem('pdf_view_link')) {
@@ -34,16 +35,15 @@ const ConfirmMyNonDisclosure = ({
         {t(confirmMyNonDisclosurePresenter.headerConfirmMyNonDisclosure)}
       </h3>
       <div className="row">
-        <div className="col-lg-6 col-12 padding-between-section">
+        <div className="col-lg-8 col-12 padding-between-section">
           <div className="embed-responsive embed-responsive-4by3">
             <iframe className="embed-responsive-item" src={pdf}></iframe>
           </div>
         </div>
-        <div className="col-lg-6 col-12 padding-between-section">
+        <div className="col-lg-4 col-12 padding-between-section">
           <form className="w-100" onSubmit={handleSubmit(handldSubmitForm)}>
             <div className="form-group text-left">
               <div className="row pt-5">
-                {confirmMyNonDisclosurePresenter.statusDisclosure.approve === false &&
                 <div className="col-12 pt-3">
                   <label>
                     {t(confirmMyNonDisclosurePresenter.textReason.name)}
@@ -54,12 +54,12 @@ const ConfirmMyNonDisclosure = ({
                     component={CustomeTextField}
                     styleTextError="text-danger"
                     className="form-control"
-                    label={t(confirmMyNonDisclosurePresenter.textReason.placeholder)}
+                    label={t(confirmMyNonDisclosurePresenter.textReason.name)}
                     currentValue={confirmMyNonDisclosurePresenter.textReason.valueTextReason}
                     onChange={(event: any) => handleChangeTextFieldReason(event.target.value)}
                   />
                 </div>
-                }
+
                 <div className="col-6 pt-3">
                   <div className="checkbox pb-2">
                     <Field
@@ -86,13 +86,6 @@ const ConfirmMyNonDisclosure = ({
                 </div>
               </div>
               <div className="row">
-                {confirmMyNonDisclosurePresenter.statusDisclosure.approve !== null &&
-                <div className="col-12 py-4">
-                  <button className="btn bg-warning text-white w-100" onClick={() => window.location.reload()}>
-                    reset status
-                  </button>
-                </div>
-                }
                 <div className="col-12 text-right pt-4">
                   <Field
                     name={confirmMyNonDisclosurePresenter.buttonSend}

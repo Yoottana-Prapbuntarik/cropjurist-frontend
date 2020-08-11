@@ -1,12 +1,12 @@
 
 export interface PartyI {
   name: string;
-  valueParty: string;
+  valueEmailParty: string;
   placeholder: string;
 }
 export interface PartyII {
     name: string;
-    valueParty: string;
+    valueEmailParty: string;
     placeholder: string;
 }
 
