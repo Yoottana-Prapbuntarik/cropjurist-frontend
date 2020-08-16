@@ -11,18 +11,21 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
       payload: event
     })
   },
+
   handleChangeDisclosureNameII: (event: any) => {
     dispatch({
       type: NonDisclosureAction.handleChangeDisclosureNameII,
       payload: event
     })
   },
+
   handleChangeDisclosureAddressI: (event: any) => {
     dispatch({
       type: NonDisclosureAction.handleChangeDisclosureAddressI,
       payload: event
     })
   },
+
   handleChangeDisclosureAddressII: (event: any) => {
     dispatch({
       type: NonDisclosureAction.handleChangeDisclosureAddressII,
@@ -99,32 +102,22 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
       payload: event
     })
   },
-  handleChangePartyI: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangePartyI,
-      payload: event
-    })
-  },
-
-  handleChangePartyII: (event: any) => {
-    dispatch({
-      type: NonDisclosureAction.handleChangePartyII,
-      payload: event
-    })
-  },
 
   handldSubmitForm: (event: any) => {
+    const getTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })
     const currentChoiceOfLaw = event.choiceOfLaw === undefined ? 'ภาษีรายเดือน' : event.choiceOfLaw
     const currentArbitrationJurisdiction = event.arbitrationJurisdiction === undefined ? 'ภาษีรายเดือน' : event.arbitrationJurisdiction
+    const currentDate = event.date === undefined ? getTime : event.date
+    const currentEndDate = event.endDate === undefined ? getTime : event.endDate
     dispatch(nonDisclosureAPIClient(
-      event.date,
+      currentDate,
       event.disclosureName,
       event.disclosureNameII,
       event.addressI,
       event.addressII,
       event.partyI,
       event.partyII,
-      event.endDate,
+      currentEndDate,
       event.periodOfSecret,
       currentChoiceOfLaw,
       currentArbitrationJurisdiction,

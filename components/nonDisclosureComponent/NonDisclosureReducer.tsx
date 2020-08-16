@@ -104,6 +104,7 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           valueChoiceOfLaw: action.payload
         }
       }
+
     case NonDisclosureAction.handleChangeNameOfSigningCompanyI:
       return {
         ...state,
@@ -138,26 +139,6 @@ export const nonDisclosureReducer = (state: NonDisclosurePresenter = nonDisclosu
           name: KeyManager.TitleAndCapacityOfSigningCompany2,
           valueTitleAndCapacityOfSigning1: action.payload
         }
-      }
-
-    case NonDisclosureAction.handleChangePartyI:
-      return {
-        ...state,
-        partyI: {
-          name: KeyManager.PartyI,
-          valueParty: action.payload
-        }
-
-      }
-
-    case NonDisclosureAction.handleChangePartyII:
-      return {
-        ...state,
-        partyII: {
-          name: KeyManager.PartyII,
-          valueParty: action.payload
-        }
-
       }
 
     case NonDisclosureAPIClient.nonDisclosureAPIClientSuccess:
