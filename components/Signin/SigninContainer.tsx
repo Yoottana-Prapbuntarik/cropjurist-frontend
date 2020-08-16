@@ -25,18 +25,26 @@ const signinItem: SigninItem = {
 
 const signinPresenter: SiginPresenter = {
   keySigninHeader: 'signin',
-  signinItem: signinItem
+  signinItem: signinItem,
+  isLoadFinished: 0
 }
-
+let resetLoad = 0
 export const signinReducer = (state: SiginPresenter = signinPresenter, action: any) => {
   switch (action.type) {
-    case SigninAction.Signin_Success:
-      Router.push(routeToPageNonDisclosure)
+    case SigninAction.Progress:
+      resetLoad = 0
+      resetLoad = action.isLoadFinished
+      return {
+        ...state,
+        isLoadFinished: resetLoad
+      }
 
+    case SigninAction.Signin_Success:
+      Router.replace(routeToPageNonDisclosure)
       return state
+
     case SigninAction.Signin_Failed:
       alert(i18n.t(action.keyMessage))
-
       return state
     default:
       return state
