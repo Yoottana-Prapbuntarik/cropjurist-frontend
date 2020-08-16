@@ -23,9 +23,10 @@ export const mapDispatchToProp = (dispatch: Dispatch, ownProps: any) => ({
   },
 
   handldSubmitForm: (event: any) => {
+    console.log(event)
     let id = ''
     let agreementString = ''
-    if (event.Approve) {
+    if (event.Approve === true) {
       agreementString = 'true'
     } else {
       agreementString = 'false'
