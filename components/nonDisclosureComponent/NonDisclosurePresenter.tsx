@@ -11,7 +11,7 @@ import {
   NameOfSigning,
   TitleAndCapacityOfSigning
 
-} from './NonDisclosureInterface'
+} from './nonDisclosureInterface'
 import { KeyManager } from './../../manager/keyManager'
 
 const disclosureNameI: DisclosureName = {
