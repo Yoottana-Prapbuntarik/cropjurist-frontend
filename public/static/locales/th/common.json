@@ -164,5 +164,6 @@
 	"emailPartyI": "อีเมลล์ปาร์ตี้ที่ 1",
 	"emailPartyII": "อีเมลล์ปาร์ตี้ที่ 2",
 	"send": "ส่งข้อมูล",
-	"disclosureAgreement": "ข้อตกลงการไม่เปิดเผยข้อมูล"
+	"disclosureAgreement": "ข้อตกลงการไม่เปิดเผยข้อมูล",
+	"numberId" : "ไอดี"
 }

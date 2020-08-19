@@ -104,5 +104,6 @@ export const nonDisclosurePresenter: NonDisclosurePresenter = {
   titleAndCapacityOfSigningCompanyI: titleAndCapacityOfSigningCompanyI,
   titleAndCapacityOfSigningCompanyII: titleAndCapacityOfSigningCompanyII,
   keyPleaseSignin: KeyManager.PleaseSignin,
-  buttonSubmit: KeyManager.GenerateAgreement
+  buttonSubmit: KeyManager.GenerateAgreement,
+  keyStatueAPI: ''
 }

@@ -68,7 +68,7 @@ export interface NonDisclosurePresenter {
     titleAndCapacityOfSigningCompanyII: TitleAndCapacityOfSigning;
     keyPleaseSignin: string;
     buttonSubmit: string;
-
+    keyStatueAPI: string,
 }
 
 export enum NonDisclosureAction {

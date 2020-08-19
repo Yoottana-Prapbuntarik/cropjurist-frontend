@@ -7,7 +7,10 @@ import ButtonSubmit from '../FieldComponents/ButtonSubmit'
 import { useEffect } from 'react'
 import './styles.scss'
 import Router from 'next/router'
-
+import { useDispatch } from 'react-redux'
+enum StatusCode {
+  success = 200
+}
 const NonDisclosure = ({
   nonDisclosurePresenter,
   handleSubmit,
@@ -26,18 +29,22 @@ const NonDisclosure = ({
   handleChangeNameOfSigningCompanyII,
   handleChangetitleAndCapacityOfSigningCompanyI,
   handleChangetitleAndCapacityOfSigningCompanyII,
+  handldUpdateSubmitForm,
+  getNonDisclosureAPIClient,
   t
 }: any) => {
+  const Dispatch = useDispatch()
   useEffect(() => {
+    Dispatch(getNonDisclosureAPIClient)
     if (!localStorage.getItem('access-token')) {
       alert(t(nonDisclosurePresenter.keyPleaseSignin))
-      Router.push('/signin')
+      Router.replace('/signin')
     }
   }, [])
-
   return (
     <div className="row">
-      <form className="w-100" onSubmit={handleSubmit(handldSubmitForm)}>
+      {console.log('nonDisclosurePresenter', nonDisclosurePresenter)}
+      <form className="w-100" onSubmit={nonDisclosurePresenter.keyStatueAPI === StatusCode.success ? handleSubmit(handldUpdateSubmitForm) : handleSubmit(handldSubmitForm)}>
         <div className="row">
           <div className="col-lg-6 col-12">
             <div className="col-12 mb-2">
@@ -88,7 +95,7 @@ const NonDisclosure = ({
                       styleTextError="text-danger"
                       className="form-control"
                       label={t(nonDisclosurePresenter.nameOfSigningCompanyI.name)}
-                      currentValue={nonDisclosurePresenter.nameOfSigningCompanyI.valueNameOfSigning1}
+                      currentValue={nonDisclosurePresenter.nameOfSigningCompanyI.valueNameOfSigning}
                       onChange={(event: any) => handleChangeNameOfSigningCompanyI(event.target.value)}
                     />
                   </div>
@@ -103,7 +110,7 @@ const NonDisclosure = ({
                       styleTextError="text-danger"
                       className="form-control"
                       label={t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.name)}
-                      currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.valueTitleAndCapacityOfSigning1}
+                      currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.valueTitleAndCapacityOfSigning}
                       onChange={(event: any) => handleChangetitleAndCapacityOfSigningCompanyI(event.target.value)}
                     />
                   </div>
@@ -158,7 +165,7 @@ const NonDisclosure = ({
                       styleTextError="text-danger"
                       className="form-control"
                       label={t(nonDisclosurePresenter.nameOfSigningCompanyI.name)}
-                      currentValue={nonDisclosurePresenter.nameOfSigningCompanyII.valueNameOfSigning1}
+                      currentValue={nonDisclosurePresenter.nameOfSigningCompanyII.valueNameOfSigning}
                       onChange={(event: any) => handleChangeNameOfSigningCompanyII(event.target.value)}
                     />
                   </div>
@@ -173,7 +180,7 @@ const NonDisclosure = ({
                       styleTextError="text-danger"
                       className="form-control"
                       label={t(nonDisclosurePresenter.titleAndCapacityOfSigningCompanyI.name)}
-                      currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.valueTitleAndCapacityOfSigning1}
+                      currentValue={nonDisclosurePresenter.titleAndCapacityOfSigningCompanyII.valueTitleAndCapacityOfSigning}
                       onChange={(event: any) => handleChangetitleAndCapacityOfSigningCompanyII(event.target.value)}
                     />
                   </div>

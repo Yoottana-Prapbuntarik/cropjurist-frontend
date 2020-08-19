@@ -148,7 +148,7 @@
 	"disclosureLink":"Non Disclosure Agreement ",
 	"referenceI":"Part 1",
 	"referenceII":"Part 2",
-	"disclosureName":"Your Name Disclosure",
+	"disclosureName":"Name",
 	"discloreTitlePage":"Non Disclorsure Informations",
 	"dialogDetailDisclosure":"This is Detail Non Disclosure warning !",
 	"date": "Date",
@@ -157,12 +157,13 @@
 	"periodOfSecret": "Period Of Secret",
 	"arbitrationJurisdiction": "Arbitration Jurisdiction",
 	"choiceOfLaw": "Choice of Law",
-	"nameOfSigningI": "Name of Signing",
-	"titleAndCapacityOfSigningI": "Title and Capacity of signing",
+	"nameOfSigningI": "Name of Signatory",
+	"titleAndCapacityOfSigningI": "Title / capacity of Signatory",
 	"addressI": "Address",
 	"generateAgreement": "Generate my agreement",
 	"emailPartyI": "Email Party 1",
 	"emailPartyII": "Email Party 2",
 	"send": "Send",
-	"disclosureAgreement": "My non Disclosure Agreement"
+	"disclosureAgreement": "My non Disclosure Agreement",
+	"numberId" : "id"
 }

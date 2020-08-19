@@ -1,10 +1,11 @@
 import { Dispatch } from 'redux'
 import { serviceSetToken } from '../apis/baseAPIs'
 import { KeyManager } from '../manager/keyManager'
-
 export enum NonDisclosureAPIClient {
-    nonDisclosureAPIClientSuccess = 'nonDisclosureAPIClient_Success',
-    nonDisclosureAPIClientFailed = 'nonDisclosureAPIClient_Failed'
+  nonDisclosureAPIClientSuccess = 'nonDisclosureAPIClient_Success',
+  nonDisclosureAPIClientFailed = 'nonDisclosureAPIClient_Failed',
+  getDisclosureAPIClientSuccess = 'getDisclosureAPIClient_Success',
+  updateDisclosureAPIClientSuccess = 'updateDisclosureAPIClient_Success',
 }
 
 export const nonDisclosureAPIClient: any = (date: string,
@@ -57,6 +58,76 @@ export const nonDisclosureAPIClient: any = (date: string,
         localStorage.setItem('pdf_id', response.data.id)
       }
     })
+}
+
+export const updateNonDisclosureAPIClient: any = (
+  id: string,
+  date: string,
+  disclosureName: string,
+  disclosureNameII: string,
+  address: string,
+  addressII: string,
+  partyI: string,
+  partyII: string,
+  endDate: string,
+  periodOfSecret: string,
+  arbitrationJurisdiction: string,
+  choiceOfLaw: string,
+  nameOfSigning1: string,
+  nameOfSigning2: string,
+  scopeOfDiscussion: string,
+  titleAndCapacityOfSigning1: string,
+  titleAndCapacityOfSigning2: string) => async (dispatch: Dispatch
+) => {
+  serviceSetToken({
+    method: 'put',
+    url: `nda/${parseInt(id)}/edit/`,
+    data: params(
+      date,
+      disclosureName,
+      disclosureNameII,
+      address,
+      addressII,
+      partyI,
+      partyII,
+      endDate,
+      periodOfSecret,
+      arbitrationJurisdiction,
+      choiceOfLaw,
+      nameOfSigning1,
+      nameOfSigning2,
+      scopeOfDiscussion,
+      titleAndCapacityOfSigning1,
+      titleAndCapacityOfSigning2)
+  })
+
+    .then((response) => {
+      if (response) {
+        dispatch({
+          type: NonDisclosureAPIClient.updateDisclosureAPIClientSuccess,
+          keyMessage: KeyManager.SendInformationCompanySuccess
+        })
+
+        localStorage.setItem('pdf_view_link', response.data.pdf_view_link)
+        localStorage.setItem('pdf_id', response.data.id)
+        localStorage.removeItem('editNdaId')
+      }
+    })
+}
+
+export const getNonDisclosureAPIClient: any = (id: string) => async (dispatch: Dispatch) => {
+  serviceSetToken({
+    method: 'get',
+    url: `nda/${id}/edit/`
+  }).then(response => {
+    if (response) {
+      dispatch({
+        type: NonDisclosureAPIClient.getDisclosureAPIClientSuccess,
+        dataAPI: response.data,
+        keyStatus: response.status
+      })
+    }
+  })
 }
 
 const params = (

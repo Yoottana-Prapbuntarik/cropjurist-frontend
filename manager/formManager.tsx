@@ -10,5 +10,6 @@ ShareHolderManagerForm = 'ShareHolderManagerForm',
 PreferenceShareManagerForm = 'PreferenceShareManagerForm',
 NonDisclosureForm = 'NonDisclosureForm ',
 MyNonDisclosureForm = 'MyNonDisclosureForm ',
-ConfirmNonDisclosureForm = 'ConfirmNonDisclosureForm '
+ConfirmNonDisclosureForm = 'ConfirmNonDisclosureForm ',
+TableEditNonDisclosure = 'TableEditNonDisclosure'
 }
