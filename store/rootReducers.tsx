@@ -20,6 +20,7 @@ import { nonDisclosureManagerReducer } from '../components/NonDisclosureManager/
 import { nonDisclosureReducer } from '../components/NonDisclosureComponent/NonDisclosureReducer'
 import { myNonDisclosureReducer } from '../components/MyNonDisclosure/MyNonDisclosureReducer'
 import { confirmMyNonDisclosureReducer } from '../components/ConfirmMyNonDisclosure/ConfirmMyNonDisclosureReducer'
+import { tableEditNonDisclosureReducer } from '../components/TableEditNonDisclosure/TableEditNonDisclosureReducer'
 import { reducer as reduxFormReducer } from 'redux-form'
 
 const rootReducers = combineReducers({
@@ -44,6 +45,7 @@ const rootReducers = combineReducers({
   nonDisclosureReducer: nonDisclosureReducer,
   myNonDisclosureReducer: myNonDisclosureReducer,
   confirmMyNonDisclosureReducer: confirmMyNonDisclosureReducer,
+  tableEditNonDisclosureReducer: tableEditNonDisclosureReducer,
   form: reduxFormReducer
 })
 

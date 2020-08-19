@@ -9,8 +9,7 @@ import {
   ArbitrationJurisdiction,
   ChoiceOfLaw,
   NameOfSigning,
-  TitleAndCapacityOfSigning,
-  Party
+  TitleAndCapacityOfSigning
 
 } from './NonDisclosureInterface'
 import { KeyManager } from './../../manager/keyManager'
@@ -85,16 +84,6 @@ const titleAndCapacityOfSigningCompanyII: TitleAndCapacityOfSigning = {
   valueTitleAndCapacityOfSigning: ''
 }
 
-const partyI: Party = {
-  name: KeyManager.PartyI,
-  valueParty: ''
-}
-
-const partyII: Party = {
-  name: KeyManager.PartyII,
-  valueParty: ''
-}
-
 export const nonDisclosurePresenter: NonDisclosurePresenter = {
   titleNonDisclosureI: KeyManager.ReferenceI,
   titleNonDisclosureII: KeyManager.ReferenceII,
@@ -105,8 +94,6 @@ export const nonDisclosurePresenter: NonDisclosurePresenter = {
   addressI: addressI,
   addressII: addressII,
   date: date,
-  partyI: partyI,
-  partyII: partyII,
   scopeOfDiscussion: scopeOfDiscussion,
   endDate: endDate,
   periodOfSecret: periodOfSecret,
@@ -117,5 +104,6 @@ export const nonDisclosurePresenter: NonDisclosurePresenter = {
   titleAndCapacityOfSigningCompanyI: titleAndCapacityOfSigningCompanyI,
   titleAndCapacityOfSigningCompanyII: titleAndCapacityOfSigningCompanyII,
   keyPleaseSignin: KeyManager.PleaseSignin,
-  buttonSubmit: KeyManager.GenerateAgreement
+  buttonSubmit: KeyManager.GenerateAgreement,
+  keyStatueAPI: ''
 }

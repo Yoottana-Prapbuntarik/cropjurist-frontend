@@ -1,13 +1,16 @@
 import Link from 'next/link'
 import { withTranslation } from '../../i18n'
+import { useState } from 'react'
 import { Field } from 'redux-form'
 import TextField from '../../components/FieldComponents/TextField'
 import ButtonSubmit from '../../components/FieldComponents/ButtonSubmit'
 import CheckBox from '../../components/FieldComponents/CheckBox'
-
+import Loading from '../../components/LoadingPage/Loading'
 const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
+  const [isSignin, setIsSignin] = useState(false)
   return (
     <div className="container">
+      {signinPresenter.isLoadFinished === 100 && isSignin === true ? setIsSignin(false) : isSignin && <Loading />}
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <img
@@ -53,13 +56,15 @@ const Signin = ({ handleSubmit, signinPresenter, submitSignin, t }: any) => {
                 <Link href="/forgotpassword">{t(signinPresenter.signinItem.keyForgotPassword)}</Link>
               </div>
             </div>{' '}
-            <Field
-              name="submit"
-              type="submit"
-              style="btn btn-primary btn-block"
-              component={ButtonSubmit}
-              label={t(signinPresenter.signinItem.keySigninSubmit)}
-            />
+            <span onClick={() => { setIsSignin(true) }}>
+              <Field
+                name="submit"
+                type="submit"
+                style="btn btn-primary btn-block"
+                component={ButtonSubmit}
+                label={t(signinPresenter.signinItem.keySigninSubmit)}
+              />
+            </span>
           </form>
           <div className="d-flex align-items-center flex-wrap text-center justify-content-center mt-4">
             <span className="text-muted mr-1">{t(signinPresenter.signinItem.keySignupAccount)}</span>

@@ -14,4 +14,5 @@ export interface SigninItem {
 export interface SiginPresenter {
 	readonly keySigninHeader: string;
 	readonly signinItem: SigninItem;
+	isLoadFinished: number;
 }

@@ -157,16 +157,13 @@
 	"periodOfSecret": "ระยะเวลา",
 	"arbitrationJurisdiction": "อำนาจศาลอนุญาโตตุลาการ",
 	"choiceOfLaw": "ทางเลือกของกฎหมาย",
-	"nameOfSigningI": "ชื่อของการลงนามที่ 1",
-	"nameOfSigningII": "ชื่อของการลงนามที่ 2",
-	"titleAndCapacityOfSigningI": "ชื่อและความสามารถในการเซ็นชื่อที่ 1",
-	"titleAndCapacityOfSigningII": "ชื่อและความสามารถในการเซ็นชื่อที่ 2",
+	"nameOfSigningI": "ชื่อของการลงนาม",
+	"titleAndCapacityOfSigningI": "ชื่อและความสามารถในการเซ็นชื่อ",
 	"addressI": "ที่อยู่",
 	"generateAgreement": "สร้างข้อตกลงของฉัน",
-	"partyI": "ชื่อปาร์ตี้ที่ 1",
-	"partyII": "ชื่อปาร์ตี้ที่ 2",
 	"emailPartyI": "อีเมลล์ปาร์ตี้ที่ 1",
 	"emailPartyII": "อีเมลล์ปาร์ตี้ที่ 2",
 	"send": "ส่งข้อมูล",
-	"disclosureAgreement": "ข้อตกลงการไม่เปิดเผยข้อมูล"
+	"disclosureAgreement": "ข้อตกลงการไม่เปิดเผยข้อมูล",
+	"numberId" : "ไอดี"
 }
