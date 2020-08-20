@@ -16,7 +16,7 @@ import { changePasswordReducer } from '../components/ChangePassword/ChangePasswo
 import { shareMyCompanyReducer } from '../components/ShareMyCompany/ShareMyCompanyReducer'
 import { shareHolderManagerReducer } from '../components/AddShareHolderComponent/ShareHolderManagerReducer'
 import { preferenceShareManagerReducer } from '../components/PreferenceShareComponent/PreferenceShareManagerReducer'
-import { nonDisclosureManagerReducer } from '../components/NonDisclosureManager/NonDisclosureManagerContainer'
+import { nonDisclosureManagerReducer } from '../components/NonDisclosureManager/nonDisclosureManagerContainer'
 import { nonDisclosureReducer } from '../components/NonDisclosureComponent/NonDisclosureReducer'
 import { myNonDisclosureReducer } from '../components/MyNonDisclosure/MyNonDisclosureReducer'
 import { confirmMyNonDisclosureReducer } from '../components/ConfirmMyNonDisclosure/ConfirmMyNonDisclosureReducer'
